@@ -3307,8 +3307,8 @@ html.sitio-revelado .hero__capas-fondo {
   z-index: 3;
   width: auto;
   height: auto;
-  max-width: min(64rem, 46%);
-  max-height: 58%;
+  max-width: min(64rem, 38%);
+  max-height: 48%;
   object-fit: contain;
   transform: translate(-50%, -50%);
   pointer-events: none;
@@ -4437,8 +4437,8 @@ html.sitio-revelado .hero__capas-fondo {
   }
 
   .agenda__plancha-marca {
-    max-width: min(64rem, 72%);
-    max-height: 64%;
+    max-width: min(64rem, 60%);
+    max-height: 52%;
   }
 
   /* En móvil la foto se queda sola: chips y CTA salen del recuadro
