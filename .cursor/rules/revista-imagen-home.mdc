@@ -1,0 +1,15 @@
+---
+description: Imagen fija del mockup Vol. 01 en la sección revista del home
+globs: index.html, css/hablemos.css
+alwaysApply: false
+---
+
+# Imagen revista (home)
+
+La foto principal de la sección `#revista` en `index.html` es **siempre**:
+
+`assets/img/revista-vol-01-mockup.png`
+
+Mockup editorial Vol. 01 (persona sosteniendo la revista Hablemos Tech). **No sustituir** por `hero-fondo.jpg`, `revista-hablemos-tech.png` ni otras imágenes genéricas salvo que el usuario entregue un archivo nuevo explícitamente.
+
+Clase HTML: `.revista-destacada__visual img`

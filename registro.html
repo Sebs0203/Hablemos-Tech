@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirigiendo…</title>
+  <script>
+    var q = new URLSearchParams(window.location.search);
+    var next = q.get('next');
+    var base = next && next.charAt(0) === '/' ? next.split('?')[0] : '/';
+    var params = new URLSearchParams();
+    params.set('auth', 'registro');
+    if (next) params.set('next', next);
+    window.location.replace(base + '?' + params.toString());
+  </script>
+</head>
+<body>
+  <p>Redirigiendo al registro…</p>
+</body>
+</html>

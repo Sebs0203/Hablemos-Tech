@@ -1,0 +1,52 @@
+---
+description: Nav bar obligatorio en todas las páginas internas del sitio
+globs: "**/*.html"
+alwaysApply: false
+---
+
+# Nav bar en páginas nuevas
+
+Toda página que no sea `index.html` debe incluir el nav compartido y verse siempre visible.
+
+## Plantilla mínima (body)
+
+```html
+<body class="pagina-auth">
+  <!-- o pagina-revista según el tipo de página -->
+  <div id="site-nav"></div>
+  <script src="/components/nav/site-nav.js" data-current="NOMBRE"></script>
+
+  <main>...</main>
+```
+
+## `data-current` (opcional)
+
+Marca el enlace activo: `home`, `revista`, `podcast`, `eventos`, `contacto`.
+
+Ejemplo revista: `data-current="revista"`
+
+## Scripts de auth (si aplica)
+
+Incluir después del contenido:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/js/config.js"></script>
+<script src="/js/auth/client.js"></script>
+<script src="/js/auth/session.js"></script>
+<script src="/js/auth/nav.js"></script>
+<script src="/js/auth/modal.js"></script>
+```
+
+## CSS
+
+- Usar `pagina-auth` o `pagina-revista` en `<body>` para padding-top bajo el nav fijo.
+- No copiar `<header class="nav">` a mano; usar siempre `site-nav.js`.
+- El home (`index.html`) mantiene su nav propio con menú hamburger.
+
+## Checklist
+
+- [ ] `<div id="site-nav"></div>` + `site-nav.js` al inicio del body
+- [ ] Clase `pagina-auth` o `pagina-revista` en body
+- [ ] `/css/hablemos.css` enlazado
+- [ ] Nav visible sin depender de `sitio-revelado`

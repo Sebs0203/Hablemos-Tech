@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artículo — Hablemos Tech</title>
+  <link rel="icon" href="/components/hero-marca/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/hablemos.css">
+</head>
+<body class="pagina-revista">
+  <div id="site-nav"></div>
+  <script src="/components/nav/site-nav.js" data-current="revista"></script>
+
+  <main class="pagina-revista__contenedor">
+    <div class="revista-gate" id="revista-gate" hidden>
+      <div data-gate="login" hidden>
+        <p class="auth-lead">Este artículo es exclusivo para miembros registrados.</p>
+        <div class="revista-gate__acciones">
+          <a class="boton boton--principal" href="#" data-auth-open="registro">Registrarme gratis</a>
+          <a class="boton" href="#" data-auth-open="sign-in">Sign in</a>
+        </div>
+      </div>
+      <div data-gate="pending" hidden>
+        <p class="auth-lead">Tu acceso está en revisión. Te avisaremos cuando puedas leer el artículo completo.</p>
+      </div>
+    </div>
+
+    <article id="articulo-root"></article>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/js/config.js"></script>
+  <script src="/js/auth/client.js"></script>
+  <script src="/js/auth/session.js"></script>
+  <script src="/js/auth/nav.js"></script>
+  <script src="/js/auth/modal.js"></script>
+  <script src="/js/revista/revista-articulo.js"></script>
+</body>
+</html>

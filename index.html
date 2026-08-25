@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hablemos Tech</title>
+  <meta name="description" content="Podcast en español para líderes de TI en México.">
+  <link rel="icon" href="components/hero-marca/logo.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/gotham-medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/schibsted-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/img/hero-fondo-estudio.jpg?v=3200" as="image">
+  <link rel="stylesheet" href="css/hablemos.css?v=202608251056">
+  <noscript>
+    <style>
+      hero-marca { display: none; }
+      .nav, .hero > :not(.hero__capas) { opacity: 1; transform: none; }
+      .nav__abrir, .menu__cerrar { display: none; }
+      .menu { position: static; visibility: visible; opacity: 1; min-height: 0; }
+    </style>
+  </noscript>
+  <script src="components/hero-marca/hero-marca.js?v=202608241432" defer></script>
+  <script src="components/destacados/destacados.js" defer></script>
+  <script src="components/menu/menu.js?v=202608251056" defer></script>
+  <script src="js/home-scroll.js?v=202608251056" defer></script>
+  <script src="js/podcast-eps.js?v=202608241702" defer></script>
+  <script src="js/revista-abanico.js?v=202608251000" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="/js/config.js" defer></script>
+  <script src="/js/auth/client.js" defer></script>
+  <script src="/js/auth/session.js?v=20260817prof-req" defer></script>
+  <script src="/js/auth/nav.js" defer></script>
+  <script src="/js/auth/modal.js?v=202608211539" defer></script>
+  <script src="/js/boletin.js?v=20260818boletin" defer></script>
+</head>
+<body aria-busy="true">
+  <hero-marca></hero-marca>
+
+  <header class="nav">
+    <a class="nav__marca" href="/" aria-label="Hablemos Tech, inicio">
+      <img class="nav__logo" src="components/hero-marca/logo.svg" alt="" width="626" height="208">
+    </a>
+
+    <div class="nav__acciones">
+      <a class="nav__enlace nav__enlace--cta" href="#" data-auth-open="registro" data-auth-guest>Registro</a>
+      <a class="nav__enlace nav__enlace--cta nav__enlace--signin" href="#" data-auth-open="sign-in" data-auth-guest>Sign in</a>
+      <a class="nav__enlace nav__enlace--cta" href="/cuenta.html" data-auth-user hidden>Mi cuenta</a>
+      <button class="nav__abrir" type="button" aria-expanded="false" aria-controls="menu-completo" aria-label="Abrir menú">
+        <span class="menu-icon" aria-hidden="true">
+          <span class="menu-icon__linea"></span>
+          <span class="menu-icon__linea"></span>
+        </span>
+      </button>
+    </div>
+  </header>
+
+  <div class="menu" id="menu-completo" role="dialog" aria-modal="true" aria-label="Menú principal">
+    <div class="menu__lamina">
+      <div class="menu__barra">
+        <button class="menu__cerrar" type="button" aria-label="Cerrar menú">
+          <span class="menu-icon" aria-hidden="true">
+            <span class="menu-icon__linea"></span>
+            <span class="menu-icon__linea"></span>
+          </span>
+        </button>
+      </div>
+
+      <div class="menu__cuerpo">
+        <div class="menu__grid">
+          <nav class="menu__col" aria-label="Principal">
+            <ul class="menu__lista">
+              <li><a class="menu__enlace" href="/" data-seccion="inicio" aria-current="true">Home</a></li>
+              <li><a class="menu__enlace" href="/#revista" data-seccion="revista">Revista</a></li>
+              <li><a class="menu__enlace" href="/#podcast" data-seccion="podcast">Podcast</a></li>
+            </ul>
+          </nav>
+
+          <div class="menu__col">
+            <ul class="menu__lista">
+              <li><a class="menu__enlace" href="#eventos" data-seccion="eventos">Eventos</a></li>
+              <li><a class="menu__enlace" href="#boletin" data-seccion="boletin">Boletín</a></li>
+            </ul>
+          </div>
+
+          <div class="menu__col menu__col--destacados">
+            <p class="menu__etiqueta">Destacados</p>
+
+            <div class="destacado" data-destacado role="group" aria-roledescription="carrusel" aria-label="Contenido destacado">
+              <ul class="destacado__pista">
+                <li class="destacado__lamina" data-lamina>
+                  <div class="destacado__marco">
+                    <img
+                      src="assets/img/podcast-big-four-fintech.jpg"
+                      alt="De las Big Four a Silicon Valley: Ciberseguridad en una Fintech Global"
+                      width="1280"
+                      height="720"
+                      loading="lazy"
+                      decoding="async">
+                  </div>
+                  <article class="destacado__meta">
+                    <p class="destacado__tipo">Podcast</p>
+                    <h3 class="destacado__titulo">De las Big Four a Silicon Valley: Ciberseguridad en una Fintech Global</h3>
+                    <p class="destacado__resumen">Del mundo de las Big Four al ecosistema de Silicon Valley: cómo se protege una fintech global cuando escala producto, datos y equipos a la vez.</p>
+                    <a class="destacado__ver" href="https://www.youtube.com/watch?v=3GCIKLI7hLc" target="_blank" rel="noopener noreferrer">
+                      Ver
+                      <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                        <path d="M6 3.5 10.5 8 6 12.5" />
+                      </svg>
+                    </a>
+                  </article>
+                </li>
+
+                <li class="destacado__lamina" data-lamina>
+                  <div class="destacado__marco">
+                    <img
+                      src="assets/img/hero-fondo.jpg"
+                      alt="Revista Hablemos Tech — Foro de Tecnología 2026"
+                      width="1024"
+                      height="579"
+                      loading="lazy"
+                      decoding="async">
+                  </div>
+                  <article class="destacado__meta">
+                    <p class="destacado__tipo">Revista</p>
+                    <h3 class="destacado__titulo">El costo real de nunca probar tus respaldos</h3>
+                    <p class="destacado__resumen">Un respaldo que no se restaura es una suposición. Cómo armar un plan de pruebas que sí se cumpla…</p>
+                    <a class="destacado__ver" href="/revista/articulo.html?issue=vol-01&amp;slug=el-costo-real-de-los-respaldos">
+                      Ver
+                      <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                        <path d="M6 3.5 10.5 8 6 12.5" />
+                      </svg>
+                    </a>
+                  </article>
+                </li>
+
+                <li class="destacado__lamina" data-lamina>
+                  <div class="destacado__marco">
+                    <img
+                      src="assets/img/evento-foro-tecnologia-tijuana-2026.jpg"
+                      alt="Foro de Tecnología MX - Tijuana 2026"
+                      width="2160"
+                      height="1080"
+                      loading="lazy"
+                      decoding="async">
+                  </div>
+                  <article class="destacado__meta">
+                    <p class="destacado__tipo">Evento</p>
+                    <h3 class="destacado__titulo">Foro de Tecnología MX — Tijuana 2026</h3>
+                    <p class="destacado__resumen">Conferencia de un día completo en Tijuana Trade Center: 24 de julio, 8:30 a.m.–5:00 p.m. Organiza Enteracloud.</p>
+                    <a class="destacado__ver" href="https://www.eventbrite.com/e/foro-de-tecnologia-mx-tijuana-2026-tickets-1991432177250" target="_blank" rel="noopener noreferrer">
+                      Ver
+                      <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                        <path d="M6 3.5 10.5 8 6 12.5" />
+                      </svg>
+                    </a>
+                  </article>
+                </li>
+              </ul>
+
+              <div class="destacado__controles">
+                <ul class="destacado__puntos" data-puntos></ul>
+
+                <div class="destacado__flechas">
+                  <button class="destacado__flecha" type="button" data-anterior aria-label="Destacado anterior">
+                    <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                      <path d="M10 3.5 5.5 8 10 12.5" />
+                    </svg>
+                  </button>
+                  <button class="destacado__flecha" type="button" data-siguiente aria-label="Siguiente destacado">
+                    <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                      <path d="M6 3.5 10.5 8 6 12.5" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu__pie">
+          <p class="menu__direccion">
+            <span>Tijuana, B.C.</span>
+            <span>México</span>
+          </p>
+
+          <ul class="menu__redes">
+            <li>
+              <a href="#spotify" aria-label="Spotify">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.24-.899-.6-.12-.421.24-.78.6-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.241 1.081zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.601.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z" />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/@hablemostechpodcast" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/hablemostechmx/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="#linkedin" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z" />
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="hero__capas" aria-hidden="true">
+        <img
+          class="hero__capas-fondo"
+          src="assets/img/hero-fondo-estudio.jpg?v=3200"
+          alt=""
+          width="3200"
+          height="2133"
+          decoding="async"
+          fetchpriority="high">
+      </div>
+      <h1 class="hero__titulo">Tecnología e innovación se encuentran aquí.</h1>
+      <p class="hero__texto">Conversaciones con quienes deciden el rumbo tecnológico de las empresas del país: infraestructura, nube y seguridad.</p>
+      <div class="hero__acciones">
+        <a class="boton boton--principal" href="https://www.youtube.com/@hablemostechpodcast" target="_blank" rel="noopener noreferrer">Escuchar el último episodio</a>
+        <a class="boton" href="#boletin">Suscribirse</a>
+      </div>
+
+      <div class="hero__marquee" aria-hidden="true">
+        <div class="hero__marquee-track">
+          <span>Podcast<img class="hero__marquee-asterisco" src="assets/img/asterisco.png?v=1" alt="" width="64" height="64"></span><span>Revista<img class="hero__marquee-asterisco" src="assets/img/asterisco.png?v=1" alt="" width="64" height="64"></span><span>Eventos<img class="hero__marquee-asterisco" src="assets/img/asterisco.png?v=1" alt="" width="64" height="64"></span><span>Networking<img class="hero__marquee-asterisco" src="assets/img/asterisco.png?v=1" alt="" width="64" height="64"></span><span>Innovación<img class="hero__marquee-asterisco" src="assets/img/asterisco.png?v=1" alt="" width="64" height="64"></span><span>Tecnología<img class="hero__marquee-asterisco" src="assets/img/asterisco.png?v=1" alt="" width="64" height="64"></span><span>Nube<img class="hero__marquee-asterisco" src="assets/img/asterisco.png?v=1" alt="" width="64" height="64"></span><span>Ciberseguridad<img class="hero__marquee-asterisco" src="assets/img/asterisco.png?v=1" alt="" width="64" height="64"></span><span>Infraestructura<img class="hero__marquee-asterisco" src="assets/img/asterisco.png?v=1" alt="" width="64" height="64"></span><span>Liderazgo TI<img class="hero__marquee-asterisco" src="assets/img/asterisco.png?v=1" alt="" width="64" height="64"></span><span>Comunidad<img class="hero__marquee-asterisco" src="assets/img/asterisco.png?v=1" alt="" width="64" height="64"></span><span>Directivos de TI<img class="hero__marquee-asterisco" src="assets/img/asterisco.png?v=1" alt="" width="64" height="64"></span>
+          <span>Podcast<img class="hero__marquee-asterisco" src="assets/img/asterisco.png?v=1" alt="" width="64" height="64"></span><span>Revista<img class="hero__marquee-asterisco" src="assets/img/asterisco.png?v=1" alt="" width="64" height="64"></span><span>Eventos<img class="hero__marquee-asterisco" src="assets/img/asterisco.png?v=1" alt="" width="64" height="64"></span><span>Networking<img class="hero__marquee-asterisco" src="assets/img/asterisco.png?v=1" alt="" width="64" height="64"></span><span>Innovación<img class="hero__marquee-asterisco" src="assets/img/asterisco.png?v=1" alt="" width="64" height="64"></span><span>Tecnología<img class="hero__marquee-asterisco" src="assets/img/asterisco.png?v=1" alt="" width="64" height="64"></span><span>Nube<img class="hero__marquee-asterisco" src="assets/img/asterisco.png?v=1" alt="" width="64" height="64"></span><span>Ciberseguridad<img class="hero__marquee-asterisco" src="assets/img/asterisco.png?v=1" alt="" width="64" height="64"></span><span>Infraestructura<img class="hero__marquee-asterisco" src="assets/img/asterisco.png?v=1" alt="" width="64" height="64"></span><span>Liderazgo TI<img class="hero__marquee-asterisco" src="assets/img/asterisco.png?v=1" alt="" width="64" height="64"></span><span>Comunidad<img class="hero__marquee-asterisco" src="assets/img/asterisco.png?v=1" alt="" width="64" height="64"></span><span>Directivos de TI<img class="hero__marquee-asterisco" src="assets/img/asterisco.png?v=1" alt="" width="64" height="64"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="espacio-negro" id="revista" aria-labelledby="revista-seccion-titulo">
+      <div class="espacio-negro__contenedor">
+        <p class="espacio-negro__meta">
+          <img class="espacio-negro__asterisco" src="assets/img/asterisco.png?v=1" alt="" width="64" height="64">
+          Hablemos Tech
+        </p>
+        <h2 class="espacio-negro__titulo" id="revista-seccion-titulo">Nuestra Revista</h2>
+
+        <div class="revista-escena">
+          <button class="revista-flecha revista-flecha--izq" type="button" aria-label="Revista anterior">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+              <path d="M14.5 5.5 8 12l6.5 6.5" stroke="currentColor" stroke-width="2.35" stroke-linecap="square" stroke-linejoin="miter"/>
+            </svg>
+          </button>
+
+          <ul class="revista-abanico">
+            <li class="revista-abanico__item revista-abanico__item--izq">
+              <div class="revista-carta">
+                <a class="revista-portada" href="/revista/">
+                  <img src="assets/img/revista-vol-03.png?v=202608211725" alt="Portada Vol. 03: Personas, procesos y tecnología" width="791" height="1024" loading="lazy" decoding="async">
+                  <span class="revista-portada__brillo" aria-hidden="true"></span>
+                  <span class="revista-portada__glare" aria-hidden="true"></span>
+                </a>
+              </div>
+            </li>
+            <li class="revista-abanico__item revista-abanico__item--centro">
+              <div class="revista-carta">
+                <a class="revista-portada" href="/revista/vol-01/">
+                  <img src="assets/img/revista-vol-01.png" alt="Portada Vol. 01: Foro de Tecnología 2026" width="791" height="1024" loading="lazy" decoding="async">
+                  <span class="revista-portada__brillo" aria-hidden="true"></span>
+                  <span class="revista-portada__glare" aria-hidden="true"></span>
+                </a>
+              </div>
+            </li>
+            <li class="revista-abanico__item revista-abanico__item--der">
+              <div class="revista-carta">
+                <a class="revista-portada" href="/revista/">
+                  <img src="assets/img/revista-vol-02.png" alt="Portada Vol. 02: Foro de Tecnología 2026" width="791" height="1024" loading="lazy" decoding="async">
+                  <span class="revista-portada__brillo" aria-hidden="true"></span>
+                  <span class="revista-portada__glare" aria-hidden="true"></span>
+                </a>
+              </div>
+            </li>
+          </ul>
+
+          <button class="revista-flecha revista-flecha--der" type="button" aria-label="Siguiente revista">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+              <path d="M9.5 5.5 16 12l-6.5 6.5" stroke="currentColor" stroke-width="2.35" stroke-linecap="square" stroke-linejoin="miter"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="revista-cta">
+          <div class="revista-cta__acciones">
+            <a class="boton boton--principal" href="#" data-auth-open="registro" data-auth-next="/revista/vol-01/" data-auth-guest>Leer Vol. 01</a>
+            <a class="boton boton--principal" href="/revista/vol-01/" data-auth-user hidden>Leer Vol. 01</a>
+            <a class="boton" href="/revista/">Ver todas las ediciones</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bloque-oscuro" id="podcast" aria-labelledby="podcast-banner-titulo">
+      <div class="bloque-oscuro__contenedor">
+        <div class="podcast-banner">
+          <div class="podcast-banner__marca">
+            <p class="podcast-banner__meta">
+              <img class="podcast-banner__asterisco" src="assets/img/asterisco.png?v=1" alt="" width="64" height="64">
+              Podcast y Entrevistas
+            </p>
+            <div class="podcast-banner__titular">
+              <h2 class="podcast-banner__titulo" id="podcast-banner-titulo">
+                <span class="podcast-banner__titulo-linea podcast-banner__titulo-linea--hablemos">
+                  Hablemos<img class="podcast-banner__sello" src="assets/img/podcast-sello.png?v=2" alt="" width="400" height="400">
+                </span>
+                <span class="podcast-banner__titulo-linea podcast-banner__titulo-linea--podcast">Tech Podcast</span>
+              </h2>
+            </div>
+          </div>
+
+          <div class="podcast-banner__info">
+            <p class="podcast-banner__descripcion">Conversaciones con los líderes que construyen el futuro tecnológico de Latinoamérica.</p>
+            <div class="podcast-banner__plataformas">
+              <span class="podcast-banner__plataformas-etiqueta">Búscanos en</span>
+              <a class="podcast-banner__plataforma podcast-banner__plataforma--youtube" href="https://www.youtube.com/@hablemostechpodcast" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path fill="#FF0000" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/>
+                  <path fill="#FFF" d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+                YouTube
+              </a>
+              <a class="podcast-banner__plataforma podcast-banner__plataforma--spotify" href="#spotify">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path fill="currentColor" d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.24-.899-.6-.12-.421.24-.78.6-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.241 1.081zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.601.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                </svg>
+                Spotify
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="podcast-carrete" data-podcast-carrete aria-hidden="true">
+        <div class="podcast-carrete__pista" data-podcast-carrete-pista></div>
+      </div>
+
+      <div class="podcast-cta">
+        <div class="podcast-cta__acciones">
+          <a class="boton boton--principal" href="https://www.youtube.com/watch?v=3GCIKLI7hLc" target="_blank" rel="noopener noreferrer" data-podcast-ultimo>Ver el último EP</a>
+          <a class="boton" href="https://www.youtube.com/@hablemostechpodcast/videos" target="_blank" rel="noopener noreferrer">Ver todos los EP</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="agenda" id="eventos" aria-labelledby="eventos-titulo">
+      <div class="agenda__contenedor">
+        <header class="agenda__encabezado">
+          <p class="agenda__meta">
+            <img class="agenda__asterisco" src="assets/img/asterisco.png?v=1" alt="" width="64" height="64">
+            Agenda 2026
+          </p>
+          <div class="agenda__titular">
+            <h2 class="agenda__titulo" id="eventos-titulo">Próximos eventos</h2>
+            <p class="agenda__lead">Tech &amp; Wine Fest: Workshops, networking, vino y música en vivo junto con líderes de TI de Baja California.</p>
+          </div>
+        </header>
+
+        <figure class="agenda__plancha">
+          <div class="agenda__plancha-marco">
+            <iframe class="agenda__plancha-video" src="https://player.vimeo.com/video/1220958597?h=9426af8dd4&amp;background=1&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;autopause=0&amp;api=1" title="Video de fondo: Tech &amp; Wine Fest" allow="autoplay; fullscreen" tabindex="-1" aria-hidden="true"></iframe>
+            <span class="agenda__plancha-velo" aria-hidden="true"></span>
+            <img class="agenda__plancha-marca" src="assets/img/tech-wine-fest-marca.png?v=202608241430" alt="Tech &amp; Wine Fest" width="1024" height="746" decoding="async">
+          </div>
+          <div class="agenda__plancha-capa">
+            <p class="agenda__plancha-chips">
+              <span class="agenda__plancha-chip">02 oct 2026</span>
+              <span class="agenda__plancha-chip">Bodegas del Valle</span>
+            </p>
+            <a class="boton boton--principal agenda__plancha-cta" href="https://technwine.enteracloud.mx" target="_blank" rel="noopener noreferrer" aria-label="Reservar mi lugar en Tech &amp; Wine Fest">
+              Reservar mi lugar
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+                <path d="M4.5 11.5 11.5 4.5M6.25 4.5H11.5V9.75" stroke="currentColor" stroke-width="1.75" stroke-linecap="square" stroke-linejoin="miter" />
+              </svg>
+            </a>
+          </div>
+        </figure>
+
+        <ol class="agenda__lista">
+          <li>
+            <a class="agenda__fila" href="https://technwine.enteracloud.mx" target="_blank" rel="noopener noreferrer">
+              <time class="agenda__fecha" datetime="2026-10-02">02 oct 2026</time>
+              <span class="agenda__dato">
+                <span class="agenda__nombre">Tech &amp; Wine Fest</span>
+                <span class="agenda__lugar">Bodegas del Valle, Valle de Guadalupe, B.C.</span>
+              </span>
+              <span class="agenda__estado agenda__estado--proximo">Registro abierto</span>
+              <svg class="agenda__flecha" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+                <path d="M6 3.5 10.5 8 6 12.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="square" stroke-linejoin="miter" />
+              </svg>
+            </a>
+          </li>
+        </ol>
+
+        <div class="agenda__cta">
+          <div class="agenda__cta-acciones">
+            <a class="boton boton--principal" href="#" data-auth-open="registro" data-auth-guest>Pedir invitación</a>
+            <a class="boton boton--principal" href="#contacto" data-auth-user hidden>Pedir invitación</a>
+            <a class="boton" href="https://www.eventbrite.com/e/foro-de-tecnologia-mx-tijuana-2026-tickets-1991432177250" target="_blank" rel="noopener noreferrer">Ver la edición pasada</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="boletin" id="boletin" aria-labelledby="boletin-titulo">
+      <div class="boletin__contenedor">
+        <div class="boletin__panel">
+          <div class="boletin__marco">
+            <img class="boletin__fondo" src="assets/img/boletin-estudio-1600.jpg" srcset="assets/img/boletin-estudio-1000.jpg 1000w, assets/img/boletin-estudio-1600.jpg 1600w, assets/img/boletin-estudio-2400.jpg 2400w" sizes="(max-width: 56rem) 300vw, min(1472px, 100vw)" alt="" width="2400" height="1190" loading="lazy" decoding="async">
+            <span class="boletin__velo" aria-hidden="true"></span>
+          </div>
+
+          <img class="boletin__recorte" src="assets/img/boletin-estudio-recorte-1600.webp" srcset="assets/img/boletin-estudio-recorte-1000.webp 1000w, assets/img/boletin-estudio-recorte-1600.webp 1600w, assets/img/boletin-estudio-recorte-2400.webp 2400w" sizes="(max-width: 56rem) 300vw, min(1472px, 100vw)" alt="" width="2400" height="1191" loading="lazy" decoding="async">
+
+          <div class="boletin__cuerpo">
+            <p class="boletin__meta">
+              <img class="boletin__asterisco" src="assets/img/asterisco.png?v=1" alt="" width="64" height="64">
+              Boletín
+            </p>
+            <h2 class="boletin__titulo" id="boletin-titulo">Mantente al Día</h2>
+            <p class="boletin__lead">Nuevas ediciones, episodios y eventos, directo a tu correo. Sin spam, solo lo que de verdad importa en tech.</p>
+
+            <form class="boletin__form" id="boletin-form" novalidate>
+              <div class="boletin__trampa" aria-hidden="true">
+                <label for="boletin-empresa">Empresa</label>
+                <input id="boletin-empresa" type="text" name="company_url" tabindex="-1" autocomplete="off">
+              </div>
+
+              <div class="boletin__campo">
+                <label class="boletin__etiqueta" for="boletin-email">Correo electrónico</label>
+                <div class="boletin__cta">
+                  <input class="boletin__entrada" id="boletin-email" name="email" type="email" autocomplete="email" inputmode="email" required placeholder="nombre@empresa.com" aria-describedby="boletin-estado">
+                  <button class="boton boton--principal boletin__enviar" type="submit">
+                    Suscribirme
+                    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+                      <path d="M3 8h9M8.5 4.25 12.25 8 8.5 11.75" stroke="currentColor" stroke-width="1.75" stroke-linecap="square" stroke-linejoin="miter" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <p class="boletin__estado" id="boletin-estado" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie" id="contacto">
+    <div class="pie__contenedor">
+      <div class="pie__cima">
+        <div class="pie__marca">
+          <a class="pie__marca-enlace" href="/" aria-label="Hablemos Tech, inicio">
+            <img class="pie__logo" src="components/hero-marca/logo.svg" alt="" width="626" height="208">
+          </a>
+          <p class="pie__texto">Podcast, eventos y revista de TI en México.</p>
+        </div>
+
+        <nav class="pie__nav" aria-label="Navegación del sitio">
+          <div class="pie__grupo">
+            <p class="pie__grupo-titulo">Explorar</p>
+            <ul class="pie__lista">
+              <li><a class="pie__enlace" href="/" aria-current="page">Home</a></li>
+              <li><a class="pie__enlace" href="/#revista">Revista</a></li>
+              <li><a class="pie__enlace" href="/#podcast">Podcast</a></li>
+            </ul>
+          </div>
+
+          <div class="pie__grupo">
+            <p class="pie__grupo-titulo">Comunidad</p>
+            <ul class="pie__lista">
+              <li><a class="pie__enlace" href="#eventos">Eventos</a></li>
+              <li><a class="pie__enlace" href="#boletin">Boletín</a></li>
+              <li><a class="pie__enlace" href="#" data-auth-open="registro">Registro</a></li>
+            </ul>
+          </div>
+        </nav>
+
+          <div class="pie__grupo pie__grupo--redes">
+            <ul class="pie__redes" aria-label="Redes sociales">
+            <li>
+              <a class="pie__red" href="#spotify" aria-label="Spotify">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.24-.899-.6-.12-.421.24-.78.6-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.241 1.081zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.601.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z" />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a class="pie__red" href="https://www.youtube.com/@hablemostechpodcast" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a class="pie__red" href="https://www.instagram.com/hablemostechmx/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a class="pie__red" href="#linkedin" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z" />
+                </svg>
+              </a>
+            </li>
+          </ul>
+          </div>
+      </div>
+
+      <div class="pie__base">
+        <p class="pie__copy">© <time data-anio datetime="2026">2026</time> Hablemos Tech</p>
+        <address class="pie__lugar">Tijuana, B.C. México</address>
+      </div>
+    </div>
+  </footer>
+  <script>
+    (function () {
+      var nodo = document.querySelector('[data-anio]');
+      if (!nodo) return;
+      var anio = String(new Date().getFullYear());
+      nodo.textContent = anio;
+      nodo.setAttribute('datetime', anio);
+    })();
+  </script>
+</body>
+</html>

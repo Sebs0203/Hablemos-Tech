@@ -1,0 +1,4 @@
+window.HT_CONFIG = {
+  supabaseUrl: 'https://xdpqollhnhhgugwyveqc.supabase.co',
+  supabaseAnonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhkcHFvbGxobmhoZ3Vnd3l2ZXFjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkzMTE0NDAsImV4cCI6MjA5NDg4NzQ0MH0.HGRdnYOwSO7XCIUCkusaqcW3T882UKb5Z4FeEKfQXwU'
+};

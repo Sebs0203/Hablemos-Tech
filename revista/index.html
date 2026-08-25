@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revista — Hablemos Tech</title>
+  <meta name="description" content="Revista digital de Hablemos Tech para líderes de TI en México.">
+  <link rel="icon" href="/components/hero-marca/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/hablemos.css">
+</head>
+<body class="pagina-revista">
+  <div id="site-nav"></div>
+  <script src="/components/nav/site-nav.js" data-current="revista"></script>
+
+  <main class="pagina-revista__contenedor">
+    <h1 class="auth-titulo">Revista digital</h1>
+    <p class="auth-lead">Contenido editorial sobre infraestructura, nube y seguridad. Gratis para miembros registrados.</p>
+
+    <div class="revista-gate" id="revista-gate" hidden>
+      <div data-gate="login" hidden>
+        <p class="auth-lead">Regístrate o inicia sesión para leer la revista completa.</p>
+        <div class="revista-gate__acciones">
+          <a class="boton boton--principal" href="#" data-auth-open="registro" data-auth-next="/revista/">Registrarme gratis</a>
+          <a class="boton" href="#" data-auth-open="sign-in" data-auth-next="/revista/">Sign in</a>
+        </div>
+      </div>
+      <div data-gate="pending" hidden>
+        <p class="auth-lead">Tu acceso está en revisión. Puedes explorar el sumario; te avisaremos cuando se active la lectura completa.</p>
+        <div class="revista-gate__acciones">
+          <a class="boton" href="/cuenta.html">Ver mi cuenta</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="revista-grid" id="revista-grid"></div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/js/config.js"></script>
+  <script src="/js/auth/client.js"></script>
+  <script src="/js/auth/session.js"></script>
+  <script src="/js/auth/nav.js"></script>
+  <script src="/js/auth/modal.js"></script>
+  <script src="/js/revista/revista-hub.js"></script>
+</body>
+</html>

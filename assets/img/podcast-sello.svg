@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200" role="img" aria-hidden="true">
+  <defs>
+    <path id="podcast-sello-circulo" d="M 100,100 m -62,0 a 62,62 0 1,1 124,0 a 62,62 0 1,1 -124,0"/>
+  </defs>
+  <text fill="#ffffff" font-family="Helvetica Neue, Arial, sans-serif" font-size="13.5" font-weight="700" letter-spacing="0.22em">
+    <textPath xlink:href="#podcast-sello-circulo" href="#podcast-sello-circulo" startOffset="14%">HABLEMOS TECH PODCAST</textPath>
+  </text>
+  <g fill="#31dc8d" transform="translate(100 100)">
+    <rect x="-5" y="-28" width="10" height="56"/>
+    <rect x="-5" y="-28" width="10" height="56" transform="rotate(72)"/>
+    <rect x="-5" y="-28" width="10" height="56" transform="rotate(144)"/>
+    <rect x="-5" y="-28" width="10" height="56" transform="rotate(216)"/>
+    <rect x="-5" y="-28" width="10" height="56" transform="rotate(288)"/>
+  </g>
+</svg>

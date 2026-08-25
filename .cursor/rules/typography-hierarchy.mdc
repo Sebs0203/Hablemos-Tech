@@ -1,0 +1,17 @@
+---
+description: Text size hierarchy via CSS tokens — always define scale in :root before component styles
+alwaysApply: true
+---
+
+# Typography hierarchy
+
+When styling any website UI:
+
+1. Define **font roles** (display, UI, mono) and a **fluid type scale** as CSS custom properties in `:root`.
+2. Map elements to tokens — **never** hardcode `font-size` on components without a token.
+3. Use `clamp()` for all heading and body sizes.
+4. Apply tracking rules: tight on display (`-0.03em`), open on uppercase labels (`+0.12em` to `+0.16em`).
+5. Set measure: display ~18–28ch, body ~55–65ch.
+6. Read and follow `typography-hierarchy` skill (`~/.cursor/skills/typography-hierarchy/SKILL.md`) for full scale and mapping.
+
+Minimum hierarchy: **h1 > lead > body > nav/labels** must be obvious at a glance.

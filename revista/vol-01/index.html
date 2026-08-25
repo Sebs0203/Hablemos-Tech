@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vol. 01 — Hablemos Tech</title>
+  <link rel="icon" href="/components/hero-marca/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/hablemos.css">
+</head>
+<body class="pagina-revista" data-issue="vol-01">
+  <div id="site-nav"></div>
+  <script src="/components/nav/site-nav.js" data-current="revista"></script>
+
+  <main class="pagina-revista__contenedor">
+    <div class="revista-gate" id="revista-gate" hidden>
+      <div data-gate="login" hidden>
+        <p class="auth-lead">Regístrate gratis para leer los artículos completos y descargar el PDF.</p>
+        <div class="revista-gate__acciones">
+          <a class="boton boton--principal" href="#" data-auth-open="registro" data-auth-next="/revista/vol-01/">Registrarme</a>
+          <a class="boton" href="#" data-auth-open="sign-in" data-auth-next="/revista/vol-01/">Sign in</a>
+        </div>
+      </div>
+      <div data-gate="pending" hidden>
+        <p class="auth-lead">Tu acceso está en revisión. Puedes leer el artículo abierto del sumario.</p>
+      </div>
+    </div>
+
+    <section class="revista-issue__hero" id="issue-hero"></section>
+
+    <div class="revista-issue__acciones">
+      <a class="boton boton--principal" id="issue-pdf" href="#" hidden download>Descargar PDF</a>
+      <a class="boton" href="/revista/">← Todas las ediciones</a>
+    </div>
+
+    <section class="revista-articulos" id="issue-articles" aria-label="Artículos de la edición"></section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/js/config.js"></script>
+  <script src="/js/auth/client.js"></script>
+  <script src="/js/auth/session.js"></script>
+  <script src="/js/auth/nav.js"></script>
+  <script src="/js/auth/modal.js"></script>
+  <script src="/js/revista/revista-issue.js"></script>
+</body>
+</html>

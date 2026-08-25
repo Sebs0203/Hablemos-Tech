@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi cuenta — Hablemos Tech</title>
+  <link rel="icon" href="/components/hero-marca/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/hablemos.css">
+</head>
+<body class="pagina-auth">
+  <div id="site-nav"></div>
+  <script src="/components/nav/site-nav.js" data-current="cuenta"></script>
+
+  <main class="pagina-auth__contenedor">
+    <h1 class="auth-titulo">Mi cuenta</h1>
+    <p class="auth-lead">Estado de tu acceso a la revista digital.</p>
+
+    <dl class="cuenta-panel">
+      <dt>Nombre</dt>
+      <dd id="cuenta-nombre">—</dd>
+      <dt>Email</dt>
+      <dd id="cuenta-email">—</dd>
+      <dt>Empresa</dt>
+      <dd id="cuenta-empresa">—</dd>
+      <dt>Tipo de email</dt>
+      <dd id="cuenta-tipo">—</dd>
+      <dt>Acceso a revista</dt>
+      <dd id="cuenta-acceso">—</dd>
+    </dl>
+
+    <div class="cuenta-acciones">
+      <a class="boton boton--principal" href="/revista/" id="cuenta-revista" hidden>Ir a la revista</a>
+      <button class="boton" type="button" id="cuenta-logout">Cerrar sesión</button>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/js/config.js"></script>
+  <script src="/js/auth/client.js"></script>
+  <script src="/js/auth/session.js"></script>
+  <script src="/js/auth/nav.js"></script>
+  <script src="/js/auth/modal.js"></script>
+  <script src="/js/auth/cuenta.js"></script>
+</body>
+</html>
