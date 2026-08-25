@@ -3213,7 +3213,12 @@ html.sitio-revelado .hero__capas-fondo {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(22rem, 0.95fr);
   gap: clamp(1.25rem, 4vw, 3.5rem);
-  align-items: first baseline;
+  align-items: end;
+  align-items: last baseline;
+}
+
+.agenda__titular-izq {
+  min-width: 0;
 }
 
 .agenda__titulo {
@@ -3230,7 +3235,7 @@ html.sitio-revelado .hero__capas-fondo {
 .agenda__lead {
   justify-self: end;
   max-width: min(48ch, 100%);
-  margin-bottom: 0.15em;
+  margin-bottom: 0;
   font-family: var(--font-ui);
   font-size: var(--text-body-lg);
   font-weight: 400;
