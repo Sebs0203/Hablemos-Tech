@@ -69,6 +69,17 @@
             : 'Listo. Te avisamos cuando haya revista, episodio o evento.',
           'ok'
         );
+
+        if (window.HTBeacon) {
+          HTBeacon.sendLead({
+            kind: 'boletin',
+            email: email,
+            name: email.split('@')[0] || 'Suscriptor',
+            company: 'Boletín Hablemos Tech',
+            puesto: 'Boletín',
+            note: 'Suscripción boletín · home'
+          });
+        }
       })
       .catch(function () {
         submitBtn.disabled = false;

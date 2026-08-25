@@ -402,8 +402,29 @@
 
         if (result.data.session) {
           await HTAuth.updateProfileFields({ name: name, company: company, role_area: roleArea });
+          if (window.HTBeacon) {
+            HTBeacon.sendLead({
+              kind: 'revista-registro',
+              name: name,
+              email: email,
+              company: company,
+              puesto: roleArea,
+              note: 'Registro revista · sesión inmediata'
+            });
+          }
           finishAuth();
           return;
+        }
+
+        if (window.HTBeacon) {
+          HTBeacon.sendLead({
+            kind: 'revista-registro',
+            name: name,
+            email: email,
+            company: company,
+            puesto: roleArea,
+            note: 'Registro revista · confirmación email'
+          });
         }
 
         if (HTAuth.isPersonalEmail(email)) {
