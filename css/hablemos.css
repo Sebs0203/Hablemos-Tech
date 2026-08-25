@@ -1101,7 +1101,7 @@ html.sitio-revelado .hero__capas-fondo {
 
 .hero__titulo {
   max-width: var(--measure-display);
-  font-family: var(--font-display);
+  font-family: var(--font-ui);
   font-size: var(--text-display-1);
   font-weight: 500;
   line-height: var(--leading-display);
@@ -1984,6 +1984,10 @@ html.sitio-revelado .hero__capas-fondo {
   pointer-events: none;
 }
 
+.revista-escena:hover .revista-portada {
+  will-change: transform;
+}
+
 .revista-abanico {
   position: relative;
   flex: 0 1 auto;
@@ -1998,6 +2002,8 @@ html.sitio-revelado .hero__capas-fondo {
   left: 50%;
   width: var(--portada-ancho);
   margin: 0;
+  /* Sin preserve-3d el rotate 2D del abanico aplasta rotateX/Y de la portada. */
+  transform-style: preserve-3d;
   transform:
     translate(-50%, -50%)
     translateX(var(--deslizx))
@@ -2058,6 +2064,10 @@ html.sitio-revelado .hero__capas-fondo {
      lleva su propio redondeo para que la esquina nunca salga cuadrada. */
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  /* La perspectiva va en este mismo transform; si queda solo en el padre,
+     el giro del abanico aplana el 3D y la carta se ve quieta. */
+  transform: perspective(64rem) rotateX(0deg) rotateY(0deg);
+  transform-style: preserve-3d;
   transition:
     box-shadow 480ms ease,
     border-color 480ms ease,

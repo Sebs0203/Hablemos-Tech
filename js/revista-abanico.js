@@ -620,15 +620,17 @@
     var curPX = 0.5;
     var curPY = 0.5;
     var tilting = false;
-    var TILT_MAX = 11;
+    var TILT_MAX = 7;
+    var TILT_FOLLOW = 0.22;
+    var TILT_RELEASE = 0.1;
 
     function aplicarTilt(portada, px, py) {
       var rotX = (0.5 - py) * TILT_MAX * 2;
       var rotY = (px - 0.5) * TILT_MAX * 2;
       portada.style.transform =
-        'rotateX(' + rotX.toFixed(2) + 'deg) rotateY(' + rotY.toFixed(2) + 'deg)';
-      portada.style.setProperty('--glare-x', (px * 100).toFixed(2) + '%');
-      portada.style.setProperty('--glare-y', (py * 100).toFixed(2) + '%');
+        'perspective(64rem) rotateX(' + rotX.toFixed(3) + 'deg) rotateY(' + rotY.toFixed(3) + 'deg)';
+      portada.style.setProperty('--glare-x', (px * 100).toFixed(3) + '%');
+      portada.style.setProperty('--glare-y', (py * 100).toFixed(3) + '%');
     }
 
     function resetTilt(portada) {
@@ -640,14 +642,15 @@
     }
 
     function tickTilt() {
-      curPX += (tgtPX - curPX) * 0.07;
-      curPY += (tgtPY - curPY) * 0.07;
+      var ease = tilting ? TILT_FOLLOW : TILT_RELEASE;
+      curPX += (tgtPX - curPX) * ease;
+      curPY += (tgtPY - curPY) * ease;
 
       if (tiltCard) aplicarTilt(tiltCard, curPX, curPY);
 
       var settled =
-        Math.abs(tgtPX - curPX) < 0.001 &&
-        Math.abs(tgtPY - curPY) < 0.001;
+        Math.abs(tgtPX - curPX) < 0.0008 &&
+        Math.abs(tgtPY - curPY) < 0.0008;
 
       if (settled) {
         if (!tilting) {
@@ -675,20 +678,26 @@
         return;
       }
 
-      var rect = portada.getBoundingClientRect();
+      /* El rect de la portada cambia al rotar en 3D y el cursor pelea
+         consigo mismo. La carta no gira: el hit y el ángulo se quedan estables. */
+      var carta = portada.closest('.revista-carta') || portada;
+      var rect = carta.getBoundingClientRect();
       if (rect.width < 1 || rect.height < 1) return;
+
+      var nextPX = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+      var nextPY = Math.max(0, Math.min(1, (clientY - rect.top) / rect.height));
 
       if (tiltCard && tiltCard !== portada) {
         resetTilt(tiltCard);
-        curPX = 0.5;
-        curPY = 0.5;
+        curPX = nextPX;
+        curPY = nextPY;
       }
 
       tiltCard = portada;
       tilting = true;
       portada.classList.add('is-tilt');
-      tgtPX = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
-      tgtPY = Math.max(0, Math.min(1, (clientY - rect.top) / rect.height));
+      tgtPX = nextPX;
+      tgtPY = nextPY;
       pedirTilt();
     }
 
@@ -706,8 +715,14 @@
         return;
       }
 
-      var portada = event.target.closest('.revista-portada');
-      if (!portada || !pista.contains(portada)) {
+      var carta = event.target.closest('.revista-carta');
+      if (!carta || !pista.contains(carta)) {
+        soltarTilt();
+        return;
+      }
+
+      var portada = carta.querySelector('.revista-portada');
+      if (!portada) {
         soltarTilt();
         return;
       }
