@@ -3193,7 +3193,7 @@ html.sitio-revelado .hero__capas-fondo {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-bottom: clamp(1.15rem, 2.4vh, 1.75rem);
+  margin-bottom: 0.5rem;
   font-family: var(--font-ui);
   font-size: var(--text-body-lg);
   font-style: italic;
@@ -3211,9 +3211,9 @@ html.sitio-revelado .hero__capas-fondo {
 
 .agenda__titular {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(16rem, 0.85fr);
+  grid-template-columns: minmax(0, 1fr) minmax(22rem, 0.95fr);
   gap: clamp(1.25rem, 4vw, 3.5rem);
-  align-items: end;
+  align-items: first baseline;
 }
 
 .agenda__titulo {
@@ -3229,7 +3229,7 @@ html.sitio-revelado .hero__capas-fondo {
 
 .agenda__lead {
   justify-self: end;
-  max-width: min(28ch, 100%);
+  max-width: min(48ch, 100%);
   margin-bottom: 0.15em;
   font-family: var(--font-ui);
   font-size: var(--text-body-lg);
@@ -3238,7 +3238,7 @@ html.sitio-revelado .hero__capas-fondo {
   letter-spacing: var(--tracking-body);
   color: var(--tenue);
   text-align: right;
-  text-wrap: pretty;
+  text-wrap: balance;
 }
 
 .agenda__plancha {
