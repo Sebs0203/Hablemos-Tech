@@ -420,12 +420,6 @@ html.menu-abierto:not(.menu-icono-lineas) .menu-icon__linea:nth-child(2) {
     display: none;
   }
 
-  body:has(.menu) .nav__enlace--usuario {
-    display: inline-flex;
-    pointer-events: auto;
-    max-width: 11ch;
-  }
-
   body:has(.menu) .nav__acciones {
     position: static;
     justify-self: end;
