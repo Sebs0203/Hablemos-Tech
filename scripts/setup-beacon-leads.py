@@ -117,7 +117,11 @@ def main() -> None:
         {
             "slug": SLUG,
             "action": "set",
-            "fields": landing["copy"]["form"]["fields"],
+            "fields": {
+                "puesto": {"required": False, "label": "Área / puesto"},
+                "phone": {"required": False, "label": "Teléfono"},
+                "message": {"required": False, "label": "Nota"},
+            },
         },
     )
     print("form")
