@@ -335,6 +335,13 @@ body {
   color: var(--negro);
 }
 
+.nav__enlace--usuario {
+  max-width: 14ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .nav__abrir {
   display: none;
   align-items: center;
@@ -411,6 +418,12 @@ html.menu-abierto:not(.menu-icono-lineas) .menu-icon__linea:nth-child(2) {
 
   body:has(.menu) .nav__enlace--cta {
     display: none;
+  }
+
+  body:has(.menu) .nav__enlace--usuario {
+    display: inline-flex;
+    pointer-events: auto;
+    max-width: 11ch;
   }
 
   body:has(.menu) .nav__acciones {

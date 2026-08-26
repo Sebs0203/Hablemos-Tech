@@ -54,6 +54,21 @@
     return Boolean(profile && profile.access_status === 'approved');
   }
 
+  function getDisplayName(profile, session) {
+    var full = '';
+    if (profile && profile.name) full = String(profile.name).trim();
+    if (!full && session && session.user && session.user.user_metadata) {
+      full = String(session.user.user_metadata.name || '').trim();
+    }
+    if (full) {
+      var parts = full.split(/\s+/);
+      return parts[0];
+    }
+    var email = (profile && profile.email) || (session && session.user && session.user.email) || '';
+    var local = email.split('@')[0];
+    return local || 'Cuenta';
+  }
+
   async function requireAuth(options) {
     var opts = options || {};
     var session = await getSession();
@@ -160,6 +175,7 @@
     getSession: getSession,
     getProfile: getProfile,
     hasRevistaAccess: hasRevistaAccess,
+    getDisplayName: getDisplayName,
     requireAuth: requireAuth,
     signOut: signOut,
     updateProfileFields: updateProfileFields,

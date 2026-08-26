@@ -9,7 +9,7 @@
       '<div class="nav__acciones">' +
         '<a class="nav__enlace nav__enlace--cta" href="#" data-auth-open="registro" data-auth-guest>Registro</a>' +
         '<a class="nav__enlace nav__enlace--cta nav__enlace--signin" href="#" data-auth-open="sign-in" data-auth-guest>Sign in</a>' +
-        '<a class="nav__enlace nav__enlace--cta" href="/cuenta.html" data-auth-user hidden>Mi cuenta</a>' +
+        '<a class="nav__enlace nav__enlace--cta nav__enlace--usuario" href="/cuenta.html" data-auth-user data-auth-nombre hidden>Mi cuenta</a>' +
       '</div>' +
     '</header>';
 
