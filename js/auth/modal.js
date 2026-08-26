@@ -430,10 +430,14 @@
         if (HTAuth.isPersonalEmail(email)) {
           showAlert('registro', 'Cuenta creada. Tu acceso a la revista está en revisión; mientras tanto puedes ver el sumario.', 'info');
         } else {
-          showAlert('registro', 'Cuenta creada. Revisa tu email para confirmar y acceder a la revista.', 'success');
+          showAlert('registro', 'Cuenta creada. Ya puedes iniciar sesión y leer la revista.', 'success');
         }
       } catch (error) {
-        showAlert('registro', error.message || 'No se pudo crear la cuenta.', 'error');
+        var message = error.message || 'No se pudo crear la cuenta.';
+        if (/rate limit|over_email_send/i.test(message)) {
+          message = 'Hay muchas altas en este momento. Espera un minuto e inténtalo de nuevo.';
+        }
+        showAlert('registro', message, 'error');
       }
     });
 
