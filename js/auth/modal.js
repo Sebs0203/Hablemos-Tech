@@ -386,34 +386,43 @@
         return;
       }
 
+      var submitBtn = event.target.querySelector('[type="submit"]');
+      if (submitBtn) submitBtn.disabled = true;
+
       try {
         var client = HTAuth.getClient();
-        var dest = nextUrl || '/revista/';
+        if (!client) {
+          throw new Error('El servicio de cuentas no está listo. Recarga la página.');
+        }
+
         var result = await client.auth.signUp({
           email: email,
           password: password,
           options: {
-            data: { name: name, company: company, role_area: roleArea },
-            emailRedirectTo: HTAuth.redirectUrl('/auth/callback.html?next=' + encodeURIComponent(dest))
+            data: { name: name, company: company, role_area: roleArea }
           }
         });
 
-        if (result.error) throw result.error;
+        var alreadyExists = result.error && /already registered|already exists|user_already_exists/i.test(
+          (result.error.message || '') + ' ' + (result.error.code || '')
+        );
 
-        if (result.data.session) {
-          await HTAuth.updateProfileFields({ name: name, company: company, role_area: roleArea });
-          if (window.HTBeacon) {
-            HTBeacon.sendLead({
-              kind: 'revista-registro',
-              name: name,
-              email: email,
-              company: company,
-              puesto: roleArea,
-              note: 'Registro revista · sesión inmediata'
-            });
+        if (result.error && !alreadyExists) throw result.error;
+
+        if (!result.data || !result.data.session) {
+          var signIn = await client.auth.signInWithPassword({ email: email, password: password });
+          if (signIn.error) {
+            if (alreadyExists) {
+              throw new Error('Esa cuenta ya existe. Usa Sign in con tu contraseña.');
+            }
+            throw signIn.error;
           }
-          finishAuth();
-          return;
+        }
+
+        try {
+          await HTAuth.updateProfileFields({ name: name, company: company, role_area: roleArea });
+        } catch (profileError) {
+          console.error(profileError);
         }
 
         if (window.HTBeacon) {
@@ -423,21 +432,18 @@
             email: email,
             company: company,
             puesto: roleArea,
-            note: 'Registro revista · confirmación email'
+            note: alreadyExists ? 'Registro revista · cuenta existente' : 'Registro revista · sesión inmediata'
           });
         }
 
-        if (HTAuth.isPersonalEmail(email)) {
-          showAlert('registro', 'Cuenta creada. Tu acceso a la revista está en revisión; mientras tanto puedes ver el sumario.', 'info');
-        } else {
-          showAlert('registro', 'Cuenta creada. Ya puedes iniciar sesión y leer la revista.', 'success');
-        }
+        finishAuth();
       } catch (error) {
         var message = error.message || 'No se pudo crear la cuenta.';
         if (/rate limit|over_email_send/i.test(message)) {
           message = 'Hay muchas altas en este momento. Espera un minuto e inténtalo de nuevo.';
         }
         showAlert('registro', message, 'error');
+        if (submitBtn) submitBtn.disabled = false;
       }
     });
 
@@ -446,14 +452,24 @@
       var data = new FormData(event.target);
       var email = String(data.get('email') || '').trim();
       var password = String(data.get('password') || '');
+      var submitBtn = event.target.querySelector('[type="submit"]');
+      if (submitBtn) submitBtn.disabled = true;
 
       try {
         var client = HTAuth.getClient();
+        if (!client) {
+          throw new Error('El servicio de cuentas no está listo. Recarga la página.');
+        }
         var result = await client.auth.signInWithPassword({ email: email, password: password });
         if (result.error) throw result.error;
         finishAuth();
       } catch (error) {
-        showAlert('sign-in', error.message || 'Email o contraseña incorrectos.', 'error');
+        var signInMessage = error.message || 'Email o contraseña incorrectos.';
+        if (/invalid login|invalid credentials|email not confirmed/i.test(signInMessage)) {
+          signInMessage = 'Email o contraseña incorrectos.';
+        }
+        showAlert('sign-in', signInMessage, 'error');
+        if (submitBtn) submitBtn.disabled = false;
       }
     });
 
