@@ -24,8 +24,28 @@
   function getNextParam() {
     var params = new URLSearchParams(window.location.search);
     var next = params.get('next');
-    if (!next || next.charAt(0) !== '/') return null;
+    if (!next || next.charAt(0) !== '/' || next.charAt(1) === '/') return null;
     return next;
+  }
+
+  function getReturnPath(options) {
+    var opts = options || {};
+    var blocked = opts.exclude || '/cuenta.html';
+    var next = getNextParam();
+    if (next && next.indexOf(blocked) !== 0) return next;
+
+    try {
+      if (document.referrer) {
+        var url = new URL(document.referrer);
+        if (url.origin === window.location.origin && url.pathname.indexOf(blocked) !== 0) {
+          return url.pathname + url.search + url.hash;
+        }
+      }
+    } catch (error) {
+      /* ignore invalid referrer */
+    }
+
+    return '/';
   }
 
   async function getSession() {
@@ -60,13 +80,25 @@
     if (!full && session && session.user && session.user.user_metadata) {
       full = String(session.user.user_metadata.name || '').trim();
     }
-    if (full) {
-      var parts = full.split(/\s+/);
-      return parts[0];
-    }
+    if (full) return full;
     var email = (profile && profile.email) || (session && session.user && session.user.email) || '';
     var local = email.split('@')[0];
     return local || 'Cuenta';
+  }
+
+  function getInitials(profile, session) {
+    var name = '';
+    if (profile && profile.name) name = String(profile.name).trim();
+    if (!name && session && session.user && session.user.user_metadata) {
+      name = String(session.user.user_metadata.name || '').trim();
+    }
+    if (name) {
+      var parts = name.split(/\s+/).filter(Boolean);
+      if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+      return (parts[0].charAt(0) + parts[parts.length - 1].charAt(0)).toUpperCase();
+    }
+    var email = (profile && profile.email) || (session && session.user && session.user.email) || '';
+    return (email.charAt(0) || 'H').toUpperCase();
   }
 
   async function requireAuth(options) {
@@ -172,10 +204,12 @@
     isPersonalEmail: isPersonalEmail,
     redirectUrl: redirectUrl,
     getNextParam: getNextParam,
+    getReturnPath: getReturnPath,
     getSession: getSession,
     getProfile: getProfile,
     hasRevistaAccess: hasRevistaAccess,
     getDisplayName: getDisplayName,
+    getInitials: getInitials,
     requireAuth: requireAuth,
     signOut: signOut,
     updateProfileFields: updateProfileFields,

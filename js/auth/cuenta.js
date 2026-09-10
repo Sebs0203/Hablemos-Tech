@@ -9,6 +9,24 @@
     var tipoEl = document.getElementById('cuenta-tipo');
     var logoutBtn = document.getElementById('cuenta-logout');
     var revistaBtn = document.getElementById('cuenta-revista');
+    var closeBtn = document.getElementById('cuenta-cerrar');
+
+    if (closeBtn) {
+      var returnPath = window.HTAuth && HTAuth.getReturnPath ? HTAuth.getReturnPath() : '/';
+      closeBtn.setAttribute('href', returnPath);
+      closeBtn.addEventListener('click', function (event) {
+        if (window.history.length <= 1 || !document.referrer) return;
+        try {
+          var from = new URL(document.referrer);
+          if (from.origin === window.location.origin && from.pathname.indexOf('/cuenta.html') !== 0) {
+            event.preventDefault();
+            window.history.back();
+          }
+        } catch (error) {
+          /* keep href fallback */
+        }
+      });
+    }
 
     if (!window.HTAuth) return;
 

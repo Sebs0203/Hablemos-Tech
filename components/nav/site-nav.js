@@ -9,7 +9,23 @@
       '<div class="nav__acciones">' +
         '<a class="nav__enlace nav__enlace--cta" href="#" data-auth-open="registro" data-auth-guest>Registro</a>' +
         '<a class="nav__enlace nav__enlace--cta nav__enlace--signin" href="#" data-auth-open="sign-in" data-auth-guest>Sign in</a>' +
-        '<a class="nav__enlace nav__enlace--cta nav__enlace--usuario" href="/cuenta.html" data-auth-user data-auth-nombre hidden>Mi cuenta</a>' +
+        '<div class="nav__user" data-auth-user hidden>' +
+          '<button class="nav__user-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="nav-user-menu" data-auth-user-toggle>' +
+            '<span class="nav__user-avatar" data-auth-iniciales aria-hidden="true">HT</span>' +
+            '<span class="nav__user-info">' +
+              '<span class="nav__user-name" data-auth-nombre>Mi cuenta</span>' +
+              '<span class="nav__user-tier" data-auth-estado>Revista</span>' +
+            '</span>' +
+            '<svg class="nav__user-chev" viewBox="0 0 10 10" aria-hidden="true">' +
+              '<path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>' +
+            '</svg>' +
+          '</button>' +
+          '<div class="nav__user-menu" id="nav-user-menu" role="menu">' +
+            '<p class="nav__user-menu-head" data-auth-email></p>' +
+            '<a class="nav__user-menu-cta" href="/cuenta.html" role="menuitem">Mi cuenta</a>' +
+            '<button class="nav__user-menu-link nav__user-menu-link--danger" type="button" role="menuitem" data-auth-logout>Cerrar sesión</button>' +
+          '</div>' +
+        '</div>' +
       '</div>' +
     '</header>';
 

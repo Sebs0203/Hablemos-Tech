@@ -8,8 +8,8 @@
   <link rel="icon" href="assets/img/asterisco.png?v=favicon" type="image/png">
   <link rel="preload" href="assets/fonts/gotham-medium.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/schibsted-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/img/hero-fondo-estudio.jpg?v=3200" as="image">
-  <link rel="stylesheet" href="css/hablemos.css?v=202608251736">
+  <link rel="preload" href="assets/img/hero-fondo-estudio.jpg?v=3200hq" as="image">
+  <link rel="stylesheet" href="css/hablemos.css?v=202609101356">
   <noscript>
     <style>
       hero-marca { display: none; }
@@ -24,12 +24,13 @@
   <script src="js/home-scroll.js?v=202608251056" defer></script>
   <script src="js/podcast-eps.js?v=202608241702" defer></script>
   <script src="js/revista-abanico.js?v=202608251158" defer></script>
+  <script src="js/hero-slides.js?v=202609101356" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
   <script src="/js/config.js" defer></script>
   <script src="/js/auth/client.js?v=202608251730" defer></script>
   <script src="/js/beacon-leads.js?v=202608251707" defer></script>
-  <script src="/js/auth/session.js?v=202608251733" defer></script>
-  <script src="/js/auth/nav.js?v=202608251733" defer></script>
+  <script src="/js/auth/session.js?v=202608251752" defer></script>
+  <script src="/js/auth/nav.js?v=202608251752" defer></script>
   <script src="/js/auth/modal.js?v=202608251730" defer></script>
   <script src="/js/boletin.js?v=202608251607" defer></script>
 </head>
@@ -44,7 +45,23 @@
     <div class="nav__acciones">
       <a class="nav__enlace nav__enlace--cta" href="#" data-auth-open="registro" data-auth-guest>Registro</a>
       <a class="nav__enlace nav__enlace--cta nav__enlace--signin" href="#" data-auth-open="sign-in" data-auth-guest>Sign in</a>
-      <a class="nav__enlace nav__enlace--cta nav__enlace--usuario" href="/cuenta.html" data-auth-user data-auth-nombre hidden>Mi cuenta</a>
+      <div class="nav__user" data-auth-user hidden>
+        <button class="nav__user-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="nav-user-menu" data-auth-user-toggle>
+          <span class="nav__user-avatar" data-auth-iniciales aria-hidden="true">HT</span>
+          <span class="nav__user-info">
+            <span class="nav__user-name" data-auth-nombre>Mi cuenta</span>
+            <span class="nav__user-tier" data-auth-estado>Revista</span>
+          </span>
+          <svg class="nav__user-chev" viewBox="0 0 10 10" aria-hidden="true">
+            <path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="nav__user-menu" id="nav-user-menu" role="menu">
+          <p class="nav__user-menu-head" data-auth-email></p>
+          <a class="nav__user-menu-cta" href="/cuenta.html" role="menuitem">Mi cuenta</a>
+          <button class="nav__user-menu-link nav__user-menu-link--danger" type="button" role="menuitem" data-auth-logout>Cerrar sesión</button>
+        </div>
+      </div>
       <button class="nav__abrir" type="button" aria-expanded="false" aria-controls="menu-completo" aria-label="Abrir menú">
         <span class="menu-icon" aria-hidden="true">
           <span class="menu-icon__linea"></span>
@@ -222,13 +239,34 @@
     <section class="hero">
       <div class="hero__capas" aria-hidden="true">
         <img
-          class="hero__capas-fondo"
-          src="assets/img/hero-fondo-estudio.jpg?v=3200"
+          class="hero__capas-fondo hero__capas-fondo--mesa is-activa"
+          src="assets/img/hero-fondo-estudio.jpg?v=3200hq"
           alt=""
           width="3200"
           height="2133"
           decoding="async"
           fetchpriority="high">
+        <img
+          class="hero__capas-fondo hero__capas-fondo--retrato"
+          src="assets/img/hero-fondo-retrato.jpg?v=3200hq"
+          alt=""
+          width="3200"
+          height="2133"
+          decoding="async">
+        <img
+          class="hero__capas-fondo hero__capas-fondo--camara"
+          src="assets/img/hero-fondo-camara.jpg?v=3200hq"
+          alt=""
+          width="3200"
+          height="2133"
+          decoding="async">
+        <img
+          class="hero__capas-fondo hero__capas-fondo--estudio"
+          src="assets/img/hero-fondo-anterior.jpg?v=3200"
+          alt=""
+          width="3200"
+          height="2133"
+          decoding="async">
       </div>
       <h1 class="hero__titulo">Tecnología e innovación se encuentran aquí.</h1>
       <p class="hero__texto">Conversaciones con quienes deciden el rumbo tecnológico de las empresas del país: infraestructura, nube y seguridad.</p>
