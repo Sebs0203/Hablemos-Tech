@@ -2,46 +2,922 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vol. 01 — Hablemos Tech</title>
-  <link rel="icon" href="/assets/img/asterisco.png?v=favicon" type="image/png">
-  <link rel="stylesheet" href="/css/hablemos.css?v=202608251752">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Vol. 01 · Foro de Tecnología MX — Revista Hablemos Tech</title>
+  <meta name="description" content="Revista digital Hablemos Tech, Vol. 01: lo que se habló en el Foro de Tecnología MX Tijuana 2026. Nube inteligente, IA en producción, video en el borde, ciberseguridad e industria.">
+  <meta name="theme-color" content="#0b0c0c">
+  <link rel="icon" href="../../assets/img/asterisco.svg" type="image/svg+xml">
+  <link rel="preload" href="../../assets/fonts/schibsted-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/geist-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../lector/lector.css">
+  <link rel="stylesheet" href="../lector/plantillas.css?v=202610131300">
+  <script>document.documentElement.classList.add('js');</script>
+  <!-- acceso:inicio -->
+  <link rel="stylesheet" href="../lector/acceso.css">
+  <script>document.documentElement.classList.add('revista-bloqueada');</script>
+  <!-- acceso:fin -->
 </head>
-<body class="pagina-revista" data-issue="vol-01">
-  <div id="site-nav"></div>
-  <script src="/components/nav/site-nav.js" data-current="revista"></script>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="logo-ht" viewBox="0 0 626.18 208.23">
+      <g class="logo__acento">
+        <path d="M42.68,90.32v84.22H0V22.94h42.68v33.69h69.33v33.69H42.68ZM42.68,208.23v-33.69h70.51v33.69H42.68Z"/>
+        <path d="M277.2,56.63v92.65h-115.77v25.26h-32.87V56.63h148.64ZM244.33,90.32h-82.9v25.27h82.9v-25.27ZM161.43,208.23v-33.69h82.9v33.69h-82.9Z"/>
+        <path d="M328.73,92.49v79.89h114.57v35.86h-149.56V56.63h149.56v35.86h-114.57Z"/>
+        <path d="M583.38,56.63v33.69h-80.73v117.91h-42.8V0h42.8v56.63h80.73ZM583.38,208.23v-117.91h42.8v117.91h-42.8Z"/>
+      </g>
+      <g class="logo__texto">
+        <path d="M90.04,25.17h-20.15v14.77h-10.67V0h10.67v14.89h20.15V0h10.67v39.93h-10.67v-14.77Z"/>
+        <path d="M138.98,25.17h-20.15v14.77h-10.67V0h41.49v39.93h-10.67v-14.77ZM118.83,14.89h20.15v-4.62h-20.15v4.62Z"/>
+        <path d="M198.59,0v39.93h-41.49V0h41.49ZM167.78,14.89h20.15v-4.62h-20.15v4.62ZM187.92,25.17h-20.15v4.49h20.15v-4.49Z"/>
+        <path d="M247.53,39.93h-41.49V0h10.67v29.66h30.82v10.27Z"/>
+        <path d="M296.48,25.17h-30.82v4.49h30.82v10.27h-41.49V0h41.49v10.27h-30.82v4.62h30.82v10.27Z"/>
+        <path d="M329.67,10.27v29.66h-10.67V10.27h-4.4v29.66h-10.67V0h41.49v39.93h-10.67V10.27h-5.07Z"/>
+        <path d="M394.36,0v39.93h-41.49V0h41.49ZM383.68,10.27h-20.15v19.39h20.15V10.27Z"/>
+        <path d="M443.3,10.27h-30.82v4.62h30.82v25.04h-41.49v-10.27h30.82v-4.49h-30.82V0h41.49v10.27Z"/>
+      </g>
+    </symbol>
+    <symbol id="asterisco" viewBox="0 0 48 48">
+      <g transform="translate(24 24)">
+        <rect x="-4" y="-20" width="8" height="40"/>
+        <rect x="-4" y="-20" width="8" height="40" transform="rotate(72)"/>
+        <rect x="-4" y="-20" width="8" height="40" transform="rotate(144)"/>
+        <rect x="-4" y="-20" width="8" height="40" transform="rotate(216)"/>
+        <rect x="-4" y="-20" width="8" height="40" transform="rotate(288)"/>
+      </g>
+    </symbol>
+  </svg>
 
-  <main class="pagina-revista__contenedor">
-    <div class="revista-gate" id="revista-gate" hidden>
-      <div data-gate="login" hidden>
-        <p class="auth-lead">Regístrate gratis para leer los artículos completos y descargar el PDF.</p>
-        <div class="revista-gate__acciones">
-          <a class="boton boton--principal" href="#" data-auth-open="registro" data-auth-next="/revista/vol-01/">Registrarme</a>
-          <a class="boton" href="#" data-auth-open="sign-in" data-auth-next="/revista/vol-01/">Sign in</a>
+  <div class="lector">
+    <header class="lector__barra">
+      <a class="lector__marca" href="../../" aria-label="Hablemos Tech, inicio">
+        <svg class="logo" viewBox="0 0 626.18 208.23" aria-hidden="true"><use href="#logo-ht"/></svg>
+      </a>
+      <p class="lector__titulo">
+        <span>Revista digital</span>
+        <span class="lector__sep" aria-hidden="true">/</span>
+        <span>Vol. 01 · Foro de Tecnología MX</span>
+      </p>
+      <div class="lector__acciones">
+        <output class="lector__folio" id="folio" aria-live="polite">1 / 20</output>
+        <div class="lector__zoom" role="group" aria-label="Zoom de la página">
+          <button class="lector__icono" id="zoom-menos" type="button" aria-label="Alejar" disabled>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12h12"/></svg>
+          </button>
+          <output class="lector__zoom-nivel" id="zoom-nivel">100%</output>
+          <button class="lector__icono" id="zoom-mas" type="button" aria-label="Acercar">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6v12M6 12h12"/></svg>
+          </button>
+        </div>
+        <button class="lector__icono" id="pantalla" type="button" aria-label="Pantalla completa">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="lector__escenario" id="escenario">
+      <button class="lector__flecha lector__flecha--prev" id="anterior" type="button" aria-label="Página anterior">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+      </button>
+
+      <div class="lector__libro" id="marco" data-pos="portada">
+        <div class="libro" id="libro">
+
+          <!-- 01 · Portada -->
+          <section class="pagina pagina--noche" data-density="hard" aria-label="Portada">
+            <div class="pagina__lienzo portada portada--arte">
+              <h1 class="portada__sr">Foro de Tecnología 2026</h1>
+              <img class="portada__arte" src="../../assets/img/revista-vol-01/portada.png" alt="Portada de la revista Hablemos Tech, volumen 01: Foro de Tecnología 2026. Tijuana ya no es promesa, es protagonista." width="1544" height="2000">
+            </div>
+          </section>
+
+          <!-- 02 · Sumario -->
+          <section class="pagina pagina--papel" aria-label="Página 2: sumario">
+            <div class="pagina__lienzo hoja sumario">
+              <header class="cornisa">
+                <span>Hablemos Tech</span>
+                <span>Vol. 01 — Julio 2026</span>
+              </header>
+
+              <h2 class="sumario__titulo" data-anim style="--i:0">Sumario<span class="sumario__punto">.</span></h2>
+
+              <div class="sumario__cuerpo">
+                <aside class="sumario__lado" data-anim style="--i:2">
+                  <figure class="sumario__foto">
+                    <img src="../../assets/img/revista-vol-01/nube-inteligente.jpg" alt="Francisco Olazo frente a su presentación La Nube Inteligente en el Foro de Tecnología MX." width="1000" height="1500">
+                    <figcaption>Infraestructura · p. 4</figcaption>
+                  </figure>
+                  <p class="sumario__nota">Diez conversaciones sobre IA, infraestructura y ciberseguridad, en una sola jornada.</p>
+                  <p class="sumario__portada"><span>Organizan</span>Enteracloud MX y Foro de Tecnología BC.</p>
+                </aside>
+
+                <ol class="indice">
+                  <li class="indice__item indice__item--destacado" data-anim style="--i:3">
+                    <span class="indice__num">04</span>
+                    <div>
+                      <p class="indice__seccion">Infraestructura · Francisco Olazo</p>
+                      <h3 class="indice__titulo">Agentes que analizan y actúan</h3>
+                    </div>
+                  </li>
+                  <li class="indice__item" data-anim style="--i:4">
+                    <span class="indice__num">06</span>
+                    <div>
+                      <p class="indice__seccion">Video inteligente · Francisco Banda</p>
+                      <h3 class="indice__titulo">De cámaras a neuronas</h3>
+                    </div>
+                  </li>
+                  <li class="indice__item" data-anim style="--i:5">
+                    <span class="indice__num">08</span>
+                    <div>
+                      <p class="indice__seccion">IA en producción · Andrés Wong</p>
+                      <h3 class="indice__titulo">La IA no alucina: miente</h3>
+                    </div>
+                  </li>
+                  <li class="indice__item" data-anim style="--i:6">
+                    <span class="indice__num">10</span>
+                    <div>
+                      <p class="indice__seccion">Panel · Avit, Zebra, Hikvision, Panduit</p>
+                      <h3 class="indice__titulo">Cuatro piezas, una operación</h3>
+                    </div>
+                  </li>
+                  <li class="indice__item" data-anim style="--i:7">
+                    <span class="indice__num">12</span>
+                    <div>
+                      <p class="indice__seccion">Forense digital · Gustavo Rodríguez</p>
+                      <h3 class="indice__titulo">El forense ya no trabaja solo</h3>
+                    </div>
+                  </li>
+                  <li class="indice__item" data-anim style="--i:8">
+                    <span class="indice__num">13</span>
+                    <div>
+                      <p class="indice__seccion">Impresión segura · David Juárez</p>
+                      <h3 class="indice__titulo">La impresora es una puerta</h3>
+                    </div>
+                  </li>
+                  <li class="indice__item" data-anim style="--i:9">
+                    <span class="indice__num">14</span>
+                    <div>
+                      <p class="indice__seccion">Panel · Scitum, Veeam, Grupo Trycer</p>
+                      <h3 class="indice__titulo">Tres ejes para 2026</h3>
+                    </div>
+                  </li>
+                  <li class="indice__item" data-anim style="--i:10">
+                    <span class="indice__num">16</span>
+                    <div>
+                      <p class="indice__seccion">Comunicaciones · David Modiano</p>
+                      <h3 class="indice__titulo">Un solo lugar, cada canal</h3>
+                    </div>
+                  </li>
+                  <li class="indice__item" data-anim style="--i:11">
+                    <span class="indice__num">17</span>
+                    <div>
+                      <p class="indice__seccion">Industria · Derly Alí Gutiérrez</p>
+                      <h3 class="indice__titulo">Cuando IT heredó la fábrica</h3>
+                    </div>
+                  </li>
+                  <li class="indice__item" data-anim style="--i:12">
+                    <span class="indice__num">18</span>
+                    <div>
+                      <p class="indice__seccion">Panel de cierre · Certus, Fisher &amp; Paykel</p>
+                      <h3 class="indice__titulo">La IA ya es transversal</h3>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+
+              <footer class="folio">
+                <span class="folio__num">02</span>
+                <span>Sumario</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- 03 · Crónica -->
+          <section class="pagina pagina--noche" aria-label="Página 3: carta editorial">
+            <div class="pagina__lienzo hoja cronica">
+              <div class="reticula" aria-hidden="true"></div>
+              <header class="cornisa">
+                <span>Crónica</span>
+                <span>Tijuana, B.C. · Julio 2026</span>
+              </header>
+
+              <div class="cronica__cabeza">
+                <div class="cronica__titular">
+                  <p class="etiqueta etiqueta--verde" data-anim style="--i:0"><span class="etiqueta__punto"></span>Carta editorial</p>
+                  <h2 class="titulo-2" data-anim style="--i:1">Tijuana ya no es promesa.</h2>
+                </div>
+                <img class="cronica__marca" data-anim style="--i:2" src="../../assets/img/revista-vol-01/foro-tecnologia-marca.webp" alt="Foro de Tecnología MX, Tijuana 2026" width="1000" height="386">
+              </div>
+
+              <p class="entrada" data-anim style="--i:3">La segunda edición del Foro de Tecnología MX reunió en Tijuana a quienes construyen la infraestructura TI de la región. La conclusión fue una: la próxima frontera se construye integrando nube, IA, ciberseguridad y talento.</p>
+
+              <div class="texto texto--2col" data-anim style="--i:4">
+                <p class="capitular">El foro nació para consolidar a la región como uno de los polos tecnológicos más importantes del país. En una sola jornada se pasó de la nube que ejecuta a la fábrica que ya es responsabilidad de TI.</p>
+                <p>La palabra “inteligencia artificial” ya se desgastó, dijo Andrés Wong, y casi nadie habló de ella en abstracto. Se habló de agentes con nombre propio, de cámaras que interpretan lo que ven y de pedimentos que se llenan solos.</p>
+                <p>También de lo pendiente: identidades sin gobierno, respaldos que nadie ha probado y plantas industriales que hoy comparten red con la oficina.</p>
+              </div>
+
+              <ol class="linea-tiempo" data-anim style="--i:6" aria-label="Los temas de la jornada">
+                <li><b>Nube inteligente</b><span>Infraestructura</span></li>
+                <li><b>Video en el borde</b><span>Vigilancia</span></li>
+                <li><b>Agentes en producción</b><span>IA</span></li>
+                <li><b>Identidad y resiliencia</b><span>Ciberseguridad</span></li>
+                <li><b>IT + OT</b><span>Industria</span></li>
+              </ol>
+
+              <footer class="folio folio--derecha">
+                <span>Crónica</span>
+                <span class="folio__num">03</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- 04 · Infraestructura: apertura con foto -->
+          <section class="pagina pagina--papel" aria-label="Página 4: nube inteligente">
+            <div class="pagina__lienzo hoja articulo-foto">
+              <figure class="articulo-foto__foto">
+                <img data-foto src="../../assets/img/revista-vol-01/francisco-olazo.jpg" alt="Francisco Olazo, de Enteracloud, con el micrófono frente a un diagrama de su plataforma en el Foro de Tecnología MX." width="1000" height="667">
+                <span class="chip articulo-foto__chip">Infraestructura</span>
+              </figure>
+
+              <div class="articulo__cabeza">
+                <h2 class="titulo-2" data-anim style="--i:0">Agentes que analizan y actúan.</h2>
+                <p class="entrada" data-anim style="--i:1">Para Francisco Olazo, de Enteracloud, la nube dejó de ser un lugar donde se alojan cargas. Con IA, ejecuta y automatiza procesos completos.</p>
+                <p class="firma" data-anim style="--i:2"><b>La plática</b> · Nube inteligente: agentes que analizan y actúan</p>
+              </div>
+
+              <footer class="folio folio--derecha">
+                <span>Infraestructura</span>
+                <span class="folio__num">04</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- 05 · Infraestructura: tres pilares -->
+          <section class="pagina pagina--papel" aria-label="Página 5: los tres pilares de la nube inteligente">
+            <div class="pagina__lienzo hoja hoja--banda caso">
+              <figure class="foto-cabecera" style="--foco: 50% 45%">
+                <img data-foto src="../../assets/img/revista-vol-01/francisco-olazo-publico.jpg" alt="Francisco Olazo habla frente al público del Foro de Tecnología MX." width="1000" height="667">
+                <span class="chip foto-cabecera__chip">Nube inteligente</span>
+              </figure>
+
+              <h2 class="titulo-2" data-anim style="--i:1">Tres pilares, una sola nube.</h2>
+              <p class="entrada" data-anim style="--i:2">Olazo construyó con IA una plataforma SaaS sin ser programador profesional: integró APIs, bases de datos y servicios en una fracción del tiempo habitual.</p>
+
+              <p class="texto caso__texto" data-anim style="--i:3">En la demostración, la plataforma descubrió sola la infraestructura y generó inventario, diagramas de red, reportes de seguridad y una comparación de costos entre nubes, en minutos. Sus agentes también reciben solicitudes por WhatsApp y ejecutan scripts de PowerShell.</p>
+
+              <ol class="triada" data-anim style="--i:4">
+                <li><span class="triada__num">01</span><b>La nube</b><p>Cómputo, redes y almacenamiento redundante. Replicar entre centros de datos sostiene la operación.</p></li>
+                <li><span class="triada__num">02</span><b>Linux</b><p>Una capa de control estable para cargas de IA. No es migrar todo: es usarlo donde conviene.</p></li>
+                <li><span class="triada__num">03</span><b>La IA</b><p>Analiza, despliega, automatiza y decide. Vuelve inteligente a la infraestructura.</p></li>
+              </ol>
+
+              <footer class="banda" data-anim style="--i:5">
+                <svg class="banda__asterisco" viewBox="0 0 48 48" aria-hidden="true"><use href="#asterisco"/></svg>
+                <p><span>Francisco Olazo</span><strong>“El aprendizaje no estuvo en escribir código, sino en estructurar los prompts.”</strong></p>
+                <span class="folio__num">05</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- 06 · Video inteligente: apertura -->
+          <section class="pagina pagina--noche" aria-label="Página 6: video inteligente, apertura">
+            <div class="pagina__lienzo hoja apertura">
+              <div class="reticula" aria-hidden="true"></div>
+              <header class="cornisa">
+                <span>Video inteligente</span>
+                <span>Del CCTV al sistema nervioso digital</span>
+              </header>
+
+              <figure class="apertura__red">
+                <div class="red" data-red="24" role="img" aria-label="Diagrama: un sistema al centro y 24 cámaras alrededor, cada una como una neurona que procesa en el borde y envía solo metadatos."></div>
+                <figcaption data-anim style="--i:6"><b>Edge computing</b> · cada cámara procesa y envía solo metadatos</figcaption>
+              </figure>
+
+              <h2 class="apertura__cita">
+                <span class="apertura__frase" data-anim style="--i:2">De cámaras</span>
+                <span class="apertura__remate" data-anim style="--i:3">a neuronas digitales.</span>
+              </h2>
+
+              <p class="apertura__autor" data-anim style="--i:4"><b>Francisco Banda</b><span>Mopec Security</span></p>
+
+              <footer class="folio">
+                <span class="folio__num">06</span>
+                <span>Video inteligente</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- 07 · Video inteligente: artículo -->
+          <section class="pagina pagina--papel" aria-label="Página 7: video inteligente">
+            <div class="pagina__lienzo hoja articulo articulo--foto">
+              <figure class="foto-cabecera foto-cabecera--grande" style="--foco: 50% 40%">
+                <img data-foto src="../../assets/img/revista-vol-01/francisco-banda.jpg" alt="Francisco Banda, de Mopec Security, frente a la frase “Lo que ven hoy es solo el comienzo” en su presentación." width="1000" height="667">
+                <span class="chip foto-cabecera__chip">Video inteligente</span>
+                <figcaption class="foto-cabecera__credito foto-cabecera__credito--derecha"><b>Francisco Banda</b><br>Mopec Security</figcaption>
+              </figure>
+
+              <div class="articulo__cabeza">
+                <h2 class="titulo-2" data-anim style="--i:0">La cámara que interpreta.</h2>
+                <p class="entrada" data-anim style="--i:1">El CCTV se pensó para guardar video y revisarlo después de un incidente. Ahora el análisis ocurre en el propio dispositivo.</p>
+              </div>
+
+              <div class="texto texto--2col" data-anim style="--i:2">
+                <p class="capitular">El modelo tradicional dependía de servidores locales, almacenamiento central y horas de revisión manual. El valor de lo grabado se quedaba en el disco.</p>
+                <p>Las neuronas digitales integran cámara, sensores y procesamiento en el borde. Solo sincronizan metadatos, así que siguen operando aunque la conexión sea limitada.</p>
+                <p>El panel de control se vuelve un centro de inteligencia: correlaciona dispositivos, muestra métricas en tiempo real y busca con IA entre miles de eventos.</p>
+              </div>
+
+              <aside class="recuadro" data-anim style="--i:3">
+                <div class="recuadro__intro">
+                  <p class="etiqueta etiqueta--verde"><span class="etiqueta__punto"></span>Dónde ya se usa</p>
+                  <p class="recuadro__lead">Del video al indicador de negocio.</p>
+                </div>
+                <ul>
+                  <li>Retail: cruza video con POS y ERP para reducir mermas y auditar.</li>
+                  <li>Manufactura: detecta riesgos laborales de forma automática.</li>
+                  <li>Operación: convierte lo que se ve en indicadores para decidir.</li>
+                </ul>
+              </aside>
+
+              <footer class="folio folio--derecha">
+                <span>Video inteligente</span>
+                <span class="folio__num">07</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- 08 · IA: el dato -->
+          <section class="pagina pagina--verde" aria-label="Página 8: inteligencia artificial, caso de una agencia aduanal">
+            <div class="pagina__lienzo hoja dato">
+              <div class="reticula" aria-hidden="true"></div>
+              <header class="cornisa">
+                <span>Inteligencia artificial</span>
+                <span>Caso Skerluchen · Agencia aduanal</span>
+              </header>
+
+              <p class="etiqueta dato__etiqueta" data-anim style="--i:0"><span class="etiqueta__punto"></span>De dos días a</p>
+              <p class="dato__giga" data-anim style="--i:1"><span>1</span><small>hora</small></p>
+              <p class="dato__pie" data-anim style="--i:2">Capturar un pedimento le tomaba hasta dos días a un agente aduanal. Con SICVD, el sistema que construyó Purple AI sobre Dify y Llama, toma una hora y opera 24/7.</p>
+
+              <ol class="escalera" data-anim style="--i:3" aria-label="Tiempo de captura de un pedimento, en escala logarítmica">
+                <li style="--valor:100"><span>Agente aduanal, a mano</span><b>2 días</b><i data-barra style="--i:0"></i></li>
+                <li style="--valor:51"><span>SICVD · Dify + Llama, open source</span><b>1 h</b><i data-barra style="--i:1"></i></li>
+              </ol>
+
+              <aside class="dato__alerta" data-anim style="--i:5">
+                <strong>El costo que nadie midió.</strong>
+                <span>Conectar el sistema a Google para estimar precios costaba 11,500 pesos diarios. Con FreeRouter, el enrutador open source de Wong, bajó a 20 dólares al mes por modelo.</span>
+              </aside>
+
+              <dl class="trio" data-anim style="--i:6">
+                <div><dt>9</dt><dd>sistemas internos integrados</dd></div>
+                <div><dt>24/7</dt><dd>los archivos se procesan de noche</dd></div>
+                <div><dt>2</dt><dd>años con el loop agéntico</dd></div>
+              </dl>
+
+              <footer class="folio">
+                <span class="folio__num">08</span>
+                <span>Andrés Wong · Purple AI</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- 09 · IA: artículo -->
+          <section class="pagina pagina--papel" aria-label="Página 9: inteligencia artificial">
+            <div class="pagina__lienzo hoja articulo articulo--foto">
+              <figure class="foto-cabecera foto-cabecera--grande" style="--foco: 50% 40%">
+                <img data-foto src="../../assets/img/revista-vol-01/andres-wong.jpg" alt="Andrés Wong, de Purple AI, en el escenario frente a la frase “El modelo alucina. El código valida.”" width="1000" height="667">
+                <span class="chip foto-cabecera__chip">Inteligencia artificial</span>
+                <figcaption class="foto-cabecera__credito foto-cabecera__credito--derecha"><b>Andrés Wong</b><br>Purple AI</figcaption>
+              </figure>
+
+              <div class="articulo__cabeza">
+                <h2 class="titulo-2" data-anim style="--i:0">La IA no alucina: miente.</h2>
+                <p class="entrada" data-anim style="--i:1">Está diseñada para responder, tenga o no la información. En un pedimento, donde un error cuesta millones, eso no es tolerable.</p>
+              </div>
+
+              <div class="texto texto--2col" data-anim style="--i:2">
+                <p class="capitular">Wong prefiere hablar de agentes y les pone nombre; el suyo se llama Maya. Pedirle a un LLM una serie coreana es una cosa; llevarlo a una agencia aduanal, otra.</p>
+                <p>Su salida es un Source of Truth (Sort): un proceso compara cada pedimento contra el Sort y, si no coincide, el agente vuelve a intentar.</p>
+                <p>Hasta el registro a este foro lo llevó un agente, Tito. Cuando Eventbrite lo bloqueó, abrió una máquina virtual y siguió a mano.</p>
+              </div>
+
+              <aside class="recuadro" data-anim style="--i:3">
+                <div class="recuadro__intro">
+                  <p class="etiqueta etiqueta--verde"><span class="etiqueta__punto"></span>Los tres dolores</p>
+                  <p class="recuadro__lead">Conocimiento, infraestructura y costo.</p>
+                </div>
+                <ul>
+                  <li>Infraestructura: 30,000 dólares en GPUs no bastaron para la primera ronda. Otros 30,000 tampoco.</li>
+                </ul>
+              </aside>
+
+              <blockquote class="cita-banda" data-anim style="--i:4">
+                <p>“El LLM no importa. Importa el contexto, las herramientas y la información que le das al agente.”</p>
+                <cite class="firma"><b>Andrés Wong</b> · Purple AI</cite>
+              </blockquote>
+
+              <footer class="folio folio--derecha">
+                <span>Inteligencia artificial</span>
+                <span class="folio__num">09</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- 10 · Panel ecosistema TI -->
+          <section class="pagina pagina--noche" aria-label="Página 10: panel ecosistema TI">
+            <div class="pagina__lienzo hoja puertas-hoja">
+              <div class="reticula" aria-hidden="true"></div>
+              <header class="cornisa">
+                <span>Panel</span>
+                <span>Ecosistema TI hacia la eficiencia operativa</span>
+              </header>
+
+              <h2 class="titulo-2 puertas-hoja__titulo" data-anim style="--i:0">Cuatro piezas, una operación.</h2>
+              <p class="entrada" data-anim style="--i:1">Por separado resuelven problemas distintos. Juntos forman la columna vertebral de un proyecto operativo en planta.</p>
+
+              <ol class="puertas-grande">
+                <li data-anim style="--i:2"><span class="puertas-grande__num">01</span><div><b>Borde</b><p>Zebra: RFID, escaneo y visión artificial procesan en el dispositivo; la red recibe el dato limpio.</p></div></li>
+                <li data-anim style="--i:3"><span class="puertas-grande__num">02</span><div><b>Energía</b><p>Panduit: FMPS lleva energía hasta dos kilómetros y administra las fallas en tiempo real.</p></div></li>
+                <li data-anim style="--i:4"><span class="puertas-grande__num">03</span><div><b>Video</b><p>Hikvision: AcuSeek corre en la cámara y busca en el video con lenguaje natural.</p></div></li>
+                <li data-anim style="--i:5"><span class="puertas-grande__num">04</span><div><b>Integración</b><p>Avit: diagnóstico consultivo, nada de vender cajas, y números para justificar la inversión.</p></div></li>
+              </ol>
+
+              <dl class="cifras-fila" data-anim style="--i:6">
+                <div><dt><span data-contar="2">2</span><small> km</small></dt><dd>de energía con FMPS</dd></div>
+                <div><dt>≈ <span data-contar="20">20</span><small>%</small></dt><dd>menos CAPEX sin IDFs extra para cámaras</dd></div>
+                <div><dt><span data-contar="40">40</span><small>%</small></dt><dd>de ahorro máximo frente a una instalación eléctrica tradicional</dd></div>
+              </dl>
+
+              <footer class="folio folio--derecha">
+                <span>Cifras citadas por Gustavo Lugo, Panduit</span>
+                <span class="folio__num">10</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- 11 · Panel ecosistema TI: segunda ronda -->
+          <section class="pagina pagina--papel" aria-label="Página 11: panel ecosistema TI, segunda ronda">
+            <div class="pagina__lienzo hoja entrevista">
+              <header class="cornisa">
+                <span>Panel</span>
+                <span>Guzmán · Ríos · Centeno · Lugo</span>
+              </header>
+
+              <div class="articulo__cabeza">
+                <h2 class="titulo-2" data-anim style="--i:0">Del dato limpio al zero defect.</h2>
+                <p class="entrada" data-anim style="--i:1">En la segunda ronda, el panel pasó de la promesa a la métrica: defectos, seguridad del video y adopción.</p>
+              </div>
+
+              <div class="entrevista__cuerpo">
+                <div class="qa" data-anim style="--i:2">
+                  <div>
+                    <p class="qa__p">Rafael Ríos, Zebra: visión artificial.</p>
+                    <p class="qa__r">La cámara toma unas 100 fotos de piezas buenas y malas, la IA aprende el defecto y aparta como anomalía lo que no conoce. Esos datos permiten atacar el problema desde la raíz.</p>
+                  </div>
+                  <div>
+                    <p class="qa__p">Miguel Centeno, Hikvision: el video también es IoT.</p>
+                    <p class="qa__r">AcuSeek se apoya en ISO 27000 y NIS. Pero, como dice Chuck Davis, vicepresidente global de ciberseguridad de la marca, el sistema depende también del firewall del cliente.</p>
+                  </div>
+                  <div>
+                    <p class="qa__p">Enrique Guzmán, Avit: el integrador.</p>
+                    <p class="qa__r">Las cuatro tecnologías no son silos. Lo que convierte lo instalado en resultados es la adopción: capacitación, entrenamiento continuo y actualizaciones.</p>
+                  </div>
+                  <p class="firma">Síntesis de la redacción a partir del panel</p>
+                </div>
+
+                <aside class="usos" data-anim style="--i:3">
+                  <p class="etiqueta">La energía, en cifras</p>
+                  <ul>
+                    <li><b>FMPS</b>Energía hasta 2 km, con gestión de fallas en tiempo real.</li>
+                    <li><b>Extended Reach</b>150 metros de cobre, con datos.</li>
+                    <li><b>Por par</b>600 watts en cable de tres pares.</li>
+                    <li><b>Normas</b>Certificaciones UL y NEC en México.</li>
+                  </ul>
+                  <p class="usos__nota">Datos de Gustavo Lugo, Panduit.</p>
+                </aside>
+              </div>
+
+              <footer class="folio folio--derecha">
+                <span>Panel</span>
+                <span class="folio__num">11</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- 12 · Forense digital -->
+          <section class="pagina pagina--noche" aria-label="Página 12: forense digital con IA">
+            <div class="pagina__lienzo hoja ruta">
+              <div class="ruta__cabeza">
+                <div class="ruta__titular">
+                  <h2 class="titulo-2" data-anim style="--i:0">El forense ya no trabaja solo.</h2>
+                  <p class="entrada" data-anim style="--i:1">Para Gustavo Rodríguez, de Grupo Trycer, la IA ya es un colaborador del investigador: procesa evidencia, encuentra patrones y acelera la investigación.</p>
+                </div>
+                <figure class="ruta__foto">
+                  <img data-foto src="../../assets/img/revista-vol-01/gustavo-rodriguez.jpg" alt="Gustavo Rodríguez, de Grupo Trycer, con el micrófono en el escenario del Foro de Tecnología MX." width="1000" height="1333" style="object-position: 22% 50%">
+                  <figcaption class="foto-cabecera__credito"><b>Gustavo Rodríguez</b><br>Grupo Trycer</figcaption>
+                </figure>
+              </div>
+
+              <figure class="ruta__mapa" data-anim style="--i:2">
+                <figcaption class="etiqueta">Una investigación digital, dos caminos</figcaption>
+                <div class="ruta__fila ruta__fila--antes">
+                  <span class="ruta__tag">Manual</span>
+                  <ol class="ruta__pasos">
+                    <li>Revisar registros</li>
+                    <li>Buscar patrones</li>
+                    <li>Redactar el reporte</li>
+                  </ol>
+                  <b class="ruta__tiempo">Más tiempo</b>
+                </div>
+                <div class="ruta__fila ruta__fila--ahora">
+                  <span class="ruta__tag">Con IA</span>
+                  <ol class="ruta__pasos">
+                    <li>Pregunta en lenguaje natural</li>
+                    <li>Reporte preliminar</li>
+                  </ol>
+                  <b class="ruta__tiempo">Menos tiempo</b>
+                </div>
+              </figure>
+
+              <ol class="principios" data-anim style="--i:3">
+                <li><span class="principios__num">01</span><b>La IA procesa</b><p>Revisa registros, resume y propone relaciones entre evidencias.</p></li>
+                <li><span class="principios__num">02</span><b>El analista decide</b><p>Valida la evidencia, cuida la cadena de custodia y define la respuesta.</p></li>
+                <li><span class="principios__num">03</span><b>Sin comandos</b><p>Explora la evidencia con consultas conversacionales.</p></li>
+              </ol>
+
+              <p class="ruta__cita" data-anim style="--i:4">El futuro del DFIR no es reemplazar al investigador: es sumarle agentes al equipo.</p>
+
+              <footer class="folio folio--derecha">
+                <span>Forense digital</span>
+                <span class="folio__num">12</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- 13 · Impresión segura -->
+          <section class="pagina pagina--papel" aria-label="Página 13: impresión segura">
+            <div class="pagina__lienzo hoja articulo impresion">
+              <header class="cornisa">
+                <span>Impresión segura</span>
+                <span>David Juárez Maldonado · Canon Mexicana</span>
+              </header>
+
+              <div class="articulo__cabeza">
+                <h2 class="titulo-2" data-anim style="--i:0">La impresora es una puerta.</h2>
+                <p class="entrada" data-anim style="--i:1">No dejarías las llaves de tu casa a la vista. David Juárez Maldonado, de Canon Mexicana, recordó que una impresora guarda datos, correos, contactos y hasta credenciales.</p>
+              </div>
+
+              <div class="impresion__dato" data-anim style="--i:2">
+                <p class="impresion__cifra"><span data-contar="56">56</span>%</p>
+                <p>de las organizaciones ha reportado al menos una pérdida de datos relacionada con impresión.<cite class="firma">Dato citado por David Juárez Maldonado</cite></p>
+              </div>
+
+              <p class="texto" data-anim style="--i:3">Sus tres frentes: ransomware, phishing que entra por equipos sin asegurar y la falsa seguridad de quien cree que basta un antivirus. “Volvamos a lo básico”, pidió: monitoreo, actualizaciones y Zero Trust también en periféricos. La respuesta de Canon es uniFLOW, que define quién imprime qué, cómo y cuándo.</p>
+
+              <dl class="cifras-fila" data-anim style="--i:4">
+                <div><dt><span data-contar="58">58</span><small> mil mill.</small></dt><dd>de intentos de ciberataque al año</dd></div>
+                <div><dt>Top <span data-contar="3">3</span></dt><dd>México, entre los más atacados de Latinoamérica</dd></div>
+                <div><dt><span data-contar="4">4</span><small> de 10</small></dt><dd>empresas, poco preparadas para la nube</dd></div>
+              </dl>
+
+              <blockquote class="cita-banda" data-anim style="--i:5">
+                <p>“Cada vez que pones Ctrl+P no es solo imprimir una hoja.”</p>
+                <cite class="firma"><b>David Juárez Maldonado</b> · Canon Mexicana</cite>
+              </blockquote>
+
+              <footer class="folio folio--derecha">
+                <span>Canon participó con Nepsis Digital, su distribuidor en la región</span>
+                <span class="folio__num">13</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- 14 · Panel de ciberseguridad -->
+          <section class="pagina pagina--noche" aria-label="Página 14: panel de ciberseguridad">
+            <div class="pagina__lienzo hoja puertas-hoja">
+              <div class="reticula" aria-hidden="true"></div>
+              <header class="cornisa">
+                <span>Panel</span>
+                <span>Prioridades en ciberseguridad 2026</span>
+              </header>
+
+              <h2 class="titulo-2 puertas-hoja__titulo" data-anim style="--i:0">Tres ejes para 2026.</h2>
+              <p class="entrada" data-anim style="--i:1">IA, identidades no humanas y dependencia tecnológica redefinen la superficie de ataque. El panel coincidió en por dónde atacarla.</p>
+
+              <ol class="puertas-grande puertas-grande--tres">
+                <li data-anim style="--i:2"><span class="puertas-grande__num">01</span><div><b>Identidades · Scitum</b><p>Las no humanas son APIs, software y agentes. NIST 800-63 y NIST AI 100 ayudan a gobernarlas.</p></div></li>
+                <li data-anim style="--i:3"><span class="puertas-grande__num">02</span><div><b>Resiliencia · Veeam</b><p>Tener respaldos no es estar protegido: define RPO y RTO, y prueba la recuperación.</p></div></li>
+                <li data-anim style="--i:4"><span class="puertas-grande__num">03</span><div><b>Soberanía · Grupo Trycer</b><p>Control propio de la infraestructura, el dato y el marco legal. La meta nacional es 2030, y solo es viable en parte.</p></div></li>
+              </ol>
+
+              <dl class="cifras-fila" data-anim style="--i:6">
+                <div><dt><span data-contar="3">3</span></dt><dd>copias de cada dato <cite>Diego Garza, Veeam</cite></dd></div>
+                <div><dt><span data-contar="2">2</span></dt><dd>medios distintos <cite>Diego Garza, Veeam</cite></dd></div>
+                <div><dt><span data-contar="1">1</span></dt><dd>sitio alterno, inmutable y cifrado <cite>Diego Garza, Veeam</cite></dd></div>
+              </dl>
+
+              <footer class="folio folio--derecha">
+                <span>Omar Jaimes · Diego Garza · Gustavo Rodríguez</span>
+                <span class="folio__num">14</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- 15 · Panel de ciberseguridad: las voces -->
+          <section class="pagina pagina--papel" aria-label="Página 15: panel de ciberseguridad, las voces">
+            <div class="pagina__lienzo hoja entrevista">
+              <header class="cornisa">
+                <span>Panel</span>
+                <span>Scitum · Veeam · Grupo Trycer</span>
+              </header>
+
+              <div class="articulo__cabeza">
+                <h2 class="titulo-2" data-anim style="--i:0">Proteger el dato donde esté.</h2>
+                <p class="entrada" data-anim style="--i:1">Del perímetro a la identidad: qué cambió, según tres especialistas, y por dónde empezar.</p>
+              </div>
+
+              <div class="entrevista__cuerpo">
+                <div class="qa" data-anim style="--i:2">
+                  <div>
+                    <p class="qa__p">Omar Jaimes Hernández, Scitum.</p>
+                    <p class="qa__r">El riesgo real está en lo que se sube. Documentos corporativos completos terminan en servicios de IA externos, de donde ya no hay manera de retirarlos.</p>
+                  </div>
+                  <div>
+                    <p class="qa__p">Diego Garza, Veeam.</p>
+                    <p class="qa__r">Durante años el foco fue el perímetro. Hoy el dato vive dentro y fuera del centro de datos, y protegerlo exige identidad, MFA y privilegios por rol.</p>
+                  </div>
+                  <div>
+                    <p class="qa__p">Gustavo Rodríguez, Grupo Trycer.</p>
+                    <p class="qa__r">Un dato en Querétaro, bajo un régimen cloud de Estados Unidos, puede ser requerido por autoridades extranjeras. Y los atacantes van siempre al eslabón más débil: la cadena de suministro.</p>
+                  </div>
+                  <p class="firma">Síntesis de la redacción a partir del panel</p>
+                </div>
+
+                <aside class="usos" data-anim style="--i:3">
+                  <p class="etiqueta">Por dónde empezar</p>
+                  <ul>
+                    <li><b>Identidad</b>NIST 800-63 y, para agentes de IA, NIST AI 100.</li>
+                    <li><b>Respaldo</b>Prueba la recuperación en ambientes aislados.</li>
+                    <li><b>Proveedores</b>CIS Benchmarks y pentesting a APIs y dependencias.</li>
+                    <li><b>IA</b>Vigila qué información se comparte con herramientas externas.</li>
+                  </ul>
+                  <p class="usos__nota">Recomendaciones del panel.</p>
+                </aside>
+              </div>
+
+              <footer class="folio">
+                <span class="folio__num">15</span>
+                <span>Panel</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- 16 · Comunicaciones -->
+          <section class="pagina pagina--papel" aria-label="Página 16: comunicaciones con IA">
+            <div class="pagina__lienzo hoja hoja--banda caso">
+              <figure class="foto-cabecera" style="--foco: 50% 55%">
+                <img data-foto src="../../assets/img/revista-vol-01/publico-salon.jpg" alt="Público del Foro de Tecnología MX en el salón principal." width="1000" height="667">
+                <span class="chip foto-cabecera__chip">Comunicaciones</span>
+              </figure>
+
+              <h2 class="titulo-2" data-anim style="--i:1">Un solo lugar, cada canal.</h2>
+              <p class="entrada" data-anim style="--i:2">David Modiano, director comercial de Net2Phone, propuso dejar atrás el conmutador físico: telefonía, WhatsApp, redes, SMS y correo en una sola plataforma en la nube.</p>
+
+              <p class="texto caso__texto" data-anim style="--i:3">Así la atención sigue sin importar el canal y nadie pierde el contexto. Y cada conversación se vuelve información para entender mejor al cliente.</p>
+
+              <ol class="triada" data-anim style="--i:4">
+                <li><span class="triada__num">01</span><b>Omnicanal</b><p>Una plataforma 100% en la nube para todos los canales.</p></li>
+                <li><span class="triada__num">02</span><b>Agentes que ejecutan</b><p>Clasifican, validan, canalizan y acompañan el flujo completo, 24/7.</p></li>
+                <li><span class="triada__num">03</span><b>Supervisión</b><p>Métricas en tiempo real para medir el servicio y decidir con datos.</p></li>
+              </ol>
+
+              <footer class="banda" data-anim style="--i:5">
+                <svg class="banda__asterisco" viewBox="0 0 48 48" aria-hidden="true"><use href="#asterisco"/></svg>
+                <p><span>David Modiano</span><strong>“Las comunicaciones unificadas con IA son una fuente estratégica de información sobre el cliente.”</strong></p>
+                <span class="folio__num">16</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- 17 · Ciberseguridad industrial -->
+          <section class="pagina pagina--noche" aria-label="Página 17: ciberseguridad industrial">
+            <div class="pagina__lienzo hoja articulo industria">
+              <div class="reticula" aria-hidden="true"></div>
+              <header class="cornisa">
+                <span>Ciberseguridad industrial</span>
+                <span>Derly Alí Gutiérrez Arellano · Fortinet</span>
+              </header>
+
+              <div class="articulo__cabeza">
+                <h2 class="titulo-1" data-anim style="--i:0">Cuando IT heredó la fábrica.</h2>
+                <p class="entrada" data-anim style="--i:1">Durante décadas, las plantas operaron aisladas para proteger la producción. Derly Alí Gutiérrez Arellano, de Fortinet, explicó qué cambia cuando IT y OT comparten red.</p>
+              </div>
+
+              <div class="texto texto--2col" data-anim style="--i:2">
+                <p class="capitular">La Industria 4.0 y la IA integran ambos mundos: más eficiencia, pero también una superficie de exposición mucho mayor.</p>
+                <p>La misma IA ayuda a cuidar la planta: analiza datos de sensores, redes y sistemas de control, detecta anomalías y alerta temprano.</p>
+                <p>Pero en OT manda la disponibilidad. Toda protección debe tocar lo menos posible la producción y convivir con equipos que operan durante décadas.</p>
+              </div>
+
+              <ol class="principios" data-anim style="--i:3">
+                <li><span class="principios__num">01</span><b>Más conexiones</b><p>Cada dispositivo conectado es un posible punto de acceso.</p></li>
+                <li><span class="principios__num">02</span><b>Nuevas superficies</b><p>Equipos antes aislados hoy hablan con aplicaciones corporativas.</p></li>
+                <li><span class="principios__num">03</span><b>Disponibilidad</b><p>Un incidente detiene líneas y puede comprometer la seguridad física.</p></li>
+              </ol>
+
+              <footer class="folio">
+                <span class="folio__num">17</span>
+                <span>Ciberseguridad industrial</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- 18 · Panel de cierre -->
+          <section class="pagina pagina--noche" aria-label="Página 18: panel de cierre">
+            <div class="pagina__lienzo ecosistema">
+              <figure class="ecosistema__foto">
+                <img data-foto src="../../assets/img/revista-vol-01/panel-cierre.jpg" alt="Cuatro participantes en el escenario del Foro de Tecnología MX, frente a la pantalla de la Alianza de Líderes en Tecnología e Innovación." width="1000" height="667">
+                <figcaption><b>Panel de cierre</b> · Perspectivas de la industria, Foro de Tecnología MX 2026.</figcaption>
+              </figure>
+
+              <div class="ecosistema__cuerpo">
+                <h2 class="titulo-2" data-anim style="--i:1">La IA ya es transversal.</h2>
+
+                <div class="ecosistema__alti" data-anim style="--i:2">
+                  <p class="etiqueta">Noé Velasco · Christian Picos · Fernando Magaña</p>
+                  <p class="texto">Para el panel de Certus Laboratorio y Fisher &amp; Paykel Healthcare, transformarse ya no es sumar tecnología, sino integrarla, con la ciberseguridad como habilitador y resultados medibles.</p>
+                </div>
+
+                <div class="ecosistema__marcas" data-anim style="--i:3">
+                  <p class="etiqueta">Participaron</p>
+                  <ul>
+                    <li>Enteracloud</li>
+                    <li>Mopec Security</li>
+                    <li>Purple AI</li>
+                    <li>Avit</li>
+                    <li>Zebra</li>
+                    <li>Hikvision</li>
+                    <li>Panduit</li>
+                    <li>Grupo Trycer</li>
+                    <li>Canon Mexicana</li>
+                    <li>Scitum</li>
+                    <li>Veeam</li>
+                    <li>Net2Phone</li>
+                    <li>Fortinet</li>
+                    <li>Certus Laboratorio</li>
+                    <li>Fisher &amp; Paykel</li>
+                  </ul>
+                </div>
+
+                <footer class="folio folio--derecha">
+                  <span>Panel de cierre</span>
+                  <span class="folio__num">18</span>
+                </footer>
+              </div>
+            </div>
+          </section>
+
+          <!-- 19 · Cierre -->
+          <section class="pagina pagina--papel" aria-label="Página 19: ocho ideas para el lunes">
+            <div class="pagina__lienzo hoja ideas">
+              <header class="cornisa">
+                <span>Cierre</span>
+                <span>Lo que nos llevamos de Tijuana</span>
+              </header>
+
+              <h2 class="titulo-1 ideas__h2" data-anim style="--i:0">Ocho ideas para el lunes<span class="sumario__punto">.</span></h2>
+
+              <ol class="ideas__lista">
+                <li data-anim style="--i:1"><span class="ideas__num">01</span><p>Usa la IA para potenciar a TI, no para reemplazarla.</p><span class="ideas__quien">Francisco Olazo</span></li>
+                <li data-anim style="--i:2"><span class="ideas__num">02</span><p>Procesa en el borde y manda solo metadatos.</p><span class="ideas__quien">Francisco Banda</span></li>
+                <li data-anim style="--i:3"><span class="ideas__num">03</span><p>Dale a tu agente una fuente de verdad contra la cual validar.</p><span class="ideas__quien">Andrés Wong</span></li>
+                <li data-anim style="--i:4"><span class="ideas__num">04</span><p>Integra: borde, energía y video no son silos.</p><span class="ideas__quien">Enrique Guzmán</span></li>
+                <li data-anim style="--i:5"><span class="ideas__num">05</span><p>Deja que la IA procese; el criterio sigue siendo tuyo.</p><span class="ideas__quien">Gustavo Rodríguez</span></li>
+                <li data-anim style="--i:6"><span class="ideas__num">06</span><p>Trata cada impresora como un punto de exposición.</p><span class="ideas__quien">David Juárez Maldonado</span></li>
+                <li data-anim style="--i:7"><span class="ideas__num">07</span><p>Prueba tu recuperación; no la supongas.</p><span class="ideas__quien">Diego Garza</span></li>
+                <li data-anim style="--i:8"><span class="ideas__num">08</span><p>Protege la planta sin detener la producción.</p><span class="ideas__quien">Derly Alí Gutiérrez</span></li>
+              </ol>
+
+              <footer class="folio">
+                <span class="folio__num">19</span>
+                <span>Cierre · Síntesis de la redacción a partir de las pláticas</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- 20 · Contraportada -->
+          <section class="pagina pagina--noche" data-density="hard" aria-label="Contraportada">
+            <div class="pagina__lienzo hoja contra">
+              <header class="cornisa">
+                <span>Vol. 01 · Julio 2026</span>
+                <span>hablemostech.com</span>
+              </header>
+
+              <figure class="contra__marco">
+                <img class="contra__foto" data-foto src="../../assets/img/revista-vol-01/publico-foro.jpg" alt="Asistentes del Foro de Tecnología MX Tijuana 2026 en el salón.">
+              </figure>
+
+              <footer class="contra__pie">
+                <svg class="contra__logo" viewBox="0 0 626.18 208.23" role="img" aria-label="Hablemos Tech"><use href="#logo-ht"/></svg>
+                <p class="contra__texto" data-anim style="--i:2">Gracias por leer el Vol. 01. La conversación siguió en el Tech &amp; Wine Fest: léela en el Vol. 02.</p>
+              </footer>
+            </div>
+          </section>
+
         </div>
       </div>
-      <div data-gate="pending" hidden>
-        <p class="auth-lead">Tu acceso está en revisión. Puedes leer el artículo abierto del sumario.</p>
+
+      <button class="lector__flecha lector__flecha--next" id="siguiente" type="button" aria-label="Página siguiente">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+      </button>
+
+      <p class="lector__pista" id="pista">
+        <span class="lector__pista--raton">Scroll para acercar · con el click sostenido mueves la página</span>
+        <span class="lector__pista--tactil">Desliza la página para avanzar</span>
+      </p>
+    </main>
+
+    <!-- acceso:inicio -->
+    <section class="acceso" id="acceso" data-estado="revisando" aria-labelledby="acceso-titulo" aria-busy="true">
+      <div class="acceso__panel">
+        <figure class="acceso__portada">
+          <img src="../../assets/img/revista-vol-01/portada-web.jpg" alt="Portada de la revista Hablemos Tech Vol. 01: Foro de Tecnología 2026, Tijuana." width="1186" height="1536" fetchpriority="high">
+        </figure>
+
+        <div class="acceso__cuerpo">
+          <p class="acceso__ceja">Primera edición<span aria-hidden="true">/</span>Julio 2026</p>
+          <h2 class="acceso__titulo" id="acceso-titulo">Foro de Tecnología MX 2026</h2>
+          <p class="acceso__lead">Lo que se habló en Tijuana, en 20 páginas: nube inteligente, IA en producción, video en el borde y ciberseguridad.</p>
+
+          <div class="acceso__vista" data-vista="revisando">
+            <p class="acceso__estado" role="status">Verificando tu acceso…</p>
+          </div>
+
+          <div class="acceso__vista" data-vista="invitado" hidden>
+            <p class="acceso__nota">Regístrate gratis para leer la edición completa. El acceso es inmediato.</p>
+            <div class="acceso__acciones">
+              <a class="acceso__boton acceso__boton--principal" href="/revista/" data-acceso-auth="registro">Registrarme gratis</a>
+              <a class="acceso__boton" href="/revista/" data-acceso-auth="sign-in">Ya tengo cuenta</a>
+            </div>
+          </div>
+
+          <div class="acceso__vista" data-vista="completar" hidden>
+            <p class="acceso__nota">Solo falta tu empresa y tu área para activar el acceso.</p>
+            <div class="acceso__acciones">
+              <a class="acceso__boton acceso__boton--principal" href="/revista/" data-acceso-auth="completar">Completar mi perfil</a>
+            </div>
+          </div>
+
+          <div class="acceso__vista" data-vista="pendiente" hidden>
+            <p class="acceso__nota">Tu acceso está en revisión. Te escribimos en cuanto se active la lectura completa.</p>
+            <div class="acceso__acciones">
+              <a class="acceso__boton acceso__boton--principal" href="/cuenta.html?next=/revista/vol-01/">Ver mi cuenta</a>
+              <button class="acceso__boton" type="button" data-acceso-salir>Usar otra cuenta</button>
+            </div>
+          </div>
+
+          <div class="acceso__vista" data-vista="rechazado" hidden>
+            <p class="acceso__nota">Esta cuenta no tiene acceso a la revista. Si crees que es un error, escríbenos.</p>
+            <div class="acceso__acciones">
+              <a class="acceso__boton acceso__boton--principal" href="/cuenta.html?next=/revista/vol-01/">Ver mi cuenta</a>
+              <button class="acceso__boton" type="button" data-acceso-salir>Usar otra cuenta</button>
+            </div>
+          </div>
+
+          <div class="acceso__vista" data-vista="error" hidden>
+            <p class="acceso__nota">No pudimos verificar tu acceso. Revisa tu conexión e inténtalo de nuevo.</p>
+            <div class="acceso__acciones">
+              <button class="acceso__boton acceso__boton--principal" type="button" data-acceso-reintentar>Reintentar</button>
+              <a class="acceso__boton" href="/revista/">Ver todas las ediciones</a>
+            </div>
+          </div>
+
+          <p class="acceso__subtitulo" id="acceso-indice">En esta edición</p>
+          <ol class="acceso__indice" aria-labelledby="acceso-indice">
+            <li><span>Agentes que analizan y actúan</span><span>Francisco Olazo</span></li>
+            <li><span>La IA no alucina: miente</span><span>Andrés Wong</span></li>
+            <li><span>El forense ya no trabaja solo</span><span>Gustavo Rodríguez</span></li>
+            <li><span>Tres ejes para 2026</span><span>Panel de ciberseguridad</span></li>
+            <li><span>Cuando IT heredó la fábrica</span><span>Derly Alí Gutiérrez</span></li>
+          </ol>
+        </div>
       </div>
-    </div>
+    </section>
+    <!-- acceso:fin -->
 
-    <section class="revista-issue__hero" id="issue-hero"></section>
+    <nav class="lector__miniaturas" id="miniaturas" aria-label="Páginas de la revista"></nav>
+  </div>
 
-    <div class="revista-issue__acciones">
-      <a class="boton boton--principal" id="issue-pdf" href="#" hidden download>Descargar PDF</a>
-      <a class="boton" href="/revista/">← Todas las ediciones</a>
-    </div>
-
-    <section class="revista-articulos" id="issue-articles" aria-label="Artículos de la edición"></section>
-  </main>
-
+  <!-- acceso:inicio -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="/js/config.js"></script>
   <script src="/js/auth/client.js"></script>
-  <script src="/js/beacon-leads.js"></script>
-  <script src="/js/auth/session.js?v=202608251752"></script>
-  <script src="/js/auth/nav.js?v=202608251752"></script>
-  <script src="/js/auth/modal.js"></script>
-  <script src="/js/revista/revista-issue.js"></script>
+  <script src="/js/auth/session.js?v=202610131100"></script>
+  <script src="../lector/acceso.js?v=202610131130"></script>
+  <!-- acceso:fin -->
+  <script src="../lector/vendor/page-flip.browser.js"></script>
+  <script src="../lector/lector.js"></script>
 </body>
 </html>

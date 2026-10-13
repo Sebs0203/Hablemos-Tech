@@ -4,44 +4,81 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Revista — Hablemos Tech</title>
-  <meta name="description" content="Revista digital de Hablemos Tech para líderes de TI en México.">
+  <meta name="description" content="Revista digital de Hablemos Tech para líderes de TI en México. Nueva edición: Vol. 02, Tech &amp; Wine Fest 2026.">
   <link rel="icon" href="/assets/img/asterisco.png?v=favicon" type="image/png">
-  <link rel="stylesheet" href="/css/hablemos.css?v=202608251752">
+  <link rel="stylesheet" href="/css/hablemos.css?v=202610131146">
 </head>
 <body class="pagina-revista">
   <div id="site-nav"></div>
   <script src="/components/nav/site-nav.js" data-current="revista"></script>
 
   <main class="pagina-revista__contenedor">
-    <h1 class="auth-titulo">Revista digital</h1>
-    <p class="auth-lead">Contenido editorial sobre infraestructura, nube y seguridad. Gratis para miembros registrados.</p>
+    <header class="revista-hub__cabecera">
+      <p class="revista-hub__ceja">
+        <img class="revista-hub__asterisco" src="/assets/img/asterisco.png?v=1" alt="" width="64" height="64">
+        Revista digital
+      </p>
+      <h1 class="revista-hub__titulo">Lo que se dijo, editado para leerse con calma.</h1>
+      <p class="revista-hub__lead">Cada edición recoge las charlas de nuestros eventos y del podcast. La lectura es gratis con registro.</p>
+    </header>
 
     <div class="revista-gate" id="revista-gate" hidden>
-      <div data-gate="login" hidden>
-        <p class="auth-lead">Regístrate o inicia sesión para leer la revista completa.</p>
-        <div class="revista-gate__acciones">
-          <a class="boton boton--principal" href="#" data-auth-open="registro" data-auth-next="/revista/">Registrarme gratis</a>
-          <a class="boton" href="#" data-auth-open="sign-in" data-auth-next="/revista/">Sign in</a>
-        </div>
-      </div>
       <div data-gate="pending" hidden>
-        <p class="auth-lead">Tu acceso está en revisión. Puedes explorar el sumario; te avisaremos cuando se active la lectura completa.</p>
+        <p class="auth-lead">Tu acceso está en revisión. Puedes ver las portadas y el sumario; te avisamos por correo cuando se active la lectura completa.</p>
         <div class="revista-gate__acciones">
           <a class="boton" href="/cuenta.html">Ver mi cuenta</a>
         </div>
       </div>
     </div>
 
-    <div class="revista-grid" id="revista-grid"></div>
+    <article class="edicion-destacada" data-slug="vol-02" aria-labelledby="edicion-vol-02">
+      <a class="edicion-destacada__portada" href="/revista/vol-02/" data-revista-protegida tabindex="-1" aria-hidden="true">
+        <img src="/assets/img/revista-vol-02/portada-web.jpg" alt="" width="1186" height="1536" fetchpriority="high" decoding="async">
+      </a>
+
+      <div class="edicion-destacada__meta">
+        <p class="edicion__tipo"><span class="edicion__nueva">Nueva edición</span>Vol. 02 · Otoño 2026</p>
+        <h2 class="edicion-destacada__titulo" id="edicion-vol-02">Tech &amp; Wine Fest 2026</h2>
+        <p class="edicion-destacada__resumen">Siete sesiones en Bodegas del Valle, editadas en 20 páginas: ciberseguridad, el costo real de la IA, recuperación en la nube y agentes virtuales.</p>
+
+        <ol class="edicion-destacada__indice" aria-label="Algunos artículos de esta edición">
+          <li><span class="edicion-destacada__pagina">p. 04</span><span>El código que no escribiste</span><span class="edicion-destacada__autor">Gustavo Rodríguez</span></li>
+          <li><span class="edicion-destacada__pagina">p. 08</span><span>Lo que cuesta un token</span><span class="edicion-destacada__autor">Andrés Wong</span></li>
+          <li><span class="edicion-destacada__pagina">p. 10</span><span>Respaldar no es recuperar</span><span class="edicion-destacada__autor">Francisco Olazo</span></li>
+          <li><span class="edicion-destacada__pagina">p. 12</span><span>TI es el negocio</span><span class="edicion-destacada__autor">Victor Mendivil</span></li>
+        </ol>
+
+        <div class="edicion-destacada__acciones">
+          <a class="boton boton--principal" href="/revista/vol-02/" data-revista-protegida>Leer Vol. 02</a>
+          <p class="edicion-destacada__dato">Registro gratuito · Lectura en línea</p>
+        </div>
+      </div>
+    </article>
+
+    <section class="ediciones" aria-labelledby="ediciones-titulo">
+      <h2 class="ediciones__titulo" id="ediciones-titulo">Ediciones anteriores</h2>
+      <div class="ediciones__grid" id="revista-grid">
+        <article class="edicion" data-slug="vol-01">
+          <a class="edicion__enlace" href="/revista/vol-01/" data-revista-protegida>
+            <span class="edicion__portada">
+              <img src="/assets/img/revista-vol-01/portada-web.jpg" alt="" width="1186" height="1536" loading="lazy" decoding="async">
+            </span>
+            <span class="edicion__tipo">Vol. 01 · Julio 2026</span>
+            <span class="edicion__titulo">Foro de Tecnología MX 2026</span>
+            <span class="edicion__resumen">Diez conversaciones en Tijuana sobre nube inteligente, IA en producción, video en el borde y ciberseguridad.</span>
+          </a>
+        </article>
+      </div>
+    </section>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="/js/config.js"></script>
   <script src="/js/auth/client.js"></script>
   <script src="/js/beacon-leads.js"></script>
-  <script src="/js/auth/session.js?v=202608251752"></script>
+  <script src="/js/auth/session.js?v=202610131100"></script>
   <script src="/js/auth/nav.js?v=202608251752"></script>
-  <script src="/js/auth/modal.js"></script>
-  <script src="/js/revista/revista-hub.js"></script>
+  <script src="/js/auth/modal.js?v=202610131130"></script>
+  <script src="/js/revista/revista-hub.js?v=202610131100"></script>
 </body>
 </html>

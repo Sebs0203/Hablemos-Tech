@@ -106,6 +106,9 @@
 
   /* Escala tipográfica */
   --text-display-1: clamp(2.5rem, 6.4vw, 4.75rem);
+  /* Título del hero: un escalón sobre display-1. El tope deja "Tecnología e
+     innovación" en una línea dentro del gutter a 1280px. */
+  --text-display-hero: clamp(2.75rem, 6.5vw, 6rem);
   --text-display-2: clamp(2rem, 4.5vw, 3.25rem);
   --text-heading-3: clamp(1.125rem, 2vw, 1.375rem);
   --text-body-lg: clamp(1.0625rem, 1.6vw, 1.1875rem);
@@ -122,12 +125,14 @@
 
   /* Interlineado */
   --leading-display: 1.08;
+  --leading-display-hero: 0.96;
   --leading-heading: 1.15;
   --leading-body: 1.55;
   --leading-ui: 1.4;
 
   /* Tracking */
   --tracking-display: -0.03em;
+  --tracking-display-hero: -0.04em;
   --tracking-heading: -0.025em;
   --tracking-body: 0;
   --tracking-ui: 0.02em;
@@ -1310,8 +1315,8 @@ html.menu-abierto:not(.menu-icono-lineas) .menu-icon__linea:nth-child(2) {
   inset: 0;
   z-index: 2;
   background:
-    linear-gradient(to right, rgb(0 0 0 / 0.58) 0%, rgb(0 0 0 / 0.18) 48%, rgb(0 0 0 / 0.04) 100%),
-    linear-gradient(to top, rgb(0 0 0 / 0.82) 0%, rgb(0 0 0 / 0.48) 34%, rgb(0 0 0 / 0.16) 58%, rgb(0 0 0 / 0.06) 100%);
+    linear-gradient(to right, rgb(0 0 0 / 0.62) 0%, rgb(0 0 0 / 0.22) 52%, rgb(0 0 0 / 0.04) 100%),
+    linear-gradient(to top, rgb(0 0 0 / 0.88) 0%, rgb(0 0 0 / 0.56) 36%, rgb(0 0 0 / 0.18) 62%, rgb(0 0 0 / 0.06) 100%);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1339,18 +1344,53 @@ html.menu-abierto:not(.menu-icono-lineas) .menu-icon__linea:nth-child(2) {
   color: var(--verde);
 }
 
+/* El bloque toma el ancho del título. El párrafo y los botones van debajo,
+   en columna, sin ensanchar el título. */
+.hero__cuerpo {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.25rem);
+  width: fit-content;
+  max-width: 100%;
+}
+
 .hero__titulo {
-  max-width: var(--measure-display);
-  font-family: var(--font-ui);
-  font-size: var(--text-display-1);
-  font-weight: 500;
-  line-height: var(--leading-display);
-  letter-spacing: var(--tracking-display);
+  display: grid;
+  max-width: 100%;
+  font-family: var(--font-display);
+  font-size: var(--text-display-hero);
+  font-weight: 700;
+  line-height: var(--leading-display-hero);
+  letter-spacing: var(--tracking-display-hero);
   text-wrap: balance;
 }
 
+/* Cada línea es su propia máscara: el texto sube desde abajo durante la intro.
+   El padding deja sitio a acentos y descendentes que el line-height corto
+   recortaría dentro del overflow. */
+.hero__titulo-linea {
+  display: block;
+  overflow: hidden;
+  padding-block: 0.06em 0.1em;
+  margin-block: -0.06em -0.1em;
+}
+
+.hero__titulo-linea > span {
+  display: block;
+}
+
+.hero__titulo-acento {
+  color: var(--verde);
+}
+
+.hero__pie {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(1.25rem, 2.4vw, 1.75rem);
+}
+
 .hero__texto {
-  max-width: var(--measure-body);
+  max-width: min(44ch, 100%);
   font-size: var(--text-body-lg);
   line-height: var(--leading-body);
   letter-spacing: var(--tracking-body);
@@ -1363,6 +1403,32 @@ html.menu-abierto:not(.menu-icono-lineas) .menu-icon__linea:nth-child(2) {
   flex-wrap: wrap;
   justify-content: flex-start;
   gap: var(--boton-par);
+}
+
+@keyframes hero-linea-sube {
+  from {
+    transform: translateY(105%);
+  }
+
+  to {
+    transform: none;
+  }
+}
+
+/* Todo termina antes que la marquesina (último hijo del hero), porque su
+   animationend es el que marca .hero-listo y corta lo que siga corriendo. */
+html.sitio-revelado:not(.menu-abierto) .hero[data-intro="activa"]:not(.hero-listo) .hero__titulo-linea > span {
+  animation: hero-linea-sube 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 380ms;
+}
+
+html.sitio-revelado:not(.menu-abierto) .hero[data-intro="activa"]:not(.hero-listo) .hero__titulo-linea + .hero__titulo-linea > span {
+  animation-delay: 450ms;
+}
+
+html.sitio-revelado:not(.menu-abierto) .hero[data-intro="activa"]:not(.hero-listo) .hero__pie {
+  animation: hero-contenido-entra 640ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 520ms;
 }
 
 .hero__marquee {
@@ -2288,6 +2354,10 @@ html.menu-abierto:not(.menu-icono-lineas) .menu-icon__linea:nth-child(2) {
 .revista-abanico__item:hover,
 .revista-abanico__item:focus-within {
   z-index: 4;
+}
+
+a.revista-portada {
+  cursor: pointer;
 }
 
 .revista-portada {
@@ -3612,6 +3682,14 @@ html.menu-abierto:not(.menu-icono-lineas) .menu-icon__linea:nth-child(2) {
   box-shadow: var(--verde-glow), 0 10px 28px -12px rgba(49, 220, 141, 0.7);
 }
 
+.agenda__plancha-cta--vidrio {
+  border-color: rgb(255 255 255 / 0.28);
+  background: var(--nav-vidrio);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  backdrop-filter: blur(12px) saturate(140%);
+  box-shadow: none;
+}
+
 .agenda__plancha-cta svg {
   display: block;
   width: 0.85rem;
@@ -3776,8 +3854,20 @@ html.menu-abierto:not(.menu-icono-lineas) .menu-icon__linea:nth-child(2) {
   gap: var(--boton-par);
 }
 
-.agenda__cta .boton[hidden] {
+.agenda__cta .boton[hidden],
+.agenda__plancha-capa .boton[hidden] {
   display: none;
+}
+
+.agenda__subtitulo {
+  margin: clamp(3rem, 8vh, 5rem) 0 clamp(1rem, 2.5vh, 1.5rem);
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  font-weight: 400;
+  letter-spacing: var(--tracking-label);
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: var(--tenue);
 }
 
 @media (max-width: 56rem) {
@@ -4510,10 +4600,15 @@ html.menu-abierto:not(.menu-icono-lineas) .menu-icon__linea:nth-child(2) {
   }
 
   .hero__titulo {
-    max-width: min(22ch, 100%);
+    max-width: 100%;
+  }
+
+  .hero__pie {
+    align-items: stretch;
   }
 
   .hero__texto {
+    flex: none;
     max-width: 100%;
   }
 
@@ -5368,6 +5463,288 @@ body.pagina-revista .nav {
   margin-top: 1.25rem;
 }
 
+/* Hub de la revista: la edición más reciente al frente y el archivo debajo. */
+.revista-hub__cabecera {
+  margin-bottom: clamp(2.5rem, 6vh, 4.5rem);
+}
+
+.revista-hub__ceja {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-ui);
+  font-size: var(--text-body-lg);
+  font-style: italic;
+  line-height: var(--leading-body);
+  color: var(--tenue);
+}
+
+.revista-hub__asterisco {
+  display: block;
+  flex-shrink: 0;
+  width: 0.95rem;
+  height: 0.95rem;
+  object-fit: contain;
+}
+
+.revista-hub__titulo {
+  max-width: 20ch;
+  font-family: var(--font-display);
+  font-size: var(--text-display-1);
+  font-weight: 700;
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
+  color: var(--blanco);
+  text-wrap: balance;
+}
+
+.revista-hub__lead {
+  max-width: var(--measure-body);
+  margin-top: 1.25rem;
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-body);
+  color: var(--tenue);
+  text-wrap: pretty;
+}
+
+.edicion-destacada {
+  display: grid;
+  gap: clamp(1.75rem, 4vw, 4.5rem);
+  align-items: center;
+  padding-block: clamp(2rem, 5vh, 3.5rem);
+  border-top: 1px solid var(--linea);
+  border-bottom: 1px solid var(--linea);
+}
+
+@media (min-width: 56.01rem) {
+  .edicion-destacada {
+    grid-template-columns: minmax(15rem, 25rem) minmax(0, 1fr);
+  }
+}
+
+.edicion-destacada__portada {
+  display: block;
+  width: min(100%, 25rem);
+  overflow: hidden;
+  border: 1px solid var(--linea);
+  border-radius: 0.5rem;
+  box-shadow: 0 1.75rem 3.5rem -1.25rem rgb(0 0 0 / 0.85);
+  transition: transform 480ms var(--menu-ease-out), border-color 320ms ease;
+}
+
+.edicion-destacada__portada:hover {
+  border-color: rgb(49 220 141 / 0.45);
+  transform: translateY(-4px);
+}
+
+.edicion-destacada__portada img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.edicion__tipo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  letter-spacing: var(--tracking-label);
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: var(--tenue);
+}
+
+.edicion__nueva {
+  padding: 0.3rem 0.65rem;
+  border: 1px solid rgb(49 220 141 / 0.34);
+  border-radius: 999px;
+  background: rgb(49 220 141 / 0.1);
+  color: var(--verde);
+}
+
+.edicion-destacada__titulo {
+  max-width: 16ch;
+  margin-top: 1rem;
+  font-family: var(--font-display);
+  font-size: var(--text-display-2);
+  font-weight: 700;
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
+  color: var(--blanco);
+  text-wrap: balance;
+}
+
+.edicion-destacada__resumen {
+  max-width: 52ch;
+  margin-top: 1rem;
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-body);
+  color: var(--blanco-suave);
+  text-wrap: pretty;
+}
+
+.edicion-destacada__indice {
+  max-width: 40rem;
+  margin-top: clamp(1.5rem, 3.5vh, 2.25rem);
+  list-style: none;
+  border-top: 1px solid var(--linea);
+}
+
+.edicion-destacada__indice li {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr) auto;
+  gap: 0.25rem 1.25rem;
+  align-items: baseline;
+  padding-block: 0.8rem;
+  border-bottom: 1px solid var(--linea);
+  font-size: var(--text-body);
+  font-weight: 500;
+  line-height: var(--leading-ui);
+  color: var(--blanco);
+}
+
+.edicion-destacada__dato {
+  font-size: var(--text-ui);
+  line-height: var(--leading-ui);
+  color: var(--tenue);
+}
+
+.edicion-destacada__pagina,
+.edicion-destacada__autor {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  font-weight: 400;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--tenue);
+}
+
+.edicion-destacada__pagina {
+  color: var(--verde);
+  white-space: nowrap;
+}
+
+.edicion-destacada__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+  margin-top: clamp(1.75rem, 4vh, 2.5rem);
+}
+
+.ediciones {
+  margin-top: clamp(3rem, 8vh, 5rem);
+}
+
+.ediciones__titulo {
+  font-family: var(--font-display);
+  font-size: var(--text-heading-3);
+  font-weight: 700;
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+  color: var(--blanco);
+}
+
+.ediciones__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 13.5rem), 16rem));
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  margin-top: clamp(1.25rem, 3vh, 1.75rem);
+}
+
+.edicion__enlace {
+  display: grid;
+  gap: 0.5rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.edicion__portada {
+  display: block;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+  border: 1px solid var(--linea);
+  border-radius: 0.5rem;
+  aspect-ratio: 791 / 1024;
+  transition: border-color 320ms ease;
+}
+
+.edicion__portada img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 720ms var(--menu-ease-out);
+}
+
+.edicion__enlace:hover .edicion__portada {
+  border-color: rgb(49 220 141 / 0.45);
+}
+
+.edicion__enlace:hover .edicion__portada img {
+  transform: scale(1.03);
+}
+
+.edicion__titulo {
+  font-family: var(--font-display);
+  font-size: var(--text-heading-3);
+  font-weight: 700;
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+  color: var(--blanco);
+  transition: color 200ms ease;
+}
+
+.edicion__enlace:hover .edicion__titulo {
+  color: var(--verde);
+}
+
+.edicion__resumen {
+  font-size: var(--text-ui);
+  line-height: var(--leading-ui);
+  color: var(--tenue);
+}
+
+.edicion__enlace:focus-visible,
+.edicion-destacada__portada:focus-visible {
+  outline: 2px solid var(--verde);
+  outline-offset: 4px;
+  border-radius: 0.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .edicion-destacada__portada,
+  .edicion-destacada__portada:hover,
+  .edicion__enlace:hover .edicion__portada img {
+    transition: none;
+    transform: none;
+  }
+}
+
+@media (max-width: 56rem) {
+  .edicion-destacada__portada {
+    width: min(100%, 17rem);
+  }
+}
+
+@media (max-width: 30rem) {
+  .edicion-destacada__indice li {
+    grid-template-columns: max-content minmax(0, 1fr);
+  }
+
+  .edicion-destacada__autor {
+    grid-column: 2;
+  }
+
+  .edicion-destacada__acciones .boton {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 .revista-articulos {
   display: grid;
   gap: 1rem;
@@ -5791,8 +6168,30 @@ html.auth-modal-abierto body {
   background-color: rgba(255, 255, 255, 0.03);
 }
 
-.auth-modal[data-vista="completar"] .auth-modal__tabs {
+.auth-modal[data-vista="completar"] .auth-modal__tabs,
+.auth-modal[data-vista="recuperar"] .auth-modal__tabs,
+.auth-modal[data-vista="nueva-clave"] .auth-modal__tabs {
   display: none;
+}
+
+.auth-form__ayuda {
+  text-align: center;
+  font-size: var(--text-ui);
+  line-height: var(--leading-ui);
+}
+
+button.auth-enlace-inline {
+  padding: 0.25rem;
+  border: 0;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+button.auth-enlace-inline:focus-visible {
+  outline: 2px solid var(--verde);
+  outline-offset: 2px;
+  border-radius: 0.25rem;
 }
 
 .auth-modal__tab {

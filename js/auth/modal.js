@@ -75,6 +75,38 @@
                 '<div class="auth-form__accion">' +
                   '<button class="boton boton--principal boton--ancho" type="submit">Entrar</button>' +
                 '</div>' +
+                '<p class="auth-form__ayuda"><button class="auth-enlace-inline" type="button" data-auth-switch="recuperar">¿Olvidaste tu contraseña?</button></p>' +
+              '</form>' +
+            '</div>' +
+            '<div class="auth-modal__vista" id="auth-vista-recuperar" data-auth-vista="recuperar" role="tabpanel" hidden>' +
+              '<div class="auth-modal__cabecera">' +
+                '<h2 class="auth-modal__titulo">Recupera tu acceso</h2>' +
+                '<p class="auth-lead">Escribe el correo de tu cuenta y te enviamos un enlace para crear una contraseña nueva.</p>' +
+              '</div>' +
+              '<div class="auth-alert" id="auth-alert-recuperar" hidden data-tipo="info"></div>' +
+              '<form class="auth-form" id="recuperar-form">' +
+                '<div class="auth-form__campos">' +
+                  '<div class="auth-campo"><label class="auth-etiqueta" for="recuperar-email">Correo electrónico</label><input class="auth-input" id="recuperar-email" name="email" type="email" autocomplete="email" placeholder="nombre@empresa.com" required></div>' +
+                '</div>' +
+                '<div class="auth-form__accion">' +
+                  '<button class="boton boton--principal boton--ancho" type="submit">Enviar enlace</button>' +
+                '</div>' +
+                '<p class="auth-form__ayuda"><button class="auth-enlace-inline" type="button" data-auth-switch="sign-in">Volver a Sign in</button></p>' +
+              '</form>' +
+            '</div>' +
+            '<div class="auth-modal__vista" id="auth-vista-nueva-clave" data-auth-vista="nueva-clave" role="tabpanel" hidden>' +
+              '<div class="auth-modal__cabecera">' +
+                '<h2 class="auth-modal__titulo">Crea una contraseña nueva</h2>' +
+                '<p class="auth-lead">Úsala desde ahora para entrar a tu cuenta.</p>' +
+              '</div>' +
+              '<div class="auth-alert" id="auth-alert-nueva-clave" hidden data-tipo="info"></div>' +
+              '<form class="auth-form" id="nueva-clave-form">' +
+                '<div class="auth-form__campos">' +
+                  '<div class="auth-campo"><label class="auth-etiqueta" for="nueva-clave-password">Contraseña nueva</label><input class="auth-input" id="nueva-clave-password" name="password" type="password" autocomplete="new-password" minlength="8" placeholder="Mínimo 8 caracteres" required></div>' +
+                '</div>' +
+                '<div class="auth-form__accion">' +
+                  '<button class="boton boton--principal boton--ancho" type="submit">Guardar contraseña</button>' +
+                '</div>' +
               '</form>' +
             '</div>' +
             '<div class="auth-modal__vista" id="auth-vista-completar" data-auth-vista="completar" role="tabpanel" hidden>' +
@@ -104,7 +136,7 @@
 
   function mount() {
     var existing = document.getElementById('auth-modal');
-    if (existing && existing.querySelector('#completar-form')) {
+    if (existing && existing.querySelector('#nueva-clave-form')) {
       modalRoot = existing;
       panel = modalRoot.querySelector('.auth-modal__dialog');
       return;
@@ -119,10 +151,60 @@
     panel = modalRoot.querySelector('.auth-modal__dialog');
   }
 
+  var VISTAS = ['registro', 'sign-in', 'completar', 'recuperar', 'nueva-clave'];
+
   function alertBoxId(view) {
     if (view === 'sign-in') return 'auth-alert-signin';
-    if (view === 'completar') return 'auth-alert-completar';
+    if (view === 'completar' || view === 'recuperar' || view === 'nueva-clave') return 'auth-alert-' + view;
     return 'auth-alert-registro';
+  }
+
+  var CUENTA_EXISTENTE = 'Ya existe una cuenta con ese correo. Entra con Sign in o recupera tu contraseña.';
+
+  /* Supabase responde en inglés y con códigos; aquí se traduce a algo que
+     el visitante pueda resolver por su cuenta. */
+  function mensajeError(error, contexto) {
+    var texto = ((error && error.message) || '') + ' ' + ((error && error.code) || '');
+    if (/failed to fetch|load failed|networkerror|network request failed|fetch failed/i.test(texto)) {
+      return 'No pudimos conectar con el servicio de cuentas. Revisa tu conexión o inténtalo en unos minutos.';
+    }
+    if (/rate limit|over_email_send|over_request_rate/i.test(texto)) {
+      return 'Hay muchos intentos en este momento. Espera un minuto e inténtalo de nuevo.';
+    }
+    if (/email not confirmed|email_not_confirmed/i.test(texto)) {
+      return 'Tu correo aún no está confirmado. Abre el enlace que te enviamos (revisa también spam).';
+    }
+    if (/invalid login|invalid_credentials|invalid credentials/i.test(texto)) {
+      return contexto === 'registro' ? CUENTA_EXISTENTE : 'Email o contraseña incorrectos.';
+    }
+    if (/already registered|already exists|user_already_exists|email_exists/i.test(texto)) {
+      return CUENTA_EXISTENTE;
+    }
+    if (/same_password|should be different/i.test(texto)) {
+      return 'La contraseña nueva debe ser distinta a la anterior.';
+    }
+    if (/weak_password|password should/i.test(texto)) {
+      return 'La contraseña es muy débil. Usa al menos 8 caracteres combinando letras y números.';
+    }
+    if (/email_address_invalid|invalid email|unable to validate email/i.test(texto)) {
+      return 'Revisa que el correo esté bien escrito.';
+    }
+    if (/signups? not allowed|signup_disabled/i.test(texto)) {
+      return 'El registro está cerrado por ahora. Escríbenos para darte acceso.';
+    }
+    if (/session_not_found|auth session missing|jwt expired|refresh_token/i.test(texto)) {
+      return 'El enlace ya expiró. Pide uno nuevo desde «¿Olvidaste tu contraseña?».';
+    }
+    if (contexto === 'registro') return 'No se pudo crear la cuenta. Inténtalo de nuevo.';
+    if (contexto === 'sign-in') return 'No se pudo iniciar sesión. Inténtalo de nuevo.';
+    return 'Algo salió mal. Inténtalo de nuevo.';
+  }
+
+  function urlCallback(extra) {
+    var destino = nextUrl || (window.location.pathname + window.location.search);
+    var query = new URLSearchParams(extra || {});
+    query.set('next', destino);
+    return HTAuth.redirectUrl('/auth/callback.html?' + query.toString());
   }
 
   function showAlert(view, message, type) {
@@ -141,7 +223,7 @@
   }
 
   function clearAlerts() {
-    ['auth-alert-registro', 'auth-alert-signin', 'auth-alert-completar'].forEach(function (id) {
+    ['auth-alert-registro', 'auth-alert-signin', 'auth-alert-completar', 'auth-alert-recuperar', 'auth-alert-nueva-clave'].forEach(function (id) {
       var box = document.getElementById(id);
       if (!box) return;
       box.hidden = true;
@@ -399,11 +481,12 @@
           email: email,
           password: password,
           options: {
-            data: { name: name, company: company, role_area: roleArea }
+            data: { name: name, company: company, role_area: roleArea },
+            emailRedirectTo: urlCallback()
           }
         });
 
-        var alreadyExists = result.error && /already registered|already exists|user_already_exists/i.test(
+        var alreadyExists = result.error && /already registered|already exists|user_already_exists|email_exists/i.test(
           (result.error.message || '') + ' ' + (result.error.code || '')
         );
 
@@ -412,8 +495,24 @@
         if (!result.data || !result.data.session) {
           var signIn = await client.auth.signInWithPassword({ email: email, password: password });
           if (signIn.error) {
-            if (alreadyExists) {
-              throw new Error('Esa cuenta ya existe. Usa Sign in con tu contraseña.');
+            var porConfirmar = /email not confirmed|email_not_confirmed/i.test(
+              (signIn.error.message || '') + ' ' + (signIn.error.code || '')
+            );
+            if (porConfirmar && !alreadyExists) {
+              HTAuth.setPendingProfile({ company: company, role_area: roleArea });
+              if (window.HTBeacon) {
+                HTBeacon.sendLead({
+                  kind: 'revista-registro',
+                  name: name,
+                  email: email,
+                  company: company,
+                  puesto: roleArea,
+                  note: 'Registro revista · pendiente de confirmar email'
+                });
+              }
+              showAlert('registro', 'Cuenta creada. Te enviamos un correo para confirmarla; ábrelo y volverás directo a la revista.', 'success');
+              if (submitBtn) submitBtn.disabled = false;
+              return;
             }
             throw signIn.error;
           }
@@ -438,11 +537,8 @@
 
         finishAuth();
       } catch (error) {
-        var message = error.message || 'No se pudo crear la cuenta.';
-        if (/rate limit|over_email_send/i.test(message)) {
-          message = 'Hay muchas altas en este momento. Espera un minuto e inténtalo de nuevo.';
-        }
-        showAlert('registro', message, 'error');
+        console.error(error);
+        showAlert('registro', mensajeError(error, 'registro'), 'error');
         if (submitBtn) submitBtn.disabled = false;
       }
     });
@@ -464,11 +560,58 @@
         if (result.error) throw result.error;
         finishAuth();
       } catch (error) {
-        var signInMessage = error.message || 'Email o contraseña incorrectos.';
-        if (/invalid login|invalid credentials|email not confirmed/i.test(signInMessage)) {
-          signInMessage = 'Email o contraseña incorrectos.';
-        }
-        showAlert('sign-in', signInMessage, 'error');
+        console.error(error);
+        showAlert('sign-in', mensajeError(error, 'sign-in'), 'error');
+        if (submitBtn) submitBtn.disabled = false;
+      }
+    });
+
+    document.getElementById('recuperar-form').addEventListener('submit', async function (event) {
+      event.preventDefault();
+      var email = String(new FormData(event.target).get('email') || '').trim();
+      var submitBtn = event.target.querySelector('[type="submit"]');
+      if (!email) {
+        showAlert('recuperar', 'Escribe el correo de tu cuenta.', 'error');
+        return;
+      }
+      if (submitBtn) submitBtn.disabled = true;
+
+      try {
+        var client = HTAuth.getClient();
+        if (!client) throw new Error('El servicio de cuentas no está listo. Recarga la página.');
+        var result = await client.auth.resetPasswordForEmail(email, {
+          redirectTo: urlCallback({ tipo: 'recuperar' })
+        });
+        if (result.error) throw result.error;
+        showAlert('recuperar', 'Si hay una cuenta con ese correo, te llegará un enlace en unos minutos. Revisa también spam.', 'success');
+      } catch (error) {
+        console.error(error);
+        showAlert('recuperar', mensajeError(error, 'recuperar'), 'error');
+      }
+      if (submitBtn) submitBtn.disabled = false;
+    });
+
+    document.getElementById('nueva-clave-form').addEventListener('submit', async function (event) {
+      event.preventDefault();
+      var password = String(new FormData(event.target).get('password') || '');
+      var submitBtn = event.target.querySelector('[type="submit"]');
+      if (password.length < 8) {
+        showAlert('nueva-clave', 'La contraseña necesita al menos 8 caracteres.', 'error');
+        return;
+      }
+      if (submitBtn) submitBtn.disabled = true;
+
+      try {
+        var client = HTAuth.getClient();
+        if (!client) throw new Error('El servicio de cuentas no está listo. Recarga la página.');
+        var session = await HTAuth.getSession();
+        if (!session) throw new Error('auth session missing');
+        var result = await client.auth.updateUser({ password: password });
+        if (result.error) throw result.error;
+        finishAuth();
+      } catch (error) {
+        console.error(error);
+        showAlert('nueva-clave', mensajeError(error, 'nueva-clave'), 'error');
         if (submitBtn) submitBtn.disabled = false;
       }
     });
@@ -486,13 +629,14 @@
         HTAuth.clearPendingProfile();
         finishAuth();
       } catch (error) {
-        showAlert('completar', error.message || 'No se pudo guardar tu información.', 'error');
+        console.error(error);
+        showAlert('completar', mensajeError(error, 'completar'), 'error');
       }
     });
 
     var params = new URLSearchParams(window.location.search);
     var authView = params.get('auth');
-    if (authView === 'registro' || authView === 'sign-in' || authView === 'completar') {
+    if (VISTAS.indexOf(authView) !== -1) {
       open(authView, params.get('next'));
       params.delete('auth');
       params.delete('next');

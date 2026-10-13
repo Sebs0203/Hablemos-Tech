@@ -1,0 +1,832 @@
+/* Lector de la revista digital Hablemos Tech.
+   Interfaz, hoja base, piezas compartidas y movimiento. Las composiciones
+   de página viven en plantillas.css; cada volumen solo aporta su contenido. */
+
+@font-face {
+  font-family: 'Schibsted Grotesk';
+  src: url('../../assets/fonts/schibsted-grotesk-latin-wght-normal.woff2') format('woff2-variations');
+  font-weight: 400 900;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+2000-206F, U+2122, U+2191, U+2193, U+2212;
+}
+
+@font-face {
+  font-family: 'Schibsted Grotesk';
+  src: url('../../assets/fonts/schibsted-grotesk-latin-ext-wght-normal.woff2') format('woff2-variations');
+  font-weight: 400 900;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+1E00-1EFF, U+2020, U+20A0-20AB, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('../../assets/fonts/geist-mono-latin-wght-normal.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+:root {
+  /* Familias */
+  --font-display: 'Gotham', 'Schibsted Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  --font-ui: 'Schibsted Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* Escala de la página impresa. Se mide contra el ancho de la hoja (cqi),
+     así cada página conserva su composición a cualquier tamaño de lector. */
+  --text-giga: clamp(4rem, 36cqi, 17rem);
+  --text-mega: clamp(2.5rem, 20cqi, 10rem);
+  --text-display-1: clamp(1.6rem, 12.5cqi, 6rem);
+  --text-display-2: clamp(1.2rem, 8.4cqi, 4rem);
+  --text-display-3: clamp(1rem, 7cqi, 3.4rem);
+  --text-heading-2: clamp(0.9rem, 5.2cqi, 2.5rem);
+  --text-heading-3: clamp(0.64rem, 3.3cqi, 1.6rem);
+  --text-body-lg: clamp(0.54rem, 2.75cqi, 1.3rem);
+  --text-body: clamp(0.42rem, 2.15cqi, 1rem);
+  --text-label: clamp(0.3rem, 1.5cqi, 0.72rem);
+
+  /* Escala del lector (interfaz alrededor de la revista) */
+  --text-ui: clamp(0.8125rem, 1vw, 0.875rem);
+  --text-ui-label: clamp(0.6875rem, 0.9vw, 0.75rem);
+
+  --leading-giga: 0.78;
+  --leading-mega: 0.8;
+  --leading-display: 0.9;
+  --leading-heading: 1.12;
+  --leading-body: 1.5;
+  --leading-ui: 1.4;
+
+  --tracking-mega: -0.06em;
+  --tracking-display: -0.045em;
+  --tracking-heading: -0.025em;
+  --tracking-ui: 0.02em;
+  --tracking-label: 0.14em;
+
+  --measure-display: 18ch;
+  --measure-body: 58ch;
+
+  /* Color */
+  --negro: #050505;
+  --noche: #0b0c0c;
+  --tinta: #0d0d0d;
+  --tinta-suave: #3a3a38;
+  --papel: #f1f0eb;
+  --papel-hondo: #e4e2da;
+  --verde: #31dc8d;
+  --verde-tinta: #0e7a49;
+  --blanco: #fff;
+  --tenue: rgba(255, 255, 255, 0.62);
+  --linea-noche: rgba(255, 255, 255, 0.14);
+  --linea-papel: rgba(13, 13, 13, 0.16);
+  --linea-verde: rgba(5, 5, 5, 0.22);
+
+  /* Ritmo de la hoja */
+  --margen: 6.5cqi;
+  --margen-y: 4.6cqi;
+
+  /* Miniaturas: hoja de 612 × 792 reducida a ~64 px de alto */
+  --escala-mini: 0.0808;
+
+  --ease-salida: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-libro: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--noche);
+  color: var(--blanco);
+  font-family: var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+/* ───────────────────────── Lector ───────────────────────── */
+
+.lector {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+  height: 100svh;
+  background:
+    radial-gradient(70% 60% at 50% 45%, rgba(49, 220, 141, 0.07), transparent 70%),
+    radial-gradient(120% 90% at 50% 120%, #000 0%, transparent 60%),
+    var(--noche);
+}
+
+.lector__barra {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0.85rem clamp(1rem, 3vw, 2rem);
+  border-bottom: 1px solid var(--linea-noche);
+}
+
+.lector__marca {
+  display: block;
+  flex: none;
+  line-height: 0;
+}
+
+.lector__marca .logo {
+  width: clamp(5.5rem, 9vw, 7.25rem);
+  height: auto;
+}
+
+.logo__acento {
+  fill: var(--logo-acento, var(--verde));
+}
+
+.logo__texto {
+  fill: var(--logo-texto, var(--blanco));
+}
+
+.lector__titulo {
+  display: flex;
+  gap: 0.6rem;
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-ui-label);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--tenue);
+}
+
+.lector__sep {
+  color: var(--verde);
+}
+
+.lector__acciones {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-left: auto;
+}
+
+.lector__folio {
+  min-width: 7ch;
+  font-family: var(--font-mono);
+  font-size: var(--text-ui);
+  letter-spacing: var(--tracking-ui);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.lector__zoom {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.lector__zoom-nivel {
+  min-width: 4.5ch;
+  font-family: var(--font-mono);
+  font-size: var(--text-ui);
+  letter-spacing: var(--tracking-ui);
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+.lector__icono {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--linea-noche);
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+  transition: border-color 200ms ease, color 200ms ease;
+}
+
+.lector__icono svg,
+.lector__flecha svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: square;
+}
+
+.lector__escenario {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 0;
+  overflow: hidden;
+  padding: clamp(1rem, 3.5vh, 2.25rem) clamp(4.5rem, 8vw, 7rem) clamp(1.75rem, 4.5vh, 2.75rem);
+}
+
+.lector__libro {
+  --zoom: 1;
+  --pan-x: 0px;
+  --pan-y: 0px;
+  --desfase: 0%;
+  --origen-x: 50%;
+  position: relative;
+  transform: translate(var(--pan-x), var(--pan-y)) translateX(var(--desfase)) scale(var(--zoom));
+  transform-origin: var(--origen-x) 50%;
+  transition: transform 720ms var(--ease-libro);
+}
+
+.lector__libro[data-pos='portada'] {
+  --desfase: -25%;
+  --origen-x: 75%;
+}
+
+.lector__libro[data-pos='contra'] {
+  --desfase: 25%;
+  --origen-x: 25%;
+}
+
+.lector__libro.is-quieto {
+  transition: none;
+}
+
+.lector__libro.is-zoom,
+.lector__libro.is-zoom .stf__parent {
+  cursor: grab;
+}
+
+.lector__libro.is-zoom.is-arrastrando,
+.lector__libro.is-zoom.is-arrastrando .stf__parent {
+  cursor: grabbing;
+}
+
+/* Sombra de piso: sigue al ancho visible del libro */
+.lector__libro::after {
+  content: '';
+  position: absolute;
+  left: 3%;
+  right: 3%;
+  bottom: -3.5%;
+  height: 7%;
+  z-index: -1;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.75), transparent 72%);
+  filter: blur(10px);
+  transition: left 720ms var(--ease-libro), right 720ms var(--ease-libro);
+}
+
+.lector__libro[data-pos='portada']::after {
+  left: 52%;
+}
+
+.lector__libro[data-pos='contra']::after {
+  right: 52%;
+}
+
+.lector__flecha {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  margin-top: -1.625rem;
+  border: 1px solid var(--linea-noche);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  transition: background-color 220ms ease, color 220ms ease, border-color 220ms ease, opacity 220ms ease, transform 160ms ease;
+}
+
+.lector__flecha--prev {
+  left: clamp(0.75rem, 2.5vw, 2rem);
+}
+
+.lector__flecha--next {
+  right: clamp(0.75rem, 2.5vw, 2rem);
+}
+
+.lector__flecha:active {
+  transform: scale(0.94);
+}
+
+.lector__flecha:disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+
+.lector__icono:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+@media (hover: hover) {
+  .lector__icono:not(:disabled):hover {
+    border-color: var(--verde);
+    color: var(--verde);
+  }
+
+  .lector__flecha:not(:disabled):hover {
+    background: var(--verde);
+    border-color: var(--verde);
+    color: var(--negro);
+  }
+}
+
+.lector__icono:focus-visible,
+.lector__flecha:focus-visible,
+.lector__marca:focus-visible,
+.miniatura:focus-visible {
+  outline: 2px solid var(--verde);
+  outline-offset: 3px;
+}
+
+.lector__pista {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(0.25rem, 1vh, 0.75rem);
+  margin: 0;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: var(--text-ui-label);
+  letter-spacing: var(--tracking-ui);
+  color: var(--tenue);
+  white-space: nowrap;
+  transition: opacity 500ms ease;
+}
+
+.lector__pista.is-oculta,
+.lector__libro.is-zoom ~ .lector__pista {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.lector__pista--tactil {
+  display: none;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .lector__pista--raton {
+    display: none;
+  }
+
+  .lector__pista--tactil {
+    display: inline;
+  }
+}
+
+/* Tira de miniaturas: centrada cuando cabe, desplazable cuando no */
+.lector__miniaturas {
+  display: flex;
+  gap: 0.9rem;
+  overflow-x: auto;
+  padding: 0.75rem 1rem 1rem;
+  border-top: 1px solid var(--linea-noche);
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+.lector__miniaturas::-webkit-scrollbar {
+  display: none;
+}
+
+.lector__miniaturas > :first-child {
+  margin-left: auto;
+}
+
+.lector__miniaturas > :last-child {
+  margin-right: auto;
+}
+
+.miniatura {
+  flex: none;
+  display: grid;
+  justify-items: center;
+  gap: 0.4rem;
+  padding: 2px 0 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.miniatura__hojas {
+  display: flex;
+  outline: 1px solid var(--linea-noche);
+  opacity: 0.55;
+  transition: opacity 220ms ease, outline-color 220ms ease, transform 220ms var(--ease-salida);
+}
+
+.miniatura__hoja {
+  position: relative;
+  overflow: hidden;
+  width: calc(612px * var(--escala-mini));
+  height: calc(792px * var(--escala-mini));
+}
+
+.miniatura__hoja > .pagina {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 612px;
+  height: 792px;
+  transform: scale(var(--escala-mini));
+  transform-origin: 0 0;
+}
+
+.miniatura__hoja *,
+.miniatura__hoja *::before,
+.miniatura__hoja *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+.miniatura__num {
+  font-family: var(--font-mono);
+  font-size: var(--text-ui-label);
+  letter-spacing: var(--tracking-ui);
+  color: var(--tenue);
+}
+
+.miniatura[aria-current='true'] .miniatura__hojas {
+  opacity: 1;
+  outline: 2px solid var(--verde);
+}
+
+.miniatura[aria-current='true'] .miniatura__num {
+  color: var(--verde);
+}
+
+@media (hover: hover) {
+  .miniatura:hover .miniatura__hojas {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+}
+
+/* ───────────────────────── Hojas ───────────────────────── */
+
+/* La hoja es el contenedor de medida: así el padding interno en cqi
+   también se resuelve contra el ancho de la página. */
+.pagina {
+  overflow: hidden;
+  container-type: size;
+  background: var(--papel);
+  color: var(--tinta);
+}
+
+.pagina--noche {
+  background: var(--negro);
+  color: var(--blanco);
+}
+
+.pagina--verde {
+  background: var(--verde);
+  color: var(--negro);
+}
+
+.pagina__lienzo {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--papel);
+  color: var(--tinta);
+}
+
+.pagina--noche .pagina__lienzo {
+  background: var(--negro);
+  color: var(--blanco);
+}
+
+.pagina--verde .pagina__lienzo {
+  background: var(--verde);
+  color: var(--negro);
+}
+
+:where(.pagina) :where(p, h1, h2, h3, figure, blockquote, ol, ul, dl, dd) {
+  margin: 0;
+}
+
+:where(.pagina) :where(ol, ul) {
+  padding: 0;
+  list-style: none;
+}
+
+/* Lomo: sombra hacia el centro del libro */
+.pagina__lienzo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.stf__item.--left .pagina__lienzo::after {
+  background: linear-gradient(270deg, rgba(0, 0, 0, 0.24) 0%, rgba(0, 0, 0, 0.06) 3.5%, transparent 9%);
+}
+
+.stf__item.--right .pagina__lienzo::after {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.24) 0%, rgba(0, 0, 0, 0.06) 3.5%, transparent 9%);
+}
+
+.--portrait .stf__item .pagina__lienzo::after {
+  background: none;
+}
+
+/* ───────────────────────── Piezas compartidas ───────────────────────── */
+
+.etiqueta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7em;
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+  line-height: var(--leading-ui);
+  text-transform: uppercase;
+}
+
+.etiqueta--verde {
+  color: var(--verde);
+}
+
+.pagina--papel .etiqueta--verde {
+  color: var(--verde-tinta);
+}
+
+.etiqueta__punto {
+  flex: none;
+  width: 0.7em;
+  height: 0.7em;
+  background: currentColor;
+}
+
+.cornisa {
+  display: flex;
+  justify-content: space-between;
+  gap: 3cqi;
+  padding-bottom: 1.3cqi;
+  border-bottom: 1px solid var(--linea-papel);
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  letter-spacing: var(--tracking-label);
+  line-height: var(--leading-ui);
+  text-transform: uppercase;
+}
+
+.pagina--noche .cornisa {
+  border-bottom-color: var(--linea-noche);
+  color: var(--tenue);
+}
+
+.pagina--verde .cornisa {
+  border-bottom-color: var(--linea-verde);
+}
+
+.folio {
+  display: flex;
+  align-items: baseline;
+  gap: 2cqi;
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  letter-spacing: var(--tracking-label);
+  line-height: var(--leading-ui);
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+
+.pagina--noche .folio {
+  color: var(--tenue);
+}
+
+.pagina--verde .folio {
+  color: rgba(5, 5, 5, 0.7);
+}
+
+.folio--derecha {
+  justify-content: flex-end;
+}
+
+.folio__num {
+  font-weight: 600;
+  color: var(--tinta);
+}
+
+.pagina--noche .folio__num {
+  color: var(--blanco);
+}
+
+.pagina--verde .folio__num {
+  color: var(--negro);
+}
+
+.reticula {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: calc(100% / 6) 100%;
+}
+
+.pagina--verde .reticula {
+  background-image: linear-gradient(90deg, rgba(5, 5, 5, 0.08) 1px, transparent 1px);
+}
+
+.grano {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.22;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.chip {
+  display: inline-block;
+  padding: 0.9cqi 1.5cqi;
+  background: var(--verde);
+  color: var(--negro);
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  line-height: var(--leading-ui);
+  text-transform: uppercase;
+}
+
+.pixel {
+  display: grid;
+  grid-template-columns: repeat(var(--columnas, 11), 1fr);
+  gap: 0.35cqi;
+}
+
+.pixel i {
+  aspect-ratio: 1;
+}
+
+.pixel i.is-lleno {
+  background: var(--verde);
+  box-shadow: 0 0 2.4cqi rgba(49, 220, 141, 0.35);
+}
+
+.codigo {
+  width: 15cqi;
+  height: 3.6cqi;
+  background: repeating-linear-gradient(90deg,
+      #fff 0 2%, transparent 2% 4%, #fff 4% 9%, transparent 9% 11%,
+      #fff 11% 12%, transparent 12% 16%, #fff 16% 20%, transparent 20% 21%,
+      #fff 21% 23%, transparent 23% 27%, #fff 27% 28%, transparent 28% 31%);
+  background-size: 52% 100%;
+  opacity: 0.85;
+}
+
+.puntos {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 1cqi;
+}
+
+.puntos i {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.puntos i.is-lleno {
+  background: var(--verde);
+}
+
+/* ───────────────────────── Movimiento ─────────────────────────
+   Cada hoja entra con su propia coreografía al quedar a la vista.
+   El estado final es el estilo base; solo se oculta mientras la hoja
+   no tiene .is-visible y el script está activo. */
+
+.js .pagina [data-anim] {
+  transition:
+    opacity 700ms var(--ease-salida),
+    transform 900ms var(--ease-salida);
+  transition-delay: calc(var(--i, 0) * 70ms + 120ms);
+}
+
+.js .pagina:not(.is-visible) [data-anim] {
+  opacity: 0;
+  transform: translateY(2.4cqi);
+}
+
+.js .pagina .pixel i {
+  transition: opacity 260ms ease, transform 420ms var(--ease-salida);
+  transition-delay: calc(var(--i, 0) * 28ms + 300ms);
+}
+
+.js .pagina:not(.is-visible) .pixel i {
+  opacity: 0;
+  transform: scale(0.2);
+}
+
+.js .pagina .puntos i {
+  transition: background-color 240ms ease, transform 360ms var(--ease-salida);
+  transition-delay: calc(var(--i, 0) * 9ms + 400ms);
+}
+
+.js .pagina:not(.is-visible) .puntos i {
+  transform: scale(0.4);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+/* Barras que crecen desde la izquierda */
+.js .pagina [data-barra] {
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 1100ms var(--ease-salida);
+  transition-delay: calc(var(--i, 0) * 110ms + 550ms);
+}
+
+.js .pagina:not(.is-visible) [data-barra] {
+  clip-path: inset(0 100% 0 0);
+}
+
+/* Fotos que se asientan al llegar */
+.js .pagina [data-foto] {
+  transition: transform 2400ms var(--ease-salida), opacity 1400ms ease;
+}
+
+.js .pagina:not(.is-visible) [data-foto] {
+  transform: scale(1.08);
+  opacity: 0.4;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .pagina [data-anim],
+  .js .pagina .pixel i,
+  .js .pagina .puntos i,
+  .js .pagina [data-barra],
+  .js .pagina [data-foto],
+  .lector__libro,
+  .lector__libro::after {
+    transition: none !important;
+  }
+}
+
+/* ───────────────────────── Responsivo ───────────────────────── */
+
+@media (max-width: 720px) {
+  .lector__titulo {
+    display: none;
+  }
+
+  .lector__escenario {
+    padding: 0.75rem 0.75rem 3.75rem;
+  }
+
+  .lector__flecha {
+    top: auto;
+    bottom: 0.5rem;
+    margin-top: 0;
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .lector__flecha--prev {
+    left: 0.75rem;
+  }
+
+  .lector__flecha--next {
+    right: 0.75rem;
+  }
+
+  .lector__pista {
+    bottom: 1.35rem;
+  }
+
+  .lector__pista--raton {
+    display: none;
+  }
+
+  .lector__pista--tactil {
+    display: inline;
+  }
+
+  .lector__libro[data-pos] {
+    --desfase: 0%;
+    --origen-x: 50%;
+  }
+
+  .lector__libro[data-pos]::after {
+    left: 3%;
+    right: 3%;
+  }
+
+  .lector__miniaturas {
+    gap: 0.6rem;
+    padding: 0.6rem 0.75rem 0.8rem;
+  }
+}

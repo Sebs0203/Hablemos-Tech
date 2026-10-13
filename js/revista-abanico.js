@@ -489,12 +489,22 @@
     escena.addEventListener('pointercancel', release);
     escena.addEventListener('lostpointercapture', release);
 
-    pista.addEventListener('click', function (event) {
-      if (!dragged) return;
-      event.preventDefault();
-      event.stopPropagation();
-      dragged = false;
-    }, true);
+    /* setPointerCapture manda el click al escenario, no al enlace. Si no hubo
+       arrastre, se abre la portada que está bajo el cursor. */
+    escena.addEventListener('click', function (event) {
+      if (dragged) {
+        event.preventDefault();
+        event.stopPropagation();
+        dragged = false;
+        return;
+      }
+      if (event.target.closest && event.target.closest('a.revista-portada')) return;
+
+      var bajo = document.elementFromPoint(event.clientX, event.clientY);
+      var enlace = bajo && bajo.closest && bajo.closest('a.revista-portada');
+      if (!enlace || !escena.contains(enlace)) return;
+      window.location.assign(enlace.href);
+    });
 
     function scheduleIdle() {
       if (!carrete) return;

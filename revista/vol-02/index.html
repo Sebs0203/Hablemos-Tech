@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Vol. 02 · Tech &amp; Wine Fest — Revista Hablemos Tech</title>
+  <meta name="description" content="Revista digital Hablemos Tech, Vol. 02: lo que se habló en la segunda edición del Tech &amp; Wine Fest en Valle de Guadalupe. Ciberseguridad, costo real de la IA, recuperación en la nube, agentes virtuales y más.">
+  <meta name="theme-color" content="#0b0c0c">
+  <link rel="icon" href="../../assets/img/asterisco.svg" type="image/svg+xml">
+  <link rel="preload" href="../../assets/fonts/schibsted-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/geist-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../lector/lector.css">
+  <link rel="stylesheet" href="../lector/plantillas.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <!-- acceso:inicio -->
+  <link rel="stylesheet" href="../lector/acceso.css">
+  <script>document.documentElement.classList.add('revista-bloqueada');</script>
+  <!-- acceso:fin -->
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="logo-ht" viewBox="0 0 626.18 208.23">
+      <g class="logo__acento">
+        <path d="M42.68,90.32v84.22H0V22.94h42.68v33.69h69.33v33.69H42.68ZM42.68,208.23v-33.69h70.51v33.69H42.68Z"/>
+        <path d="M277.2,56.63v92.65h-115.77v25.26h-32.87V56.63h148.64ZM244.33,90.32h-82.9v25.27h82.9v-25.27ZM161.43,208.23v-33.69h82.9v33.69h-82.9Z"/>
+        <path d="M328.73,92.49v79.89h114.57v35.86h-149.56V56.63h149.56v35.86h-114.57Z"/>
+        <path d="M583.38,56.63v33.69h-80.73v117.91h-42.8V0h42.8v56.63h80.73ZM583.38,208.23v-117.91h42.8v117.91h-42.8Z"/>
+      </g>
+      <g class="logo__texto">
+        <path d="M90.04,25.17h-20.15v14.77h-10.67V0h10.67v14.89h20.15V0h10.67v39.93h-10.67v-14.77Z"/>
+        <path d="M138.98,25.17h-20.15v14.77h-10.67V0h41.49v39.93h-10.67v-14.77ZM118.83,14.89h20.15v-4.62h-20.15v4.62Z"/>
+        <path d="M198.59,0v39.93h-41.49V0h41.49ZM167.78,14.89h20.15v-4.62h-20.15v4.62ZM187.92,25.17h-20.15v4.49h20.15v-4.49Z"/>
+        <path d="M247.53,39.93h-41.49V0h10.67v29.66h30.82v10.27Z"/>
+        <path d="M296.48,25.17h-30.82v4.49h30.82v10.27h-41.49V0h41.49v10.27h-30.82v4.62h30.82v10.27Z"/>
+        <path d="M329.67,10.27v29.66h-10.67V10.27h-4.4v29.66h-10.67V0h41.49v39.93h-10.67V10.27h-5.07Z"/>
+        <path d="M394.36,0v39.93h-41.49V0h41.49ZM383.68,10.27h-20.15v19.39h20.15V10.27Z"/>
+        <path d="M443.3,10.27h-30.82v4.62h30.82v25.04h-41.49v-10.27h30.82v-4.49h-30.82V0h41.49v10.27Z"/>
+      </g>
+    </symbol>
+    <symbol id="asterisco" viewBox="0 0 48 48">
+      <g transform="translate(24 24)">
+        <rect x="-4" y="-20" width="8" height="40"/>
+        <rect x="-4" y="-20" width="8" height="40" transform="rotate(72)"/>
+        <rect x="-4" y="-20" width="8" height="40" transform="rotate(144)"/>
+        <rect x="-4" y="-20" width="8" height="40" transform="rotate(216)"/>
+        <rect x="-4" y="-20" width="8" height="40" transform="rotate(288)"/>
+      </g>
+    </symbol>
+  </svg>
+
+  <div class="lector">
+    <header class="lector__barra">
+      <a class="lector__marca" href="../../" aria-label="Hablemos Tech, inicio">
+        <svg class="logo" viewBox="0 0 626.18 208.23" aria-hidden="true"><use href="#logo-ht"/></svg>
+      </a>
+      <p class="lector__titulo">
+        <span>Revista digital</span>
+        <span class="lector__sep" aria-hidden="true">/</span>
+        <span>Vol. 02 · Tech &amp; Wine Fest</span>
+      </p>
+      <div class="lector__acciones">
+        <output class="lector__folio" id="folio" aria-live="polite">1 / 20</output>
+        <div class="lector__zoom" role="group" aria-label="Zoom de la página">
+          <button class="lector__icono" id="zoom-menos" type="button" aria-label="Alejar" disabled>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12h12"/></svg>
+          </button>
+          <output class="lector__zoom-nivel" id="zoom-nivel">100%</output>
+          <button class="lector__icono" id="zoom-mas" type="button" aria-label="Acercar">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6v12M6 12h12"/></svg>
+          </button>
+        </div>
+        <button class="lector__icono" id="pantalla" type="button" aria-label="Pantalla completa">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="lector__escenario" id="escenario">
+      <button class="lector__flecha lector__flecha--prev" id="anterior" type="button" aria-label="Página anterior">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+      </button>
+
+      <div class="lector__libro" id="marco" data-pos="portada">
+        <div class="libro" id="libro">
+
+          <!-- 01 · Portada -->
+          <section class="pagina pagina--noche" data-density="hard" aria-label="Portada">
+            <div class="pagina__lienzo portada portada--arte">
+              <h1 class="portada__sr">Tech &amp; Wine Fest 2026</h1>
+              <img class="portada__arte" src="../../assets/img/revista-vol-02/portada.png" alt="Público del Tech &amp; Wine Fest 2026 en Bodegas del Valle. Revista Hablemos Tech, volumen 02.">
+            </div>
+          </section>
+
+          <!-- 02 · Sumario -->
+          <section class="pagina pagina--papel" aria-label="Página 2: sumario">
+            <div class="pagina__lienzo hoja sumario">
+              <header class="cornisa">
+                <span>Hablemos Tech</span>
+                <span>Vol. 02 — Otoño 2026</span>
+              </header>
+
+              <h2 class="sumario__titulo" data-anim style="--i:0">Sumario<span class="sumario__punto">.</span></h2>
+
+              <div class="sumario__cuerpo">
+                <aside class="sumario__lado" data-anim style="--i:2">
+                  <figure class="sumario__foto">
+                    <img src="../../assets/img/revista-vol-02/index-equipo.jpg" alt="Equipo de Index Zona Costa en su stand del Tech &amp; Wine Fest.">
+                    <figcaption>Ecosistema · p. 17</figcaption>
+                  </figure>
+                  <p class="sumario__nota">Siete sesiones, una tarde de calor en el valle y una misma advertencia.</p>
+                  <p class="sumario__portada"><span>En portada</span>Público del Tech &amp; Wine Fest 2026, en Bodegas del Valle.</p>
+                </aside>
+
+                <ol class="indice">
+                  <li class="indice__item" data-anim style="--i:3">
+                    <span class="indice__num">03</span>
+                    <div>
+                      <p class="indice__seccion">Crónica · Josué Madera</p>
+                      <h3 class="indice__titulo">De la taquiza al valle</h3>
+                    </div>
+                  </li>
+                  <li class="indice__item indice__item--destacado" data-anim style="--i:4">
+                    <span class="indice__num">04</span>
+                    <div>
+                      <p class="indice__seccion">Ciberseguridad · Gustavo Rodríguez</p>
+                      <h3 class="indice__titulo">El código que no escribiste</h3>
+                    </div>
+                  </li>
+                  <li class="indice__item" data-anim style="--i:5">
+                    <span class="indice__num">08</span>
+                    <div>
+                      <p class="indice__seccion">IA en producción · Andrés Wong</p>
+                      <h3 class="indice__titulo">Lo que cuesta un token</h3>
+                    </div>
+                  </li>
+                  <li class="indice__item" data-anim style="--i:6">
+                    <span class="indice__num">10</span>
+                    <div>
+                      <p class="indice__seccion">Nube · Francisco Olazo</p>
+                      <h3 class="indice__titulo">Respaldar no es recuperar</h3>
+                    </div>
+                  </li>
+                  <li class="indice__item" data-anim style="--i:7">
+                    <span class="indice__num">11</span>
+                    <div>
+                      <p class="indice__seccion">Experiencia de cliente · Raúl Reséndiz</p>
+                      <h3 class="indice__titulo">Tecnología que no estorba</h3>
+                    </div>
+                  </li>
+                  <li class="indice__item" data-anim style="--i:8">
+                    <span class="indice__num">12</span>
+                    <div>
+                      <p class="indice__seccion">Conversación · Victor Mendivil</p>
+                      <h3 class="indice__titulo">TI es el negocio</h3>
+                    </div>
+                  </li>
+                  <li class="indice__item" data-anim style="--i:9">
+                    <span class="indice__num">14</span>
+                    <div>
+                      <p class="indice__seccion">Agentes virtuales · David Modiano</p>
+                      <h3 class="indice__titulo">La receta de un agente</h3>
+                    </div>
+                  </li>
+                  <li class="indice__item" data-anim style="--i:10">
+                    <span class="indice__num">15</span>
+                    <div>
+                      <p class="indice__seccion">Impresión · Josué Israel Gutiérrez</p>
+                      <h3 class="indice__titulo">La impresora es un endpoint</h3>
+                    </div>
+                  </li>
+                  <li class="indice__item" data-anim style="--i:11">
+                    <span class="indice__num">16</span>
+                    <div>
+                      <p class="indice__seccion">Cierre</p>
+                      <h3 class="indice__titulo">Ocho ideas para el lunes</h3>
+                    </div>
+                  </li>
+                  <li class="indice__item" data-anim style="--i:12">
+                    <span class="indice__num">18</span>
+                    <div>
+                      <p class="indice__seccion">Podcast · Nuevo episodio</p>
+                      <h3 class="indice__titulo">El costo oculto de tokens</h3>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+
+              <footer class="folio">
+                <span class="folio__num">02</span>
+                <span>Sumario</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- 03 · Crónica -->
+          <section class="pagina pagina--noche" aria-label="Página 3: crónica del evento">
+            <div class="pagina__lienzo hoja cronica">
+              <div class="reticula" aria-hidden="true"></div>
+              <header class="cornisa">
+                <span>Crónica</span>
+                <span>Bodegas del Valle · Valle de Guadalupe, B.C.</span>
+              </header>
+
+              <div class="cronica__cabeza">
+                <div class="cronica__titular">
+                  <p class="etiqueta etiqueta--verde" data-anim style="--i:0"><span class="etiqueta__punto"></span>Carta editorial</p>
+                  <h2 class="titulo-2" data-anim style="--i:1">De la taquiza al valle.</h2>
+                </div>
+                <img class="cronica__marca" data-anim style="--i:2" src="../../assets/img/tech-wine-fest-marca.png" alt="Tech &amp; Wine Fest" width="1024" height="746">
+              </div>
+
+              <p class="entrada" data-anim style="--i:3">La segunda edición del Tech &amp; Wine Fest juntó en Valle de Guadalupe a líderes de TI de Tijuana, Mexicali y el resto de la región. Siete sesiones y una misma advertencia: confiar sin verificar ya no alcanza.</p>
+
+              <div class="texto texto--2col" data-anim style="--i:4">
+                <p class="capitular">Todo empezó con quince o veinte personas, una taquiza y unas cervezas. Así lo contó Josué “Josh” Madera —director de Enteracloud, cofundador de Purple AI y director del comité de tecnología de Index Zona Costa— al abrir la tarde.</p>
+                <p>A esa primera red le siguieron reuniones de directores, encuentros con agentes aduanales y el Foro de Tecnología MX, que en Tijuana reunió a cerca de 400 líderes.</p>
+                <p>El año pasado llovió; esta vez se adelantaron al frío y les tocó el calor. Hubo vino, mezcal de Oaxaca, banda en vivo y mucha conversación sobre ataques que llegan por terceros, IA que cuesta más de lo presupuestado y respaldos que nadie ha probado.</p>
+              </div>
+
+              <ol class="linea-tiempo" data-anim style="--i:6" aria-label="Cómo creció la comunidad">
+                <li><b>Tijuana Tech Network</b><span>15 a 20 líderes</span></li>
+                <li><b>Director Business Network</b><span>Directores</span></li>
+                <li><b>Aduanas Inteligentes</b><span>Agentes aduanales</span></li>
+                <li><b>Foro de Tecnología MX</b><span>≈ 400 líderes</span></li>
+                <li><b>Tech &amp; Wine Fest</b><span>2ª edición</span></li>
+              </ol>
+
+              <footer class="folio folio--derecha">
+                <span>Crónica</span>
+                <span class="folio__num">03</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- 04 · Ciberseguridad: apertura -->
+          <section class="pagina pagina--noche" aria-label="Página 4: ciberseguridad, apertura">
+            <div class="pagina__lienzo hoja apertura">
+              <div class="reticula" aria-hidden="true"></div>
+              <header class="cornisa">
+                <span>Ciberseguridad</span>
+                <span>Cadena de suministro de software</span>
+              </header>
+
+              <figure class="apertura__red">
+                <div class="red" data-red="40" role="img" aria-label="Diagrama: una empresa al centro, 40 dependencias directas alrededor y cientos de personas detrás de ellas. Una sola ruta comprometida llega hasta el centro."></div>
+                <figcaption data-anim style="--i:6"><b>40</b> dependencias · <b>≈ 1,500</b> personas detrás de ellas (estimación)</figcaption>
+              </figure>
+
+              <blockquote class="apertura__cita">
+                <p class="apertura__frase" data-anim style="--i:2">No te van a atacar a ti.</p>
+                <p class="apertura__remate" data-anim style="--i:3">Van a atacar a alguien de quien dependes.</p>
+              </blockquote>
+
+              <p class="apertura__autor" data-anim style="--i:4"><b>Gustavo Rodríguez</b><span>Director de ciberseguridad · Grupo Trycer</span></p>
+
+              <footer class="folio">
+                <span class="folio__num">04</span>
+                <span>Ciberseguridad</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- 05 · Ciberseguridad: artículo, apertura con foto -->
+          <section class="pagina pagina--papel" aria-label="Página 5: ciberseguridad">
+            <div class="pagina__lienzo hoja articulo-foto">
+              <figure class="articulo-foto__foto">
+                <img data-foto src="../../assets/img/revista-vol-02/gustavo-rodriguez.jpg" alt="Gustavo Rodríguez, director de ciberseguridad de Grupo Trycer, en el stand de su empresa durante el Tech &amp; Wine Fest." width="1800" height="1200">
+                <span class="chip articulo-foto__chip">Ciberseguridad</span>
+              </figure>
+
+              <div class="articulo__cabeza">
+                <h2 class="titulo-2" data-anim style="--i:0">El código que no escribiste.</h2>
+                <p class="entrada" data-anim style="--i:1">Gustavo Rodríguez, director de ciberseguridad de Grupo Trycer, subió al escenario con un casco de Iron Man y una frase de Ken Thompson, de 1984: no puedes confiar en código que no escribiste tú mismo.</p>
+                <p class="firma" data-anim style="--i:2"><b>La plática</b> · La falla estaba en la armadura. Supply chain: el enemigo que tú mismo instalaste</p>
+              </div>
+
+              <footer class="folio folio--derecha">
+                <span>Ciberseguridad</span>
+                <span class="folio__num">05</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- 06 · Ciberseguridad: artículo, continuación -->
+          <section class="pagina pagina--papel" aria-label="Página 6: ciberseguridad, continuación">
+            <div class="pagina__lienzo hoja articulo ciber">
+              <header class="cornisa">
+                <span>Ciberseguridad</span>
+                <span>Gustavo Rodríguez · Grupo Trycer</span>
+              </header>
+
+              <div class="texto texto--2col" data-anim style="--i:0">
+                <p class="capitular">Hoy ese código llega en una dependencia o lo sugiere una IA. NPM y PIP son la tienda de apps de los programadores: alguien publicó el paquete, tú lo instalas, casi siempre como administrador, y confías en que haga lo que dice.</p>
+                <p>Si una IA recomienda una librería que no existe, alguien puede publicarla con código malicioso. En 2021, Alex Birsan subió paquetes con el nombre de dependencias internas de empresas como Apple y Microsoft, y los gestores instalaron la versión pública.</p>
+                <p>Kaseya y Shai-Hulud siguieron el mismo patrón, según Gustavo: dependencias que nadie verificó.</p>
+                <p>No todo lo que pide rescate es ransomware. NotPetya cifraba el MBR y el MFT sin forma de recuperarlos: era un wiper. Y el ransomware es toda una industria, con brokers de acceso, afiliados, negociadores y hasta call centers.</p>
+              </div>
+
+              <blockquote class="cita-banda" data-anim style="--i:1">
+                <p>“Nadie lo va a detectar, porque viene del código.”</p>
+                <cite class="firma"><b>Gustavo Rodríguez</b> · Sobre firewalls y antivirus</cite>
+              </blockquote>
+
+              <section class="checklist" data-anim style="--i:2">
+                <p class="etiqueta">Por dónde empezar</p>
+                <ol>
+                  <li>Revisa cada paquete que te sugiera una IA antes de instalarlo.</li>
+                  <li>Da a cada proveedor una VPN limitada y ventanas de mantenimiento.</li>
+                  <li>Activa MFA en cada servicio y cada cuenta de administrador.</li>
+                  <li>Descarga los 18 CIS Controls v8: son gratis.</li>
+                </ol>
+              </section>
+
+              <footer class="folio">
+                <span class="folio__num">06</span>
+                <span>Ciberseguridad</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- 07 · Ciberseguridad: cuatro puertas -->
+          <section class="pagina pagina--noche" aria-label="Página 7: ciberseguridad, cuatro puertas de entrada">
+            <div class="pagina__lienzo hoja puertas-hoja">
+              <div class="reticula" aria-hidden="true"></div>
+              <header class="cornisa">
+                <span>Ciberseguridad</span>
+                <span>Gustavo Rodríguez · Grupo Trycer</span>
+              </header>
+
+              <h2 class="titulo-2 puertas-hoja__titulo" data-anim style="--i:0">Cuatro puertas de entrada.</h2>
+              <p class="entrada" data-anim style="--i:1">Por dónde se mete un ataque a la cadena de suministro, según Gustavo Rodríguez.</p>
+
+              <ol class="puertas-grande">
+                <li data-anim style="--i:2"><span class="puertas-grande__num">01</span><div><b>Dependencia</b><p>Código que bajas de NPM, PIP o RubyGems y que casi siempre instalas como administrador.</p></div></li>
+                <li data-anim style="--i:3"><span class="puertas-grande__num">02</span><div><b>Pipeline</b><p>Acciones y plugins sin definir, y aplicaciones que corren sin permisos específicos.</p></div></li>
+                <li data-anim style="--i:4"><span class="puertas-grande__num">03</span><div><b>Artefacto</b><p>Siempre compila limpio: el problema viene de antes, desde el desarrollo.</p></div></li>
+                <li data-anim style="--i:5"><span class="puertas-grande__num">04</span><div><b>Identidad</b><p>Tokens sin límite, credenciales sin MFA y cuentas que son administradoras.</p></div></li>
+              </ol>
+
+              <dl class="cifras-fila" data-anim style="--i:6">
+                <div><dt><span data-contar="454">454</span><small> mil</small></dt><dd>paquetes maliciosos nuevos al año <cite>Sonatype</cite></dd></div>
+                <div><dt><span data-contar="65">65</span><small>%</small></dt><dd>ve la cadena de suministro como su mayor reto <cite>Foro Económico Mundial</cite></dd></div>
+                <div><dt>+<span data-contar="250">250</span></dt><dd>días en promedio para detectar una brecha <cite>Citado por Gustavo Rodríguez</cite></dd></div>
+              </dl>
+
+              <footer class="folio folio--derecha">
+                <span>Cifras citadas en la plática</span>
+                <span class="folio__num">07</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- 08 · IA: el dato -->
+          <section class="pagina pagina--verde" aria-label="Página 8: inteligencia artificial, caso de una agencia aduanal">
+            <div class="pagina__lienzo hoja dato">
+              <div class="reticula" aria-hidden="true"></div>
+              <header class="cornisa">
+                <span>Inteligencia artificial</span>
+                <span>Caso real · Agencia aduanal</span>
+              </header>
+
+              <p class="etiqueta dato__etiqueta" data-anim style="--i:0"><span class="etiqueta__punto"></span>De un día y medio a</p>
+              <p class="dato__giga" data-anim style="--i:1"><span data-contar="13">13</span><small>seg.</small></p>
+              <p class="dato__pie" data-anim style="--i:2">Procesar un M3 de más de 100 partidas le tomaba un día y medio a una agencia aduanal. Andrés Wong, de Purple AI, contó cómo lo bajaron.</p>
+
+              <ol class="escalera" data-anim style="--i:3" aria-label="Tiempo de proceso por ronda, en escala logarítmica">
+                <li style="--valor:100"><span>Manual</span><b>1.5 días</b><i data-barra style="--i:0"></i></li>
+                <li style="--valor:73"><span>Ronda 1 · agentes LLM</span><b>1.5 h</b><i data-barra style="--i:1"></i></li>
+                <li style="--valor:57"><span>Ronda 2 · mejor algoritmo</span><b>13 min</b><i data-barra style="--i:2"></i></li>
+                <li style="--valor:22"><span>Rediseño · el LLM decide, el código ejecuta</span><b>13 s</b><i data-barra style="--i:3"></i></li>
+              </ol>
+
+              <aside class="dato__alerta" data-anim style="--i:5">
+                <strong>El costo que nadie midió.</strong>
+                <span>Con agentes LLM, procesar un archivo pasó de 30 dólares a 11,500 pesos. El rediseño nació de esa factura.</span>
+              </aside>
+
+              <dl class="trio" data-anim style="--i:6">
+                <div><dt>32</dt><dd>archivos en paralelo</dd></div>
+                <div><dt>24/7</dt><dd>sin turnos ni pausas</dd></div>
+                <div><dt>0</dt><dd>reemplazos: el equipo ahora valida</dd></div>
+              </dl>
+
+              <footer class="folio">
+                <span class="folio__num">08</span>
+                <span>Andrés Wong · Purple AI</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- 09 · IA: artículo -->
+          <section class="pagina pagina--papel" aria-label="Página 9: inteligencia artificial">
+            <div class="pagina__lienzo hoja articulo articulo--foto">
+              <figure class="foto-cabecera foto-cabecera--grande" style="--foco: 50% 30%">
+                <img data-foto src="../../assets/img/revista-vol-02/andres-wong.jpg" alt="Andrés Wong, director de Inteligencia Artificial de Purple AI, durante su plática en el Tech &amp; Wine Fest." width="1800" height="675">
+                <span class="chip foto-cabecera__chip">Inteligencia artificial</span>
+                <figcaption class="foto-cabecera__credito foto-cabecera__credito--derecha"><b>Andrés Wong</b><br>Dir. de Inteligencia Artificial, Purple AI</figcaption>
+              </figure>
+
+              <div class="articulo__cabeza">
+                <h2 class="titulo-2" data-anim style="--i:0">Lo que de verdad cuesta un token.</h2>
+                <p class="entrada" data-anim style="--i:1">Casi nadie sabe cuánto le costará la IA hasta ver la factura.</p>
+              </div>
+
+              <div class="texto texto--2col" data-anim style="--i:2">
+                <p class="capitular">Un token es un pedazo de palabra, y es lo que cobran los proveedores de IA. En inglés se gasta uno por palabra; en español, dos.</p>
+                <p>Un chatbot te dice qué hacer; un agente lo hace, falla y reintenta. Con tokens de sobra, ese loop es poderoso; medido, es un problema.</p>
+                <p>Su salida: formato estricto (JSON, XML, Markdown), menos “pensamiento” y código para lo que no requiere criterio.</p>
+              </div>
+
+              <aside class="recuadro" data-anim style="--i:3">
+                <div class="recuadro__intro">
+                  <p class="etiqueta etiqueta--verde"><span class="etiqueta__punto"></span>Cuando el agente olvida</p>
+                  <p class="recuadro__lead">Guarda la tarea y olvida el “no borres esa tabla”.</p>
+                </div>
+                <ul>
+                  <li>Al compactar, el agente de correo de una directiva de Meta olvidó sus instrucciones y vació la bandeja.</li>
+                </ul>
+              </aside>
+
+              <blockquote class="cita-banda" data-anim style="--i:4">
+                <p>“Si no sabemos cuánto nos cuesta técnicamente y económicamente, es una demostración, no es producción.”</p>
+                <cite class="firma"><b>Andrés Wong</b> · Dir. de Inteligencia Artificial, Purple AI</cite>
+              </blockquote>
+
+              <footer class="folio folio--derecha">
+                <span>Inteligencia artificial</span>
+                <span class="folio__num">09</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- 10 · Nube -->
+          <section class="pagina pagina--papel" aria-label="Página 10: nube e infraestructura">
+            <div class="pagina__lienzo hoja hoja--banda caso">
+              <figure class="foto-cabecera">
+                <img data-foto src="../../assets/img/revista-vol-02/francisco-olazo.jpg" alt="Francisco Olazo, de Enteracloud, explica RPO y RTO frente a su presentación en el Tech &amp; Wine Fest." width="1800" height="653">
+                <span class="chip foto-cabecera__chip">Nube e infraestructura</span>
+              </figure>
+
+              <h2 class="titulo-2" data-anim style="--i:1">Respaldar no es recuperar.</h2>
+              <p class="entrada" data-anim style="--i:2">Francisco Olazo, LATAM Lead Engineer en Enteracloud, recuerda a un cliente que llamó en febrero a las seis de la mañana: tenía respaldos de hacía meses y ningún servidor donde restaurarlos.</p>
+
+              <p class="texto caso__texto" data-anim style="--i:3">Su operación estaba detenida. La falla es técnica; el impacto, de negocio: usuarios que no facturan, órdenes que no salen, mercancía detenida en el cruce. Pocos saben cuánto tardarían en volver a operar.</p>
+
+              <ol class="triada" data-anim style="--i:4">
+                <li><span class="triada__num">01</span><b>Operar</b><p>Alta disponibilidad, alertas y visibilidad. Si no podemos verlo, difícilmente podemos administrarlo.</p></li>
+                <li><span class="triada__num">02</span><b>Recuperar</b><p>Restaurar de prueba cada mes o cada dos meses. Es la única forma de saber que el respaldo sirve.</p></li>
+                <li><span class="triada__num">03</span><b>Escalar</b><p>Crecer on-premise toma de tres a cinco semanas. En la nube, el recurso llega con el proyecto.</p></li>
+              </ol>
+
+              <footer class="banda" data-anim style="--i:5">
+                <svg class="banda__asterisco" viewBox="0 0 48 48" aria-hidden="true"><use href="#asterisco"/></svg>
+                <p><span>Francisco Olazo</span><strong>“El backup protege la información. Una estrategia de recuperación protege tu operación.”</strong></p>
+                <span class="folio__num">10</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- 11 · Experiencia de cliente -->
+          <section class="pagina pagina--noche" aria-label="Página 11: experiencia de cliente">
+            <div class="pagina__lienzo hoja ruta">
+              <div class="ruta__cabeza">
+                <div class="ruta__titular">
+                  <h2 class="titulo-2" data-anim style="--i:0">Tecnología que no estorba.</h2>
+                  <p class="entrada" data-anim style="--i:1">Para Raúl Reséndiz, CEO de Grupo Scentec, la IA llegó a romper silos entre CRM, ERP y canales, no a sumar consolas.</p>
+                </div>
+                <figure class="ruta__foto">
+                  <img data-foto src="../../assets/img/revista-vol-02/raul-resendiz.jpg" alt="Raúl Reséndiz, CEO de Grupo Scentec, durante su plática en el Tech &amp; Wine Fest." width="800" height="1100">
+                  <figcaption class="foto-cabecera__credito"><b>Raúl Reséndiz</b><br>CEO, Grupo Scentec</figcaption>
+                </figure>
+              </div>
+
+              <figure class="ruta__mapa" data-anim style="--i:2">
+                <figcaption class="etiqueta">Reponer una tarjeta personalizada, dos caminos</figcaption>
+                <div class="ruta__fila ruta__fila--antes">
+                  <span class="ruta__tag">Antes</span>
+                  <ol class="ruta__pasos">
+                    <li>Reporta la tarjeta</li>
+                    <li>“Eso es otro proceso”</li>
+                    <li>Transferencia</li>
+                    <li>Otro menú</li>
+                    <li>Repite sus datos</li>
+                  </ol>
+                  <b class="ruta__tiempo">45 min</b>
+                </div>
+                <div class="ruta__fila ruta__fila--ahora">
+                  <span class="ruta__tag">Orquestado</span>
+                  <ol class="ruta__pasos">
+                    <li>Lo pide una vez</li>
+                    <li>Especialista correcto, con contexto</li>
+                  </ol>
+                  <b class="ruta__tiempo">Directo</b>
+                </div>
+              </figure>
+
+              <ol class="principios" data-anim style="--i:3">
+                <li><span class="principios__num">01</span><b>Con límites</b><p>Modelo cerrado a datos propios; un RAG fija qué puede decir.</p></li>
+                <li><span class="principios__num">02</span><b>Con humano</b><p>Transferir está en el diseño: el ejecutivo recibe el contexto.</p></li>
+                <li><span class="principios__num">03</span><b>Omnicanal</b><p>WhatsApp hoy, Messenger mañana: la experiencia no cambia.</p></li>
+              </ol>
+
+              <blockquote class="ruta__cita" data-anim style="--i:4">
+                <p>“La experiencia como usuario debe ser única, transparente, eficiente y expedita.”</p>
+                <cite class="firma"><b>Raúl Reséndiz</b> · CEO de Grupo Scentec</cite>
+              </blockquote>
+
+              <footer class="folio folio--derecha">
+                <span>Experiencia de cliente</span>
+                <span class="folio__num">11</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- 12 · Conversación: retrato -->
+          <section class="pagina pagina--noche" aria-label="Página 12: conversación con Victor Mendivil">
+            <div class="pagina__lienzo retrato">
+              <figure class="retrato__foto retrato__foto--duo">
+                <img data-foto src="../../assets/img/revista-vol-02/conversacion-monica-victor.jpg" alt="Mónica Pelayo, de Mopec Security, a la izquierda, y Victor Mendivil, a la derecha, con el micrófono durante su conversación en el Tech &amp; Wine Fest." width="1408" height="1080">
+                <figcaption>Mónica Pelayo × Victor Mendivil</figcaption>
+              </figure>
+              <span class="chip retrato__chip">Conversación</span>
+
+              <div class="retrato__cuerpo">
+                <blockquote class="retrato__cita" data-anim style="--i:1">
+                  <p>“TI no es parte del negocio. TI <mark>es</mark> el negocio.”</p>
+                </blockquote>
+                <p class="retrato__fuente" data-anim style="--i:2">Una lección que Victor atribuye a un mentor, y que repitió frente al público del valle.</p>
+
+                <dl class="retrato__ficha" data-anim style="--i:3">
+                  <dt>Victor Mendivil</dt>
+                  <dd>Director de IT &amp; Data para Norteamérica, Ontex</dd>
+                  <dd>Consejero de ALTI · Ex CIO de Ópticas Devlyn</dd>
+                  <dd>En conversación con Mónica Pelayo, Mopec Security</dd>
+                </dl>
+
+                <footer class="folio">
+                  <span class="folio__num">12</span>
+                  <span>Conversación</span>
+                </footer>
+              </div>
+            </div>
+          </section>
+
+          <!-- 13 · Conversación: preguntas -->
+          <section class="pagina pagina--papel" aria-label="Página 13: conversación con Victor Mendivil">
+            <div class="pagina__lienzo hoja entrevista">
+              <header class="cornisa">
+                <span>Conversación</span>
+                <span>Victor Mendivil × Mónica Pelayo · Mopec Security</span>
+              </header>
+
+              <div class="articulo__cabeza">
+                <h2 class="titulo-2" data-anim style="--i:0">Socios, no proveedores.</h2>
+                <p class="entrada" data-anim style="--i:1">En diálogo con Mónica Pelayo, de Mopec Security, Victor Mendivil habló de cimientos, video con IA y por qué se diseña a cinco años.</p>
+              </div>
+
+              <div class="entrevista__cuerpo">
+                <div class="qa" data-anim style="--i:2">
+                  <div>
+                    <p class="qa__p">¿Qué buscas hoy en un socio de tecnología?</p>
+                    <p class="qa__r">Ya no buscamos proveedores; eso era el pasado. El producto hasta lo puedo comprar en Amazon. Necesitamos a alguien experto que nos acompañe desde el diseño.</p>
+                  </div>
+                  <div>
+                    <p class="qa__p">¿Qué tan importante es la infraestructura?</p>
+                    <p class="qa__r">Es el cimiento del edificio. Puedes comprar la mejor cámara del mundo, pero si no tienes buen cableado ni un buen enlace a la nube, no le sacas provecho.</p>
+                  </div>
+                  <div>
+                    <p class="qa__p">¿Sirve a otras áreas, además de seguridad?</p>
+                    <p class="qa__r">En Best Buy, en 2008, ya usábamos cámaras para contar cuánta gente entraba y cuánta compraba. Con ellas también se hacen mapas de calor para medir las cabeceras de oferta.</p>
+                  </div>
+                  <p class="firma">Preguntas de Mónica Pelayo, editadas por claridad</p>
+                </div>
+
+                <aside class="usos" data-anim style="--i:3">
+                  <p class="etiqueta">Video con IA, en planta</p>
+                  <ul>
+                    <li><b>C-TPAT</b>La cámara de acceso guarda placa y modelo de cada auto.</li>
+                    <li><b>Incidentes</b>“Búscame un accidente en las últimas 12 horas” y aparece el clip.</li>
+                    <li><b>Zonas críticas</b>Una línea virtual avisa, con video, cuando alguien la cruza.</li>
+                    <li><b>Piso</b>Alerta si alguien saca el celular donde no se permite.</li>
+                  </ul>
+                  <p class="usos__nota">Casos con Verkada, que Mopec Security distribuye en México.</p>
+                </aside>
+              </div>
+
+              <footer class="folio folio--derecha">
+                <span>Conversación</span>
+                <span class="folio__num">13</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- 14 · Agentes virtuales -->
+          <section class="pagina pagina--noche" aria-label="Página 14: agentes virtuales">
+            <div class="pagina__lienzo hoja receta">
+              <div class="reticula" aria-hidden="true"></div>
+              <div class="receta__cabeza">
+                <div class="receta__titular">
+                  <p class="etiqueta etiqueta--verde"><span class="etiqueta__punto"></span>Agentes virtuales</p>
+                  <h2 class="titulo-2" data-anim style="--i:0">La receta de un agente.</h2>
+                  <p class="entrada" data-anim style="--i:1">Diseñar un agente virtual es como contratar a alguien. David Modiano, de Net2Phone, propuso un marco para armarlo en menos de 20 minutos.</p>
+                </div>
+                <figure class="receta__foto">
+                  <img data-foto src="../../assets/img/revista-vol-02/david-modiano.jpg" alt="David Modiano, director de Net2Phone, durante su plática sobre agentes virtuales en el Tech &amp; Wine Fest." width="880" height="1002">
+                  <figcaption class="foto-cabecera__credito"><b>David Modiano</b><br>Director, Net2Phone</figcaption>
+                </figure>
+              </div>
+
+              <div class="receta__cuerpo">
+                <ol class="receta__lista" data-anim style="--i:2">
+                  <li><span class="receta__letra">R</span><b>Rol</b><span>Quién es y para quién trabaja.</span></li>
+                  <li><span class="receta__letra">E</span><b>Entorno</b><span>Horarios, catálogo, SKU y políticas.</span></li>
+                  <li><span class="receta__letra">C</span><b>Capacidades</b><span>Cuatro tareas como máximo, para que no divague.</span></li>
+                  <li><span class="receta__letra">E</span><b>Escalamiento</b><span>Cuándo deja de intentar y pasa a un humano.</span></li>
+                  <li><span class="receta__letra">T</span><b>Tono</b><span>Idiomas, trato y largo de las respuestas.</span></li>
+                  <li><span class="receta__letra">A</span><b>Ancla</b><span>Los límites para que no alucine.</span></li>
+                </ol>
+
+                <aside class="contrato" data-anim style="--i:3">
+                  <p class="etiqueta etiqueta--verde">Si fuera una contratación</p>
+                  <dl>
+                    <div><dt>El contrato</dt><dd>System prompt<small>El 80% del resultado</small></dd></div>
+                    <div><dt>La capacitación</dt><dd>Base de conocimiento</dd></div>
+                    <div><dt>La puerta</dt><dd>Número y transferencia</dd></div>
+                    <div><dt>Las manos</dt><dd>MCP e integraciones</dd></div>
+                  </dl>
+                  <p class="contrato__dato"><b><span data-contar="70">70</span>%</b>de las personas solo quiere que su problema se resuelva, conteste un humano o un agente.<cite class="firma">Dato citado por David Modiano</cite></p>
+                </aside>
+              </div>
+
+              <footer class="folio">
+                <span class="folio__num">14</span>
+                <span>Agentes virtuales</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- 15 · Impresión segura -->
+          <section class="pagina pagina--papel" aria-label="Página 15: impresión segura">
+            <div class="pagina__lienzo hoja articulo articulo--foto impresion">
+              <figure class="foto-cabecera foto-cabecera--alta" style="--foco: 50% 20%">
+                <img data-foto src="../../assets/img/revista-vol-02/josue-israel-gutierrez.jpg" alt="Josué Israel Gutiérrez, de Canon Mexicana, durante su plática en el Tech &amp; Wine Fest." width="1800" height="752">
+                <span class="chip foto-cabecera__chip">Impresión segura</span>
+                <figcaption class="foto-cabecera__credito"><b>Josué Israel Gutiérrez</b><br>Sr. Solutions Technical Support, Canon Mexicana</figcaption>
+              </figure>
+
+              <div class="articulo__cabeza">
+                <h2 class="titulo-2" data-anim style="--i:0">La impresora es un endpoint.</h2>
+                <p class="entrada" data-anim style="--i:1">Muchos ataques llegan por un tercero, y la impresora también es uno. Lo planteó Josué Israel Gutiérrez, de Canon Mexicana.</p>
+              </div>
+
+              <div class="impresion__dato" data-anim style="--i:2">
+                <p class="impresion__cifra" data-contar="240">240</p>
+                <p>empresas expuestas al fallar la nube de impresión de un competidor; 60% eran escuelas y hospitales.<cite class="firma">Caso citado por Josué Israel Gutiérrez</cite></p>
+              </div>
+
+              <p class="texto" data-anim style="--i:3">Una impresora comprometida puede detener la operación o imprimir los mensajes del atacante. Su propuesta: arranque seguro, información cifrada e IA que vigila la red.</p>
+
+              <section class="checklist" data-anim style="--i:4">
+                <p class="etiqueta">Pregúntale a tu proveedor de impresión</p>
+                <ol>
+                  <li>¿Qué hace el equipo si alguien altera su arranque?</li>
+                  <li>¿Lo que se imprime queda cifrado?</li>
+                  <li>¿Puedo saber quién imprime, qué y cuándo?</li>
+                  <li>¿Cómo reaccionan si los hackean a ellos?</li>
+                </ol>
+              </section>
+
+              <footer class="folio folio--derecha">
+                <span>Canon participó con Nepsis Digital, su distribuidor en la región</span>
+                <span class="folio__num">15</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- 16 · Cierre -->
+          <section class="pagina pagina--papel" aria-label="Página 16: ocho ideas para el lunes">
+            <div class="pagina__lienzo hoja ideas">
+              <header class="cornisa">
+                <span>Cierre</span>
+                <span>Lo que nos llevamos del valle</span>
+              </header>
+
+              <h2 class="titulo-1 ideas__h2" data-anim style="--i:0">Ocho ideas para el lunes<span class="sumario__punto">.</span></h2>
+
+              <ol class="ideas__lista">
+                <li data-anim style="--i:1"><span class="ideas__num">01</span><p>Mapea de quién dependes: cada librería es una puerta.</p><span class="ideas__quien">Gustavo Rodríguez</span></li>
+                <li data-anim style="--i:2"><span class="ideas__num">02</span><p>Mide los tokens antes de prometer ahorros.</p><span class="ideas__quien">Andrés Wong</span></li>
+                <li data-anim style="--i:3"><span class="ideas__num">03</span><p>Restaura un respaldo este mes; no solo lo guardes.</p><span class="ideas__quien">Francisco Olazo</span></li>
+                <li data-anim style="--i:4"><span class="ideas__num">04</span><p>Diseña la salida al humano, con contexto.</p><span class="ideas__quien">Raúl Reséndiz</span></li>
+                <li data-anim style="--i:5"><span class="ideas__num">05</span><p>Busca socios, no proveedores, y diseña a cinco años.</p><span class="ideas__quien">Victor Mendivil</span></li>
+                <li data-anim style="--i:6"><span class="ideas__num">06</span><p>Dale a tu agente una receta y un ancla.</p><span class="ideas__quien">David Modiano</span></li>
+                <li data-anim style="--i:7"><span class="ideas__num">07</span><p>Trata a tu impresora como cualquier endpoint.</p><span class="ideas__quien">Josué Israel Gutiérrez</span></li>
+                <li data-anim style="--i:8"><span class="ideas__num">08</span><p>Sal de la oficina: el ecosistema se hace en persona.</p><span class="ideas__quien">Josué Madera</span></li>
+              </ol>
+
+              <footer class="folio">
+                <span class="folio__num">16</span>
+                <span>Cierre · Síntesis de la redacción a partir de las pláticas</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- 17 · Ecosistema -->
+          <section class="pagina pagina--noche" aria-label="Página 17: ecosistema">
+            <div class="pagina__lienzo ecosistema">
+              <figure class="ecosistema__foto">
+                <img data-foto src="../../assets/img/revista-vol-02/josue-madera.jpg" alt="Josué Madera habla con micrófono en el escenario del Tech &amp; Wine Fest." width="1800" height="1071">
+                <figcaption><b>Josué Madera</b> · Director de Enteracloud, socio fundador de Purple AI y fundador de ALTI.</figcaption>
+              </figure>
+
+              <div class="ecosistema__cuerpo">
+                <p class="etiqueta etiqueta--verde" data-anim style="--i:0"><span class="etiqueta__punto"></span>Ecosistema</p>
+                <h2 class="titulo-2" data-anim style="--i:1">Una mesa cada vez más grande.</h2>
+
+                <div class="ecosistema__alti" data-anim style="--i:2">
+                  <img class="ecosistema__logo" src="../../assets/img/revista-vol-02/alti-logo.png" alt="ALTI" width="1024" height="296">
+                  <p class="texto">La Alianza de Líderes de Tecnología e Innovación es un espacio para CIO, CTO y líderes de TI. Hoy organiza talleres y desayunos en Tijuana; Mexicali y Ensenada vienen después.</p>
+                </div>
+
+                <div class="ecosistema__marcas" data-anim style="--i:3">
+                  <p class="etiqueta">Participaron</p>
+                  <ul>
+                    <li>Enteracloud</li>
+                    <li>Purple AI</li>
+                    <li>Index Zona Costa</li>
+                    <li>ALTI</li>
+                    <li>Grupo Scentec</li>
+                    <li>Grupo Trycer</li>
+                    <li>Mopec Security</li>
+                    <li>Canon Mexicana</li>
+                    <li>Nepsis Digital</li>
+                    <li>Net2Phone</li>
+                  </ul>
+                </div>
+
+                <footer class="folio folio--derecha">
+                  <span>Ecosistema</span>
+                  <span class="folio__num">17</span>
+                </footer>
+              </div>
+            </div>
+          </section>
+
+          <!-- 18 · Podcast: portada del episodio -->
+          <section class="pagina pagina--noche" aria-label="Página 18: nuevo episodio de Hablemos Tech Podcast">
+            <div class="pagina__lienzo episodio-portada">
+              <img data-foto src="../../assets/img/revista-vol-02/podcast-tokens.jpg" alt="Portada del episodio “El costo oculto de tokens” de Hablemos Tech Podcast, con sus dos participantes frente al micrófono." width="819" height="1024">
+              <span class="chip episodio-portada__chip">Nuevo episodio</span>
+            </div>
+          </section>
+
+          <!-- 19 · Podcast: el episodio -->
+          <section class="pagina pagina--noche" aria-label="Página 19: el costo oculto de tokens de IA">
+            <div class="pagina__lienzo hoja hoja--banda episodio">
+              <div class="reticula" aria-hidden="true"></div>
+              <header class="cornisa">
+                <span>Hablemos Tech Podcast</span>
+                <span>7 oct 2026 · 34 min</span>
+              </header>
+
+              <h2 class="titulo-2" data-anim style="--i:0">El costo oculto de tokens de IA.</h2>
+              <p class="entrada" data-anim style="--i:1">Procesar un archivo con IA le costó a un cliente 1,300 pesos. Con treinta, la cuenta llegó a 11,500, y al final decidió seguir pagándole a su equipo.</p>
+
+              <div class="episodio__cifras" data-anim style="--i:2">
+                <p><b>$<span data-contar="1300">1,300</span></b><span>Un archivo</span></p>
+                <p><b>$<span data-contar="11500">11,500</span></b><span>Treinta archivos</span></p>
+              </div>
+
+              <div class="episodio__temas" data-anim style="--i:3">
+                <p class="etiqueta">En este episodio</p>
+                <ol>
+                  <li>Por qué en español la IA sale más cara.</li>
+                  <li>Cómo un “hola” puede costar lo mismo que procesar un PDF.</li>
+                  <li>Por qué el mismo archivo a veces cuesta un dólar y a veces treinta.</li>
+                  <li>Lo que de verdad implica montar tu propia IA local.</li>
+                </ol>
+              </div>
+
+              <p class="episodio__nota" data-anim style="--i:4">La IA sí puede automatizar casi todo. La pregunta es cuánto te va a costar. Para leer más: <b>Lo que de verdad cuesta un token</b>, p. 9.</p>
+
+              <a class="banda episodio__banda" href="https://www.youtube.com/watch?v=lMJa_hWjcCI" target="_blank" rel="noopener" data-anim style="--i:5">
+                <img class="episodio__qr" src="../../assets/img/revista-vol-02/qr-episodio-tokens.svg" alt="" width="33" height="33">
+                <p><span>Escanea o da clic</span><strong>Míralo en YouTube</strong><span>youtube.com/@hablemostechpodcast</span></p>
+                <span class="folio__num">19</span>
+              </a>
+            </div>
+          </section>
+
+          <!-- 20 · Contraportada -->
+          <section class="pagina pagina--noche" data-density="hard" aria-label="Contraportada">
+            <div class="pagina__lienzo hoja contra">
+              <header class="cornisa">
+                <span>Vol. 02 · Otoño 2026</span>
+                <span>hablemostech.com</span>
+              </header>
+
+              <figure class="contra__marco">
+                <img class="contra__foto" data-foto src="../../assets/img/evento-tech-wine-fest-1x.jpg" alt="Cava de barricas con la marca del Tech &amp; Wine Fest.">
+              </figure>
+
+              <footer class="contra__pie">
+                <svg class="contra__logo" viewBox="0 0 626.18 208.23" role="img" aria-label="Hablemos Tech"><use href="#logo-ht"/></svg>
+                <p class="contra__texto" data-anim style="--i:2">Gracias por leer el Vol. 02. Nos vemos en la próxima edición del Tech &amp; Wine Fest.</p>
+              </footer>
+            </div>
+          </section>
+
+        </div>
+      </div>
+
+      <button class="lector__flecha lector__flecha--next" id="siguiente" type="button" aria-label="Página siguiente">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+      </button>
+
+      <p class="lector__pista" id="pista">
+        <span class="lector__pista--raton">Scroll para acercar · con el click sostenido mueves la página</span>
+        <span class="lector__pista--tactil">Desliza la página para avanzar</span>
+      </p>
+    </main>
+
+    <!-- acceso:inicio -->
+    <section class="acceso" id="acceso" data-estado="revisando" aria-labelledby="acceso-titulo" aria-busy="true">
+      <div class="acceso__panel">
+        <figure class="acceso__portada">
+          <img src="../../assets/img/revista-vol-02/portada-web.jpg" alt="Portada de la revista Hablemos Tech Vol. 02: público del Tech &amp; Wine Fest 2026." width="1186" height="1536" fetchpriority="high">
+        </figure>
+
+        <div class="acceso__cuerpo">
+          <p class="acceso__ceja">Nueva edición<span aria-hidden="true">/</span>Otoño 2026</p>
+          <h2 class="acceso__titulo" id="acceso-titulo">Tech &amp; Wine Fest 2026</h2>
+          <p class="acceso__lead">Lo que se habló en Bodegas del Valle, en 20 páginas: ciberseguridad, el costo real de la IA, recuperación en la nube y agentes virtuales.</p>
+
+          <div class="acceso__vista" data-vista="revisando">
+            <p class="acceso__estado" role="status">Verificando tu acceso…</p>
+          </div>
+
+          <div class="acceso__vista" data-vista="invitado" hidden>
+            <p class="acceso__nota">Regístrate gratis para leer la edición completa. Con correo corporativo el acceso es inmediato.</p>
+            <div class="acceso__acciones">
+              <a class="acceso__boton acceso__boton--principal" href="/revista/" data-acceso-auth="registro">Registrarme gratis</a>
+              <a class="acceso__boton" href="/revista/" data-acceso-auth="sign-in">Ya tengo cuenta</a>
+            </div>
+          </div>
+
+          <div class="acceso__vista" data-vista="completar" hidden>
+            <p class="acceso__nota">Solo falta tu empresa y tu área para activar el acceso.</p>
+            <div class="acceso__acciones">
+              <a class="acceso__boton acceso__boton--principal" href="/revista/" data-acceso-auth="completar">Completar mi perfil</a>
+            </div>
+          </div>
+
+          <div class="acceso__vista" data-vista="pendiente" hidden>
+            <p class="acceso__nota">Tu acceso está en revisión. Te escribimos en cuanto se active la lectura completa.</p>
+            <div class="acceso__acciones">
+              <a class="acceso__boton acceso__boton--principal" href="/cuenta.html?next=/revista/vol-02/">Ver mi cuenta</a>
+              <button class="acceso__boton" type="button" data-acceso-salir>Usar otra cuenta</button>
+            </div>
+          </div>
+
+          <div class="acceso__vista" data-vista="rechazado" hidden>
+            <p class="acceso__nota">Esta cuenta no tiene acceso a la revista. Si crees que es un error, escríbenos.</p>
+            <div class="acceso__acciones">
+              <a class="acceso__boton acceso__boton--principal" href="/cuenta.html?next=/revista/vol-02/">Ver mi cuenta</a>
+              <button class="acceso__boton" type="button" data-acceso-salir>Usar otra cuenta</button>
+            </div>
+          </div>
+
+          <div class="acceso__vista" data-vista="error" hidden>
+            <p class="acceso__nota">No pudimos verificar tu acceso. Revisa tu conexión e inténtalo de nuevo.</p>
+            <div class="acceso__acciones">
+              <button class="acceso__boton acceso__boton--principal" type="button" data-acceso-reintentar>Reintentar</button>
+              <a class="acceso__boton" href="/revista/">Ver todas las ediciones</a>
+            </div>
+          </div>
+
+          <p class="acceso__subtitulo" id="acceso-indice">En esta edición</p>
+          <ol class="acceso__indice" aria-labelledby="acceso-indice">
+            <li><span>El código que no escribiste</span><span>Gustavo Rodríguez</span></li>
+            <li><span>Lo que cuesta un token</span><span>Andrés Wong</span></li>
+            <li><span>Respaldar no es recuperar</span><span>Francisco Olazo</span></li>
+            <li><span>TI es el negocio</span><span>Victor Mendivil</span></li>
+            <li><span>La receta de un agente</span><span>David Modiano</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+    <!-- acceso:fin -->
+
+    <nav class="lector__miniaturas" id="miniaturas" aria-label="Páginas de la revista"></nav>
+  </div>
+
+  <!-- acceso:inicio -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/js/config.js"></script>
+  <script src="/js/auth/client.js"></script>
+  <script src="/js/auth/session.js?v=202610131100"></script>
+  <script src="../lector/acceso.js?v=202610131130"></script>
+  <!-- acceso:fin -->
+  <script src="../lector/vendor/page-flip.browser.js"></script>
+  <script src="../lector/lector.js"></script>
+</body>
+</html>
