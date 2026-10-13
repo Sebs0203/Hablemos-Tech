@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Respaldar no es recuperar — Blog Hablemos Tech</title>
+  <meta name="description" content="Tener respaldos no es estar protegido. Lo que protege tu operación es saber cuánto tardas en volver, y haberlo probado.">
+  <link rel="canonical" href="https://hablemostech.com/blog/respaldar-no-es-recuperar/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Hablemos Tech">
+  <meta property="og:locale" content="es_MX">
+  <meta property="og:title" content="Respaldar no es recuperar — Blog Hablemos Tech">
+  <meta property="og:description" content="Tener respaldos no es estar protegido. Lo que protege tu operación es saber cuánto tardas en volver, y haberlo probado.">
+  <meta property="og:url" content="https://hablemostech.com/blog/respaldar-no-es-recuperar/">
+  <meta property="og:image" content="https://hablemostech.com/assets/img/revista-vol-02/francisco-olazo.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/img/asterisco.png?v=favicon" type="image/png">
+  <link rel="stylesheet" href="/css/hablemos.css?v=202610131500">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Respaldar no es recuperar", "description": "Tener respaldos no es estar protegido. Lo que protege tu operación es saber cuánto tardas en volver, y haberlo probado.", "image": "https://hablemostech.com/assets/img/revista-vol-02/francisco-olazo.jpg", "datePublished": "2026-10-13", "inLanguage": "es-MX", "author": {"@type": "Organization", "name": "Redacción Hablemos Tech"}, "publisher": {"@type": "Organization", "name": "Hablemos Tech", "url": "https://hablemostech.com"}, "mainEntityOfPage": "https://hablemostech.com/blog/respaldar-no-es-recuperar/"}</script>
+</head>
+<body class="pagina-revista pagina-blog">
+  <div id="site-nav"></div>
+  <script src="/components/nav/site-nav.js" data-current="blog"></script>
+
+  <main class="post">
+    <article class="post__articulo" aria-labelledby="post-titulo">
+      <header class="post__cabecera">
+        <nav class="post__migas" aria-label="Ruta">
+          <a href="/blog/"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M10 3.5 5.5 8 10 12.5" /></svg>Blog</a>
+        </nav>
+        <span class="blog-chip">Nube</span>
+        <h1 class="post__titulo" id="post-titulo">Respaldar no es recuperar</h1>
+        <p class="post__lead">Tener respaldos no es estar protegido. Lo que protege tu operación es saber cuánto tardas en volver, y haberlo probado.</p>
+        <div class="post__firma">
+          <ul class="post__ponentes" aria-label="Ponentes"><li><strong>Francisco Olazo</strong><span>LATAM Lead Engineer, Enteracloud</span></li><li><strong>Diego Garza</strong><span>Veeam</span></li></ul>
+          <p class="blog-pie"><span>Redacción Hablemos Tech</span><span>Tech &amp; Wine Fest 2026 · Foro de Tecnología MX 2026</span><span>2 min de lectura</span></p>
+        </div>
+      </header>
+
+      <figure class="post__portada">
+        <img src="/assets/img/revista-vol-02/francisco-olazo.jpg" alt="Francisco Olazo, de Enteracloud, explica RPO y RTO frente a su presentación en el Tech &amp; Wine Fest." width="1800" height="653" fetchpriority="high" decoding="async" style="--foco: 50% 40%">
+        <figcaption>Francisco Olazo, de Enteracloud, explica RPO y RTO frente a su presentación en el Tech &amp; Wine Fest.</figcaption>
+      </figure>
+
+      <div class="post__cuerpo">
+<p>Febrero, seis de la mañana. Un cliente llama a Francisco Olazo, LATAM Lead Engineer en Enteracloud: su operación está detenida. Tenía respaldos de hacía meses, pero ningún servidor donde restaurarlos.</p>
+<p>La falla era técnica; el impacto, de negocio: usuarios que no facturan, órdenes que no salen, mercancía detenida en el cruce. Y la pregunta que pocos saben responder: ¿cuánto tardaríamos en volver a operar?</p>
+<blockquote class="post-cita"><p>“El backup protege la información. Una estrategia de recuperación protege tu operación.”</p><cite>Francisco Olazo, Enteracloud</cite></blockquote>
+<h2>RPO y RTO: las dos cifras que importan</h2>
+<p>En el panel de ciberseguridad del Foro de Tecnología MX, Diego Garza, de Veeam, lo dijo sin rodeos: tener respaldos no es estar protegido. Hay que definir RPO y RTO, y probar la recuperación.</p>
+<p>El RPO es cuánta información puedes perder, medida en tiempo: si respaldas cada noche, puedes perder hasta un día de trabajo. El RTO es cuánto puedes tardar en volver a operar. Ambas son decisiones de negocio antes que técnicas.</p>
+<h2>La regla 3-2-1</h2>
+<div class="post-cifras-bloque"><ul class="post-cifras"><li><strong>3</strong><span>copias de cada dato</span></li><li><strong>2</strong><span>medios distintos</span></li><li><strong>1</strong><span>sitio alterno, inmutable y cifrado</span></li></ul><p class="post-nota">Recomendación de Diego Garza, Veeam.</p></div>
+<h2>Operar, recuperar, escalar</h2>
+<p>Olazo ordena la estrategia en tres frentes:</p>
+<ol class="post-pasos"><li><strong>Operar.</strong> Alta disponibilidad, alertas y visibilidad. Si no podemos verlo, difícilmente podemos administrarlo.</li><li><strong>Recuperar.</strong> Restaurar de prueba cada mes o cada dos meses. Es la única forma de saber que el respaldo sirve.</li><li><strong>Escalar.</strong> Crecer on-premise toma de tres a cinco semanas. En la nube, el recurso llega con el proyecto.</li></ol>
+<p>La segunda es la que casi nadie hace. Un respaldo que nunca se restauró es una suposición, no un plan.</p>
+<aside class="post-caja"><h2>Para el lunes</h2><ul><li>Restaura un respaldo este mes; no solo lo guardes.</li><li>Prueba la recuperación en ambientes aislados.</li><li>Define RPO y RTO para cada sistema crítico.</li><li>Verifica que exista un lugar donde restaurar, además de la copia.</li></ul></aside>
+      </div>
+
+      <footer class="post__fuente">
+        <p class="post__fuente-texto">Este texto se basa en lo que compartieron Francisco Olazo y Diego Garza en Tech &amp; Wine Fest 2026 y Foro de Tecnología MX 2026, y se publicó primero en la revista Hablemos Tech.</p>
+        <ul class="post__fuente-lista"><li><a href="/revista/vol-02/?pagina=10">Vol. 02, otoño 2026, p. 10</a><span>Tech &amp; Wine Fest 2026</span></li><li><a href="/revista/vol-01/?pagina=14">Vol. 01, julio 2026, p. 14</a><span>Foro de Tecnología MX 2026</span></li></ul>
+        <a class="boton" href="/revista/vol-02/?pagina=10">Leer en la revista</a>
+      </footer>
+    </article>
+
+    <section class="post-relacionados" aria-labelledby="relacionados-titulo">
+      <h2 class="blog__subtitulo" id="relacionados-titulo">Sigue leyendo</h2>
+      <ul class="blog-rejilla">
+            <li class="blog-tarjeta" data-temas="ciberseguridad">
+              <a class="blog-tarjeta__enlace" href="/blog/el-codigo-que-no-escribiste/">
+                <img class="blog-tarjeta__foto" src="/assets/img/revista-vol-02/gustavo-rodriguez.jpg" alt="" width="1800" height="1200" loading="lazy" decoding="async" style="--foco: 55% 40%">
+                <span class="blog-chip">Ciberseguridad</span>
+                <h3 class="blog-tarjeta__titulo">El código que no escribiste</h3>
+                <p class="blog-tarjeta__extracto">Los ataques más difíciles de ver no entran por tu firewall: llegan dentro de las dependencias que tú mismo instalas.</p>
+                <p class="blog-pie"><span>Gustavo Rodríguez</span><span>3 min de lectura</span></p>
+              </a>
+            </li>
+            <li class="blog-tarjeta" data-temas="ciberseguridad">
+              <a class="blog-tarjeta__enlace" href="/blog/la-impresora-es-un-endpoint/">
+                <img class="blog-tarjeta__foto" src="/assets/img/revista-vol-02/josue-israel-gutierrez.jpg" alt="" width="1800" height="752" loading="lazy" decoding="async" style="--foco: 22% 45%">
+                <span class="blog-chip">Impresión segura</span>
+                <h3 class="blog-tarjeta__titulo">La impresora es un endpoint</h3>
+                <p class="blog-tarjeta__extracto">Guarda datos, correos, contactos y hasta credenciales. Si no la tratas como cualquier otro equipo de la red, es una puerta abierta.</p>
+                <p class="blog-pie"><span>Josué Israel Gutiérrez y David Juárez Maldonado</span><span>2 min de lectura</span></p>
+              </a>
+            </li>
+            <li class="blog-tarjeta" data-temas="ciberseguridad ia">
+              <a class="blog-tarjeta__enlace" href="/blog/proteger-el-dato-donde-este/">
+                <img class="blog-tarjeta__foto" src="/assets/img/revista-vol-01/publico-salon.jpg" alt="" width="1000" height="667" loading="lazy" decoding="async" style="--foco: 50% 50%">
+                <span class="blog-chip">Ciberseguridad</span>
+                <h3 class="blog-tarjeta__titulo">Proteger el dato donde esté</h3>
+                <p class="blog-tarjeta__extracto">IA, identidades no humanas y dependencia tecnológica cambiaron la superficie de ataque. Del perímetro a la identidad: qué cambió y por dónde empezar.</p>
+                <p class="blog-pie"><span>Omar Jaimes Hernández y 2 más</span><span>2 min de lectura</span></p>
+              </a>
+            </li>
+      </ul>
+    </section>
+
+    <section class="post-boletin" aria-labelledby="post-boletin-titulo">
+      <h2 class="post-boletin__titulo" id="post-boletin-titulo">La próxima edición, en tu correo.</h2>
+      <p class="post-boletin__texto">Te avisamos cuando salga una revista nueva, un episodio o un evento.</p>
+      <a class="boton boton--principal" href="/#boletin">Suscribirme al boletín</a>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/js/config.js"></script>
+  <script src="/js/auth/client.js"></script>
+  <script src="/js/beacon-leads.js"></script>
+  <script src="/js/auth/session.js?v=202610131100"></script>
+  <script src="/js/auth/nav.js?v=202608251752"></script>
+  <script src="/js/auth/modal.js?v=202610131130"></script>
+</body>
+</html>

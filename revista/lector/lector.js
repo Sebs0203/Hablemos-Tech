@@ -575,6 +575,12 @@ const iniciarLector = () => {
 
   window.setTimeout(ocultarPista, 7000);
 
+  const paginaInicial = Number(new URLSearchParams(window.location.search).get('pagina'));
+  if (Number.isInteger(paginaInicial) && paginaInicial > 1 && paginaInicial <= total) {
+    flip.turnToPage(paginaInicial - 1);
+    ocultarPista();
+  }
+
   requestAnimationFrame(() => actualizar(flip.getCurrentPageIndex()));
 };
 

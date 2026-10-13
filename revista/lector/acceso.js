@@ -27,7 +27,9 @@
   }
 
   function enlaceAuth(vista) {
-    var query = new URLSearchParams({ auth: vista, next: window.location.pathname });
+    var pagina = params.get('pagina');
+    var next = window.location.pathname + (pagina ? '?pagina=' + encodeURIComponent(pagina) : '');
+    var query = new URLSearchParams({ auth: vista, next: next });
     return HUB + '?' + query.toString();
   }
 
