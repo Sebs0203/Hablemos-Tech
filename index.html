@@ -9,7 +9,7 @@
   <link rel="preload" href="assets/fonts/gotham-medium.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/schibsted-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/img/hero-fondo-estudio.jpg?v=3200hq" as="image">
-  <link rel="stylesheet" href="css/hablemos.css?v=202610131500">
+  <link rel="stylesheet" href="css/hablemos.css?v=202610131552">
   <noscript>
     <style>
       hero-marca { display: none; }
@@ -26,6 +26,7 @@
   <script src="js/revista-abanico.js?v=202610131146" defer></script>
   <script src="js/hero-slides.js?v=202609101356" defer></script>
   <script src="js/blog.js?v=202610131500" defer></script>
+  <script src="js/evento-video.js?v=202610131552" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
   <script src="/js/config.js" defer></script>
   <script src="/js/auth/client.js?v=202608251730" defer></script>
@@ -428,9 +429,31 @@
 
         <figure class="agenda__plancha agenda__plancha--pasada">
           <div class="agenda__plancha-marco">
-            <iframe class="agenda__plancha-video" src="https://player.vimeo.com/video/1221278753?h=087a76b673&amp;background=1&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;autopause=0&amp;api=1" title="Video de fondo: Tech &amp; Wine Fest" allow="autoplay; fullscreen" tabindex="-1" aria-hidden="true"></iframe>
+            <iframe class="agenda__plancha-video" src="https://player.vimeo.com/video/1235572321?autoplay=1&amp;muted=1&amp;loop=1&amp;autopause=0&amp;api=1&amp;controls=0&amp;title=0&amp;byline=0&amp;portrait=0" title="Recap del Tech &amp; Wine Fest Vol. 02" allow="autoplay; fullscreen" tabindex="-1"></iframe>
             <span class="agenda__plancha-velo" aria-hidden="true"></span>
-            <img class="agenda__plancha-marca" src="assets/img/tech-wine-fest-marca.png?v=202608241430" alt="Tech &amp; Wine Fest" width="1024" height="746" decoding="async">
+            <div class="agenda__plancha-controles" data-estado="play" data-volumen="mute">
+              <button class="agenda__plancha-play" type="button" data-video-play aria-pressed="true" aria-label="Pausar video">
+                <svg class="agenda__plancha-icono agenda__plancha-icono--play" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                  <path d="M5.25 3.4v9.2L12.6 8 5.25 3.4z" fill="currentColor" />
+                </svg>
+                <svg class="agenda__plancha-icono agenda__plancha-icono--pausa" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                  <path d="M4.75 3.25h2.1v9.5h-2.1zM9.15 3.25h2.1v9.5h-2.1z" fill="currentColor" />
+                </svg>
+              </button>
+              <label class="agenda__plancha-volumen">
+                <span class="agenda__plancha-altavoz" aria-hidden="true">
+                  <svg class="agenda__plancha-icono agenda__plancha-icono--audio" viewBox="0 0 16 16" focusable="false">
+                    <path d="M2.75 6.25h2.05L8 3.75v8.5L4.8 9.75H2.75z" fill="currentColor" />
+                    <path d="M10 6.15a2.7 2.7 0 0 1 0 3.7M11.55 4.6a4.7 4.7 0 0 1 0 6.8" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" />
+                  </svg>
+                  <svg class="agenda__plancha-icono agenda__plancha-icono--mute" viewBox="0 0 16 16" focusable="false">
+                    <path d="M2.75 6.25h2.05L8 3.75v8.5L4.8 9.75H2.75z" fill="currentColor" />
+                    <path d="M10.25 6.4 13.35 9.5M13.35 6.4 10.25 9.5" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" />
+                  </svg>
+                </span>
+                <input type="range" min="0" max="100" value="0" step="1" data-video-volumen aria-label="Volumen del video" aria-valuetext="Silencio">
+              </label>
+            </div>
           </div>
           <div class="agenda__plancha-capa">
             <p class="agenda__plancha-chips">

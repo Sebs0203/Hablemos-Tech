@@ -3618,18 +3618,119 @@ a.revista-portada {
   pointer-events: none;
 }
 
-.agenda__plancha-marca {
+.agenda__plancha-controles {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 3;
-  width: auto;
-  height: auto;
-  max-width: min(64rem, 38%);
-  max-height: 48%;
-  object-fit: contain;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
+  top: clamp(0.75rem, 2vw, 1.25rem);
+  left: clamp(0.75rem, 2vw, 1.25rem);
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 0.125rem;
+  padding-right: 0.875rem;
+  border: 1px solid var(--nav-vidrio-borde);
+  border-radius: 999px;
+  background: var(--nav-vidrio);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  backdrop-filter: blur(12px) saturate(140%);
+}
+
+.agenda__plancha-play {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: var(--blanco);
+  cursor: pointer;
+}
+
+.agenda__plancha-play:hover {
+  color: var(--verde);
+}
+
+.agenda__plancha-icono {
+  display: block;
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+.agenda__plancha-controles[data-estado="play"] .agenda__plancha-icono--play,
+.agenda__plancha-controles[data-estado="pausa"] .agenda__plancha-icono--pausa,
+.agenda__plancha-controles[data-volumen="mute"] .agenda__plancha-icono--audio,
+.agenda__plancha-controles:not([data-volumen="mute"]) .agenda__plancha-icono--mute {
+  display: none;
+}
+
+.agenda__plancha-volumen {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  color: var(--blanco);
+}
+
+.agenda__plancha-altavoz {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.agenda__plancha-volumen input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: clamp(4.5rem, 12vw, 7rem);
+  height: 2.75rem;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.agenda__plancha-volumen input[type="range"]::-webkit-slider-runnable-track {
+  height: 2px;
+  border-radius: 999px;
+  background:
+    linear-gradient(var(--verde), var(--verde)) 0 / var(--volumen, 0%) 100% no-repeat,
+    rgb(255 255 255 / 0.28);
+}
+
+.agenda__plancha-volumen input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-top: -0.3125rem;
+  border: 0;
+  border-radius: 50%;
+  background: var(--blanco);
+}
+
+.agenda__plancha-volumen input[type="range"]::-moz-range-track {
+  height: 2px;
+  border: 0;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.28);
+}
+
+.agenda__plancha-volumen input[type="range"]::-moz-range-progress {
+  height: 2px;
+  border-radius: 999px;
+  background: var(--verde);
+}
+
+.agenda__plancha-volumen input[type="range"]::-moz-range-thumb {
+  width: 0.75rem;
+  height: 0.75rem;
+  border: 0;
+  border-radius: 50%;
+  background: var(--blanco);
+}
+
+.agenda__plancha-play:focus-visible,
+.agenda__plancha-volumen input:focus-visible {
+  outline: 2px solid var(--verde);
+  outline-offset: 3px;
 }
 
 /* En escritorio comparte celda con la foto y se alinea al borde inferior,
@@ -3716,17 +3817,14 @@ a.revista-portada {
     transform: none;
   }
 
-  .agenda__plancha-video {
-    display: none;
-  }
-
   .agenda__estado--proximo::before {
     animation: none;
   }
 }
 
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .agenda__plancha-chip {
+  .agenda__plancha-chip,
+  .agenda__plancha-controles {
     background: rgba(0, 0, 0, 0.72);
   }
 }
@@ -5891,11 +5989,6 @@ a.revista-portada {
 
   .agenda__plancha {
     margin-bottom: clamp(2rem, 5vh, 2.75rem);
-  }
-
-  .agenda__plancha-marca {
-    max-width: min(64rem, 60%);
-    max-height: 52%;
   }
 
   /* En móvil la foto se queda sola: chips y CTA salen del recuadro
