@@ -761,7 +761,7 @@ def pagina_entrada(p):
     fuentes = []
     for vol, pag in p['fuentes']:
         evento, edicion = EVENTOS[vol]
-        fuentes.append(f'<li><a href="/revista/{vol}/?pagina={pag}">{e(edicion)}, p. {pag:02d}</a><span>{e(evento)}</span></li>')
+        fuentes.append(f'<li><span>{e(edicion)}, p. {pag:02d}</span><span>{e(evento)}</span></li>')
 
     if p['ponentes']:
         nombres = [n for n, _ in p['ponentes']]
@@ -771,7 +771,6 @@ def pagina_entrada(p):
     else:
         base = 'Este texto reúne los cierres de las dos primeras ediciones de la revista Hablemos Tech.'
 
-    vol, pag = p['fuentes'][0]
     tarjetas = '\n            '.join(tarjeta(o, 'h3') for o in relacionadas(p))
 
     ld = {
@@ -817,7 +816,6 @@ def pagina_entrada(p):
       <footer class="post__fuente">
         <p class="post__fuente-texto">{base}</p>
         <ul class="post__fuente-lista">{''.join(fuentes)}</ul>
-        <a class="boton" href="/revista/{vol}/?pagina={pag}">Leer en la revista</a>
       </footer>
     </article>
 

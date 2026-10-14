@@ -97,5 +97,13 @@
     });
   });
 
+  /* Enlace para compartir una edición sin cuenta. La puerta normal sigue
+     pidiendo registro; solo entra quien trae la clave de esa edición. */
+  var compartir = params.get('compartir');
+  if (compartir && puerta.dataset.compartir && compartir === puerta.dataset.compartir) {
+    desbloquear();
+    return;
+  }
+
   verificar();
 })();
