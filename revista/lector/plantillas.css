@@ -3687,3 +3687,5 @@
 
 .oc-apertura3 .oc-espacio { flex-shrink: 0; height: calc(63cqh - var(--margen-y) - 5.2cqi); }
 .oc-apertura3 .oc-lead { margin-top: auto; padding-top: 2cqi; }
+/* Retrato de pie: encuadre de la cabeza a los brazos */
+.oc-mix__foto img[src*="francisco-olazo-retrato"] { object-position: 50% 14%; }
