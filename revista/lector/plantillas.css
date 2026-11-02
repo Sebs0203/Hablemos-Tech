@@ -618,6 +618,36 @@
   margin-top: 4.8cqi;
 }
 
+/* Variante: retrato protagonista junto al título (Carta del fundador, Vol. 03) */
+.cronica__cabeza--retrato {
+  grid-template-columns: 1fr 38cqi;
+  align-items: end;
+  margin-top: 4cqi;
+}
+
+.cronica__retrato {
+  position: relative;
+  display: grid;
+  gap: 1.4cqi;
+}
+
+.cronica__retrato img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 50% 18%;
+}
+
+.cronica__retrato figcaption {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
 .cronica .texto {
   margin: 4.8cqi 0 4.4cqi;
 }
