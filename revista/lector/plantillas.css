@@ -4566,3 +4566,142 @@
 .oc-h2__terminos b { font-family: 'Unbounded', 'Sora', var(--font-ui); font-size: calc(var(--text-body) * 1.05); font-weight: 600; }
 .oc-hud__marco { width: 35%; right: 4cqi; }
 .oc-hud__marco span:last-child { display: none; }
+
+/* ── Apertura v11: módulos estilo ICEA (verde Hablemos Tech, rayos, foto, ícono) ── */
+.oc-apertura8 { position: relative; isolation: isolate; }
+
+.oc-apertura8 > .cornisa {
+  position: relative;
+  z-index: 4;
+  color: rgba(255, 255, 255, 0.85);
+  border-bottom-color: rgba(255, 255, 255, 0.18);
+}
+
+.oc-icea {
+  position: absolute;
+  z-index: 0;
+  inset: 0 0 auto 0;
+  height: 63%;
+  background: #090a09;
+}
+
+.oc-icea__modulos {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(var(--margen-y) + 6.4cqi);
+  bottom: 0;
+  display: grid;
+  grid-template-columns: 46fr 27fr 27fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.oc-icea__principal {
+  grid-row: 1 / 3;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 4.4cqi 3.6cqi 4cqi var(--margen);
+  background: var(--verde);
+  color: var(--negro);
+}
+
+.oc-icea__principal svg.rayos {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.oc-icea__principal > *:not(svg) { position: relative; z-index: 1; }
+
+.oc-icea__titulo {
+  margin: 0;
+  font-family: 'Sora', var(--font-ui);
+  font-size: 8.6cqi;
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+.oc-icea__sub {
+  max-width: 24ch;
+  margin-top: 2.4cqi;
+  font-family: 'Sora', var(--font-ui);
+  font-size: calc(var(--text-body) * 0.95);
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.oc-icea__logo {
+  margin-top: auto;
+  width: 15cqi;
+  height: auto;
+  --logo-acento: var(--negro);
+  --logo-texto: var(--negro);
+}
+
+.oc-icea__logo .logo__acento, .oc-icea__logo .logo__texto { fill: var(--negro); }
+
+.oc-icea__foto {
+  grid-row: 1 / 3;
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  background: #e7e7e3;
+}
+
+.oc-icea__foto img {
+  position: absolute;
+  left: 50%;
+  bottom: -8%;
+  height: 112%;
+  width: auto;
+  transform: translateX(-50%);
+  filter: grayscale(1) contrast(1.06) brightness(1.04);
+}
+
+.oc-icea__foto figcaption {
+  position: absolute;
+  left: 2cqi;
+  right: 2cqi;
+  bottom: 1.8cqi;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: calc(var(--text-label) * 1.2);
+  line-height: 1.3;
+  color: var(--blanco);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+}
+
+.oc-icea__foto figcaption b { display: block; font-weight: 600; }
+
+.oc-icea__rayos {
+  position: relative;
+  overflow: hidden;
+  background: var(--negro);
+}
+
+.oc-icea__rayos svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+.oc-icea__icono {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 1.4cqi;
+  background: #fbfbf8;
+  color: var(--negro);
+}
+
+.oc-icea__icono svg { width: 9cqi; height: 9cqi; fill: none; stroke: currentColor; stroke-width: 1.6; }
+
+.oc-icea__icono span {
+  font-family: var(--font-mono);
+  font-size: calc(var(--text-label) * 0.9);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.oc-apertura8 .oc-espacio { flex-shrink: 0; height: calc(63cqh - var(--margen-y) - 5.2cqi); }
+.oc-apertura8 .oc-lead { margin-top: auto; padding-top: 2cqi; }
