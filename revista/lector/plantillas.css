@@ -4247,3 +4247,25 @@
 .oc-oscuro__banda h2 { font-size: 7.4cqi; line-height: 0.95; white-space: normal; }
 .oc-oscuro__banda i { align-self: flex-start; margin-top: 4.4cqi; }
 .oc-oscuro__firma { top: 80%; }
+
+/* Título arriba a la izquierda; Olazo solo, encima del mosaico */
+.oc-apertura6 .oc-oscuro__banda { top: 16%; height: 24%; width: 54%; z-index: 2; }
+.oc-apertura6 .oc-oscuro__firma { top: 42%; }
+.oc-apertura6 .oc-oscuro__olazo {
+  z-index: 3;
+  left: 4cqi;
+  bottom: -30cqi;
+  height: 112%;
+  filter: drop-shadow(1.5cqi 0 3cqi rgba(0, 0, 0, 0.7));
+}
+.oc-apertura6 .oc-oscuro__olazo img {
+  -webkit-mask-image: linear-gradient(0deg, transparent 0%, #000 34%);
+  mask-image: linear-gradient(0deg, transparent 0%, #000 34%);
+}
+.oc-apertura6 .oc-mosaico { top: 44%; height: 52%; left: 48%; width: 45%; }
+.oc-apertura6 .oc-m--termino { font-size: 3.6cqi; }
+.oc-apertura6 .oc-m--ancho { font-size: 4.2cqi; }
+.oc-apertura6 .oc-oscuro__firma { top: 26%; left: auto; right: var(--margen); text-align: right; max-width: 30%; line-height: 1.4; }
+.oc-apertura6 .oc-oscuro__firma b { display: block; }
+.oc-apertura6 .oc-m--termino small { font-size: calc(var(--text-label) * 0.88); margin-top: 0.2cqi; }
+.oc-apertura6 .oc-m--termino { font-size: 3.3cqi; align-content: center; gap: 0.6cqi; }
