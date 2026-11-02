@@ -5026,3 +5026,6 @@
 .cj-lista { margin-top: 2cqi; margin-bottom: 2cqi; }
 .cj-lista__cabeza b { font-size: 3.8cqi; }
 .cj-lista__org { font-size: calc(var(--text-body) * 0.95); }
+
+/* Olazo a color en la apertura de Octubre negro */
+.oc-icea__foto img.completa { filter: none; }
