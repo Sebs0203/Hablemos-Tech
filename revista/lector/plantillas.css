@@ -472,6 +472,11 @@
   margin-top: 4.4cqi;
 }
 
+/* Sumario sin columna lateral: el índice ocupa todo el ancho */
+.sumario__cuerpo--solo {
+  grid-template-columns: 1fr;
+}
+
 .sumario__lado {
   display: flex;
   flex-direction: column;
@@ -634,7 +639,7 @@
 .retrato-fondo {
   position: absolute;
   top: 0;
-  right: 0;
+  right: -12%;
   z-index: 0;
   width: 78%;
   height: 72%;
