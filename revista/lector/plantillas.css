@@ -2198,3 +2198,54 @@
     transition: none !important;
   }
 }
+
+/* ───────────────────── Texto largo: artículos de autor ───────────────────── */
+/* Subtítulos dentro del texto corrido y una figura que ocupa el resto de la
+   página. Llegaron con el Vol. 03, donde los artículos se publican completos. */
+
+.texto .texto__sub {
+  margin: 1.1em 0 0.3em;
+  font-family: var(--font-display);
+  font-size: var(--text-body-lg);
+  font-weight: 800;
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+  break-after: avoid;
+}
+
+.texto .texto__sub:first-child {
+  margin-top: 0;
+}
+
+.texto .texto__destacado {
+  font-weight: 700;
+}
+
+.figura-pagina {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 1.6cqi;
+  margin: 2.4cqi 0 0;
+}
+
+.figura-pagina img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: contain;
+}
+
+.figura-pagina figcaption {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.figura-pagina--chica {
+  flex: 0 1 auto;
+  max-height: 46%;
+}
