@@ -3566,3 +3566,124 @@
   background: linear-gradient(180deg, rgba(4, 5, 4, 0) 22%, rgba(4, 5, 4, 0.75) 52%, #040504 74%);
 }
 .oc-teclado__firma { padding: 0.8cqi 2.4cqi 0.8cqi 0.8cqi; border-radius: 99px; background: rgba(4, 5, 4, 0.72); }
+
+/* ── Apertura v5: teclado + foto grande, a sangre desde el borde superior ── */
+.oc-apertura3 { position: relative; isolation: isolate; }
+
+.oc-apertura3 > .cornisa {
+  position: relative;
+  z-index: 2;
+  color: rgba(255, 255, 255, 0.86);
+  border-bottom-color: rgba(255, 255, 255, 0.22);
+}
+
+.oc-mix {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 63%;
+  overflow: hidden;
+  background: radial-gradient(90% 70% at 25% 0%, #0d3f27 0%, #06150d 45%, #040504 75%);
+  color: var(--blanco);
+}
+
+.oc-mix .oc-teclado__teclas {
+  top: 2cqi;
+  left: -22cqi;
+  right: 20cqi;
+  opacity: 0.85;
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 30%, transparent 70%);
+  mask-image: linear-gradient(180deg, #000 0%, #000 30%, transparent 70%);
+}
+
+.oc-mix__aro {
+  position: absolute;
+  z-index: 0;
+  right: -14cqi;
+  bottom: -30cqi;
+  width: 80cqi;
+  height: 80cqi;
+  border-radius: 50%;
+  border: 9cqi solid rgba(49, 220, 141, 0.3);
+  filter: blur(0.5cqi);
+  box-shadow: 0 0 10cqi rgba(49, 220, 141, 0.35), inset 0 0 10cqi rgba(49, 220, 141, 0.3);
+}
+
+.oc-mix__foto {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: -4%;
+  width: 72%;
+  height: 100%;
+  margin: 0;
+}
+
+.oc-mix__foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 62% 22%;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 42%), linear-gradient(0deg, transparent 0%, #000 34%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 42%), linear-gradient(0deg, transparent 0%, #000 34%);
+  mask-composite: intersect;
+}
+
+.oc-mix::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(4, 5, 4, 0.55) 0%, rgba(4, 5, 4, 0) 18%, rgba(4, 5, 4, 0) 50%, rgba(4, 5, 4, 0.85) 100%);
+}
+
+.oc-mix__texto {
+  position: absolute;
+  z-index: 3;
+  left: var(--margen);
+  right: var(--margen);
+  bottom: 4cqi;
+  display: grid;
+  gap: 1.4cqi;
+}
+
+.oc-mix__texto .oc-kicker { color: var(--verde); }
+
+.oc-mix__titulo {
+  font-family: 'Sora', var(--font-ui);
+  font-size: 10.5cqi;
+  font-weight: 300;
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+}
+
+.oc-mix__titulo em {
+  display: block;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.5em;
+  line-height: 0.86;
+  letter-spacing: -0.05em;
+  color: var(--verde);
+}
+
+.oc-mix__datos {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 4cqi;
+  margin-top: 1cqi;
+  padding-top: 1.6cqi;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.oc-mix__datos .oc-entrada { max-width: 34ch; color: rgba(255, 255, 255, 0.9); }
+.oc-mix__datos .oc-firma { color: rgba(255, 255, 255, 0.6); white-space: nowrap; }
+.oc-mix__datos .oc-firma b { color: var(--blanco); }
+
+.oc-apertura3 .oc-espacio { flex-shrink: 0; height: calc(63cqh - var(--margen-y) - 5.2cqi); }
+.oc-apertura3 .oc-lead { margin-top: auto; padding-top: 2cqi; }
