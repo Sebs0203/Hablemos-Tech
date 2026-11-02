@@ -2409,11 +2409,20 @@
   grid-template-columns: 12cqi 1fr;
   align-items: stretch;
   min-height: 0;
-  border-left: 0;
+  border-bottom: 1px solid rgba(13, 13, 13, 0.12);
+}
+
+.contenido__fila:last-child {
+  border-bottom: 0;
 }
 
 .contenido__pags {
   align-self: center;
+  font-family: var(--font-mono) !important;
+  font-size: var(--text-label) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.06em !important;
+  color: rgba(13, 13, 13, 0.5) !important;
   /* Alinea el número con el título: deja abajo el alto de descripción + autor */
   padding-top: 0.7cqi;
   padding-bottom: calc(var(--text-body) * 0.74 * 1.35 * 2 + 0.4cqi);
@@ -2431,13 +2440,7 @@
   flex-direction: column;
   justify-content: center;
   gap: 0.3cqi;
-  padding: 0 0 0 4cqi;
-  border-left: 1px solid var(--verde-tinta);
-  border-bottom: 1px solid rgba(13, 13, 13, 0.1);
-}
-
-.contenido__fila:last-child .contenido__pieza {
-  border-bottom: 0;
+  padding: 0;
 }
 
 .contenido__nombre {
