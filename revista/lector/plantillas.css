@@ -4882,3 +4882,147 @@
 .cm-bio__texto { padding: 2.2cqi 2.6cqi; font-size: calc(var(--text-body) * 0.88); line-height: 1.45; }
 .cm-cita { margin-top: 2cqi; padding: 3.4cqi var(--margen) 3.6cqi; }
 .cm-cita p { font-size: 5cqi; }
+
+/* ═══════════ Cierre de la carta v2 (p. 06), con el lenguaje de la p. 02 ═══════════ */
+.cj-banda {
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+  isolation: isolate;
+  margin: 2.4cqi calc(-1 * var(--margen)) 0;
+  padding: 3.8cqi var(--margen) 4.4cqi;
+  background:
+    radial-gradient(70% 90% at 22% 118%, rgba(49, 220, 141, 0.55) 0%, rgba(49, 220, 141, 0.14) 45%, rgba(49, 220, 141, 0) 72%),
+    radial-gradient(45% 60% at 100% 0%, rgba(14, 122, 73, 0.35) 0%, rgba(14, 122, 73, 0) 70%),
+    linear-gradient(180deg, #040705 0%, #07140d 55%, #0b2618 100%);
+  color: var(--blanco);
+}
+
+.cj-banda::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, transparent calc(var(--margen) - 0.5px), rgba(255, 255, 255, 0.22) calc(var(--margen) - 0.5px), rgba(255, 255, 255, 0.22) calc(var(--margen) + 0.5px), transparent calc(var(--margen) + 0.5px)),
+    linear-gradient(90deg, transparent calc(78% - 0.5px), rgba(255, 255, 255, 0.18) calc(78% - 0.5px), rgba(255, 255, 255, 0.18) calc(78% + 0.5px), transparent calc(78% + 0.5px));
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 28%, #000 72%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 28%, #000 72%, transparent 100%);
+}
+
+.cj-banda .contenido__haz { z-index: -1; }
+.cj-banda > p, .cj-banda > blockquote { position: relative; z-index: 1; }
+
+.cj-banda__ceja {
+  margin-bottom: 2.2cqi;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: calc(var(--text-body) * 0.9);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.cj-banda blockquote { margin: 0; }
+
+.cj-banda blockquote p {
+  position: relative;
+  margin: 0 calc(-1 * var(--margen));
+  padding: 1.4cqi var(--margen) 1.6cqi;
+  font-family: 'Sora', var(--font-ui);
+  font-size: 5.4cqi;
+  font-weight: 300;
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+}
+
+.cj-banda blockquote p::before,
+.cj-banda blockquote p::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.24) 22%, rgba(255, 255, 255, 0.24) 78%, rgba(255, 255, 255, 0) 100%);
+}
+
+.cj-banda blockquote p::before { top: 0; }
+.cj-banda blockquote p::after { bottom: 0; }
+
+.cj-banda blockquote em { font-style: normal; font-weight: 600; color: var(--verde); }
+
+.cj-banda cite {
+  display: block;
+  margin-top: 1.6cqi;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: calc(var(--text-label) * 1.25);
+  font-style: normal;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.cj-banda cite b { color: var(--blanco); font-weight: 600; }
+
+.cj-foto {
+  position: relative;
+  flex-shrink: 0;
+  height: 30cqi;
+  margin: 0 calc(-1 * var(--margen));
+  overflow: hidden;
+}
+
+.cj-foto img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 52%; }
+
+.cj-foto figcaption {
+  position: absolute;
+  left: var(--margen);
+  bottom: 1.6cqi;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: calc(var(--text-label) * 1.2);
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* Semblanza como el índice del Contenido */
+.cj-lista { flex: 1; min-height: 0; display: flex; flex-direction: column; margin-top: 2.6cqi; }
+
+.cj-lista__cabeza {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 1.2cqi;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.cj-lista__cabeza b {
+  font-family: 'Sora', var(--font-ui);
+  font-size: 4.2cqi;
+  font-weight: 300;
+  letter-spacing: -0.03em;
+}
+
+.cj-lista__cabeza b em { font-style: normal; font-weight: 600; color: var(--verde); }
+
+.cj-lista__cabeza span { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: calc(var(--text-label) * 1.2); color: rgba(255, 255, 255, 0.55); }
+
+.cj-lista ol { flex: 1; display: grid; grid-auto-rows: 1fr; margin: 0; }
+
+.cj-lista li {
+  display: grid;
+  grid-template-columns: 12cqi 1fr auto;
+  align-items: center;
+  gap: 2cqi;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cj-lista li:last-child { border-bottom: 0; }
+
+.cj-lista__num { font-family: var(--font-mono); font-size: var(--text-label); letter-spacing: 0.06em; color: rgba(255, 255, 255, 0.45); }
+
+.cj-lista__org { font-family: var(--font-ui); font-size: calc(var(--text-body) * 1.02); font-weight: 550; letter-spacing: -0.01em; color: var(--blanco); }
+
+.cj-lista__rol { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: calc(var(--text-label) * 1.2); text-align: right; color: rgba(255, 255, 255, 0.6); }
+.cj-banda blockquote p { font-size: 4.7cqi; }
+.cj-foto { height: 26cqi; }
+.cj-foto img { object-position: 50% 28%; }
+.cj-lista { margin-top: 2cqi; margin-bottom: 2cqi; }
+.cj-lista__cabeza b { font-size: 3.8cqi; }
+.cj-lista__org { font-size: calc(var(--text-body) * 0.95); }
