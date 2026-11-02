@@ -2308,34 +2308,69 @@
    degradado que sale por la orilla derecha, y abajo una lista con el rango de
    páginas, una línea vertical delgada y el título con su descripción. */
 
-.contenido {
+/* Franja oscura de orilla a orilla: título en blanco y, detrás, la palabra
+   repetida en diagonal como patrón, en verde tenue sobre gris → verde oscuro. */
+.contenido__banda {
   position: relative;
-  isolation: isolate;
+  flex-shrink: 0;
+  overflow: hidden;
+  margin: 3cqi calc(-1 * var(--margen)) 0;
+  padding: 5.6cqi var(--margen) 5cqi;
+  background: linear-gradient(180deg, #262827 0%, #1f2a24 55%, #173b2a 100%);
+  color: var(--blanco);
 }
 
-.contenido > :not(.contenido__acento) {
+.contenido__patron {
+  position: absolute;
+  top: -14cqi;
+  left: -12cqi;
+  right: -12cqi;
+  z-index: 0;
+  display: grid;
+  transform: rotate(-9deg);
+  transform-origin: center;
+  font-family: var(--font-ui);
+  font-size: 15cqi;
+  font-weight: 800;
+  line-height: 0.82;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: rgba(49, 220, 141, 0.16);
+  pointer-events: none;
+  user-select: none;
+}
+
+.contenido__patron span:nth-child(even) {
+  margin-left: -9cqi;
+  color: rgba(49, 220, 141, 0.24);
+}
+
+.contenido__banda > :not(.contenido__patron) {
   position: relative;
   z-index: 1;
 }
 
-.contenido__acento {
-  position: absolute;
-  top: calc(var(--margen-y) + 6.5cqi);
-  right: 0;
-  z-index: 0;
-  width: 22cqi;
-  height: 25cqi;
-  background: linear-gradient(90deg, rgba(49, 220, 141, 0) 0%, rgba(49, 220, 141, 0.55) 38%, var(--verde) 72%, #20b873 100%);
+.contenido__ceja {
+  margin-bottom: 2.6cqi;
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .contenido__titulo {
-  margin-top: 5cqi;
-  max-width: 64cqi;
   font-family: var(--font-ui);
   font-size: var(--text-display-2);
   font-weight: 600;
   line-height: 0.98;
   letter-spacing: -0.04em;
+}
+
+.contenido__titulo em {
+  font-style: normal;
+  color: var(--verde);
 }
 
 .contenido__lista {
@@ -2359,7 +2394,7 @@
 
 .contenido__pags {
   grid-column: 1;
-  padding: 1.55cqi 0;
+  padding: 1.15cqi 0;
   font-family: var(--font-ui);
   font-size: calc(var(--text-body) * 0.78);
   font-weight: 700;
@@ -2369,7 +2404,7 @@
 
 .contenido__pieza {
   grid-column: 3;
-  padding: 1.3cqi 0 1.3cqi 5cqi;
+  padding: 0.95cqi 0 0.95cqi 5cqi;
 }
 
 .contenido__nombre {
@@ -2396,5 +2431,5 @@
 }
 
 .hoja.contenido > .folio {
-  margin-top: 4cqi;
+  margin-top: 2.4cqi;
 }
