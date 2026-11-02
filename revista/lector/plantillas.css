@@ -3689,3 +3689,22 @@
 .oc-apertura3 .oc-lead { margin-top: auto; padding-top: 2cqi; }
 /* Retrato de pie: encuadre de la cabeza a los brazos */
 .oc-mix__foto img[src*="francisco-olazo-retrato"] { object-position: 50% 14%; }
+
+/* Retrato recortado en escalones (sin fondo), sobre las teclas */
+.oc-mix__recorte {
+  position: absolute;
+  z-index: 1;
+  right: -3cqi;
+  bottom: -20cqi;
+  height: 112%;
+  margin: 0;
+}
+
+.oc-mix__recorte img {
+  display: block;
+  height: 100%;
+  width: auto;
+  filter: drop-shadow(0 3cqi 6cqi rgba(0, 0, 0, 0.55));
+}
+
+.oc-mix:has(.oc-mix__recorte) .oc-teclado__teclas { right: -10cqi; opacity: 0.95; }
