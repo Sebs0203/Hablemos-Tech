@@ -2304,196 +2304,190 @@
 }
 
 /* ─────────────────────────── Contenido (Vol. 03) ─────────────────────────── */
-/* Retícula suiza en papel: tabla con líneas finas y un divisor vertical,
-   números ligeros y grandes, títulos en peso medio, etiquetas en caja y
-   bloques de píxel verdes como acento (nada de negritas gigantes). */
+/* Tarjetas redondeadas sobre papel: foto con etiqueta negra y cuadro verde,
+   índice en tarjeta blanca con números verdes, y tres tarjetas de datos
+   (verde, negra, blanca). Títulos en peso medio con una palabra en negrita. */
 
 .contenido {
-  --linea: rgba(13, 13, 13, 0.22);
-  --ancho-meta: 19cqi;
+  --radio-t: 3.2cqi;
+  --blanco-t: #fbfbf8;
+  gap: 2.6cqi;
 }
 
-/* Acento: bloques escalonados, como píxeles del logo */
-.contenido__pixeles {
-  width: 10.5cqi;
-  height: 7cqi;
-  margin-bottom: 1.2cqi;
+.contenido__hero {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  pointer-events: none;
+  grid-template-columns: 1fr 41cqi;
+  gap: 3cqi;
+  align-items: stretch;
+  margin-top: 2.6cqi;
 }
 
-.contenido__pixeles i:nth-child(1) { grid-area: 1 / 2; background: var(--verde); }
-.contenido__pixeles i:nth-child(2) { grid-area: 1 / 3; background: var(--verde-tinta); }
-.contenido__pixeles i:nth-child(3) { grid-area: 2 / 3; background: var(--verde); opacity: 0.45; }
-.contenido__pixeles i:nth-child(4) { grid-area: 2 / 1; width: 45%; height: 45%; align-self: end; background: var(--tinta); }
-
-.contenido__cabeza {
-  display: grid;
-  grid-template-columns: var(--ancho-meta) auto 1fr;
-  column-gap: 2.4cqi;
-  align-items: end;
-  margin-top: 3.4cqi;
-  padding-bottom: 1.8cqi;
-  border-bottom: 1px solid var(--tinta);
+.contenido__intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3cqi;
+  padding: 4cqi 4cqi 4cqi 4.4cqi;
+  border-radius: var(--radio-t);
+  background: var(--papel-hondo);
 }
 
-.contenido__datos {
-  display: grid;
-  gap: 0.5cqi;
-  font-family: var(--font-mono);
+.contenido__pildora {
+  align-self: flex-start;
+  padding: 0.7cqi 2.2cqi 0.8cqi;
+  border: 1px solid rgba(13, 13, 13, 0.28);
+  border-radius: 99px;
+  background: var(--blanco-t);
+  font-family: var(--font-ui);
   font-size: var(--text-label);
-  letter-spacing: var(--tracking-label);
-  line-height: var(--leading-ui);
-  text-transform: uppercase;
-}
-
-.contenido__datos span:last-child {
-  color: var(--tinta-suave);
+  font-size: calc(var(--text-body) * 0.82);
+  font-weight: 500;
 }
 
 .contenido__titulo {
-  justify-self: end;
   font-family: var(--font-ui);
-  font-size: calc(var(--text-display-2) * 0.9);
+  font-size: var(--text-display-3);
   font-weight: 450;
-  line-height: 0.9;
+  line-height: 1.02;
   letter-spacing: -0.035em;
 }
 
-/* La C sobre un cuadro verde */
 .contenido__titulo b {
-  display: inline-block;
-  margin-right: 0.04em;
-  padding: 0 0.06em 0 0.05em;
-  font-weight: inherit;
+  font-weight: 750;
+}
+
+.contenido__bajada {
+  max-width: 30ch;
+  font-family: var(--font-ui);
+  font-size: calc(var(--text-body) * 0.95);
+  line-height: 1.4;
+  color: var(--tinta-suave);
+}
+
+/* Foto en tarjeta, con etiqueta negra y cuadro verde montados */
+.contenido__foto {
+  position: relative;
+  min-height: 38cqi;
+}
+
+.contenido__foto img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radio-t);
+}
+
+.contenido__foto::before {
+  content: '';
+  position: absolute;
+  top: -1.6cqi;
+  right: -1.6cqi;
+  z-index: 1;
+  width: 10cqi;
+  height: 10cqi;
+  border-radius: 2cqi;
   background: var(--verde);
 }
 
+.contenido__etiqueta {
+  position: absolute;
+  left: -3cqi;
+  bottom: 4cqi;
+  z-index: 1;
+  padding: 1.6cqi 3.2cqi 1.8cqi;
+  border-radius: 1.6cqi;
+  background: var(--negro);
+  color: var(--blanco);
+  font-family: var(--font-ui);
+  font-size: var(--text-heading-3);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+/* Índice en tarjeta blanca */
 .contenido__lista {
   flex: 1;
   min-height: 0;
   display: flex;
   flex-direction: column;
+  padding: 1.4cqi 4cqi;
+  border-radius: var(--radio-t);
+  background: var(--blanco-t);
+  box-shadow: 0 0 0 1px rgba(13, 13, 13, 0.06);
 }
 
 .contenido__fila {
   flex: 1 1 auto;
   display: grid;
-  grid-template-columns: var(--ancho-meta) 1fr 27cqi;
-  border-bottom: 1px solid var(--linea);
+  grid-template-columns: 6.5cqi 1fr auto;
+  align-items: center;
+  gap: 2.4cqi;
+  border-bottom: 1px solid rgba(13, 13, 13, 0.09);
 }
 
-/* Columna izquierda: miniatura y páginas, separada por el divisor vertical */
-.contenido__meta {
-  display: grid;
-  grid-template-columns: 7cqi 1fr;
-  align-items: start;
-  gap: 1.6cqi;
-  padding: 1cqi 2cqi 1cqi 0;
-  border-right: 1px solid var(--linea);
+.contenido__fila:last-child {
+  border-bottom: 0;
 }
 
-.contenido__mini {
-  aspect-ratio: 1;
-  overflow: hidden;
-  background: var(--papel-hondo);
-}
-
-.contenido__mini img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Miniatura sin foto: bloque de píxeles */
-.contenido__mini--bloque {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  background: var(--papel-hondo);
-}
-
-.contenido__mini--bloque i { display: block; }
-.contenido__mini--a i:nth-child(1), .contenido__mini--a i:nth-child(4) { background: var(--verde); }
-.contenido__mini--b i:nth-child(2) { background: var(--verde-tinta); }
-.contenido__mini--b i:nth-child(3) { background: var(--verde); }
-.contenido__mini--c i:nth-child(1) { background: var(--tinta); }
-.contenido__mini--c i:nth-child(4) { background: var(--verde); }
-.contenido__mini--d i:nth-child(2), .contenido__mini--d i:nth-child(3) { background: var(--verde-tinta); }
-.contenido__mini--d i:nth-child(4) { background: var(--verde); }
-
-.contenido__pags {
-  justify-self: end;
-  text-align: right;
+.contenido__num {
   font-family: var(--font-ui);
-  font-size: calc(var(--text-heading-2) * 0.78);
-  font-weight: 400;
-  line-height: 0.95;
-  letter-spacing: -0.03em;
+  font-size: calc(var(--text-body) * 1.05);
+  font-weight: 600;
+  color: var(--verde-tinta);
   font-variant-numeric: tabular-nums;
-}
-
-.contenido__pags small {
-  display: block;
-  font-size: 1em;
-  color: rgba(13, 13, 13, 0.32);
-}
-
-/* Columna central: título y etiquetas */
-.contenido__pieza {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 0.9cqi;
-  padding: 1cqi 2.4cqi;
 }
 
 .contenido__nombre {
   font-family: var(--font-ui);
-  font-size: calc(var(--text-heading-3) * 0.92);
-  font-weight: 500;
-  line-height: 1.08;
-  letter-spacing: -0.02em;
-}
-
-.contenido__etiquetas {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6cqi;
-}
-
-.contenido__etiquetas span {
-  padding: 0.25cqi 0.8cqi 0.3cqi;
-  border: 1px solid currentColor;
-  border-radius: 0.5cqi;
-  font-family: var(--font-mono);
-  font-size: var(--text-label);
+  font-size: calc(var(--text-body) * 1.12);
+  font-weight: 550;
   line-height: 1.2;
-  letter-spacing: 0.04em;
+  letter-spacing: -0.01em;
 }
 
-/* Columna derecha: descripción y firma */
-.contenido__nota {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 0.9cqi;
-  padding: 1cqi 0;
-}
-
-.contenido__nota p {
+.contenido__autor {
+  justify-self: end;
+  max-width: 24cqi;
+  text-align: right;
   font-family: var(--font-ui);
-  font-size: calc(var(--text-body) * 0.84);
-  line-height: 1.38;
+  font-size: calc(var(--text-body) * 0.82);
+  line-height: 1.3;
+  color: rgba(13, 13, 13, 0.55);
 }
 
-.contenido__nota cite {
-  font-family: var(--font-mono);
-  font-size: var(--text-label);
-  font-style: normal;
-  letter-spacing: 0.02em;
-  color: var(--tinta-suave);
+/* Tres tarjetas de datos */
+.contenido__datos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.4cqi;
 }
+
+.contenido__dato {
+  display: grid;
+  align-content: space-between;
+  gap: 2cqi;
+  min-height: 15cqi;
+  padding: 2.6cqi 3cqi;
+  border-radius: var(--radio-t);
+}
+
+.contenido__dato b {
+  font-family: var(--font-ui);
+  font-size: var(--text-heading-2);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.contenido__dato span {
+  font-family: var(--font-ui);
+  font-size: calc(var(--text-body) * 0.88);
+  line-height: 1.3;
+}
+
+.contenido__dato--verde { background: var(--verde); color: var(--negro); }
+.contenido__dato--negro { background: var(--negro); color: var(--blanco); }
+.contenido__dato--blanco { background: var(--blanco-t); box-shadow: 0 0 0 1px rgba(13, 13, 13, 0.08); }
