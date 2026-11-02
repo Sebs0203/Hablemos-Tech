@@ -2600,3 +2600,42 @@
 
 .pixeles-fondo i.gris { background: rgba(13, 13, 13, 0.1); width: 3cqi; height: 3cqi; }
 .pixeles-fondo i.chico { width: 1.1cqi; height: 1.1cqi; }
+
+/* Apertura oscura con retícula y bloques de píxel (referencia: póster con retícula) */
+.cronica--retrato.hoja--textura-noche {
+  background:
+    radial-gradient(70% 40% at 0% 100%, rgba(49, 220, 141, 0.12) 0%, rgba(49, 220, 141, 0) 70%),
+    var(--negro);
+}
+
+.cronica--retrato.hoja--textura-noche::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: calc(100% / 6) calc(100% / 8);
+}
+
+.cronica--retrato .bloques-fondo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.cronica--retrato .bloques-fondo i {
+  position: absolute;
+  width: calc(100% / 6);
+  height: calc(100% / 8);
+  background: var(--verde);
+}
+
+.cronica--retrato .bloques-fondo i.tenue { background: rgba(49, 220, 141, 0.18); }
+.cronica--retrato .bloques-fondo i.mini { width: calc(100% / 24); height: calc(100% / 32); }
+
+/* La foto queda sobre la retícula pero detrás del texto */
+.cronica--retrato .retrato-fondo { z-index: 0; }
