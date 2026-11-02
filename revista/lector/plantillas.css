@@ -4091,3 +4091,159 @@
 .oc-apertura5 > .cornisa span:last-child { color: rgba(255, 255, 255, 0.9); }
 .oc-neo__foto { background: #06140c; }
 .oc-neo__foto::after { inset: 9% 0 0 0; }
+
+/* ── Apertura v8: tema oscuro estilo Neo (Olazo + título a la izquierda, mosaico de términos a la derecha) ── */
+.oc-apertura6 { position: relative; isolation: isolate; }
+
+.oc-apertura6 > .cornisa {
+  position: relative;
+  z-index: 3;
+  color: rgba(255, 255, 255, 0.85);
+  border-bottom-color: rgba(255, 255, 255, 0.18);
+}
+
+.oc-oscuro {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 63%;
+  overflow: hidden;
+  background: #0a0a0a;
+  color: var(--blanco);
+}
+
+.oc-oscuro__olazo {
+  position: absolute;
+  z-index: 1;
+  left: -6cqi;
+  bottom: -10cqi;
+  height: 92%;
+  margin: 0;
+}
+
+.oc-oscuro__olazo img {
+  display: block;
+  height: 100%;
+  width: auto;
+  -webkit-mask-image: linear-gradient(0deg, transparent 0%, #000 22%);
+  mask-image: linear-gradient(0deg, transparent 0%, #000 22%);
+}
+
+/* Banda gris con el título, como "neo" */
+.oc-oscuro__banda {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  width: 50%;
+  top: 56%;
+  height: 15%;
+  display: flex;
+  align-items: center;
+  gap: 2cqi;
+  padding-left: var(--margen);
+  background: rgba(35, 31, 32, 0.92);
+}
+
+.oc-oscuro__banda i {
+  flex: none;
+  width: 6.4cqi;
+  height: 6.4cqi;
+  background:
+    linear-gradient(var(--blanco), var(--blanco)) 0 0 / 50% 42% no-repeat,
+    var(--verde);
+}
+
+.oc-oscuro__banda h2 {
+  margin: 0;
+  font-family: 'Sora', var(--font-ui);
+  font-size: 6cqi;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+  background: linear-gradient(180deg, #ffffff 0%, #c9c9c9 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.oc-oscuro__firma {
+  position: absolute;
+  z-index: 2;
+  left: var(--margen);
+  top: 74%;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: calc(var(--text-label) * 1.25);
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.oc-oscuro__firma b { color: var(--blanco); font-weight: 600; }
+
+/* Mosaico de términos */
+.oc-mosaico {
+  position: absolute;
+  z-index: 2;
+  top: 17%;
+  left: 50%;
+  width: 41%;
+  height: 76%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.oc-mosaico > * {
+  display: grid;
+  place-items: center;
+  margin: 0;
+  font-family: 'Sora', var(--font-ui);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.oc-m--teal { background: #00a88f; color: #06281e; }
+.oc-m--verde { background: #00ffa8; color: #003d29; }
+.oc-m--negro { background: #0a0a0a; }
+.oc-m--gris { background: #231f20; color: rgba(255, 255, 255, 0.85); }
+
+.oc-m--intro {
+  grid-column: 1 / 3;
+  place-items: center start !important;
+  padding: 0 3cqi;
+  font-family: 'Sora', var(--font-ui);
+  font-size: calc(var(--text-body) * 0.98);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: #00ffa8;
+}
+
+.oc-m--termino { font-size: 4.2cqi; }
+.oc-m--termino small {
+  display: block;
+  margin-top: 0.4cqi;
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-align: center;
+  opacity: 0.75;
+}
+
+.oc-m--ancho { grid-column: 1 / 3; font-size: 4.8cqi; }
+
+.oc-apertura6 .oc-espacio { flex-shrink: 0; height: calc(63cqh - var(--margen-y) - 5.2cqi); }
+.oc-apertura6 .oc-lead { margin-top: auto; padding-top: 2cqi; }
+.oc-oscuro__olazo { left: -10cqi; bottom: -26cqi; height: 128%; }
+.oc-oscuro__olazo img {
+  -webkit-mask-image: linear-gradient(0deg, transparent 0%, #000 30%), linear-gradient(270deg, transparent 0%, #000 25%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(0deg, transparent 0%, #000 30%), linear-gradient(270deg, transparent 0%, #000 25%);
+  mask-composite: intersect;
+}
+.oc-oscuro__banda { top: 50%; height: 26%; align-items: center; }
+.oc-oscuro__banda h2 { font-size: 7.4cqi; line-height: 0.95; white-space: normal; }
+.oc-oscuro__banda i { align-self: flex-start; margin-top: 4.4cqi; }
+.oc-oscuro__firma { top: 80%; }
