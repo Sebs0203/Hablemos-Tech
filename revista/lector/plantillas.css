@@ -2493,3 +2493,15 @@
   font-weight: 700;
 }
 
+/* Mismo acomodo en todas las páginas interiores: la cornisa arriba y el folio
+   siempre al fondo, a la misma distancia del borde. */
+.lector--helvetica .hoja > .folio {
+  margin-top: auto;
+}
+
+/* Apertura con foto: la cornisa va arriba como en las demás y la foto empieza debajo */
+.articulo-foto--cornisa .articulo-foto__foto {
+  height: 52cqh;
+  margin-top: 2.6cqi;
+}
+
