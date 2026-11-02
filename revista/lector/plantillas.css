@@ -4725,3 +4725,160 @@
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
 }
 .oc-icea__foto figcaption { z-index: 1; }
+
+/* ═══════════════ Cierre de la carta (p. 06): módulos como p. 07 y franja como p. 02 ═══════════════ */
+.cm-fila {
+  flex-shrink: 0;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  height: 44cqi;
+  margin: 2.4cqi calc(-1 * var(--margen)) 0;
+}
+
+.cm-fila figure {
+  grid-row: 1 / 3;
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+}
+
+.cm-fila figure img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; }
+
+.cm-fila figcaption {
+  position: absolute;
+  left: var(--margen);
+  bottom: 1.8cqi;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: calc(var(--text-label) * 1.2);
+  font-weight: 500;
+  color: var(--blanco);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+}
+
+.cm-estrella { position: relative; overflow: hidden; background: #050505; border-left: 1px solid rgba(255,255,255,0.08); }
+.cm-estrella svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+.cm-marca {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2cqi 2.2cqi;
+  background: var(--verde);
+  color: var(--negro);
+}
+
+.cm-marca span {
+  font-family: var(--font-mono);
+  font-size: calc(var(--text-label) * 0.9);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.cm-marca b {
+  font-family: 'Sora', var(--font-ui);
+  font-size: 4.2cqi;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+/* Semblanza en dos módulos */
+.cm-bio {
+  flex-shrink: 0;
+  display: grid;
+  grid-template-columns: 1fr 1.55fr;
+  margin: 2.4cqi 0 0;
+}
+
+.cm-bio__nombre {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2cqi;
+  padding: 2.6cqi 2.6cqi 2.4cqi;
+  background: #fbfbf8;
+  color: var(--negro);
+}
+
+.cm-bio__nombre p:first-child {
+  font-family: 'Sora', var(--font-ui);
+  font-size: 5.4cqi;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.cm-bio__nombre p:first-child b { display: block; font-weight: 700; }
+
+.cm-bio__nombre p:last-child {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: calc(var(--text-label) * 1.25);
+  line-height: 1.35;
+  color: rgba(13, 13, 13, 0.7);
+}
+
+.cm-bio__texto {
+  padding: 2.6cqi 2.8cqi;
+  background: #161716;
+  font-family: var(--font-ui);
+  font-size: calc(var(--text-body) * 0.92);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.cm-bio__texto b { color: var(--blanco); font-weight: 600; }
+
+/* Cita en franja oscura (como la de Contenido) */
+.cm-cita {
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+  margin: 2.4cqi calc(-1 * var(--margen)) 0;
+  padding: 4cqi var(--margen) 4.4cqi;
+  background:
+    radial-gradient(70% 120% at 15% 120%, rgba(49, 220, 141, 0.45) 0%, rgba(49, 220, 141, 0.1) 45%, rgba(49, 220, 141, 0) 72%),
+    linear-gradient(180deg, #050505 0%, #07140d 60%, #0b2618 100%);
+}
+
+.cm-cita::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, transparent calc(var(--margen) - 0.5px), rgba(255, 255, 255, 0.2) calc(var(--margen) - 0.5px), rgba(255, 255, 255, 0.2) calc(var(--margen) + 0.5px), transparent calc(var(--margen) + 0.5px)),
+    linear-gradient(90deg, transparent calc(78% - 0.5px), rgba(255, 255, 255, 0.16) calc(78% - 0.5px), rgba(255, 255, 255, 0.16) calc(78% + 0.5px), transparent calc(78% + 0.5px));
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 30%, #000 70%, transparent);
+  mask-image: linear-gradient(180deg, transparent, #000 30%, #000 70%, transparent);
+}
+
+.cm-cita > * { position: relative; }
+
+.cm-cita p {
+  max-width: 92%;
+  font-family: 'Sora', var(--font-ui);
+  font-size: 5.6cqi;
+  font-weight: 300;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  color: var(--blanco);
+}
+
+.cm-cita p em { font-style: normal; font-weight: 700; color: var(--verde); }
+
+.cm-cita cite {
+  display: block;
+  margin-top: 1.8cqi;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: calc(var(--text-label) * 1.25);
+  font-style: normal;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.cm-cita cite b { color: var(--blanco); font-weight: 600; }
+.cm-fila { height: 39cqi; margin-top: 2cqi; }
+.cm-bio { margin-top: 2cqi; }
+.cm-bio__nombre { padding: 2.2cqi 2.4cqi; }
+.cm-bio__texto { padding: 2.2cqi 2.6cqi; font-size: calc(var(--text-body) * 0.88); line-height: 1.45; }
+.cm-cita { margin-top: 2cqi; padding: 3.4cqi var(--margen) 3.6cqi; }
+.cm-cita p { font-size: 5cqi; }
