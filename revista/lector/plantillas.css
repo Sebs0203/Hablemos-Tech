@@ -2497,3 +2497,11 @@
   margin-top: 2.6cqi;
 }
 
+
+/* Título de la Carta del fundador con la letra de la franja del Contenido */
+.cronica--retrato .titulo-2 {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
