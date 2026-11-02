@@ -5169,3 +5169,16 @@
 .cj-promesas li { padding: 1cqi 0; }
 /* Nombres destacados de la carta en verde: puntos de anclaje al leer */
 .carta-noche .texto strong, .cronica--retrato .texto strong { color: var(--verde); font-weight: 600; }
+
+/* Franja de la cita (p. 06): retícula cuadrada, verticales en ambos márgenes */
+.cj-banda::before {
+  background:
+    linear-gradient(90deg, transparent calc(var(--margen) - 0.5px), rgba(255, 255, 255, 0.22) calc(var(--margen) - 0.5px), rgba(255, 255, 255, 0.22) calc(var(--margen) + 0.5px), transparent calc(var(--margen) + 0.5px)),
+    linear-gradient(270deg, transparent calc(var(--margen) - 0.5px), rgba(255, 255, 255, 0.22) calc(var(--margen) - 0.5px), rgba(255, 255, 255, 0.22) calc(var(--margen) + 0.5px), transparent calc(var(--margen) + 0.5px));
+}
+.cj-banda blockquote p::before,
+.cj-banda blockquote p::after {
+  left: var(--margen);
+  right: var(--margen);
+  background: rgba(255, 255, 255, 0.22);
+}
