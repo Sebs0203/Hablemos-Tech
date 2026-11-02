@@ -2758,3 +2758,14 @@
   letter-spacing: -0.035em;
 }
 
+
+/* Título de la franja del Contenido con Sora, igual que la Carta del fundador */
+.contenido__titulo {
+  font-family: 'Sora', var(--font-ui);
+  font-weight: 300;
+  letter-spacing: -0.035em;
+}
+
+.contenido__titulo em {
+  font-weight: 600;
+}
