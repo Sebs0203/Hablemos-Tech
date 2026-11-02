@@ -2302,3 +2302,98 @@
   flex: 0 1 auto;
   max-height: 46%;
 }
+
+/* ─────────────────────────── Contenido (Vol. 03) ─────────────────────────── */
+/* Página de contenido editorial: números de página grandes como protagonistas,
+   cabecera con los datos de la edición y renglones que reparten la altura. */
+
+.contenido__cabeza {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 4cqi;
+  margin-top: 5cqi;
+  padding-bottom: 2.6cqi;
+  border-bottom: 0.55cqi solid currentColor;
+}
+
+.contenido__titulo {
+  font-family: var(--font-display);
+  font-size: var(--text-display-1);
+  font-weight: 800;
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
+}
+
+.contenido__datos {
+  display: grid;
+  gap: 0.6cqi;
+  padding-bottom: 1.2cqi;
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  letter-spacing: var(--tracking-label);
+  line-height: var(--leading-ui);
+  text-transform: uppercase;
+}
+
+.contenido__datos b {
+  font-weight: 600;
+}
+
+.contenido__lista {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-auto-rows: 1fr;
+  margin-top: 0.6cqi;
+}
+
+.contenido__item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 17cqi 1fr;
+  align-items: center;
+  gap: 3cqi;
+  border-bottom: 1px solid var(--linea-papel);
+}
+
+.contenido__num {
+  font-family: var(--font-display);
+  font-size: var(--text-display-3);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--verde-tinta);
+  font-variant-numeric: tabular-nums;
+}
+
+.contenido__seccion {
+  margin-bottom: 0.7cqi;
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  letter-spacing: var(--tracking-label);
+  line-height: var(--leading-ui);
+  text-transform: uppercase;
+  opacity: 0.72;
+}
+
+.contenido__nombre {
+  font-family: var(--font-display);
+  font-size: var(--text-heading-3);
+  font-weight: 750;
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+}
+
+/* La primera pieza abre con una franja verde detrás del número */
+.contenido__item--destacado .contenido__num {
+  justify-self: start;
+  padding: 0.6cqi 1.6cqi 0.9cqi;
+  background: var(--verde);
+  color: var(--negro);
+}
+
+.contenido__item--destacado .contenido__nombre {
+  font-size: var(--text-heading-2);
+}
