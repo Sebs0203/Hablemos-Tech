@@ -2521,3 +2521,34 @@
 .cronica--retrato .etiqueta__punto {
   display: none;
 }
+
+/* Texto corrido del Vol. 03: justificado, sin sangría y con la capitular
+   ocupando exactamente tres renglones. */
+.lector--helvetica .texto p {
+  text-align: justify;
+  hyphens: auto;
+  text-wrap: wrap;
+}
+
+.lector--helvetica .texto p + p {
+  margin-top: 0.55em;
+  text-indent: 0;
+}
+
+.lector--helvetica .capitular::first-letter {
+  float: left;
+  margin: 0.04em 0.1em 0 0;
+  font-size: calc(var(--leading-body) * 2em + 0.82em);
+  line-height: 0.74;
+}
+
+@supports (initial-letter: 3) or (-webkit-initial-letter: 3) {
+  .lector--helvetica .capitular::first-letter {
+    float: none;
+    margin: 0 0.12em 0 0;
+    font-size: inherit;
+    line-height: inherit;
+    -webkit-initial-letter: 3;
+    initial-letter: 3;
+  }
+}
