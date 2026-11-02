@@ -5182,3 +5182,71 @@
   right: var(--margen);
   background: rgba(255, 255, 255, 0.22);
 }
+
+/* ═════════ Carta, pp. 4–6: pasada taste (un protagonista por página, espacio en vez de reglas) ═════════ */
+.carta-noche .texto {
+  font-size: calc(var(--text-body) * 1.04);
+  line-height: 1.62;
+  column-gap: 5.4cqi;
+}
+.carta-noche .texto p { color: rgba(255, 255, 255, 0.9); }
+.carta-noche .texto p + p { margin-top: 0.8em; }
+
+/* p. 4: foto del Foro a sangre */
+.carta-noche .foto-carta {
+  margin: 2cqi calc(-1 * var(--margen)) 3.2cqi;
+}
+.carta-noche .foto-carta figcaption { left: var(--margen); background: none; padding: 0; text-shadow: 0 1px 8px rgba(0,0,0,0.7); }
+
+/* p. 5: promesas como frases grandes, sin números ni reglas */
+.cj-promesas { margin: 3.4cqi 0 2.4cqi; }
+.cj-promesas > p { margin-bottom: 2cqi; color: rgba(255,255,255,0.9); }
+.cj-promesas ol { border-top: 0; display: grid; gap: 2.2cqi; }
+.cj-promesas li {
+  display: block;
+  padding: 0 0 0 3.2cqi;
+  border-bottom: 0;
+  position: relative;
+  font-size: calc(var(--text-heading-3) * 0.82);
+  font-weight: 300;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+}
+.cj-promesas li span { display: none; }
+.cj-promesas li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  width: 1.3cqi;
+  height: 1.3cqi;
+  background: var(--verde);
+}
+
+/* p. 6: firma y semblanza en un panel de tono, sin líneas */
+.cj-firma { padding-top: 2.2cqi; font-size: 7.2cqi; }
+.cj-lista {
+  margin: 3cqi calc(-1 * var(--margen)) 0;
+  padding: 3.4cqi var(--margen) 3cqi;
+  background: #121312;
+}
+.cj-lista__cabeza { border-bottom: 0; padding-bottom: 2.2cqi; }
+.cj-lista li { border-bottom: 0; padding: 0.55cqi 0; }
+.cj-lista__org { color: rgba(255,255,255,0.92); }
+.cj-lista__rol { color: rgba(255,255,255,0.6); }
+.cj-lista {
+  display: grid;
+  grid-template-columns: 30cqi 1fr;
+  column-gap: 4cqi;
+  align-items: start;
+  padding: 3cqi var(--margen) 2.8cqi;
+}
+.cj-lista__cabeza { display: grid; gap: 1.4cqi; padding: 0; }
+.cj-lista__cabeza b { font-size: 4.6cqi; line-height: 1; }
+.cj-lista__cabeza b em { display: block; }
+.cj-lista__cabeza span { font-size: calc(var(--text-label) * 1.15); line-height: 1.4; }
+.cj-lista ol { grid-auto-rows: auto; }
+.cj-lista li { padding: 0.45cqi 0; gap: 1.6cqi; }
+.cj-lista__org { font-size: calc(var(--text-body) * 0.86); }
+.cj-lista__rol { font-size: calc(var(--text-label) * 1.05); }
+.cj-firma { font-size: 6.4cqi; padding-top: 1.6cqi; }
