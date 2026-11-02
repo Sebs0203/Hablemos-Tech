@@ -2997,7 +2997,7 @@
 .oc-tira {
   position: relative;
   flex-shrink: 0;
-  height: 21cqi;
+  height: 19cqi;
   margin: 2.6cqi calc(-1 * var(--margen)) 0;
   overflow: hidden;
 }

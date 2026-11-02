@@ -268,7 +268,7 @@
               </div>
               <div class="oc-lead">
               <div class="texto texto--2col" data-anim style="--i:4">
-                <p class="capitular">Octubre nos recuerda que las vulnerabilidades pueden afectar tecnologías distintas y ampliamente utilizadas. El equipo de PHP publicó actualizaciones para corregir dos fallas críticas que podían permitir ejecución remota de código sin autenticación. La CISA —Agencia de Seguridad de Infraestructura y Ciberseguridad de Estados Unidos, organismo federal que coordina la ciberdefensa y apoya la protección de infraestructura crítica— reportó explotación activa de vulnerabilidades y las incorporó a su catálogo KEV, que reúne fallas con evidencia de explotación.</p>
+                <p class="capitular">Octubre nos recuerda que las vulnerabilidades pueden afectar tecnologías distintas y ampliamente utilizadas. El equipo de PHP publicó actualizaciones para corregir dos fallas críticas que permitían a un atacante ejecutar código en el servidor sin necesidad de usuario ni contraseña. La CISA —Agencia de Seguridad de Infraestructura y Ciberseguridad de Estados Unidos, organismo federal que coordina la ciberdefensa y apoya la protección de infraestructura crítica— reportó explotación activa de vulnerabilidades y las incorporó a su catálogo KEV (Known Exploited Vulnerabilities): la lista de fallas que ya se están usando en ataques reales.</p>
               </div>
               </div>
               <footer class="folio folio--derecha">
@@ -290,13 +290,13 @@
                 <h3 class="oc-h3">Lo que se <em>explotó</em> este mes.</h3>
               </div>
               <div class="texto texto--2col" data-anim style="--i:0">
-                <p>Entre los hallazgos de octubre destacan PHP2Shell (CVE-2026-109618 y CVE-2026-109619), vulnerabilidades críticas de PHP; CVE-2026-96951, una falla de Windows Shell explotada antes de publicarse su corrección; y vulnerabilidades en BeyondTrust Remote Support, Collabora Online, Adobe Commerce / Magento y Brotli que también fueron señaladas por explotación activa. Para los administradores, la referencia práctica es revisar si estos productos o componentes están en el inventario y priorizar los que estén expuestos o soporten servicios críticos.</p>
+                <p>Entre los hallazgos de octubre destacan PHP2Shell (CVE-2026-109618 y CVE-2026-109619; los CVE son el número de registro público de cada falla), vulnerabilidades críticas de PHP; CVE-2026-96951, una falla de Windows Shell explotada antes de publicarse su corrección; y vulnerabilidades en BeyondTrust Remote Support, Collabora Online, Adobe Commerce / Magento y Brotli que también fueron señaladas por explotación activa. Para los administradores, la referencia práctica es revisar si estos productos o componentes están en el inventario y priorizar los que estén expuestos o soporten servicios críticos.</p>
               </div>
               <div class="oc-kev" data-anim style="--i:1">
                 <p class="oc-kev__barra oc-mono"><span>Revisa tu inventario</span><span>Octubre 2026</span></p>
                 <div class="oc-kev__fila"><p class="oc-kev__comp">PHP<small>PHP2Shell</small></p><span class="oc-mono">CVE-2026-109618</span><span class="oc-chip">Explotación activa</span></div>
                 <div class="oc-kev__fila"><p class="oc-kev__comp">PHP<small>PHP2Shell</small></p><span class="oc-mono">CVE-2026-109619</span><span class="oc-chip">Explotación activa</span></div>
-                <div class="oc-kev__fila"><p class="oc-kev__comp">Windows Shell<small>Antes de su corrección</small></p><span class="oc-mono">CVE-2026-96951</span><span class="oc-chip">Día cero</span></div>
+                <div class="oc-kev__fila"><p class="oc-kev__comp">Windows Shell<small>Antes de su corrección</small></p><span class="oc-mono">CVE-2026-96951</span><span class="oc-chip">Explotada antes del parche</span></div>
                 <div class="oc-kev__fila"><p class="oc-kev__comp">BeyondTrust Remote Support</p><span class="oc-mono">—</span><span class="oc-chip">Explotación activa</span></div>
                 <div class="oc-kev__fila"><p class="oc-kev__comp">Collabora Online</p><span class="oc-mono">—</span><span class="oc-chip">Explotación activa</span></div>
                 <div class="oc-kev__fila"><p class="oc-kev__comp">Adobe Commerce / Magento</p><span class="oc-mono">—</span><span class="oc-chip">Explotación activa</span></div>
@@ -330,8 +330,8 @@
                 <article class="oc-incidente oc-incidente--verde">
                   <p class="oc-incidente__fecha">Sep 2026</p>
                   <h4>Remote Desktop Services inestable en Windows Server</h4>
-                  <p>Por otro lado, Microsoft documentó un problema distinto tras sus updates de seguridad de septiembre de 2026 para Windows Server: en algunos entornos, Remote Desktop Services se volvió inestable, las conexiones RDP fallaban, los inicios de sesión se detenían y algunos servidores quedaban bloqueados durante la configuración de Escritorio remoto. Microsoft publicó una actualización correctiva fuera de banda.</p>
-                  <span class="oc-chip">Corrección fuera de banda</span>
+                  <p>Por otro lado, Microsoft documentó un problema distinto tras sus actualizaciones de seguridad de septiembre de 2026 para Windows Server: en algunos entornos, Remote Desktop Services (RDS, el servicio que permite trabajar en un servidor desde otra computadora) se volvió inestable, las conexiones de Escritorio remoto (RDP) fallaban, los inicios de sesión se detenían y algunos servidores quedaban bloqueados durante la configuración de Escritorio remoto. Microsoft publicó una actualización correctiva de emergencia, fuera de su calendario mensual.</p>
+                  <span class="oc-chip">Corrección de emergencia</span>
                 </article>
               </div>
               <div class="texto" data-anim style="--i:2">
@@ -362,12 +362,12 @@
               <div class="oc-cadena" data-anim style="--i:1">
                 <div class="oc-cadena__paso"><span class="oc-mono">01 · Cambio</span><b>Actualización de seguridad</b></div>
                 <i class="oc-cadena__flecha"></i>
-                <div class="oc-cadena__paso"><span class="oc-mono">02 · Acceso</span><b>RDS inestable, sesiones RDSH sin entrada</b></div>
+                <div class="oc-cadena__paso"><span class="oc-mono">02 · Acceso</span><b>Escritorio remoto inestable: nadie puede iniciar sesión</b></div>
                 <i class="oc-cadena__flecha"></i>
                 <div class="oc-cadena__paso oc-cadena__paso--final"><span class="oc-mono">03 · Operación detenida</span><div class="oc-sistemas"><span>Contpaqi</span><span>Nómina</span><span>Logística</span><span>ERP</span><span>Aduanas</span></div></div>
               </div>
               <div class="texto texto--2col" data-anim style="--i:2">
-                <p>Sabemos  si una actualización deja inestable RDS, quizá las aplicaciones sigan bien, pero los usuarios no pueden entrar a ellas desde sus sesiones RDSH. Ahí se frenan tareas de Contpaqi, nómina, logística, ERP o aduanas, tanto para quienes están en la oficina como para quienes se conectan desde fuera. Y todos sabemos que unos minutos de interrupción pueden convertirse en horas de trabajo perdido, costos o problemas con clientes. Por eso, además de preguntarnos qué puede fallar, vale la pena preguntarnos:</p>
+                <p>Si una actualización deja inestable RDS, quizá las aplicaciones sigan funcionando, pero los usuarios no pueden entrar a ellas desde sus sesiones remotas (RDSH). Ahí se frenan tareas de Contpaqi, nómina, logística, ERP o aduanas, tanto para quienes están en la oficina como para quienes se conectan desde fuera. Y todos sabemos que unos minutos de interrupción pueden convertirse en horas de trabajo perdido, costos o problemas con clientes. Por eso, además de preguntarnos qué puede fallar, vale la pena preguntarnos:</p>
               </div>
               <div class="oc-franja" data-anim style="--i:3">
                 <p>La pregunta antes de cada parche</p>
@@ -395,12 +395,12 @@
                 <p>Las herramientas ayudan a convertir información dispersa en visibilidad y acciones. No es necesario adquirirlas todas ni desplegarlas a la vez; conviene elegirlas según el tamaño, la arquitectura y la capacidad operativa del equipo.</p>
               </div>
               <div class="oc-herramientas" data-anim style="--i:1">
-                <div class="oc-grupo"><p>Descubrir<span>activos y vulnerabilidades</span></p><div class="oc-tool"><b>Greenbone · OpenVAS</b><span>Evalúa vulnerabilidades en sistemas y redes. Alternativa open source para empezar a medir la exposición técnica.</span></div><div class="oc-tool"><b>Wazuh</b><span>Monitoreo de seguridad, análisis de registros, evaluación de configuración y detección de vulnerabilidades en endpoints y nube.</span></div><div class="oc-tool"><b>Trivy</b><span>Revisa imágenes de contenedores, repositorios, archivos e infraestructura como código. Útil con Docker y Kubernetes.</span></div></div>
-                <div class="oc-grupo"><p>Observar<span>rendimiento y comportamientos anómalos</span></p><div class="oc-tool"><b>Prometheus · Grafana · Loki</b><span>Base open source: Prometheus para métricas y alertas, Loki para registros, Grafana para consultarlos en tableros.</span></div><div class="oc-tool"><b>Falco</b><span>Observa actividad en tiempo de ejecución y alerta ante comportamientos sospechosos en hosts, contenedores y Kubernetes.</span></div></div>
-                <div class="oc-grupo"><p>Remediar<span>estandarizar y acelerar</span></p><div class="oc-tool"><b>Ansible</b><span>Tareas repetibles con playbooks para desplegar configuraciones o ejecutar acciones controladas en varios servidores. Con pruebas, ventanas aprobadas y opción de reversa.</span></div></div>
+                <div class="oc-grupo"><p>Descubrir<span>activos y vulnerabilidades</span></p><div class="oc-tool"><b>Greenbone · OpenVAS</b><span>Escanea servidores y redes en busca de fallas conocidas. Es gratuita y de código abierto: un buen punto de partida.</span></div><div class="oc-tool"><b>Wazuh</b><span>Vigila equipos y servidores desde un solo lugar: revisa registros, configuraciones y vulnerabilidades, también en la nube.</span></div><div class="oc-tool"><b>Trivy</b><span>Revisa contenedores y código antes de publicarlos para encontrar fallas y errores de configuración. Útil si usan Docker o Kubernetes.</span></div></div>
+                <div class="oc-grupo"><p>Observar<span>rendimiento y comportamientos anómalos</span></p><div class="oc-tool"><b>Prometheus · Grafana · Loki</b><span>Juntas miden el estado de la infraestructura, guardan los registros y lo muestran todo en tableros. Gratuitas y de código abierto.</span></div><div class="oc-tool"><b>Falco</b><span>Avisa cuando un servidor o contenedor hace algo fuera de lo normal mientras está funcionando.</span></div></div>
+                <div class="oc-grupo"><p>Remediar<span>estandarizar y acelerar</span></p><div class="oc-tool"><b>Ansible</b><span>Automatiza tareas repetitivas en varios servidores a la vez, como aplicar una configuración. Siempre con pruebas, horarios aprobados y forma de revertir.</span></div></div>
               </div>
               <div class="oc-escala" data-anim style="--i:2">
-                <div><h4>Para una pyme</h4><ul><li>Defender for Business</li><li>Datto RMM</li><li>Huntress 24/7</li><li>Wazuh</li></ul></div>
+                <div><h4>Para una pyme</h4><ul><li>Defender for Business</li><li>Datto RMM</li><li>Huntress · monitoreo 24/7</li><li>Wazuh</li></ul></div>
                 <div><h4>Entornos más grandes</h4><ul><li>Tenable</li><li>Qualys</li><li>Rapid7</li><li>Datadog</li><li>Splunk</li></ul></div>
               </div>
               <footer class="folio folio--derecha">
@@ -425,8 +425,8 @@
                 <p class="oc-kicker">¿Qué papel puede jugar Datto?</p>
               </div>
               <div class="texto texto--2col" data-anim style="--i:1">
-                <p>Datto RMM puede ayudar a controlar el despliegue de parches mediante políticas, ventanas de instalación y opciones para aprobar, rechazar o excluir actualizaciones en dispositivos específicos. Una práctica útil es probar primero los cambios en un grupo piloto y ampliar el despliegue cuando se confirme que los servicios críticos funcionan.</p>
-                <p>Datto RMM no garantiza que un parche no cause problemas ni reemplaza una solución de respaldo. Para reducir el impacto de una actualización fallida, la empresa también necesita respaldos recientes, procedimientos de recuperación probados y una vía de administración alternativa cuando RDP no esté disponible. Las capacidades concretas dependen de la solución de respaldo o BCDR implementada.</p>
+                <p>Datto RMM, una herramienta para administrar y actualizar equipos a distancia, puede ayudar a controlar el despliegue de parches mediante políticas, ventanas de instalación y opciones para aprobar, rechazar o excluir actualizaciones en dispositivos específicos. Una práctica útil es probar primero los cambios en un grupo piloto y ampliar el despliegue cuando se confirme que los servicios críticos funcionan.</p>
+                <p>Datto RMM no garantiza que un parche no cause problemas ni reemplaza una solución de respaldo. Para reducir el impacto de una actualización fallida, la empresa también necesita respaldos recientes, procedimientos de recuperación probados y otra forma de entrar a administrar los servidores cuando el Escritorio remoto no esté disponible. Las capacidades concretas dependen de la solución de respaldo y recuperación ante desastres (BCDR) que tenga la empresa.</p>
               </div>
               <div class="oc-cabeza">
                 <p class="oc-kicker">La herramienta no sustituye el criterio</p>
@@ -462,7 +462,7 @@
               <ol class="oc-ruta" data-anim style="--i:1">
                 <li><span class="oc-ruta__num">01</span><div><b>Confirmar el alcance</b><p>Revisar inventario, versiones, servicios expuestos y responsables.</p></div></li>
                 <li><span class="oc-ruta__num">02</span><div><b>Priorizar por riesgo</b><p>Atender primero activos críticos accesibles desde internet y fallas con explotación confirmada.</p></div></li>
-                <li><span class="oc-ruta__num">03</span><div><b>Probar antes de ampliar</b><p>Validar las actualizaciones en sistemas piloto y revisar dependencias con RDP, aplicaciones y servicios críticos.</p></div></li>
+                <li><span class="oc-ruta__num">03</span><div><b>Probar antes de ampliar</b><p>Validar las actualizaciones en sistemas piloto y revisar que sigan funcionando el Escritorio remoto, las aplicaciones y los servicios críticos.</p></div></li>
                 <li><span class="oc-ruta__num">04</span><div><b>Remediar con control</b><p>Programar ventanas, respaldar, documentar medidas temporales y definir una ruta de recuperación si algo falla.</p></div></li>
                 <li><span class="oc-ruta__num">05</span><div><b>Verificar y comunicar</b><p>Confirmar que el parche se aplicó, revisar registros y reportar a la empresa el riesgo, las acciones, los responsables y los tiempos previstos.</p></div></li>
               </ol>
