@@ -3708,3 +3708,193 @@
 }
 
 .oc-mix:has(.oc-mix__recorte) .oc-teclado__teclas { right: -10cqi; opacity: 0.95; }
+
+/* ── Apertura v6: póster rojo con palabra gigante detrás de Olazo ── */
+@font-face {
+  font-family: 'Anton';
+  src: url('../../assets/fonts/anton-latin-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+.oc-apertura4 { position: relative; isolation: isolate; }
+
+.oc-poster {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 63%;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(55% 60% at 50% 55%, #8e1410 0%, #4a0907 45%, #170302 80%, #0a0101 100%);
+  color: var(--blanco);
+}
+
+/* Grano de papel */
+.oc-poster::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+}
+
+.oc-poster__eco {
+  position: absolute;
+  z-index: 0;
+  inset: -2cqi -6cqi auto;
+  display: grid;
+  font-family: 'Anton', var(--font-ui);
+  font-size: 21cqi;
+  line-height: 0.88;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: rgba(255, 70, 55, 0.12);
+}
+
+.oc-poster__eco span:nth-child(even) { margin-left: -14cqi; }
+
+.oc-poster__titulo {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: 13cqi;
+  display: grid;
+  justify-items: center;
+  margin: 0;
+}
+
+.oc-poster__titulo .arriba {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: calc(var(--text-label) * 1.5);
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--blanco);
+}
+
+.oc-poster__titulo .arriba::before,
+.oc-poster__titulo .arriba::after { content: '•  •  •'; margin: 0 1.6cqi; letter-spacing: 0; color: var(--verde); }
+
+.oc-poster__titulo .grande {
+  font-family: 'Anton', var(--font-ui);
+  font-size: 37cqi;
+  font-weight: 400;
+  line-height: 0.86;
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
+  color: var(--verde);
+  text-shadow: 0 0 6cqi rgba(49, 220, 141, 0.18);
+}
+
+.oc-poster__olazo {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: -14cqi;
+  height: 106%;
+  margin: 0;
+  transform: translateX(-46%);
+}
+
+.oc-poster__olazo img {
+  display: block;
+  height: 100%;
+  width: auto;
+  filter: drop-shadow(0 0 5cqi rgba(0, 0, 0, 0.6)) contrast(1.05);
+}
+
+.oc-poster::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(10, 1, 1, 0) 62%, rgba(10, 1, 1, 0.92) 100%);
+}
+
+.oc-poster__sub {
+  position: absolute;
+  z-index: 4;
+  left: var(--margen);
+  bottom: 4.6cqi;
+  max-width: 34cqi;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: calc(var(--text-label) * 1.25);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--verde);
+}
+
+.oc-poster__firma {
+  position: absolute;
+  z-index: 4;
+  right: var(--margen);
+  bottom: 4.6cqi;
+  text-align: right;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: calc(var(--text-label) * 1.25);
+  line-height: 1.35;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.oc-poster__firma b { display: block; color: var(--blanco); }
+
+.oc-poster__flechas {
+  position: absolute;
+  z-index: 4;
+  top: 30%;
+  display: grid;
+  gap: 2.4cqi;
+  font-size: 1.6cqi;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.oc-poster__flechas--izq { left: 2.4cqi; }
+.oc-poster__flechas--der { right: 2.4cqi; }
+
+.oc-poster__puntos {
+  position: absolute;
+  z-index: 4;
+  width: 9cqi;
+  height: 2.4cqi;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.85) 0.35cqi, transparent 0.4cqi) 0 0 / 1.2cqi 1.2cqi;
+}
+
+.oc-poster__puntos--a { top: calc(var(--margen-y) + 6.4cqi); left: var(--margen); }
+.oc-poster__puntos--b { top: calc(var(--margen-y) + 6.4cqi); right: var(--margen); }
+
+/* Cornisa integrada como etiquetas del póster */
+.oc-apertura4 > .cornisa {
+  position: relative;
+  z-index: 2;
+  border-bottom: 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.oc-apertura4 > .cornisa span {
+  padding: 0.5cqi 1.2cqi 0.6cqi;
+  background: var(--blanco);
+  color: var(--negro);
+}
+
+.oc-apertura4 > .cornisa span:last-child { background: var(--verde); }
+
+.oc-apertura4 .oc-espacio { flex-shrink: 0; height: calc(63cqh - var(--margen-y) - 5.2cqi); }
+.oc-apertura4 .oc-lead { margin-top: auto; padding-top: 2cqi; }
+.oc-poster__titulo .arriba { justify-self: start; margin-left: var(--margen); margin-bottom: 1cqi; font-size: calc(var(--text-label) * 1.9); }
+.oc-poster__titulo .arriba::before { content: none; }
