@@ -618,34 +618,52 @@
   margin-top: 4.8cqi;
 }
 
-/* Variante: retrato protagonista junto al título (Carta del fundador, Vol. 03) */
-.cronica__cabeza--retrato {
-  grid-template-columns: 1fr 38cqi;
-  align-items: end;
-  margin-top: 4cqi;
-}
-
-.cronica__retrato {
+/* Variante: retrato protagonista integrado al fondo (Carta del fundador, Vol. 03).
+   La foto ocupa la parte alta derecha y se funde con el negro de la página por la
+   izquierda, por arriba y por abajo; el título vive sobre la zona fundida. */
+.cronica--retrato {
   position: relative;
-  display: grid;
-  gap: 1.4cqi;
+  isolation: isolate;
 }
 
-.cronica__retrato img {
+.cronica--retrato > :not(.retrato-fondo) {
+  position: relative;
+  z-index: 1;
+}
+
+.retrato-fondo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 0;
+  width: 78%;
+  height: 72%;
+  margin: 0;
+}
+
+.retrato-fondo img {
   display: block;
   width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 5;
+  height: 100%;
   object-fit: cover;
-  object-position: 50% 18%;
+  object-position: 50% 14%;
 }
 
-.cronica__retrato figcaption {
-  font-family: var(--font-mono);
-  font-size: var(--text-label);
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
-  opacity: 0.7;
+.retrato-fondo::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background:
+    linear-gradient(90deg, var(--negro) 0%, rgba(5, 5, 5, 0.82) 16%, rgba(5, 5, 5, 0.35) 34%, rgba(5, 5, 5, 0) 52%),
+    linear-gradient(270deg, rgba(5, 5, 5, 0.55) 0%, rgba(5, 5, 5, 0) 14%),
+    linear-gradient(180deg, rgba(5, 5, 5, 0.7) 0%, rgba(5, 5, 5, 0) 16%, rgba(5, 5, 5, 0) 52%, rgba(5, 5, 5, 0.8) 78%, var(--negro) 100%);
+}
+
+
+.cronica--retrato .cronica__cabeza {
+  grid-template-columns: 1fr;
+  width: 66%;
+  margin-top: 16cqi;
 }
 
 .cronica .texto {
