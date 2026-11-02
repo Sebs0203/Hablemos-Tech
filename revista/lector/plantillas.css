@@ -2415,6 +2415,15 @@
   stroke-width: 1.4;
 }
 
+/* Cornisa de esta página en Helvetica, con mayúscula inicial */
+.contenido > .cornisa {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: calc(var(--text-label) * 1.3);
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
 .contenido__lista {
   margin-top: auto;
   display: grid;
