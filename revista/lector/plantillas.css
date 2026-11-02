@@ -2415,15 +2415,6 @@
   stroke-width: 1.4;
 }
 
-/* Cornisa de esta página en Helvetica, con mayúscula inicial */
-.contenido > .cornisa {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: calc(var(--text-label) * 1.3);
-  font-weight: 500;
-  letter-spacing: 0;
-  text-transform: none;
-}
-
 .contenido__lista {
   margin-top: auto;
   display: grid;
@@ -2484,3 +2475,21 @@
 .hoja.contenido > .folio {
   margin-top: 2.4cqi;
 }
+
+/* ───────────── Cornisas y folios en Helvetica (Vol. 03 en adelante) ───────────── */
+/* Se activa con .lector--helvetica en el contenedor de la edición, para no cambiar
+   las ediciones ya publicadas. Mayúscula inicial y sin espaciado de mono. */
+
+.lector--helvetica .cornisa,
+.lector--helvetica .folio {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: calc(var(--text-label) * 1.3);
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.lector--helvetica .folio__num {
+  font-weight: 700;
+}
+
