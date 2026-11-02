@@ -2394,26 +2394,6 @@
   color: var(--verde);
 }
 
-.contenido__pie {
-  position: absolute !important;
-  right: calc(22% + 1.4cqi);
-  bottom: 1.5cqi;
-  display: flex;
-  align-items: center;
-  gap: 1cqi;
-  font-family: var(--font-ui);
-  font-size: calc(var(--text-body) * 0.82);
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.contenido__pie svg {
-  width: 2.6cqi;
-  height: 2.6cqi;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.4;
-}
 
 .contenido__lista {
   margin-top: auto;
