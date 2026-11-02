@@ -3293,3 +3293,125 @@
 .oc-escala h4 { line-height: 1.1; }
 .oc-escala { align-items: start; }
 .oc-escala h4, .oc-incidente h4 { margin: 0; }
+
+/* ── Apertura v2: bloque oscuro con foto, aro de luz, escuadras y tarjetas de cristal ── */
+.oc-hero {
+  position: relative;
+  flex-shrink: 0;
+  height: 52cqh;
+  margin: 2.4cqi calc(-1 * var(--margen)) 0;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(60% 70% at 70% 105%, rgba(49, 220, 141, 0.28) 0%, rgba(49, 220, 141, 0) 70%),
+    linear-gradient(160deg, #0d0f0e 0%, #050505 60%);
+  color: var(--blanco);
+}
+
+.oc-hero__aro {
+  position: absolute;
+  z-index: -2;
+  right: -8cqi;
+  bottom: -26cqi;
+  width: 74cqi;
+  height: 74cqi;
+  border-radius: 50%;
+  border: 9cqi solid rgba(49, 220, 141, 0.32);
+  filter: blur(0.4cqi);
+  box-shadow: 0 0 9cqi rgba(49, 220, 141, 0.35), inset 0 0 9cqi rgba(49, 220, 141, 0.3);
+}
+
+.oc-hero__foto {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  width: 60%;
+  height: 100%;
+  margin: 0;
+}
+
+.oc-hero__foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 60% 28%;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 38%), linear-gradient(0deg, transparent 0%, #000 30%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 38%), linear-gradient(0deg, transparent 0%, #000 30%);
+  mask-composite: intersect;
+}
+
+.oc-hero__esquina {
+  position: absolute;
+  width: 4.6cqi;
+  height: 4.6cqi;
+  border-color: var(--verde);
+  border-style: solid;
+  border-width: 0;
+}
+
+.oc-hero__esquina--a { top: 3cqi; right: 3cqi; border-top-width: 0.9cqi; border-right-width: 0.9cqi; }
+.oc-hero__esquina--b { bottom: 3cqi; left: var(--margen); border-bottom-width: 0.9cqi; border-left-width: 0.9cqi; }
+
+.oc-hero__texto {
+  position: relative;
+  padding: 4cqi var(--margen) 0;
+  display: grid;
+  gap: 1.2cqi;
+}
+
+.oc-hero .oc-kicker { color: var(--verde); }
+
+.oc-hero .oc-titulo { color: var(--blanco); font-size: 12cqi; }
+.oc-hero .oc-titulo em { color: var(--verde); font-size: 1.22em; letter-spacing: -0.05em; }
+
+.oc-hero__tarjetas {
+  position: absolute;
+  left: var(--margen);
+  bottom: 7cqi;
+  display: grid;
+  gap: 3cqi;
+  width: 56cqi;
+}
+
+.oc-vidrio {
+  position: relative;
+  padding: 2.4cqi 3cqi;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.06);
+  -webkit-backdrop-filter: blur(1.2cqi);
+  backdrop-filter: blur(1.2cqi);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 2cqi 4cqi rgba(0, 0, 0, 0.35);
+  font-family: 'Sora', var(--font-ui);
+  font-size: calc(var(--text-body) * 1.05);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+
+.oc-vidrio:first-child { transform: rotate(-2deg); color: rgba(255, 255, 255, 0.72); }
+.oc-vidrio:last-child { transform: rotate(2.5deg) translateX(4cqi); background: rgba(49, 220, 141, 0.12); border-color: rgba(49, 220, 141, 0.5); }
+
+.oc-vidrio span {
+  position: absolute;
+  top: -2.2cqi;
+  padding: 0.5cqi 1.6cqi 0.6cqi;
+  font-family: 'Sora', var(--font-ui);
+  font-size: calc(var(--text-body) * 0.95);
+  font-weight: 700;
+}
+
+.oc-vidrio:first-child span { right: 6cqi; transform: rotate(6deg); background: #8b8b8b; color: #1a1a1a; }
+.oc-vidrio:last-child span { left: 5cqi; transform: rotate(-9deg); background: var(--verde); color: var(--negro); }
+
+.oc-apertura2 .oc-pie {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 3cqi;
+  margin-top: 2.2cqi;
+}
+
+.oc-apertura2 .oc-lead { margin-top: 2.2cqi; padding-top: 0; }
