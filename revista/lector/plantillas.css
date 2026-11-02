@@ -2713,3 +2713,24 @@
   font-weight: 500;
   color: rgba(255, 255, 255, 0.88);
 }
+
+/* Título en tres renglones: ligero en blanco, el de en medio grueso y en verde */
+.cronica--retrato .titulo-tres {
+  display: grid;
+  font-family: var(--font-ui);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.cronica--retrato .titulo-tres span,
+.cronica--retrato .titulo-tres em {
+  display: block;
+  white-space: nowrap;
+}
+
+.cronica--retrato .titulo-tres em {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--verde);
+}
