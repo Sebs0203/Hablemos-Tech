@@ -1437,7 +1437,7 @@
 
 .ruta__cita {
   margin-top: auto;
-  padding-top: 2.2cqi;
+  padding-top: 1.8cqi;
   font-family: var(--font-display);
   font-size: var(--text-heading-2);
   font-weight: 750;
@@ -1567,7 +1567,7 @@
   grid-template-columns: 1fr 29cqi;
   gap: 4.5cqi;
   margin-top: 3.8cqi;
-  padding-top: 2.2cqi;
+  padding-top: 1.8cqi;
   border-top: 2px solid var(--tinta);
 }
 
@@ -2396,57 +2396,69 @@
 
 
 .contenido__lista {
-  margin-top: auto;
+  flex: 1;
+  min-height: 0;
   display: grid;
-  grid-template-columns: 16cqi 1px 1fr;
-  column-gap: 0;
+  grid-auto-rows: minmax(0, 1fr);
+  margin-top: 0.6cqi;
 }
 
-/* La línea vertical recorre toda la lista */
-.contenido__lista::before {
-  content: '';
-  grid-column: 2;
-  grid-row: 1 / span 20;
-  background: var(--verde-tinta);
-}
-
+/* Cada pieza es un renglón de la misma altura: páginas | línea | texto */
 .contenido__fila {
-  display: contents;
+  display: grid;
+  grid-template-columns: 12cqi 1fr;
+  align-items: stretch;
+  min-height: 0;
+  border-left: 0;
 }
 
 .contenido__pags {
-  grid-column: 1;
-  padding: 1.05cqi 0;
+  align-self: center;
+  /* Alinea el número con el título: deja abajo el alto de descripción + autor */
+  padding-top: 0.7cqi;
+  padding-bottom: calc(var(--text-body) * 0.74 * 1.35 * 2 + 0.4cqi);
   font-family: var(--font-ui);
-  font-size: calc(var(--text-body) * 0.78);
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  font-variant-numeric: tabular-nums;
+  font-size: calc(var(--text-body) * 0.82);
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: 0;
+  color: var(--verde-tinta);
 }
 
 .contenido__pieza {
-  grid-column: 3;
-  padding: 0.85cqi 0 0.85cqi 5cqi;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.3cqi;
+  padding: 0 0 0 4cqi;
+  border-left: 1px solid var(--verde-tinta);
+  border-bottom: 1px solid rgba(13, 13, 13, 0.1);
+}
+
+.contenido__fila:last-child .contenido__pieza {
+  border-bottom: 0;
 }
 
 .contenido__nombre {
   font-family: var(--font-ui);
-  font-size: calc(var(--text-heading-3) * 0.74);
+  font-size: calc(var(--text-heading-3) * 0.72);
   font-weight: 550;
-  line-height: 1.2;
+  line-height: 1.15;
   letter-spacing: -0.015em;
 }
 
 .contenido__nota {
-  max-width: 54ch;
-  margin-top: 0.5cqi;
+  max-width: 58ch;
   font-family: var(--font-ui);
   font-size: calc(var(--text-body) * 0.74);
-  line-height: 1.4;
+  line-height: 1.35;
   color: var(--tinta-suave);
 }
 
 .contenido__nota cite {
+  display: block;
+  margin-top: 0.1cqi;
   font-style: normal;
   font-weight: 600;
   color: var(--tinta);
