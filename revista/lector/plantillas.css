@@ -3898,3 +3898,196 @@
 .oc-apertura4 .oc-lead { margin-top: auto; padding-top: 2cqi; }
 .oc-poster__titulo .arriba { justify-self: start; margin-left: var(--margen); margin-bottom: 1cqi; font-size: calc(var(--text-label) * 1.9); }
 .oc-poster__titulo .arriba::before { content: none; }
+
+/* ── Apertura v7: estilo Neocoin (claro, foto verde en escalones, pixeles) ── */
+.oc-apertura5 { position: relative; isolation: isolate; }
+.oc-apertura5 > .cornisa { position: relative; z-index: 3; }
+
+.oc-neo {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 63%;
+  overflow: hidden;
+  background: linear-gradient(165deg, #ffffff 0%, #f3f4f5 45%, #dfe3e7 100%);
+}
+
+/* Foto con cortes en escalón */
+.oc-neo__foto {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 52%;
+  margin: 0;
+  clip-path: polygon(
+    22% 0, 100% 0, 100% 100%, 22% 100%,
+    22% 60%, 0 60%, 0 47%, 22% 47%,
+    22% 24%, 4% 24%, 4% 12%, 22% 12%
+  );
+}
+
+.oc-neo__foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 62% 18%;
+  filter: grayscale(1) contrast(1.15) brightness(0.95);
+}
+
+.oc-neo__foto::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #1c8f5b 0%, #0e5a37 60%, #08331f 100%);
+  mix-blend-mode: multiply;
+}
+
+.oc-neo__corte {
+  position: absolute;
+  z-index: 1;
+  background: #ffffff;
+}
+
+.oc-neo__corte--a { top: 12%; left: 63%; width: 21%; height: 12%; }
+.oc-neo__corte--b { top: 12%; right: 0; width: 8%; height: 12%; }
+
+/* Nombre del artículo con cuadro verde y barra translúcida */
+.oc-neo__marca {
+  position: absolute;
+  z-index: 2;
+  top: 47%;
+  left: var(--margen);
+  right: 41%;
+  height: 13%;
+  display: flex;
+  align-items: center;
+  background: rgba(13, 13, 13, 0.06);
+}
+
+.oc-neo__marca h2 {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin: 0;
+  font-family: 'Sora', var(--font-ui);
+  font-size: 6.6cqi;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+  color: #0b3d24;
+}
+
+.oc-neo__marca h2 b {
+  display: grid;
+  place-items: center;
+  align-self: stretch;
+  width: 13cqi;
+  margin-right: 0.6cqi;
+  background: var(--verde);
+  font-weight: 700;
+}
+
+.oc-neo__tile {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+}
+
+.oc-neo__tile--verde { top: 47%; left: 72%; width: 11%; height: 13%; background: var(--verde); }
+.oc-neo__tile--verde svg { width: 46%; height: 46%; fill: #0b3d24; }
+
+.oc-neo__tile--blanco {
+  top: 47%;
+  left: 83%;
+  right: 0;
+  height: 13%;
+  justify-items: start;
+  padding-left: 2.4cqi;
+  background: #fff;
+  font-family: 'Sora', var(--font-ui);
+  font-size: calc(var(--text-body) * 1.02);
+  font-weight: 600;
+  color: #0b3d24;
+}
+
+.oc-neo__tile--vertical {
+  top: 80%;
+  left: 72%;
+  width: 11%;
+  bottom: 0;
+  background: #fff;
+}
+
+.oc-neo__tile--vertical span {
+  transform: rotate(90deg);
+  white-space: nowrap;
+  font-family: 'Sora', var(--font-ui);
+  font-size: calc(var(--text-body) * 1.05);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #0b3d24;
+}
+
+.oc-neo__pixel { position: absolute; z-index: 1; background: var(--verde); }
+.oc-neo__pixel--gris { background: rgba(13, 30, 50, 0.12); }
+
+.oc-neo__texto {
+  position: absolute;
+  z-index: 2;
+  left: var(--margen);
+  top: 66%;
+  width: 42%;
+  display: grid;
+  gap: 1.6cqi;
+}
+
+.oc-neo__texto .oc-kicker { color: var(--verde-tinta); }
+.oc-neo__texto .oc-entrada { font-size: var(--text-body-lg); color: var(--tinta); }
+
+.oc-apertura5 .oc-espacio { flex-shrink: 0; height: calc(63cqh - var(--margen-y) - 5.2cqi); }
+.oc-apertura5 .oc-lead { margin-top: auto; padding-top: 2cqi; }
+
+/* Ajustes Neocoin */
+.oc-neo__foto {
+  clip-path: polygon(
+    22% 0, 100% 0, 100% 100%, 22% 100%,
+    22% 60%, 14% 60%, 14% 47%, 22% 47%,
+    22% 24%, 4% 24%, 4% 12%, 22% 12%
+  );
+}
+.oc-neo__foto img {
+  object-position: 60% 0%;
+  transform: scale(1.32);
+  transform-origin: 62% 0%;
+  translate: 0 9%;
+  filter: grayscale(1) brightness(1.35) contrast(1.05);
+}
+.oc-neo__foto::after {
+  background: linear-gradient(180deg, #31dc8d 0%, #1c8f5b 55%, #0e5a37 100%);
+  mix-blend-mode: color;
+}
+.oc-neo__foto::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(14, 90, 55, 0) 40%, rgba(8, 40, 25, 0.55) 100%);
+}
+.oc-neo__marca { right: 41.5%; }
+.oc-neo__marca h2 { font-size: 5.3cqi; }
+.oc-neo__marca h2 b {
+  width: auto;
+  margin-right: 0;
+  padding: 0 0.3cqi 0 3.4cqi;
+}
+.oc-neo__tile--blanco { padding-left: 1.6cqi; font-size: calc(var(--text-body) * 0.8); }
+.oc-neo__tile--vertical { top: 66%; }
+.oc-neo__tile--vertical span { font-size: calc(var(--text-body) * 0.95); }
+.oc-apertura5 > .cornisa span:last-child { color: rgba(255, 255, 255, 0.9); }
+.oc-neo__foto { background: #06140c; }
+.oc-neo__foto::after { inset: 9% 0 0 0; }
