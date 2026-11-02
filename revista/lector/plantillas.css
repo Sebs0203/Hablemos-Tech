@@ -2527,6 +2527,12 @@
 .lector--helvetica .texto p {
   text-align: justify;
   hyphens: auto;
+  /* Solo palabras de 10+ letras, con al menos 5 de cada lado */
+  -webkit-hyphenate-limit-before: 5;
+  -webkit-hyphenate-limit-after: 5;
+  hyphenate-limit-chars: 10 5 5;
+  -webkit-hyphenate-limit-lines: 1;
+  hyphenate-limit-lines: 1;
   text-wrap: wrap;
 }
 
