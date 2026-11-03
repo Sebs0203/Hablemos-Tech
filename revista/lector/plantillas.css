@@ -5250,3 +5250,14 @@
 .cj-lista__org { font-size: calc(var(--text-body) * 0.86); }
 .cj-lista__rol { font-size: calc(var(--text-label) * 1.05); }
 .cj-firma { font-size: 6.4cqi; padding-top: 1.6cqi; }
+
+/* Carta del fundador: texto corrido a 11 pt sobre la hoja carta (612 pt de ancho) */
+.cronica--retrato .texto,
+.carta-noche .texto,
+.cj-promesas > p {
+  font-size: calc(100cqi * 11 / 612);
+  line-height: 1.6;
+}
+.carta-noche .cj-banda { margin-top: 3cqi; }
+.carta-noche .cj-foto { height: 30cqi; }
+.carta-noche .cj-lista { margin-top: 0; }
