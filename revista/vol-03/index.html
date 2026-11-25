@@ -19,18 +19,18 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://hablemostech.com/assets/img/og-hablemos-tech.png">
   <meta name="theme-color" content="#0b0c0c">
-  <link rel="icon" href="../../assets/img/asterisco.svg" type="image/svg+xml">
+  <link rel="icon" href="../../assets/img/asterisco.svg?v=3" type="image/svg+xml">
   <link rel="preload" href="../../assets/fonts/schibsted-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../../assets/fonts/geist-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../lector/lector.css">
-  <link rel="stylesheet" href="../lector/plantillas.css">
+  <link rel="stylesheet" href="../lector/lector.css?v=202611111100">
+  <link rel="stylesheet" href="../lector/plantillas.css?v=202611231200">
   <script>document.documentElement.classList.add('js');</script>
   <!-- acceso:inicio -->
-  <link rel="stylesheet" href="../lector/acceso.css">
+  <link rel="stylesheet" href="../lector/acceso.css?v=202611111100">
   <script>document.documentElement.classList.add('revista-bloqueada');</script>
   <!-- acceso:fin -->
 </head>
-<body>
+<body class="ed-03">
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="logo-ht" viewBox="0 0 626.18 208.23">
       <g class="logo__acento">
@@ -96,27 +96,55 @@
       <div class="lector__libro" id="marco" data-pos="portada">
         <div class="libro" id="libro">
 
-          <!-- 01 · Portada (pendiente) -->
-          <section class="pagina pagina--noche" data-density="hard" aria-label="Portada">
-            <div class="pagina__lienzo hoja contra">
-              <header class="cornisa">
-                <span>Hablemos Tech · Vol. 03</span>
-                <span>Noviembre 2026</span>
-              </header>
-              <div class="articulo__cabeza" style="margin-top:auto">
-                <p class="etiqueta etiqueta--verde"><span class="etiqueta__punto"></span>Portada pendiente</p>
-                <h1 class="titulo-1">Noviembre 2026.</h1>
+          <!-- 01 · Portada -->
+          <section class="pagina" data-density="hard" aria-label="Portada">
+            <!-- Portada Vol. 03: Andrés Wong, estilo del banner de la carta de Josué.
+                 Tema claro. Capas: retrato → recorte (el brazo sale sobre el papel) → textos. VOL-03 va como imagen. -->
+            <div class="pagina__lienzo portada pw">
+              <svg class="pw-logo" viewBox="0 0 626.18 208.23" role="img" aria-label="Hablemos Tech">
+              <g class="pw-logo__acento">
+              <path d="M42.68,90.32v84.22H0V22.94h42.68v33.69h69.33v33.69H42.68ZM42.68,208.23v-33.69h70.51v33.69H42.68Z"/>
+              <path d="M277.2,56.63v92.65h-115.77v25.26h-32.87V56.63h148.64ZM244.33,90.32h-82.9v25.27h82.9v-25.27ZM161.43,208.23v-33.69h82.9v33.69h-82.9Z"/>
+              <path d="M328.73,92.49v79.89h114.57v35.86h-149.56V56.63h149.56v35.86h-114.57Z"/>
+              <path d="M583.38,56.63v33.69h-80.73v117.91h-42.8V0h42.8v56.63h80.73ZM583.38,208.23v-117.91h42.8v117.91h-42.8Z"/>
+              </g>
+              <g class="pw-logo__texto">
+              <path d="M90.04,25.17h-20.15v14.77h-10.67V0h10.67v14.89h20.15V0h10.67v39.93h-10.67v-14.77Z"/>
+              <path d="M138.98,25.17h-20.15v14.77h-10.67V0h41.49v39.93h-10.67v-14.77ZM118.83,14.89h20.15v-4.62h-20.15v4.62Z"/>
+              <path d="M198.59,0v39.93h-41.49V0h41.49ZM167.78,14.89h20.15v-4.62h-20.15v4.62ZM187.92,25.17h-20.15v4.49h20.15v-4.49Z"/>
+              <path d="M247.53,39.93h-41.49V0h10.67v29.66h30.82v10.27Z"/>
+              <path d="M296.48,25.17h-30.82v4.49h30.82v10.27h-41.49V0h41.49v10.27h-30.82v4.62h30.82v10.27Z"/>
+              <path d="M329.67,10.27v29.66h-10.67V10.27h-4.4v29.66h-10.67V0h41.49v39.93h-10.67V10.27h-5.07Z"/>
+              <path d="M394.36,0v39.93h-41.49V0h41.49ZM383.68,10.27h-20.15v19.39h20.15V10.27Z"/>
+              <path d="M443.3,10.27h-30.82v4.62h30.82v25.04h-41.49v-10.27h30.82v-4.49h-30.82V0h41.49v10.27Z"/>
+              </g>
+              </svg>
+              <h1 class="pw-titulo">La IA<br>también<br>se hace<br><em>en México<span class="pw-punto" aria-hidden="true"></span></em></h1>
+              <p class="pw-bajada">Desde Tijuana, Purple&nbsp;AI pone la IA a&nbsp;trabajar en las empresas.</p>
+
+              <figure class="pw-retrato">
+                <img src="../../assets/img/revista-vol-03/andres-wong-retrato.jpg" alt="Andrés Wong, socio fundador de Purple AI, con los brazos cruzados." width="1200" height="1615">
+                <figcaption><span class="nombre">Andrés Wong</span><span class="cargo">Socio fundador · Purple AI</span></figcaption>
+              </figure>
+              <div class="pw-salida" aria-hidden="true"><img src="../../assets/img/revista-vol-03/portada-wong-retrato-recorte-fino.png" alt="" width="1200" height="1615"></div>
+              <div class="pw-velo" aria-hidden="true"></div>
+
+              <ul class="pw-sumario">
+                <li><span class="num" aria-label="Página 8"><small>Pág.</small><span class="n">8</span></span><div><span class="sec">Ciberseguridad</span><b>Octubre negro</b><span class="aut">Francisco Olazo</span></div></li>
+                <li><span class="num" aria-label="Página 21"><small>Pág.</small><span class="n">21</span></span><div><span class="sec">Comunidad</span><b>Construyendo el ecosistema</b><span class="aut">Christian Picos</span></div></li>
+                <li><span class="num" aria-label="Página 25"><small>Pág.</small><span class="n">25</span></span><div><span class="sec">Mentor ALTI</span><b>La IA y tu futuro profesional</b><span class="aut">Alfredo Sánchez</span></div></li>
+              </ul>
+
+              <div class="pw-placa">
+                <div class="pw-placa__asterisco" aria-hidden="true"><svg viewBox="0 0 130 110"><g fill="#050505" transform="translate(27 49) scale(1.72) translate(0 4.5)"><rect x="-10.6" y="-46" width="21.2" height="52" transform="rotate(0)"/><rect x="-10.6" y="-46" width="21.2" height="52" transform="rotate(72)"/><rect x="-10.6" y="-46" width="21.2" height="52" transform="rotate(144)"/><rect x="-10.6" y="-46" width="21.2" height="52" transform="rotate(216)"/><rect x="-10.6" y="-46" width="21.2" height="52" transform="rotate(288)"/></g></svg></div>
+                <p class="pw-placa__vol"><span class="sec">Edición</span><img class="cifra" src="../../assets/img/revista-vol-03/portada-vol-03.png" alt="Vol. 03" width="460" height="112"><span class="fecha">Noviembre 2026</span></p>
               </div>
-              <footer class="contra__pie">
-                <svg class="contra__logo" viewBox="0 0 626.18 208.23" role="img" aria-label="Hablemos Tech"><use href="#logo-ht"/></svg>
-                <p class="contra__texto">Vol. 03 · La portada final se coloca aquí.</p>
-              </footer>
             </div>
           </section>
 
           <!-- 02 · Contenido -->
           <section class="pagina pagina--papel" aria-label="Página 2: contenido">
-            <div class="pagina__lienzo hoja contenido">
+            <div class="pagina__lienzo hoja contenido contenido--v3">
               <header class="cornisa">
                 <span>Hablemos Tech</span>
                 <span>Vol. 03 — Noviembre 2026</span>
@@ -130,14 +158,13 @@
               </header>
 
               <ol class="contenido__lista" data-anim style="--i:1">
-                <li class="contenido__fila" data-pagina="03" data-seccion="Carta del fundador" data-autor="Josué Madera"><span class="contenido__pags">03 — 06</span><div class="contenido__pieza"><h3 class="contenido__nombre">Hablemos de tecnología, pero hablemos juntos</h3><p class="contenido__nota">Una revista para quienes hacen funcionar la tecnología en México. <cite>Josué Madera</cite></p></div></li>
-                <li class="contenido__fila" data-pagina="07" data-seccion="Ciberseguridad" data-autor="Francisco Olazo"><span class="contenido__pags">07 — 13</span><div class="contenido__pieza"><h3 class="contenido__nombre">Octubre negro</h3><p class="contenido__nota">Responder con seriedad, calma y estrategia a las vulnerabilidades del mes. <cite>Francisco Olazo</cite></p></div></li>
-                <li class="contenido__fila" data-pagina="14" data-seccion="Innovación regional" data-autor="Baja Innovation Day"><span class="contenido__pags">14 — 16</span><div class="contenido__pieza"><h3 class="contenido__nombre">Perspectivas Baja Innovation Day</h3><p class="contenido__nota">Innovar en la región exige pasar de la intención a la ejecución gradual. <cite>Crónica</cite></p></div></li>
-                <li class="contenido__fila" data-pagina="17" data-seccion="Ciberseguridad e IA" data-autor="Andrés Wong"><span class="contenido__pags">17 — 22</span><div class="contenido__pieza"><h3 class="contenido__nombre">Catorce años invisible</h3><p class="contenido__nota">La IA encontró los agujeros; el robo más grande no los necesitó. <cite>Andrés Wong</cite></p></div></li>
-                <li class="contenido__fila" data-pagina="23" data-seccion="Comunidad" data-autor="ALTI"><span class="contenido__pags">23 — 27</span><div class="contenido__pieza"><h3 class="contenido__nombre">Construyendo el ecosistema tecnológico de Baja California</h3><p class="contenido__nota">El conocimiento existe. La conexión es el desafío. <cite>Director de ALTI</cite></p></div></li>
-                <li class="contenido__fila" data-pagina="28" data-seccion="Mentor ALTI" data-autor="Alfredo [apellido por confirmar]"><span class="contenido__pags">28 — 33</span><div class="contenido__pieza"><h3 class="contenido__nombre">La IA y el futuro de los profesionales de tecnología</h3><p class="contenido__nota">No está en programar más, sino en resolver mejor. <cite>Mentor ALTI</cite></p></div></li>
-                <li class="contenido__fila" data-pagina="34" data-seccion="En esta edición" data-autor=""><span class="contenido__pags">34</span><div class="contenido__pieza"><h3 class="contenido__nombre">Quién escribe</h3><p class="contenido__nota">Las voces de esta edición, y cómo sumarte a la siguiente. <cite>Colaboradores</cite></p></div></li>
-                <li class="contenido__fila" data-pagina="35" data-seccion="Cierre" data-autor=""><span class="contenido__pags">35</span><div class="contenido__pieza"><h3 class="contenido__nombre">Seis ideas para el lunes</h3><p class="contenido__nota">Una idea por artículo, para llevar a la oficina. <cite>Redacción</cite></p></div></li>
+                <li class="contenido__fila" data-pagina="03" data-seccion="Carta del fundador" data-autor="Josué Madera"><span class="contenido__pags">03<i>–</i>05</span><div class="contenido__pieza"><p class="contenido__seccion">Carta del fundador<span> · Josué Madera</span></p><h3 class="contenido__nombre">Hablemos de tecnología, pero hablemos juntos</h3><p class="contenido__nota">Una revista para quienes hacen funcionar la tecnología en México. <cite>Josué Madera</cite></p></div></li>
+                <li class="contenido__fila" data-pagina="08" data-seccion="Ciberseguridad" data-autor="Francisco Olazo"><span class="contenido__pags">08<i>–</i>10</span><div class="contenido__pieza"><p class="contenido__seccion">Ciberseguridad<span> · Francisco Olazo</span></p><h3 class="contenido__nombre">Octubre negro</h3><p class="contenido__nota">Responder con seriedad, calma y estrategia a las vulnerabilidades del mes. <cite>Francisco Olazo</cite></p></div></li>
+                <li class="contenido__fila" data-pagina="12" data-seccion="Innovación regional" data-autor="Baja Innovation Day"><span class="contenido__pags">12<i>–</i>13</span><div class="contenido__pieza"><p class="contenido__seccion">Innovación regional<span> · Crónica</span></p><h3 class="contenido__nombre">Perspectivas Baja Innovation Day</h3><p class="contenido__nota">Innovar en la región exige pasar de la intención a la ejecución gradual. <cite>Crónica</cite></p></div></li>
+                <li class="contenido__fila" data-pagina="15" data-seccion="Ciberseguridad e IA" data-autor="Andrés Wong"><span class="contenido__pags">15<i>–</i>18</span><div class="contenido__pieza"><p class="contenido__seccion">Ciberseguridad e IA<span> · Andrés Wong</span></p><h3 class="contenido__nombre">Catorce años invisible</h3><p class="contenido__nota">La IA encontró los agujeros; el robo más grande no los necesitó. <cite>Andrés Wong</cite></p></div></li>
+                <li class="contenido__fila" data-pagina="21" data-seccion="Comunidad" data-autor="Christian Picos"><span class="contenido__pags">21<i>–</i>23</span><div class="contenido__pieza"><p class="contenido__seccion">Comunidad<span> · Christian Picos</span></p><h3 class="contenido__nombre">Construyendo el ecosistema tecnológico de Baja California</h3><p class="contenido__nota">El conocimiento existe. La conexión es el desafío. <cite>Christian Picos</cite></p></div></li>
+                <li class="contenido__fila" data-pagina="25" data-seccion="Mentor ALTI" data-autor="Alfredo Sánchez"><span class="contenido__pags">25<i>–</i>27</span><div class="contenido__pieza"><p class="contenido__seccion">Mentor ALTI<span> · Alfredo Sánchez</span></p><h3 class="contenido__nombre">La IA y el futuro de los profesionales de tecnología</h3><p class="contenido__nota">No está en programar más, sino en resolver mejor. <cite>Mentor ALTI</cite></p></div></li>
+                <li class="contenido__fila" data-pagina="29" data-seccion="En esta edición" data-autor=""><span class="contenido__pags">29</span><div class="contenido__pieza"><p class="contenido__seccion">En esta edición<span> · Colaboradores</span></p><h3 class="contenido__nombre">Quién escribe</h3><p class="contenido__nota">Las voces de esta edición, y cómo sumarte a la siguiente. <cite>Colaboradores</cite></p></div></li>
               </ol>
 
               <footer class="folio">
@@ -148,48 +175,59 @@
           </section>
 
           <!-- 03 · Carta del fundador -->
-          <section class="pagina pagina--noche" aria-label="Página 3: carta del fundador">
-            <div class="pagina__lienzo hoja cronica cronica--retrato">
-              <figure class="retrato-fondo">
-                <img data-foto src="../../assets/img/revista-vol-03/josue-madera-retrato.jpg" alt="Josué Madera, fundador de Hablemos Tech, de pie con los brazos cruzados y saco azul claro." width="1600" height="2092">
-              </figure>
-              <div class="reticula" aria-hidden="true"></div>
+          <section class="pagina pagina--papel" aria-label="Página 3: carta del fundador">
+            <div class="pagina__lienzo hoja jm-apertura">
+              <div class="jm-mod">
+                <div class="jm-mod__rejilla">
+                  <div class="jm-mod__principal">
+                    <svg class="rayos" viewBox="0 0 560 540" preserveAspectRatio="xMaxYMax slice" aria-hidden="true"><defs><linearGradient id="jm-g1" gradientUnits="userSpaceOnUse" x1="594" y1="540" x2="815" y2="540"><stop offset="0" stop-color="#31dc8d"/><stop offset="0.5" stop-color="#31dc8d"/><stop offset="1" stop-color="rgba(49,220,141,0)"/></linearGradient></defs><rect x="594" y="525.0" width="221" height="30" transform="rotate(214 560 540)" fill="url(#jm-g1)"/><rect x="594" y="525.0" width="221" height="30" transform="rotate(238 560 540)" fill="url(#jm-g1)"/><rect x="594" y="525.0" width="221" height="30" transform="rotate(262 560 540)" fill="url(#jm-g1)"/></svg>
+                    <svg class="jm-mod__logo" viewBox="0 0 626.18 208.23" role="img" aria-label="Hablemos Tech"><use href="#logo-ht"/></svg>
+                    <p class="jm-mod__ceja" data-anim style="--i:0">Carta del fundador</p>
+                    <h2 class="jm-mod__titulo" data-anim style="--i:1">Hablemos de <em>tecnología,</em><br>pero hablemos juntos.</h2>
+                  </div>
+                  <figure class="jm-mod__foto">
+                    <img data-foto src="../../assets/img/revista-vol-03/josue-madera-retrato.jpg" alt="Josué Madera, fundador de Hablemos Tech, de pie con los brazos cruzados y saco azul claro." width="1600" height="2092">
+                    <figcaption><b>Josué Madera</b>Fundador, Hablemos Tech<br>Director General, EnteraCloud</figcaption>
+                  </figure>
+                  <div class="jm-mod__rayos" aria-hidden="true"><svg viewBox="0 0 200 300" preserveAspectRatio="xMinYMid slice"><rect x="46" y="137" width="175" height="26" transform="rotate(-58 46 150)" fill="#050505"/><rect x="46" y="137" width="175" height="26" transform="rotate(-29 46 150)" fill="#050505"/><rect x="46" y="137" width="175" height="26" transform="rotate(0 46 150)" fill="#050505"/><rect x="46" y="137" width="175" height="26" transform="rotate(29 46 150)" fill="#050505"/><rect x="46" y="137" width="175" height="26" transform="rotate(58 46 150)" fill="#050505"/><rect x="33" y="18" width="26" height="264" fill="#050505"/></svg></div>
+                  <div class="jm-mod__edicion"><b>03</b><span>Tercera edición<br>Noviembre 2026</span></div>
+                </div>
+              </div>
               <header class="cornisa">
                 <span>Carta del fundador</span>
                 <span>Josué Madera</span>
               </header>
-              <div class="cronica__cabeza">
-                <div class="cronica__titular">
-                  <p class="etiqueta etiqueta--verde" data-anim style="--i:0"><span class="etiqueta__punto"></span>Carta del fundador</p>
-                  <h2 class="titulo-2 titulo-tres" data-anim style="--i:1"><span>Hablemos de</span> <em>tecnología,</em> <span>pero hablemos</span> <span>juntos.</span></h2>
-                </div>
-              </div>
+              <div class="jm-espacio" aria-hidden="true"></div>
+              <div class="carta-panel">
               <p class="entrada" data-anim style="--i:2">Una revista para quienes hacen funcionar la tecnología en México, sin importar la industria.</p>
               <div class="texto texto--2col" data-anim style="--i:3">
-                <p class="capitular">Si trabajas en TI, sabes que tu labor rara vez se ve, pero todo depende de ella. No importa si estás en una empresa de logística, en un hospital, en una cadena de retail, en una agencia automotriz, en una marca de belleza, en un gimnasio o en una planta de producción. Cuando algo falla, todos voltean a verte. Cuando todo funciona, nadie pregunta por qué.</p>
-                <p>Esta revista es para ti.</p>
+                <p>Si trabajas en TI, sabes que tu labor rara vez se ve, pero todo depende de ella. No importa si estás en una empresa de logística, en un hospital, en una cadena de retail, en una agencia automotriz, en una marca de belleza, en un gimnasio o en una planta de producción. Cuando algo falla, todos voltean a verte. Cuando todo funciona, nadie pregunta por qué.</p>
+                <p class="cj-remate">Esta revista es <em>para ti.</em></p>
                 <p>En México se hace tecnología todos los días, en todas las industrias y en empresas de todos los tamaños. Aun así, durante mucho tiempo esa historia casi no se contaba, o se contaba desde afuera, con casos de otros países y realidades que poco se parecen a las nuestras.</p>
+                <p>Llevo años en la industria de la tecnología, y si algo he aprendido es que el talento nunca ha sido el problema. Lo que nos falta es conexión. Responsables de TI en sectores completamente distintos enfrentan los mismos retos (seguridad, presupuesto, nube, inteligencia artificial, falta de personal) sin haberse conocido nunca. De esa observación nació todo lo demás. Así surgió el <strong>Foro de Tecnología MX</strong>, donde</p>
               </div>
               <footer class="folio folio--derecha">
                 <span>Carta del fundador</span>
                 <span class="folio__num">03</span>
               </footer>
+              </div>
             </div>
           </section>
 
           <!-- 04 · Carta del fundador (2) -->
-          <section class="pagina pagina--noche" aria-label="Página 4: carta del fundador">
-            <div class="pagina__lienzo hoja articulo carta-noche">
+          <section class="pagina pagina--papel" aria-label="Página 4: carta del fundador">
+            <div class="pagina__lienzo hoja articulo carta-noche carta-clara cj-pliego">
               <header class="cornisa">
                 <span>Carta del fundador</span>
                 <span>Josué Madera · Fundador de Hablemos Tech</span>
               </header>
-              <figure class="foto-carta" data-anim style="aspect-ratio:16 / 9;--i:0"><img data-foto src="../../assets/img/revista-vol-03/carta-1.jpg" alt="Cuatro panelistas en el escenario del Foro de Tecnología MX, frente a la pantalla de la Alianza de Líderes en Tecnología e Innovación." style="object-position:50% 45%"><figcaption>Foro de Tecnología MX, Tijuana</figcaption></figure>
+              <figure class="foto-carta" data-anim style="--i:0"><img data-foto src="../../assets/img/revista-vol-03/carta-1.jpg" alt="Cuatro panelistas en el escenario del Foro de Tecnología MX, frente a la pantalla de la Alianza de Líderes en Tecnología e Innovación." style="object-position:50% 45%"><figcaption>Foro de Tecnología MX, Tijuana</figcaption></figure>
               <div class="texto texto--2col" data-anim style="--i:1">
-                <p>Llevo años en la industria de la tecnología, y si algo he aprendido es que el talento nunca ha sido el problema. Lo que nos falta es conexión. Responsables de TI en sectores completamente distintos enfrentan los mismos retos (seguridad, presupuesto, nube, inteligencia artificial, falta de personal) sin haberse conocido nunca. Hay soluciones probadas en una industria que podrían transformar otra, si tan solo alguien las compartiera.</p>
-                <p>De esa observación nació todo lo demás.</p>
-                <p>Así surgió el <strong>Foro de Tecnología MX</strong>, un punto de encuentro donde fabricantes, integradores, universidades y usuarios de tecnología se sientan en la misma mesa a hablar de lo que realmente está pasando en sus empresas.</p>
-                <p>Así nació <strong>ALTI, la Alianza de Líderes en Tecnología e Innovación</strong>, un espacio entre pares exclusivo para quienes toman decisiones de TI. Ahí un CTO puede hablar con franqueza con otro CTO sobre lo que funciona, lo que no y lo que viene, sin presentaciones comerciales de por medio. Con iniciativas como Mentor ALTI buscamos que ese conocimiento circule todos los meses, no solo en un evento al año.</p>
+                <p class="cj-sigue">fabricantes, integradores, universidades y usuarios de tecnología se sientan en la misma mesa a hablar de lo que realmente está pasando en sus empresas.</p>
+                <p>Así nació <strong>ALTI, la Alianza de Líderes en Tecnología e Innovación</strong>, un espacio entre pares para quienes toman decisiones de TI, sin presentaciones comerciales de por medio. Con <strong>Mentor ALTI</strong>, ese conocimiento circula todos los meses, no solo en un evento al año.</p>
+                <p>Desde <strong>INDEX Zona Costa</strong> buscamos llevar la inteligencia artificial del discurso a la realidad de las empresas. Con <strong>Tech &amp; Wine Fest</strong> confirmamos que las mejores conversaciones suceden cuando la gente baja la guardia. Y desde <strong>EnteraCloud</strong> y <strong>Purple AI</strong> vivo la operación diaria: los proyectos reales que a veces salen perfectos y a veces enseñan más cuando no.</p>
+                <p>Ninguno de estos esfuerzos es un proyecto suelto. Todos responden a una misma convicción: <strong>un país avanza más rápido cuando su comunidad tecnológica se conoce, colabora y comparte lo que sabe.</strong></p>
+                <p>Esta revista es el siguiente paso de ese camino, y no es mía: es de ustedes. Si tienen un proyecto que contar, una lección aprendida o una pregunta que nadie se ha atrevido a hacer, este es su lugar. <strong class="cj-cta">Escriban, propongan, cuestionen.</strong></p>
               </div>
               <footer class="folio">
                 <span class="folio__num">04</span>
@@ -199,54 +237,29 @@
           </section>
 
           <!-- 05 · Carta del fundador (3) -->
-          <section class="pagina pagina--noche" aria-label="Página 5: carta del fundador">
-            <div class="pagina__lienzo hoja articulo carta-noche">
+          <section class="pagina pagina--papel" aria-label="Página 5: carta del fundador">
+            <div class="pagina__lienzo hoja articulo carta-noche carta-clara cj-p5">
               <header class="cornisa">
                 <span>Carta del fundador</span>
                 <span>Josué Madera · Fundador de Hablemos Tech</span>
               </header>
-              <div class="texto texto--2col" data-anim style="--i:0">
-                <p>Desde la <strong>Dirección del Comité de Tecnologías de la Información de INDEX Zona Costa</strong>, el reto ha sido llevar la inteligencia artificial del discurso a la realidad de las empresas. Queremos entender dónde están realmente, más allá del entusiasmo o del miedo que provoca la palabra "IA".</p>
-                <p>Con <strong>Tech &amp; Wine Fest</strong> confirmamos algo que siempre sospeché: las mejores conversaciones de tecnología suceden cuando la gente baja la guardia y se permite conectar como personas.</p>
-                <p>Y desde <strong>EnteraCloud</strong> y <strong>Purple AI</strong> vivo el otro lado: la operación diaria, la implementación, los proyectos reales que a veces salen perfectos y a veces enseñan más cuando no.</p>
-                <p>Ninguno de estos esfuerzos es un proyecto suelto. Todos responden a una misma convicción: <strong>un país avanza más rápido cuando su comunidad tecnológica se conoce, colabora y comparte lo que sabe.</strong> Ningún profesional de TI debería enfrentar solo sus decisiones, sin importar la industria en la que esté.</p>
-                <p>Esta revista es el siguiente paso de ese camino. Es un espacio para documentar lo que estamos construyendo y para darle voz a quienes lo hacen posible.</p>
-              </div>
-              <div class="cj-promesas" data-anim style="--i:1">
-                <p>En estas páginas van a encontrar:</p>
+              <div class="cj-promesas" data-anim style="--i:0">
+                <p class="oc-kicker">En estas páginas van a encontrar</p>
                 <ol>
                   <li><span>01</span>Casos reales de empresas mexicanas de todos los sectores.</li>
                   <li><span>02</span>Las voces de líderes de TI que están tomando decisiones difíciles.</li>
                   <li><span>03</span>Tendencias aterrizadas a nuestra realidad, sin traducciones forzadas.</li>
-                  <li><span>04</span>Una mirada honesta a lo que significa liderar tecnología hoy en México.</li>
                 </ol>
               </div>
-              <div class="texto texto--2col" data-anim style="--i:2">
-                <p>Pero quiero ser claro en algo: esta revista no es mía, es de ustedes. Si tienen un proyecto que contar, una lección aprendida, una opinión que incomoda o una pregunta que nadie se ha atrevido a hacer, este es su lugar. Escriban, propongan, cuestionen. Y si esta conversación les hace sentido, quédense: cada edición será mejor con más profesionales de TI de todo el país sumándose a ella.</p>
-                <p>Bienvenidos a esta tercera edición. Bienvenidos a la conversación.</p>
+              <div class="cj-cierre" data-anim style="--i:1">
+                <p class="cj-bienvenida">Bienvenidos a esta tercera edición.<br>Bienvenidos a la conversación.</p>
+                <p class="cj-firma">Hablemos <em>tech.</em></p>
               </div>
-              <footer class="folio folio--derecha">
-                <span>Carta del fundador</span>
-                <span class="folio__num">05</span>
-              </footer>
-            </div>
-          </section>
-
-          <!-- 06 · Carta del fundador (4) -->
-          <section class="pagina pagina--noche" aria-label="Página 6: carta del fundador">
-            <div class="pagina__lienzo hoja articulo carta-noche">
-              <header class="cornisa">
-                <span>Carta del fundador</span>
-                <span>Josué Madera · Fundador de Hablemos Tech</span>
-              </header>
-              <p class="cj-firma" data-anim style="--i:0">Hablemos tech.</p>
-              <div class="cj-banda" data-anim style="--i:1">
-                <span class="contenido__haz contenido__haz--1" aria-hidden="true"></span>
-                <span class="contenido__haz contenido__haz--2" aria-hidden="true"></span>
+              <div class="cj-banda" data-anim style="--i:3">
+                <svg class="cj-banda__rayos" viewBox="0 0 200 300" preserveAspectRatio="xMaxYMid slice" aria-hidden="true"><g fill="#31dc8d"><circle cx="10" cy="10" r="0.89"/><circle cx="10" cy="30" r="0.97"/><circle cx="10" cy="50" r="1.06"/><circle cx="10" cy="70" r="0.89"/><circle cx="10" cy="90" r="0.97"/><circle cx="10" cy="110" r="1.06"/><circle cx="10" cy="130" r="0.89"/><circle cx="10" cy="150" r="0.97"/><circle cx="10" cy="170" r="1.06"/><circle cx="10" cy="190" r="0.89"/><circle cx="10" cy="210" r="0.97"/><circle cx="10" cy="230" r="1.06"/><circle cx="10" cy="250" r="0.89"/><circle cx="10" cy="270" r="0.97"/><circle cx="10" cy="290" r="1.06"/><circle cx="30" cy="10" r="0.97"/><circle cx="30" cy="30" r="1.15"/><circle cx="30" cy="50" r="1.32"/><circle cx="30" cy="70" r="0.97"/><circle cx="30" cy="90" r="1.15"/><circle cx="30" cy="110" r="1.32"/><circle cx="30" cy="130" r="0.97"/><circle cx="30" cy="150" r="1.15"/><circle cx="30" cy="170" r="1.32"/><circle cx="30" cy="190" r="0.97"/><circle cx="30" cy="210" r="1.15"/><circle cx="30" cy="230" r="1.32"/><circle cx="30" cy="250" r="0.97"/><circle cx="30" cy="270" r="1.15"/><circle cx="30" cy="290" r="1.32"/><circle cx="50" cy="10" r="1.06"/><circle cx="50" cy="30" r="1.32"/><circle cx="50" cy="50" r="1.58"/><circle cx="50" cy="70" r="1.06"/><circle cx="50" cy="90" r="1.32"/><circle cx="50" cy="110" r="1.58"/><circle cx="50" cy="130" r="1.06"/><circle cx="50" cy="150" r="1.32"/><circle cx="50" cy="170" r="1.58"/><circle cx="50" cy="190" r="1.06"/><circle cx="50" cy="210" r="1.32"/><circle cx="50" cy="230" r="1.58"/><circle cx="50" cy="250" r="1.06"/><circle cx="50" cy="270" r="1.32"/><circle cx="50" cy="290" r="1.58"/><circle cx="70" cy="10" r="1.15"/><circle cx="70" cy="30" r="1.49"/><circle cx="70" cy="50" r="1.84"/><circle cx="70" cy="70" r="1.15"/><circle cx="70" cy="90" r="1.49"/><circle cx="70" cy="110" r="1.84"/><circle cx="70" cy="130" r="1.15"/><circle cx="70" cy="150" r="1.49"/><circle cx="70" cy="170" r="1.84"/><circle cx="70" cy="190" r="1.15"/><circle cx="70" cy="210" r="1.49"/><circle cx="70" cy="230" r="1.84"/><circle cx="70" cy="250" r="1.15"/><circle cx="70" cy="270" r="1.49"/><circle cx="70" cy="290" r="1.84"/><circle cx="90" cy="10" r="1.23"/><circle cx="90" cy="30" r="1.67"/><circle cx="90" cy="50" r="2.10"/><circle cx="90" cy="70" r="1.23"/><circle cx="90" cy="90" r="1.67"/><circle cx="90" cy="110" r="2.10"/><circle cx="90" cy="130" r="1.23"/><circle cx="90" cy="150" r="1.67"/><circle cx="90" cy="170" r="2.10"/><circle cx="90" cy="190" r="1.23"/><circle cx="90" cy="210" r="1.67"/><circle cx="90" cy="230" r="2.10"/><circle cx="90" cy="250" r="1.23"/><circle cx="90" cy="270" r="1.67"/><circle cx="90" cy="290" r="2.10"/><circle cx="110" cy="10" r="1.32"/><circle cx="110" cy="30" r="1.84"/><circle cx="110" cy="50" r="2.36"/><circle cx="110" cy="70" r="1.32"/><circle cx="110" cy="90" r="1.84"/><circle cx="110" cy="110" r="2.36"/><circle cx="110" cy="130" r="1.32"/><circle cx="110" cy="150" r="1.84"/><circle cx="110" cy="170" r="2.36"/><circle cx="110" cy="190" r="1.32"/><circle cx="110" cy="210" r="1.84"/><circle cx="110" cy="230" r="2.36"/><circle cx="110" cy="250" r="1.32"/><circle cx="110" cy="270" r="1.84"/><circle cx="110" cy="290" r="2.36"/><circle cx="130" cy="10" r="1.41"/><circle cx="130" cy="30" r="2.01"/><circle cx="130" cy="50" r="2.62"/><circle cx="130" cy="70" r="1.41"/><circle cx="130" cy="90" r="2.01"/><circle cx="130" cy="110" r="2.62"/><circle cx="130" cy="130" r="1.41"/><circle cx="130" cy="150" r="2.01"/><circle cx="130" cy="170" r="2.62"/><circle cx="130" cy="190" r="1.41"/><circle cx="130" cy="210" r="2.01"/><circle cx="130" cy="230" r="2.62"/><circle cx="130" cy="250" r="1.41"/><circle cx="130" cy="270" r="2.01"/><circle cx="130" cy="290" r="2.62"/><circle cx="150" cy="10" r="1.49"/><circle cx="150" cy="30" r="2.19"/><circle cx="150" cy="50" r="2.88"/><circle cx="150" cy="70" r="1.49"/><circle cx="150" cy="90" r="2.19"/><circle cx="150" cy="110" r="2.88"/><circle cx="150" cy="130" r="1.49"/><circle cx="150" cy="150" r="2.19"/><circle cx="150" cy="170" r="2.88"/><circle cx="150" cy="190" r="1.49"/><circle cx="150" cy="210" r="2.19"/><circle cx="150" cy="230" r="2.88"/><circle cx="150" cy="250" r="1.49"/><circle cx="150" cy="270" r="2.19"/><circle cx="150" cy="290" r="2.88"/><circle cx="170" cy="10" r="1.58"/><circle cx="170" cy="30" r="2.36"/><circle cx="170" cy="50" r="3.14"/><circle cx="170" cy="70" r="1.58"/><circle cx="170" cy="90" r="2.36"/><circle cx="170" cy="110" r="3.14"/><circle cx="170" cy="130" r="1.58"/><circle cx="170" cy="150" r="2.36"/><circle cx="170" cy="170" r="3.14"/><circle cx="170" cy="190" r="1.58"/><circle cx="170" cy="210" r="2.36"/><circle cx="170" cy="230" r="3.14"/><circle cx="170" cy="250" r="1.58"/><circle cx="170" cy="270" r="2.36"/><circle cx="170" cy="290" r="3.14"/><circle cx="190" cy="10" r="1.67"/><circle cx="190" cy="30" r="2.53"/><circle cx="190" cy="50" r="3.40"/><circle cx="190" cy="70" r="1.67"/><circle cx="190" cy="90" r="2.53"/><circle cx="190" cy="110" r="3.40"/><circle cx="190" cy="130" r="1.67"/><circle cx="190" cy="150" r="2.53"/><circle cx="190" cy="170" r="3.40"/><circle cx="190" cy="190" r="1.67"/><circle cx="190" cy="210" r="2.53"/><circle cx="190" cy="230" r="3.40"/><circle cx="190" cy="250" r="1.67"/><circle cx="190" cy="270" r="2.53"/><circle cx="190" cy="290" r="3.40"/></g></svg>
                 <blockquote><p>“Ningún profesional de TI debería <em>enfrentar solo sus decisiones</em>, sin importar la industria en la que esté.”</p><cite><b>Josué Madera</b> · Fundador y Director Editorial de Hablemos Tech</cite></blockquote>
               </div>
-              <figure class="cj-foto" data-anim style="--i:2"><img data-foto src="../../assets/img/revista-vol-03/carta-2.jpg" alt="Estudio de Hablemos Tech, con dos personas grabando un episodio del podcast."><figcaption>Estudio de Hablemos Tech</figcaption></figure>
-              <div class="cj-lista" data-anim style="--i:3">
+              <div class="cj-lista" data-anim style="--i:4">
                 <p class="cj-lista__cabeza"><b>Josué <em>Madera.</em></b><span>Impulsa comunidades que conectan a líderes, empresas y talento tecnológico en México.</span></p>
                 <ol>
                   <li><span class="cj-lista__org">Hablemos Tech</span><span class="cj-lista__rol">Fundador y Director Editorial</span></li>
@@ -258,29 +271,42 @@
                   <li><span class="cj-lista__org">Tech &amp; Wine Fest</span><span class="cj-lista__rol">Creador</span></li>
                 </ol>
               </div>
-              <footer class="folio">
-                <span class="folio__num">06</span>
+              <footer class="folio folio--derecha">
                 <span>Carta del fundador</span>
+                <span class="folio__num">05</span>
               </footer>
             </div>
           </section>
 
-          <!-- 07 · Octubre negro: apertura -->
-          <section class="pagina pagina--papel" aria-label="Página 7: ciberseguridad, octubre negro">
+          <!-- 06 · Publicidad (página completa): Grupo Optima · Honda autos y Honda motos -->
+          <section class="pagina pagina--papel" aria-label="Página 6: publicidad">
+            <div class="pagina__lienzo publicidad">
+              <img src="../../assets/img/revista-vol-03/publicidad/optima-honda.jpg" alt="Anuncio de Grupo Optima: Honda CR-V Hybrid 2027, el futuro se mueve contigo, hondaoptima.com. Honda motos CB350 y ADV350 2026, tu camino, tu estilo, tu aventura, hondaoptimamotos.com." width="2550" height="3300" loading="lazy">
+            </div>
+          </section>
+
+          <!-- 07 · Publicidad (página completa): Grupo Optima · Kia y Changan Tijuana -->
+          <section class="pagina pagina--papel" aria-label="Página 7: publicidad">
+            <div class="pagina__lienzo publicidad">
+              <img src="../../assets/img/revista-vol-03/publicidad/optima-kia-changan.jpg" alt="Anuncio de Grupo Optima: Kia Seltos Híbrida 2027, una SUV fuera de este mundo, dealers.kia.com/mx/innova. Changan Tijuana CS75 Plus 2026, viaja en grande, llega más lejos, changantijuana.com.mx." width="2550" height="3300" loading="lazy">
+            </div>
+          </section>
+
+          <!-- 08 · Octubre negro: apertura -->
+          <section class="pagina pagina--papel" aria-label="Página 8: ciberseguridad, octubre negro">
             <div class="pagina__lienzo hoja oc oc-apertura8">
               <div class="oc-icea">
                 <div class="oc-icea__modulos">
                   <div class="oc-icea__principal">
                     <svg class="rayos" viewBox="0 0 560 540" preserveAspectRatio="xMaxYMax slice" aria-hidden="true"><defs><linearGradient id="oc-g1" gradientUnits="userSpaceOnUse" x1="594" y1="540" x2="815" y2="540"><stop offset="0" stop-color="rgba(9,10,9,1)"/><stop offset="0.45" stop-color="rgba(9,10,9,0.85)"/><stop offset="1" stop-color="rgba(9,10,9,0.08)"/></linearGradient></defs><rect x="594" y="525.0" width="221" height="30" transform="rotate(214 560 540)" fill="url(#oc-g1)"/><rect x="594" y="525.0" width="221" height="30" transform="rotate(238 560 540)" fill="url(#oc-g1)"/><rect x="594" y="525.0" width="221" height="30" transform="rotate(262 560 540)" fill="url(#oc-g1)"/></svg>
-                    <h2 class="oc-icea__titulo" data-anim style="--i:0">Octubre<br>negro.</h2>
+                    <h2 class="oc-icea__titulo" data-anim style="--i:0">Octubre <em>negro.</em></h2>
                     <p class="oc-icea__sub" data-anim style="--i:1">Responder con seriedad, calma y estrategia.</p>
-                    <svg class="oc-icea__logo" viewBox="0 0 626.18 208.23" role="img" aria-label="Hablemos Tech"><use href="#logo-ht"/></svg>
                   </div>
                   <figure class="oc-icea__foto">
                     <img class="completa" src="../../assets/img/revista-vol-03/francisco-olazo-retrato.jpg" alt="Francisco Olazo, de Enteracloud, de pie con los brazos cruzados." width="1600" height="2400">
-                    <figcaption><b>Francisco Olazo</b>Enteracloud</figcaption>
+                    <figcaption><b>Francisco Olazo</b>LATAM Lead Engineer, Enteracloud</figcaption>
                   </figure>
-                  <div class="oc-icea__rayos" aria-hidden="true"><svg viewBox="0 0 200 300" preserveAspectRatio="xMinYMid slice"><defs><linearGradient id="oc-g2" gradientUnits="userSpaceOnUse" x1="46" y1="150" x2="221" y2="150"><stop offset="0" stop-color="#0e7a49"/><stop offset="0.5" stop-color="#31dc8d"/><stop offset="1" stop-color="#c8ffe4"/></linearGradient></defs><rect x="46" y="137.0" width="175" height="26" transform="rotate(-58 46 150)" fill="url(#oc-g2)"/><rect x="46" y="137.0" width="175" height="26" transform="rotate(-29 46 150)" fill="url(#oc-g2)"/><rect x="46" y="137.0" width="175" height="26" transform="rotate(0 46 150)" fill="url(#oc-g2)"/><rect x="46" y="137.0" width="175" height="26" transform="rotate(29 46 150)" fill="url(#oc-g2)"/><rect x="46" y="137.0" width="175" height="26" transform="rotate(58 46 150)" fill="url(#oc-g2)"/><rect x="33" y="18" width="26" height="264" fill="url(#oc-g2)"/></svg></div>
+                  <div class="oc-icea__marca"><img class="oc-icea__marca-logo marca-empresa" src="../../assets/img/revista-vol-03/logos/enteracloud-blanco.svg" alt="Enteracloud" width="1489" height="207"></div>
                   <div class="oc-icea__icono"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.4-3 8.1-7 9.5-4-1.4-7-5.1-7-9.5V6l7-3z"/><rect x="9" y="11" width="6" height="5" rx="0.6"/><path d="M10.2 11V9.6a1.8 1.8 0 013.6 0V11"/></svg><span>Ciberseguridad</span></div>
                 </div>
               </div>
@@ -291,39 +317,9 @@
               <div class="oc-espacio" aria-hidden="true"></div>
               <div class="oc-lead">
               <div class="texto texto--2col" data-anim style="--i:4">
-                <p class="capitular">Octubre nos recuerda que las vulnerabilidades pueden afectar tecnologías distintas y ampliamente utilizadas. El equipo de PHP publicó actualizaciones para corregir dos fallas críticas que permitían a un atacante ejecutar código en el servidor sin necesidad de usuario ni contraseña. La CISA —Agencia de Seguridad de Infraestructura y Ciberseguridad de Estados Unidos, organismo federal que coordina la ciberdefensa y apoya la protección de infraestructura crítica— reportó explotación activa de vulnerabilidades y las incorporó a su catálogo KEV (Known Exploited Vulnerabilities): la lista de fallas que ya se están usando en ataques reales.</p>
+                <p>Octubre nos recuerda que las vulnerabilidades pueden afectar tecnologías distintas y ampliamente utilizadas. El equipo de PHP publicó actualizaciones para corregir dos fallas críticas que permitían a un atacante ejecutar código en el servidor sin necesidad de usuario ni contraseña. La CISA, la agencia de ciberseguridad de Estados Unidos, reportó explotación activa y las incorporó a su catálogo KEV (Known Exploited Vulnerabilities): la lista de fallas que ya se están usando en ataques reales.</p>
+                <p>La referencia práctica para los administradores es revisar si esos productos están en su inventario y atender primero los que estén expuestos a internet o soporten servicios críticos.</p>
               </div>
-              </div>
-              <footer class="folio folio--derecha">
-                <span>Ciberseguridad</span>
-                <span class="folio__num">07</span>
-              </footer>
-            </div>
-          </section>
-
-          <!-- 08 · Octubre negro: hallazgos -->
-          <section class="pagina pagina--papel" aria-label="Página 8: ciberseguridad, hallazgos de octubre">
-            <div class="pagina__lienzo hoja oc">
-              <header class="cornisa">
-                <span>Ciberseguridad</span>
-                <span>Octubre negro · Francisco Olazo</span>
-              </header>
-              <div class="oc-cabeza">
-                <p class="oc-kicker">Hallazgos de octubre</p>
-                <h3 class="oc-h3">Lo que se <em>explotó</em> este mes.</h3>
-              </div>
-              <div class="texto texto--2col" data-anim style="--i:0">
-                <p>Entre los hallazgos de octubre destacan PHP2Shell (CVE-2026-109618 y CVE-2026-109619; los CVE son el número de registro público de cada falla), vulnerabilidades críticas de PHP; CVE-2026-96951, una falla de Windows Shell explotada antes de publicarse su corrección; y vulnerabilidades en BeyondTrust Remote Support, Collabora Online, Adobe Commerce / Magento y Brotli que también fueron señaladas por explotación activa. Para los administradores, la referencia práctica es revisar si estos productos o componentes están en el inventario y priorizar los que estén expuestos o soporten servicios críticos.</p>
-              </div>
-              <div class="oc-kev" data-anim style="--i:1">
-                <p class="oc-kev__barra oc-mono"><span>Revisa tu inventario</span><span>Octubre 2026</span></p>
-                <div class="oc-kev__fila"><p class="oc-kev__comp">PHP<small>PHP2Shell</small></p><span class="oc-mono">CVE-2026-109618</span><span class="oc-chip">Explotación activa</span></div>
-                <div class="oc-kev__fila"><p class="oc-kev__comp">PHP<small>PHP2Shell</small></p><span class="oc-mono">CVE-2026-109619</span><span class="oc-chip">Explotación activa</span></div>
-                <div class="oc-kev__fila"><p class="oc-kev__comp">Windows Shell<small>Antes de su corrección</small></p><span class="oc-mono">CVE-2026-96951</span><span class="oc-chip">Explotada antes del parche</span></div>
-                <div class="oc-kev__fila"><p class="oc-kev__comp">BeyondTrust Remote Support</p><span class="oc-mono">—</span><span class="oc-chip">Explotación activa</span></div>
-                <div class="oc-kev__fila"><p class="oc-kev__comp">Collabora Online</p><span class="oc-mono">—</span><span class="oc-chip">Explotación activa</span></div>
-                <div class="oc-kev__fila"><p class="oc-kev__comp">Adobe Commerce / Magento</p><span class="oc-mono">—</span><span class="oc-chip">Explotación activa</span></div>
-                <div class="oc-kev__fila"><p class="oc-kev__comp">Brotli<small>Librería de compresión</small></p><span class="oc-mono">—</span><span class="oc-chip">Explotación activa</span></div>
               </div>
               <footer class="folio">
                 <span class="folio__num">08</span>
@@ -332,148 +328,49 @@
             </div>
           </section>
 
-          <!-- 09 · Octubre negro: incidentes -->
-          <section class="pagina pagina--papel" aria-label="Página 9: ciberseguridad, no todo es una falla de microsoft">
-            <div class="pagina__lienzo hoja oc">
+          <!-- 09 · Octubre negro: hallazgos e impacto -->
+          <section class="pagina pagina--papel" aria-label="Página 9: ciberseguridad, hallazgos de octubre">
+            <div class="pagina__lienzo hoja oc oc-p7">
               <header class="cornisa">
                 <span>Ciberseguridad</span>
                 <span>Octubre negro · Francisco Olazo</span>
               </header>
               <div class="oc-cabeza">
-                <p class="oc-kicker">Dos incidentes distintos</p>
-                <h3 class="oc-h3">No todo es una <em>«falla de Microsoft».</em></h3>
+                <p class="oc-kicker">Hallazgos de octubre</p>
+                <h3 class="oc-h3">Lo que se <em>explotó.</em></h3>
               </div>
-              <div class="oc-incidentes" data-anim style="--i:1">
-                <article class="oc-incidente">
-                  <p class="oc-incidente__fecha">Jul 2024</p>
-                  <h4>Interrupción global en aerolíneas y aeropuertos</h4>
-                  <p>También conviene distinguir entre incidentes que a veces se agrupan bajo la etiqueta de “fallas de Microsoft”. La interrupción global de julio de 2024 que afectó operaciones de aerolíneas y aeropuertos no fue causada por un parche de Windows: CISA y Microsoft la atribuyeron a una actualización de contenido de CrowdStrike Falcon que provocó fallos en equipos Windows.</p>
-                  <span class="oc-chip oc-chip--claro">No fue un parche de Windows</span>
-                </article>
-                <article class="oc-incidente oc-incidente--verde">
-                  <p class="oc-incidente__fecha">Sep 2026</p>
-                  <h4>Remote Desktop Services inestable en Windows Server</h4>
-                  <p>Por otro lado, Microsoft documentó un problema distinto tras sus actualizaciones de seguridad de septiembre de 2026 para Windows Server: en algunos entornos, Remote Desktop Services (RDS, el servicio que permite trabajar en un servidor desde otra computadora) se volvió inestable, las conexiones de Escritorio remoto (RDP) fallaban, los inicios de sesión se detenían y algunos servidores quedaban bloqueados durante la configuración de Escritorio remoto. Microsoft publicó una actualización correctiva de emergencia, fuera de su calendario mensual.</p>
-                  <span class="oc-chip">Corrección de emergencia</span>
-                </article>
+              <div class="oc-kev" data-anim style="--i:0">
+                <p class="oc-kev__barra oc-mono"><span>Revisa tu inventario</span><span>Octubre 2026</span></p>
+                <div class="oc-kev__fila"><p class="oc-kev__comp">PHP<small>PHP2Shell</small></p><span class="oc-mono">CVE-2026-109618 · 109619</span><span class="oc-chip">Explotación activa</span></div>
+                <div class="oc-kev__fila"><p class="oc-kev__comp">Windows Shell<small>Antes de su corrección</small></p><span class="oc-mono">CVE-2026-96951</span><span class="oc-chip">Explotada antes del parche</span></div>
+                <div class="oc-kev__fila"><p class="oc-kev__comp">BeyondTrust Remote Support</p><span class="oc-mono">—</span><span class="oc-chip">Explotación activa</span></div>
+                <div class="oc-kev__fila"><p class="oc-kev__comp">Collabora Online · Adobe Commerce / Magento · Brotli</p><span class="oc-mono">—</span><span class="oc-chip">Explotación activa</span></div>
               </div>
-              <div class="texto" data-anim style="--i:2">
-                <p>Es un ejemplo concreto de por qué un parche también debe tratarse como un cambio operativo que requiere control y verificación.</p>
+              <div class="oc-falla">
+                <span class="oc-falla__rayo" aria-hidden="true"></span>
+              <div class="oc-cabeza">
+                <p class="oc-kicker">Cuando el parche falla</p>
+                <h3 class="oc-h3">¿Cuánto podría operar tu empresa <em>sin estos sistemas?</em></h3>
               </div>
-              <figure class="oc-tira" data-anim style="--i:3">
-                <img data-foto src="../../assets/img/revista-vol-02/francisco-olazo.jpg" alt="Francisco Olazo explica la gestión de incidentes frente a una pantalla durante una plática." style="object-position:50% 30%">
-                <figcaption>Francisco Olazo en el Tech &amp; Wine Fest 2026</figcaption>
-              </figure>
+              <div class="texto oc-falla__lead" data-anim style="--i:1">
+                <p>Un parche también es un cambio operativo. En septiembre, una actualización dejó inestable el Escritorio remoto en algunos Windows Server: <strong>las aplicaciones seguían arriba, pero nadie podía entrar.</strong></p>
+              </div>
+              <div class="oc-flujo" data-anim style="--i:2">
+                <div class="oc-flujo__paso"><span class="oc-flujo__n">01</span><p class="oc-flujo__et">Cambio</p><b>Se instala el parche.</b></div>
+                <div class="oc-flujo__paso"><span class="oc-flujo__n">02</span><p class="oc-flujo__et">Acceso</p><b>Nadie puede iniciar sesión.</b></div>
+                <div class="oc-flujo__paso oc-flujo__paso--final"><span class="oc-flujo__n">03</span><p class="oc-flujo__et">Operación detenida</p><ul><li>Contpaqi<span>sin acceso</span></li><li>Nómina<span>sin acceso</span></li><li>Logística<span>sin acceso</span></li><li>ERP<span>sin acceso</span></li><li>Aduanas<span>sin acceso</span></li></ul></div>
+              </div>
               <footer class="folio folio--derecha">
                 <span>Ciberseguridad</span>
                 <span class="folio__num">09</span>
               </footer>
+              </div>
             </div>
           </section>
 
-          <!-- 10 · Octubre negro: impacto -->
-          <section class="pagina pagina--papel" aria-label="Página 10: ciberseguridad, el costo de una actualización">
-            <div class="pagina__lienzo hoja oc">
-              <header class="cornisa">
-                <span>Ciberseguridad</span>
-                <span>Octubre negro · Francisco Olazo</span>
-              </header>
-              <div class="oc-cabeza">
-                <p class="oc-kicker">Cuando el parche falla</p>
-                <h3 class="oc-h3">Las aplicaciones siguen bien. <em>Nadie puede entrar.</em></h3>
-              </div>
-              <div class="oc-cadena" data-anim style="--i:1">
-                <div class="oc-cadena__paso"><span class="oc-mono">01 · Cambio</span><b>Actualización de seguridad</b></div>
-                <i class="oc-cadena__flecha"></i>
-                <div class="oc-cadena__paso"><span class="oc-mono">02 · Acceso</span><b>Escritorio remoto inestable: nadie puede iniciar sesión</b></div>
-                <i class="oc-cadena__flecha"></i>
-                <div class="oc-cadena__paso oc-cadena__paso--final"><span class="oc-mono">03 · Operación detenida</span><div class="oc-sistemas"><span>Contpaqi</span><span>Nómina</span><span>Logística</span><span>ERP</span><span>Aduanas</span></div></div>
-              </div>
-              <div class="texto texto--2col" data-anim style="--i:2">
-                <p>Si una actualización deja inestable RDS, quizá las aplicaciones sigan funcionando, pero los usuarios no pueden entrar a ellas desde sus sesiones remotas (RDSH). Ahí se frenan tareas de Contpaqi, nómina, logística, ERP o aduanas, tanto para quienes están en la oficina como para quienes se conectan desde fuera. Y todos sabemos que unos minutos de interrupción pueden convertirse en horas de trabajo perdido, costos o problemas con clientes. Por eso, además de preguntarnos qué puede fallar, vale la pena preguntarnos:</p>
-              </div>
-              <div class="oc-franja" data-anim style="--i:3">
-                <p>La pregunta antes de cada parche</p>
-                <blockquote>¿Cuánto tiempo podría operar la empresa <em>sin acceso a estos sistemas?</em></blockquote>
-              </div>
-              <footer class="folio">
-                <span class="folio__num">10</span>
-                <span>Ciberseguridad</span>
-              </footer>
-            </div>
-          </section>
-
-          <!-- 11 · Octubre negro: herramientas -->
-          <section class="pagina pagina--papel" aria-label="Página 11: ciberseguridad, herramientas para tener más control">
-            <div class="pagina__lienzo hoja oc">
-              <header class="cornisa">
-                <span>Ciberseguridad</span>
-                <span>Octubre negro · Francisco Olazo</span>
-              </header>
-              <div class="oc-cabeza">
-                <p class="oc-kicker">Caja de herramientas</p>
-                <h3 class="oc-h3">Herramientas para tener <em>más control.</em></h3>
-              </div>
-              <div class="texto" data-anim style="--i:0">
-                <p>Las herramientas ayudan a convertir información dispersa en visibilidad y acciones. No es necesario adquirirlas todas ni desplegarlas a la vez; conviene elegirlas según el tamaño, la arquitectura y la capacidad operativa del equipo.</p>
-              </div>
-              <div class="oc-herramientas" data-anim style="--i:1">
-                <div class="oc-grupo"><p>Descubrir<span>activos y vulnerabilidades</span></p><div class="oc-tool"><b>Greenbone · OpenVAS</b><span>Escanea servidores y redes en busca de fallas conocidas. Es gratuita y de código abierto: un buen punto de partida.</span></div><div class="oc-tool"><b>Wazuh</b><span>Vigila equipos y servidores desde un solo lugar: revisa registros, configuraciones y vulnerabilidades, también en la nube.</span></div><div class="oc-tool"><b>Trivy</b><span>Revisa contenedores y código antes de publicarlos para encontrar fallas y errores de configuración. Útil si usan Docker o Kubernetes.</span></div></div>
-                <div class="oc-grupo"><p>Observar<span>rendimiento y comportamientos anómalos</span></p><div class="oc-tool"><b>Prometheus · Grafana · Loki</b><span>Juntas miden el estado de la infraestructura, guardan los registros y lo muestran todo en tableros. Gratuitas y de código abierto.</span></div><div class="oc-tool"><b>Falco</b><span>Avisa cuando un servidor o contenedor hace algo fuera de lo normal mientras está funcionando.</span></div></div>
-                <div class="oc-grupo"><p>Remediar<span>estandarizar y acelerar</span></p><div class="oc-tool"><b>Ansible</b><span>Automatiza tareas repetitivas en varios servidores a la vez, como aplicar una configuración. Siempre con pruebas, horarios aprobados y forma de revertir.</span></div></div>
-              </div>
-              <div class="oc-escala" data-anim style="--i:2">
-                <div><h4>Para una pyme</h4><ul><li>Defender for Business</li><li>Datto RMM</li><li>Huntress · monitoreo 24/7</li><li>Wazuh</li></ul></div>
-                <div><h4>Entornos más grandes</h4><ul><li>Tenable</li><li>Qualys</li><li>Rapid7</li><li>Datadog</li><li>Splunk</li></ul></div>
-              </div>
-              <footer class="folio folio--derecha">
-                <span>Ciberseguridad</span>
-                <span class="folio__num">11</span>
-              </footer>
-            </div>
-          </section>
-
-          <!-- 12 · Octubre negro: criterio -->
-          <section class="pagina pagina--papel" aria-label="Página 12: ciberseguridad, datto y criterio">
-            <div class="pagina__lienzo hoja oc">
-              <header class="cornisa">
-                <span>Ciberseguridad</span>
-                <span>Octubre negro · Francisco Olazo</span>
-              </header>
-              <figure class="oc-dc" data-anim style="--i:0">
-                <img data-foto src="../../assets/img/revista-vol-03/datacenter.jpg" alt="Pasillo de un centro de datos con racks verdes a ambos lados.">
-                <figcaption>Imagen ilustrativa · Centro de datos</figcaption>
-              </figure>
-              <div class="oc-cabeza" style="margin-top:0">
-                <p class="oc-kicker">¿Qué papel puede jugar Datto?</p>
-              </div>
-              <div class="texto texto--2col" data-anim style="--i:1">
-                <p>Datto RMM, una herramienta para administrar y actualizar equipos a distancia, puede ayudar a controlar el despliegue de parches mediante políticas, ventanas de instalación y opciones para aprobar, rechazar o excluir actualizaciones en dispositivos específicos. Una práctica útil es probar primero los cambios en un grupo piloto y ampliar el despliegue cuando se confirme que los servicios críticos funcionan.</p>
-                <p>Datto RMM no garantiza que un parche no cause problemas ni reemplaza una solución de respaldo. Para reducir el impacto de una actualización fallida, la empresa también necesita respaldos recientes, procedimientos de recuperación probados y otra forma de entrar a administrar los servidores cuando el Escritorio remoto no esté disponible. Las capacidades concretas dependen de la solución de respaldo y recuperación ante desastres (BCDR) que tenga la empresa.</p>
-              </div>
-              <div class="oc-cabeza">
-                <p class="oc-kicker">La herramienta no sustituye el criterio</p>
-              </div>
-              <div class="texto" data-anim style="--i:2">
-                <p>Un tablero con cientos de alertas no equivale a control. El equipo necesita saber qué sistemas son críticos, quién es responsable de cada uno y qué nivel de exposición puede aceptar la empresa. Para priorizar, hay que combinar varios factores:</p>
-              </div>
-              <ol class="oc-factores" data-anim style="--i:3">
-                <li><span>01</span><b>Explotación confirmada</b></li>
-                <li><span>02</span><b>Exposición a internet</b></li>
-                <li><span>03</span><b>Criticidad del activo</b></li>
-                <li><span>04</span><b>Impacto al negocio</b></li>
-                <li><span>05</span><b>Corrección disponible</b></li>
-              </ol>
-              <footer class="folio">
-                <span class="folio__num">12</span>
-                <span>Ciberseguridad</span>
-              </footer>
-            </div>
-          </section>
-
-          <!-- 13 · Octubre negro: ruta -->
-          <section class="pagina pagina--papel" aria-label="Página 13: ciberseguridad, una ruta práctica">
-            <div class="pagina__lienzo hoja oc">
+          <!-- 10 · Octubre negro: ruta -->
+          <section class="pagina pagina--papel" aria-label="Página 10: ciberseguridad, una ruta práctica">
+            <div class="pagina__lienzo hoja oc oc-cierre">
               <header class="cornisa">
                 <span>Ciberseguridad</span>
                 <span>Octubre negro · Francisco Olazo</span>
@@ -484,591 +381,602 @@
               </div>
               <ol class="oc-ruta" data-anim style="--i:1">
                 <li><span class="oc-ruta__num">01</span><div><b>Confirmar el alcance</b><p>Revisar inventario, versiones, servicios expuestos y responsables.</p></div></li>
-                <li><span class="oc-ruta__num">02</span><div><b>Priorizar por riesgo</b><p>Atender primero activos críticos accesibles desde internet y fallas con explotación confirmada.</p></div></li>
-                <li><span class="oc-ruta__num">03</span><div><b>Probar antes de ampliar</b><p>Validar las actualizaciones en sistemas piloto y revisar que sigan funcionando el Escritorio remoto, las aplicaciones y los servicios críticos.</p></div></li>
-                <li><span class="oc-ruta__num">04</span><div><b>Remediar con control</b><p>Programar ventanas, respaldar, documentar medidas temporales y definir una ruta de recuperación si algo falla.</p></div></li>
-                <li><span class="oc-ruta__num">05</span><div><b>Verificar y comunicar</b><p>Confirmar que el parche se aplicó, revisar registros y reportar a la empresa el riesgo, las acciones, los responsables y los tiempos previstos.</p></div></li>
+                <li><span class="oc-ruta__num">02</span><div><b>Priorizar por riesgo</b><p>Combinar explotación confirmada, exposición a internet, criticidad del activo, impacto al negocio y si ya existe corrección.</p></div></li>
+                <li><span class="oc-ruta__num">03</span><div><b>Probar antes de ampliar</b><p>Validar en un grupo piloto que sigan funcionando el Escritorio remoto, las aplicaciones y los servicios críticos.</p></div></li>
+                <li><span class="oc-ruta__num">04</span><div><b>Remediar con control</b><p>Programar ventanas, respaldar y definir una ruta de recuperación si algo falla.</p></div></li>
+                <li><span class="oc-ruta__num">05</span><div><b>Verificar y comunicar</b><p>Confirmar que el parche se aplicó y reportar a la empresa el riesgo, las acciones, los responsables y los tiempos.</p></div></li>
               </ol>
               <div class="texto texto--2col" data-anim style="--i:2">
-                <p>La dirección estratégica no consiste en prometer que nada ocurrirá. Consiste en conocer los activos, reducir la exposición, asignar responsables y mantener informados a quienes dependen de la tecnología. El equipo necesita prioridades claras; la empresa necesita entender el riesgo y respaldar las decisiones.</p>
-                <p>Los incidentes recientes muestran cómo una actualización o vulnerabilidad puede interrumpir servicios esenciales. Para las organizaciones, estos eventos son un recordatorio de que la gestión de actualizaciones, la protección de los servicios y la preparación para recuperar la operación son responsabilidades clave. La continuidad depende tanto de prevenir como de saber responder cuando un sistema deja de estar disponible.</p>
+                <p>Las herramientas ayudan a convertir información dispersa en acciones: <strong>Greenbone · OpenVAS</strong> o <strong>Wazuh</strong> para descubrir vulnerabilidades, <strong>Datto RMM</strong> para desplegar parches por grupos y con aprobación, <strong>Ansible</strong> para remediar en muchos servidores a la vez. Ninguna reemplaza respaldos recientes ni otra forma de entrar a los servidores cuando el Escritorio remoto no está disponible.</p>
+                <p>La dirección estratégica no consiste en prometer que nada ocurrirá. Consiste en conocer los activos, reducir la exposición, asignar responsables y mantener informados a quienes dependen de la tecnología.</p>
               </div>
-              <blockquote class="oc-cita" data-anim style="--i:3">
-                <p>Un tablero con cientos de alertas <em>no equivale a control.</em></p>
-                <cite>Francisco Olazo · Octubre negro</cite>
-              </blockquote>
-              <footer class="folio folio--derecha">
-                <span>Ciberseguridad</span>
-                <span class="folio__num">13</span>
-              </footer>
+              <div class="oc-sello">
+                <svg class="oc-sello__rayos" viewBox="0 0 200 300" preserveAspectRatio="xMaxYMax meet" aria-hidden="true"><g fill="none" stroke="#050505" stroke-width="1.6"><circle cx="200" cy="300" r="30"/><circle cx="200" cy="300" r="52"/><circle cx="200" cy="300" r="74"/><circle cx="200" cy="300" r="96"/><circle cx="200" cy="300" r="118"/><circle cx="200" cy="300" r="140"/><circle cx="200" cy="300" r="162"/><circle cx="200" cy="300" r="184"/><circle cx="200" cy="300" r="206"/><circle cx="200" cy="300" r="228"/><circle cx="200" cy="300" r="250"/><circle cx="200" cy="300" r="272"/></g></svg>
+                <blockquote class="oc-cita" data-anim style="--i:3">
+                  <p>Un tablero con cientos de alertas <em>no equivale a control.</em></p>
+                  <cite>Francisco Olazo · Octubre negro</cite>
+                </blockquote>
+                <footer class="folio">
+                  <span class="folio__num">10</span>
+                  <span>Ciberseguridad</span>
+                </footer>
+              </div>
             </div>
           </section>
 
-          <!-- 14 · Perspectivas Baja Innovation Day -->
-          <section class="pagina pagina--papel" aria-label="Página 14: perspectivas baja innovation day">
-            <div class="pagina__lienzo hoja articulo">
+          <!-- 11 · Publicidad (página completa): Enteracloud -->
+          <section class="pagina pagina--papel" aria-label="Página 11: publicidad">
+            <div class="pagina__lienzo publicidad">
+              <img src="../../assets/img/revista-vol-03/publicidad/enteracloud-pagina.jpg?v=202611231200" alt="Anuncio de Enteracloud, nube administrada en Baja California: migra hoy, paga en 2027. Tu 2027: menos costo de nube, más continuidad. Nube administrada con soporte local 24/7. Monitoreo 24/7 con Datto RMM, 2 data centers propios, más de 25 años de experiencia; agenda tu evaluación en cloud.enteracloud.mx." width="2550" height="3300" loading="lazy">
+            </div>
+          </section>
+
+          <!-- 12 · Perspectivas Baja Innovation Day -->
+          <section class="pagina pagina--papel" aria-label="Página 12: perspectivas baja innovation day">
+            <div class="pagina__lienzo hoja articulo bid">
               <header class="cornisa">
                 <span>Innovación regional</span>
                 <span>Baja Innovation Day</span>
               </header>
-              <div class="articulo__cabeza">
-                <p class="etiqueta etiqueta--verde" data-anim style="--i:0"><span class="etiqueta__punto"></span>Baja Innovation Day</p>
-                <h2 class="titulo-2" data-anim style="--i:1">Perspectivas Baja Innovation Day.</h2>
-                <p class="entrada" data-anim style="--i:2">Integrar tecnología en una operación real rara vez fracasa por falta de herramientas; suele complicarse por cómo se planea el cambio, qué tan conectada está la empresa con el talento local y cómo responde a las exigencias de su sector. Durante el Baja Innovation Day, conversamos con distintas voces de la industria, la ciencia y el agrotech, quienes coincidieron en un punto común: innovar en la región exige pasar de la intención a la ejecución gradual y con propósito.</p>
+              <div class="bid-cabeza">
+                <span class="bid-cabeza__rayo" aria-hidden="true"></span>
+                <img class="bid-cabeza__logo marca-empresa" src="../../assets/img/revista-vol-03/bid/logo-bid.png" alt="Baja Innovation Day" width="4167" height="2094">
+                <p class="bid-kicker" data-anim style="--i:0">Innovación regional · CECUT, Tijuana · 15 oct 2026</p>
+                <h2 class="bid-titulo" data-anim style="--i:1">Perspectivas<br><em>Baja Innovation Day.</em></h2>
               </div>
+              <p class="entrada bid-entrada" data-anim style="--i:2">Integrar tecnología en una operación real rara vez fracasa por falta de herramientas: se complica por cómo se planea el cambio, qué tan conectada está la empresa con el talento local y cómo responde a las exigencias de su sector. Innovar en la región exige pasar de la intención a la ejecución gradual.</p>
               <div class="texto texto--2col" data-anim style="--i:3">
-                <p class="capitular">Al preguntar cuáles son las ideas erróneas más comunes que tienen las empresas cuando buscan integrar tecnología o automatización, la respuesta apuntó a la ambición de querer transformar todo el sistema desde el primer día. Cuando una organización intenta automatizar su operación de golpe, sin antes estandarizar procesos ni dividir el proyecto en etapas, el esfuerzo suele traducirse en sobrecostos, retrasos y nuevos cuellos de botella. La clave está en avanzar por partes: ordenar primero la operación base y escalar paso a paso.</p>
-                <p>Esa búsqueda de competitividad también está cambiando la relación entre la industria y la academia. Al cuestionar cómo han visto el interés de las empresas en Baja California por invertir en ciencia e investigación tecnológica, representantes del CICESE (Centro de Investigación Científica y de Educación Superior de Ensenada)—uno de los 27 centros coordinados por la Secretaría de Ciencia, Humanidades, Tecnología e Innovación—destacaron que, desde inicios de la década de 2010, ha crecido la apertura empresarial para desarrollar I+D interno y crear productos y servicios de mayor valor agregado.</p>
+                <p>Al preguntar cuáles son las ideas erróneas más comunes de las empresas que buscan integrar tecnología o automatización, la respuesta apuntó a la ambición de querer transformar todo el sistema desde el primer día. Cuando una organización intenta automatizar su operación de golpe, sin estandarizar procesos ni dividir el proyecto en etapas, el esfuerzo suele traducirse en sobrecostos, retrasos y nuevos cuellos de botella. La clave está en avanzar por partes: ordenar primero la operación base y escalar paso a paso.</p>
+                <p>Esa búsqueda de competitividad también está cambiando la relación entre la industria y la academia. Representantes del <strong>CICESE</strong> (Centro de Investigación Científica y de Educación Superior de Ensenada) destacaron que, desde inicios de la década de 2010, ha crecido la apertura de las empresas de Baja California para desarrollar I+D propio y crear productos y servicios de mayor valor agregado.</p>
+                <p>Aunque aún se requiere mayor impulso, el CICESE y la <strong>UABC</strong> trabajan en llevar las soluciones del laboratorio a la planta productiva: México tiene capacidad científica local para resolver retos complejos sin depender siempre del extranjero.</p>
               </div>
               <footer class="folio">
-                <span class="folio__num">14</span>
+                <span class="folio__num">12</span>
                 <span>Baja Innovation Day</span>
               </footer>
             </div>
           </section>
 
-          <!-- 15 · Perspectivas (2) -->
-          <section class="pagina pagina--papel" aria-label="Página 15: perspectivas baja innovation day">
-            <div class="pagina__lienzo hoja articulo">
+          <!-- 13 · Perspectivas (2) -->
+          <section class="pagina pagina--papel" aria-label="Página 13: perspectivas baja innovation day">
+            <div class="pagina__lienzo hoja articulo bid">
               <header class="cornisa">
                 <span>Innovación regional</span>
                 <span>Baja Innovation Day</span>
               </header>
               <div class="texto texto--2col" data-anim style="--i:0">
-                <p>Aunque aún se requiere mayor impulso, centros como el CICESE y universidades como la UABC trabajan en llevar las soluciones del laboratorio a la planta productiva, demostrando que México cuenta con la capacidad científica local para resolver retos complejos sin depender siempre del extranjero.</p>
-                <p>En el terreno sectorial, al indagar sobre cuál es el reto principal que enfrenta el sector ganadero para adoptar tecnología y salir de su operación rutinaria, el diagnóstico desde el ámbito agrotech —donde hoy se impulsa el llamado “Internet de las Vacas” con presencia en 25 estados de México y siete países— fue claro: la barrera más fuerte no es técnica, sino cultural, pues los pequeños productores suelen sentirse alejados del mundo digital. Para cerrar esa brecha, se ha apostado por democratizar la tecnología mediante aplicaciones gratuitas, tutoriales y capacitación, conectándolos a la economía digital para equilibrar la balanza frente a los grandes compradores.</p>
-                <p>Finalmente, ante la pregunta de cuál es el desafío que enfrentan hoy las maquiladoras para responder a las estrictas regulaciones ambientales, se señaló el manejo del agua residual como uno de los puntos más críticos, dado que las plantas industriales no pueden descargar agua contaminada sin un proceso previo. Para atender esta exigencia normativa desde Tijuana, se presentó un sistema automatizado que combina sensores, lámpara UV y difusores de nanoburbujas de ozono para desinfectar vegetales y tratar el agua de forma eficiente antes de su descarga.</p>
-                <p>El Baja Innovation Day deja claro que la transformación tecnológica en nuestra región avanza cuando se construye con pragmatismo: automatizando por fases, aprovechando la ciencia local, cerrando brechas culturales y resolviendo retos reales de sostenibilidad.</p>
+                <p>En el sector ganadero, el diagnóstico desde el agrotech —donde hoy se impulsa una plataforma de ganadería conectada, presente en 25 estados de México y siete países— fue claro: los pequeños productores suelen sentirse alejados del mundo digital. Para cerrar esa brecha se apuesta por aplicaciones gratuitas, tutoriales y capacitación que los conectan a la economía digital y equilibran la balanza frente a los grandes compradores.</p>
+                <p>En la industria maquiladora, el reto ambiental más crítico es el agua residual: las plantas no pueden descargarla contaminada. Desde Tijuana se presentó un sistema automatizado que combina sensores, lámpara UV y nanoburbujas de ozono para desinfectar vegetales y tratar el agua antes de su descarga.</p>
               </div>
+              <div class="bid-dato" data-anim style="--i:1">
+                <p class="bid-dato__nombre">Ganadería conectada<span>Agrotech para pequeños productores</span></p>
+                <p class="bid-dato__cifra"><b>25</b><span>estados de México</span></p>
+                <p class="bid-dato__cifra"><b>7</b><span>países</span></p>
+              </div>
+              <div class="bid-lecciones" data-anim style="--i:2">
+                <p class="bid-lecciones__cabeza">La transformación en la región avanza con pragmatismo:</p>
+                <ol>
+                  <li><img class="bid-lecciones__foto" src="../../assets/img/revista-vol-03/bid-automatizar.jpg" alt="" loading="lazy" style="object-position: 50% 50%"><img class="bid-lecciones__icono" src="../../assets/img/revista-vol-03/bid/icono-automatizar-negro.png" alt="" loading="lazy"><span>01</span>Automatizar por fases</li>
+                  <li><img class="bid-lecciones__foto" src="../../assets/img/revista-vol-03/bid-ciencia.jpg" alt="" loading="lazy" style="object-position: 70% 50%"><img class="bid-lecciones__icono" src="../../assets/img/revista-vol-03/bid/icono-ciencia.png" alt="" loading="lazy"><span>02</span>Aprovechar la ciencia local</li>
+                  <li><img class="bid-lecciones__foto" src="../../assets/img/revista-vol-03/bid-brechas.jpg" alt="" loading="lazy" style="object-position: 30% 50%"><img class="bid-lecciones__icono" src="../../assets/img/revista-vol-03/bid/icono-brechas-negro.png" alt="" loading="lazy"><span>03</span>Cerrar brechas culturales</li>
+                  <li><img class="bid-lecciones__foto" src="../../assets/img/revista-vol-03/bid-sostenibilidad.jpg" alt="" loading="lazy" style="object-position: 55% 50%"><img class="bid-lecciones__icono" src="../../assets/img/revista-vol-03/bid/icono-sostenibilidad.png" alt="" loading="lazy"><span>04</span>Resolver retos de sostenibilidad</li>
+                </ol>
+              </div>
+              <div class="bid-cita bid-cita--foto">
+                <img class="bid-cita__foto" src="../../assets/img/revista-vol-03/bid/cecut-baja-innovation-day.jpg" alt="" loading="lazy">
+                <blockquote data-anim style="--i:3">
+                  <p>“La barrera más fuerte no es técnica, <em>sino cultural.”</em></p>
+                  <cite>Sobre la adopción de tecnología en el sector ganadero</cite>
+                </blockquote>
+                <div class="bid-organiza">
+                  <span>Impulsan</span>
+                  <img class="bid-organiza__sei" src="../../assets/img/revista-vol-03/bid/logo-sei-bc.png" alt="Gobierno de Baja California, Secretaría de Economía e Innovación" loading="lazy">
+                  <img class="bid-organiza__probaja" src="../../assets/img/revista-vol-03/bid/logo-probaja.png" alt="ProBaja Trade &amp; Investment" loading="lazy">
+                </div>
+                <footer class="folio folio--derecha">
+                  <span>Innovación regional</span>
+                  <span class="folio__num">13</span>
+                </footer>
+              </div>
+            </div>
+          </section>
+
+          <!-- 14 · Publicidad (página completa): Trycer. Original 768x1024 (3:4); se extendió
+               11/12 px por lado reflejando el borde para llegar a proporción carta sin recortar. -->
+          <section class="pagina pagina--papel" aria-label="Página 14: publicidad">
+            <div class="pagina__lienzo publicidad">
+              <img src="../../assets/img/revista-vol-03/publicidad/trycer.jpg" alt="Anuncio de Trycer, ciberseguridad avanzada: para tu tranquilidad, estamos contigo en el día a día porque la continuidad de tu negocio es nuestro éxito. Pentesting, análisis de vulnerabilidades, desencriptación de ransomware, incident response, security awareness, servicios MDR (SOC) y Data Rescue Lab. Teléfono (664) 902 76 65." width="791" height="1024" loading="lazy">
+            </div>
+          </section>
+
+          <!-- 15 · Catorce años invisible: apertura -->
+          <section class="pagina pagina--papel" aria-label="Página 15: ciberseguridad e ia, catorce años invisible">
+            <div class="pagina__lienzo hoja oc cw cw-apertura pliego-12">
+              <div class="cw-mod">
+                <div class="cw-mod__rejilla">
+                  <figure class="cw-mod__foto">
+                    <img src="../../assets/img/revista-vol-03/andres-wong-retrato.jpg" alt="Andrés Wong, de Enteracloud y Purple AI, de pie con los brazos cruzados." width="1200" height="1615">
+                    <figcaption><b>Andrés Wong</b>Lead Developer, Enteracloud<br>Socio fundador, Purple AI</figcaption>
+                    <img class="cw-mod__marca marca-empresa" src="../../assets/img/revista-vol-03/logos/purpleai.svg" alt="Purple AI" width="2576" height="688">
+                  </figure>
+                  <div class="cw-mod__principal">
+                    <svg class="rayos" viewBox="0 0 560 540" preserveAspectRatio="xMaxYMax slice" aria-hidden="true"><defs><linearGradient id="cw-g1" gradientUnits="userSpaceOnUse" x1="594" y1="540" x2="815" y2="540"><stop offset="0" stop-color="rgba(9,10,9,1)"/><stop offset="0.45" stop-color="rgba(9,10,9,0.85)"/><stop offset="1" stop-color="rgba(9,10,9,0.08)"/></linearGradient></defs><rect x="594" y="525.0" width="221" height="30" transform="rotate(214 560 540)" fill="url(#cw-g1)"/><rect x="594" y="525.0" width="221" height="30" transform="rotate(238 560 540)" fill="url(#cw-g1)"/><rect x="594" y="525.0" width="221" height="30" transform="rotate(262 560 540)" fill="url(#cw-g1)"/></svg>
+                    <h2 class="cw-mod__titulo" data-anim style="--i:0">Catorce años<br>invisible.</h2>
+                    <p class="cw-mod__sub" data-anim style="--i:1">La IA encontró el agujero. Los atacantes llegaron primero.</p>
+                  </div>
+                  <div class="cw-mod__rayos" aria-hidden="true"><svg viewBox="0 0 200 300" preserveAspectRatio="xMinYMid slice"><defs><linearGradient id="cw-g2" gradientUnits="userSpaceOnUse" x1="46" y1="150" x2="221" y2="150"><stop offset="0" stop-color="#31dc8d"/><stop offset="0.5" stop-color="#31dc8d"/><stop offset="1" stop-color="#31dc8d"/></linearGradient></defs><rect x="46" y="137.0" width="175" height="26" transform="rotate(-58 46 150)" fill="url(#cw-g2)"/><rect x="46" y="137.0" width="175" height="26" transform="rotate(-29 46 150)" fill="url(#cw-g2)"/><rect x="46" y="137.0" width="175" height="26" transform="rotate(0 46 150)" fill="url(#cw-g2)"/><rect x="46" y="137.0" width="175" height="26" transform="rotate(29 46 150)" fill="url(#cw-g2)"/><rect x="46" y="137.0" width="175" height="26" transform="rotate(58 46 150)" fill="url(#cw-g2)"/><rect x="33" y="18" width="26" height="264" fill="url(#cw-g2)"/></svg></div>
+                  <div class="cw-mod__icono"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="1"/><rect x="9.5" y="9.5" width="5" height="5"/><path d="M9 2.5V6M15 2.5V6M9 18v3.5M15 18v3.5M2.5 9H6M2.5 15H6M18 9h3.5M18 15h3.5"/></svg><span>Ciberseguridad e IA</span></div>
+                </div>
+              </div>
+              <header class="cornisa">
+                <span>Ciberseguridad e IA</span>
+                <span>Catorce años invisible · Andrés Wong</span>
+              </header>
+              <div class="cw-espacio" aria-hidden="true"></div>
+              <div class="texto cw-uno" data-anim style="--i:2">
+                <p>El 21 de octubre, PHP y Node.js publicaron parches de emergencia. Ocho días después, Binance confirmó el robo de 6,300 millones de dólares, el mayor de la historia cripto. En casi toda la cobertura aparece la misma explicación: inteligencia artificial. Es cierta a medias, y la mitad que falta es la más importante.</p>
+              </div>
+              <h3 class="texto__sub cw-sub-ancho">El bug que llevaba catorce años</h3>
+              <div class="texto texto--2col" data-anim style="--i:2">
+                <p>Las fallas de PHP permiten que alguien sin usuario ni contraseña ejecute código en tu servidor, en todas las versiones desde la 5.4: el 70% de internet y más de 22 millones de instalaciones expuestas. <strong>Ese agujero llevaba catorce años ahí</strong>, en uno de los programas más auditados del planeta. En agosto lo encontraron dos equipos por separado, ambos apoyados en modelos de IA.</p>
+              </div>
+              <blockquote class="oc-cita cw-cita11" data-anim style="--i:3">
+                <p>No es casualidad: <em>cambió el instrumento.</em></p>
+              </blockquote>
               <footer class="folio folio--derecha">
-                <span>Innovación regional</span>
+                <span>Ciberseguridad e IA</span>
                 <span class="folio__num">15</span>
               </footer>
             </div>
           </section>
 
-          <!-- 16 · Perspectivas (3) -->
-          <section class="pagina pagina--papel" aria-label="Página 16: perspectivas baja innovation day">
-            <div class="pagina__lienzo hoja articulo">
-              <header class="cornisa">
-                <span>Innovación regional</span>
-                <span>Baja Innovation Day</span>
-              </header>
-              <aside class="usos" data-anim style="--i:0">
-                <p class="etiqueta">Tópicos</p>
-                <ul>
-                  <li>Automatización de procesos gradual</li>
-                  <li>Vinculación ciencia e industria</li>
-                  <li>Transformación digital del agro</li>
-                  <li>Sostenibilidad y cumplimiento industrial</li>
-                  <li>Innovación en Baja California</li>
-                </ul>
-              </aside>
-              <blockquote class="cita-banda" data-anim style="--i:1">
-                <p>“La barrera más fuerte no es técnica, sino cultural.”</p>
-                <cite class="firma"><b>Baja Innovation Day</b> · Sobre la adopción de tecnología en el sector ganadero</cite>
-              </blockquote>
-              <footer class="folio">
-                <span class="folio__num">16</span>
-                <span>Innovación regional</span>
-              </footer>
-            </div>
-          </section>
-
-          <!-- 17 · Catorce años invisible: apertura -->
-          <section class="pagina pagina--verde" aria-label="Página 17: ciberseguridad e ia, catorce años invisible">
-            <div class="pagina__lienzo hoja dato">
-              <div class="reticula" aria-hidden="true"></div>
+          <!-- 16 · Catorce años invisible: Binance y cronología -->
+          <section class="pagina pagina--papel" aria-label="Página 16: catorce años invisible">
+            <div class="pagina__lienzo hoja oc cw pliego-13">
               <header class="cornisa">
                 <span>Ciberseguridad e IA</span>
-                <span>Andrés Wong</span>
+                <span>Catorce años invisible · Andrés Wong</span>
               </header>
-              <p class="etiqueta dato__etiqueta" data-anim style="--i:0"><span class="etiqueta__punto"></span>Un agujero escondido en PHP durante</p>
-              <p class="dato__giga" data-anim style="--i:1"><span data-contar="14">14</span><small>años</small></p>
-              <h2 class="titulo-2" data-anim style="--i:2">Catorce años invisible.</h2>
-              <p class="dato__pie" data-anim style="--i:3">La inteligencia artificial encontró este mes los agujeros más graves de internet. El robo más grande de la historia no los necesitó.</p>
-              <dl class="trio" data-anim style="--i:4">
-                <div><dt>22 M</dt><dd>instalaciones de PHP expuestas, según Palo Alto</dd></div>
-                <div><dt>70%</dt><dd>de internet afectado, según Wiz</dd></div>
-                <div><dt>6,300 M</dt><dd>de dólares robados a Binance</dd></div>
-              </dl>
-              <p class="firma" data-anim style="--i:5"><b>Por Andrés Wong</b> · Lead Developer de Enteracloud y fundador de Purple AI</p>
-              <footer class="folio folio--derecha">
-                <span>Andrés Wong</span>
-                <span class="folio__num">17</span>
-              </footer>
+              <div class="oc-cabeza">
+                <h3 class="oc-h3">La IA no cambió quién gana. <em>Cambió cuánto dura la ventana.</em></h3>
+              </div>
+              <div class="texto cw-uno" data-anim style="--i:0">
+                <p>Los detalles se filtraron un día antes de lo acordado y siguieron millones de intentos de ataque. Antes pasaban semanas entre que una falla se hacía pública y alguien construía un ataque: ese era el tiempo para actualizar. Esa fricción se acabó, y al atacante le basta un servidor sin parchear entre veintidós millones.</p>
+              </div>
+              <h3 class="texto__sub cw-sub-ancho">6,300 millones, y ni un solo modelo de IA</h3>
+              <div class="texto texto--2col" data-anim style="--i:0">
+                <p>En la cobertura del robo a Binance no hay un solo reporte que ponga a la IA en el camino del ataque. Según la investigación preliminar, el atacante entró por la laptop de un ingeniero al que <strong>convencieron de correr una “prueba”</strong>. La empresa aclaró que no fue el único punto de entrada; la historia sigue abierta. Pero el eje ya se ve: el perímetro técnico se endurece como nunca, y el robo más grande necesitó una persona dispuesta a hacerle un favor a un desconocido.</p>
+              </div>
+              <div class="cw-crono cw-crono12" data-anim style="--i:1">
+                <p class="cw-crono__titulo">Cronología de octubre</p>
+                <ol>
+                  <li><span>Agosto 2026</span><b>Dos equipos encuentran el bug</b>Cada uno con un modelo de IA, con semanas de diferencia.</li>
+                  <li><span>21 de octubre</span><b>PHP y Node parchean</b>Fallas que permiten ejecutar código sin contraseña.</li>
+                  <li><span>El mismo día</span><b>Los detalles se filtran</b>La ventaja cambia de bando: millones de intentos de ataque.</li>
+                  <li class="cw-crono__final"><span>29 y 30 de octubre</span><b>6,300 M robados, sin IA</b>Entraron por la laptop de un ingeniero.</li>
+                </ol>
+                <div class="cw-cifras12">
+                  <p><b>14</b><span>años escondido el bug de PHP</span></p>
+                  <p><b>22 M</b><span>instalaciones expuestas</span></p>
+                  <p class="cw-cifras12__final"><b>6,300 M</b><span>dólares robados a Binance</span></p>
+                </div>
+                <footer class="folio">
+                  <span class="folio__num">16</span>
+                  <span>Ciberseguridad e IA</span>
+                </footer>
+              </div>
             </div>
           </section>
 
-          <!-- 18 · Catorce años invisible (1) -->
+          <!-- 17 · Catorce años invisible: Binance, agentes y balance -->
+          <section class="pagina pagina--papel" aria-label="Página 17: catorce años invisible">
+            <div class="pagina__lienzo hoja oc cw cw-p13 pliego-14">
+              <header class="cornisa">
+                <span>Ciberseguridad e IA</span>
+                <span>Catorce años invisible · Andrés Wong</span>
+              </header>
+              <div class="texto texto--2col" data-anim style="--i:0">
+                <h3 class="texto__sub">Ahora los robots tienen las llaves</h3>
+                <p>Octubre también trajo ataques a la cadena de suministro: librerías contaminadas, incluida LiteLLM, y un gusano que roba credenciales de desarrollo y de la nube. Es un ataque contra la forma en que hoy se trabaja con agentes de IA. En mi laptop corren agentes con memoria, herramientas y credenciales: muy productivo y, visto desde el otro lado, un objetivo precioso.</p>
+              </div>
+              <p class="cw-pregunta" data-anim style="--i:2">Si en tu empresa alguien ya usa agentes conectados a sistemas reales, la pregunta de esta semana es: <em>¿qué llaves tienen, y qué pasa si alguien se las queda?</em></p>
+              <div class="oc-sello cw-sello13">
+                <svg class="oc-sello__rayos" viewBox="0 0 200 300" preserveAspectRatio="xMaxYMax meet" aria-hidden="true"><g fill="#050505"><circle cx="10" cy="10" r="0.89"/><circle cx="10" cy="30" r="0.97"/><circle cx="10" cy="50" r="1.06"/><circle cx="10" cy="70" r="0.89"/><circle cx="10" cy="90" r="0.97"/><circle cx="10" cy="110" r="1.06"/><circle cx="10" cy="130" r="0.89"/><circle cx="10" cy="150" r="0.97"/><circle cx="10" cy="170" r="1.06"/><circle cx="10" cy="190" r="0.89"/><circle cx="10" cy="210" r="0.97"/><circle cx="10" cy="230" r="1.06"/><circle cx="10" cy="250" r="0.89"/><circle cx="10" cy="270" r="0.97"/><circle cx="10" cy="290" r="1.06"/><circle cx="30" cy="10" r="0.97"/><circle cx="30" cy="30" r="1.15"/><circle cx="30" cy="50" r="1.32"/><circle cx="30" cy="70" r="0.97"/><circle cx="30" cy="90" r="1.15"/><circle cx="30" cy="110" r="1.32"/><circle cx="30" cy="130" r="0.97"/><circle cx="30" cy="150" r="1.15"/><circle cx="30" cy="170" r="1.32"/><circle cx="30" cy="190" r="0.97"/><circle cx="30" cy="210" r="1.15"/><circle cx="30" cy="230" r="1.32"/><circle cx="30" cy="250" r="0.97"/><circle cx="30" cy="270" r="1.15"/><circle cx="30" cy="290" r="1.32"/><circle cx="50" cy="10" r="1.06"/><circle cx="50" cy="30" r="1.32"/><circle cx="50" cy="50" r="1.58"/><circle cx="50" cy="70" r="1.06"/><circle cx="50" cy="90" r="1.32"/><circle cx="50" cy="110" r="1.58"/><circle cx="50" cy="130" r="1.06"/><circle cx="50" cy="150" r="1.32"/><circle cx="50" cy="170" r="1.58"/><circle cx="50" cy="190" r="1.06"/><circle cx="50" cy="210" r="1.32"/><circle cx="50" cy="230" r="1.58"/><circle cx="50" cy="250" r="1.06"/><circle cx="50" cy="270" r="1.32"/><circle cx="50" cy="290" r="1.58"/><circle cx="70" cy="10" r="1.15"/><circle cx="70" cy="30" r="1.49"/><circle cx="70" cy="50" r="1.84"/><circle cx="70" cy="70" r="1.15"/><circle cx="70" cy="90" r="1.49"/><circle cx="70" cy="110" r="1.84"/><circle cx="70" cy="130" r="1.15"/><circle cx="70" cy="150" r="1.49"/><circle cx="70" cy="170" r="1.84"/><circle cx="70" cy="190" r="1.15"/><circle cx="70" cy="210" r="1.49"/><circle cx="70" cy="230" r="1.84"/><circle cx="70" cy="250" r="1.15"/><circle cx="70" cy="270" r="1.49"/><circle cx="70" cy="290" r="1.84"/><circle cx="90" cy="10" r="1.23"/><circle cx="90" cy="30" r="1.67"/><circle cx="90" cy="50" r="2.10"/><circle cx="90" cy="70" r="1.23"/><circle cx="90" cy="90" r="1.67"/><circle cx="90" cy="110" r="2.10"/><circle cx="90" cy="130" r="1.23"/><circle cx="90" cy="150" r="1.67"/><circle cx="90" cy="170" r="2.10"/><circle cx="90" cy="190" r="1.23"/><circle cx="90" cy="210" r="1.67"/><circle cx="90" cy="230" r="2.10"/><circle cx="90" cy="250" r="1.23"/><circle cx="90" cy="270" r="1.67"/><circle cx="90" cy="290" r="2.10"/><circle cx="110" cy="10" r="1.32"/><circle cx="110" cy="30" r="1.84"/><circle cx="110" cy="50" r="2.36"/><circle cx="110" cy="70" r="1.32"/><circle cx="110" cy="90" r="1.84"/><circle cx="110" cy="110" r="2.36"/><circle cx="110" cy="130" r="1.32"/><circle cx="110" cy="150" r="1.84"/><circle cx="110" cy="170" r="2.36"/><circle cx="110" cy="190" r="1.32"/><circle cx="110" cy="210" r="1.84"/><circle cx="110" cy="230" r="2.36"/><circle cx="110" cy="250" r="1.32"/><circle cx="110" cy="270" r="1.84"/><circle cx="110" cy="290" r="2.36"/><circle cx="130" cy="10" r="1.41"/><circle cx="130" cy="30" r="2.01"/><circle cx="130" cy="50" r="2.62"/><circle cx="130" cy="70" r="1.41"/><circle cx="130" cy="90" r="2.01"/><circle cx="130" cy="110" r="2.62"/><circle cx="130" cy="130" r="1.41"/><circle cx="130" cy="150" r="2.01"/><circle cx="130" cy="170" r="2.62"/><circle cx="130" cy="190" r="1.41"/><circle cx="130" cy="210" r="2.01"/><circle cx="130" cy="230" r="2.62"/><circle cx="130" cy="250" r="1.41"/><circle cx="130" cy="270" r="2.01"/><circle cx="130" cy="290" r="2.62"/><circle cx="150" cy="10" r="1.49"/><circle cx="150" cy="30" r="2.19"/><circle cx="150" cy="50" r="2.88"/><circle cx="150" cy="70" r="1.49"/><circle cx="150" cy="90" r="2.19"/><circle cx="150" cy="110" r="2.88"/><circle cx="150" cy="130" r="1.49"/><circle cx="150" cy="150" r="2.19"/><circle cx="150" cy="170" r="2.88"/><circle cx="150" cy="190" r="1.49"/><circle cx="150" cy="210" r="2.19"/><circle cx="150" cy="230" r="2.88"/><circle cx="150" cy="250" r="1.49"/><circle cx="150" cy="270" r="2.19"/><circle cx="150" cy="290" r="2.88"/><circle cx="170" cy="10" r="1.58"/><circle cx="170" cy="30" r="2.36"/><circle cx="170" cy="50" r="3.14"/><circle cx="170" cy="70" r="1.58"/><circle cx="170" cy="90" r="2.36"/><circle cx="170" cy="110" r="3.14"/><circle cx="170" cy="130" r="1.58"/><circle cx="170" cy="150" r="2.36"/><circle cx="170" cy="170" r="3.14"/><circle cx="170" cy="190" r="1.58"/><circle cx="170" cy="210" r="2.36"/><circle cx="170" cy="230" r="3.14"/><circle cx="170" cy="250" r="1.58"/><circle cx="170" cy="270" r="2.36"/><circle cx="170" cy="290" r="3.14"/><circle cx="190" cy="10" r="1.67"/><circle cx="190" cy="30" r="2.53"/><circle cx="190" cy="50" r="3.40"/><circle cx="190" cy="70" r="1.67"/><circle cx="190" cy="90" r="2.53"/><circle cx="190" cy="110" r="3.40"/><circle cx="190" cy="130" r="1.67"/><circle cx="190" cy="150" r="2.53"/><circle cx="190" cy="170" r="3.40"/><circle cx="190" cy="190" r="1.67"/><circle cx="190" cy="210" r="2.53"/><circle cx="190" cy="230" r="3.40"/><circle cx="190" cy="250" r="1.67"/><circle cx="190" cy="270" r="2.53"/><circle cx="190" cy="290" r="3.40"/></g></svg>
+                <div class="ag14" data-anim style="--i:1">
+                  <p class="ag14__cabeza">La oficina de agentes de Andrés Wong</p>
+                  <ol class="ag14__cifras">
+                    <li><span>01</span><b>27</b><em>agentes de IA</em></li>
+                    <li><span>02</span><b>10</b><em>departamentos</em></li>
+                    <li class="ag14__final"><span>03</span><b>4</b><em>máquinas</em></li>
+                  </ol>
+                </div>
+                
+                <blockquote class="oc-cita" data-anim style="--i:3">
+                  <p>La IA nos está dando defensas que no teníamos y <em>velocidades que no sabemos manejar.</em></p>
+                  <cite>Andrés Wong · Lead Developer, Enteracloud · Socio fundador, Purple AI</cite>
+                </blockquote>
+                <footer class="folio folio--derecha">
+                  <span>Ciberseguridad e IA</span>
+                  <span class="folio__num">17</span>
+                </footer>
+              </div>
+            </div>
+          </section>
+
+          <!-- 18 · Catorce años invisible: el balance -->
           <section class="pagina pagina--papel" aria-label="Página 18: catorce años invisible">
-            <div class="pagina__lienzo hoja articulo">
+            <div class="pagina__lienzo hoja oc cw cw-balance">
               <header class="cornisa">
                 <span>Ciberseguridad e IA</span>
                 <span>Catorce años invisible · Andrés Wong</span>
               </header>
-              <div class="texto texto--2col" data-anim style="--i:0">
-                <p>El 21 de octubre, PHP publicó parches de emergencia para dos fallas críticas. El mismo día, Node.js publicó los suyos. Ocho días después, Binance suspendió retiros y confirmó el robo de 6,300 millones de dólares, el mayor de la historia de las criptomonedas por un margen enorme: el récord anterior fue de 1,500 millones.</p>
-                <p>En casi toda la cobertura de ese mes aparece la misma palabra como explicación: inteligencia artificial. Esa explicación es cierta a medias, y la mitad que falta es la más importante.</p>
-                <h3 class="texto__sub">El bug que llevaba catorce años, y lo encontró una máquina</h3>
-                <p>Las dos fallas de PHP permiten que alguien sin usuario ni contraseña ejecute código en tu servidor. Afectan a todas las versiones desde la 5.4 hasta la 8.5.11, lo que en la práctica significa casi todo: la empresa de seguridad Wiz calculó el alcance en 70% de internet, y Palo Alto contó más de 22 millones de instalaciones expuestas.</p>
-                <p>Lo llamativo no es la gravedad. Es que <strong>ese agujero llevaba catorce años ahí</strong>. Nadie lo había visto, y no por falta de ojos: PHP es uno de los programas más auditados del planeta, con tres décadas de escrutinio encima.</p>
-                <p>Lo encontraron en agosto de 2026, y lo encontraron dos equipos distintos, por separado, con semanas de diferencia. Un investigador independiente, Ryan Austin, dentro de un proyecto de OpenAI llamado <em>Patch the Planet</em>, apoyándose en el modelo GPT-5.6 Sol. Y el equipo de Wiz, con Gemini 4 Argon y una herramienta propia.</p>
-                <p>Que dos grupos independientes tropiecen con el mismo bug de catorce años en el mismo verano no es casualidad. Es la señal de que cambió el instrumento.</p>
-                <p>La falla de Node cuenta la misma historia. Vive en el decodificador de Brotli, una librería de compresión que casi nadie nombra y casi todo el mundo usa, y la reportaron Khai Tran y Sylvie Mayer, del equipo de seguridad de OpenAI Codex. No es una atribución de prensa: viene acreditada en el aviso oficial de Node.js.</p>
+              <div class="oc-cabeza">
+                <h3 class="oc-h3">La IA no rompió internet. <em>La abrió en canal.</em></h3>
               </div>
-              <footer class="folio">
-                <span class="folio__num">18</span>
-                <span>Ciberseguridad e IA</span>
-              </footer>
+              <div class="texto cw-uno">
+                <p>La lectura fácil de octubre es que la inteligencia artificial rompió internet. Es falsa. Lo que pasó es que abrió en canal una infraestructura que llevaba años con heridas que nadie veía, y lo hizo del lado correcto: <strong>los dos agujeros grandes del mes los encontraron investigadores usando modelos, no criminales.</strong></p>
+              </div>
+              <h3 class="texto__sub cw-sub-ancho">El balance</h3>
+              <div class="texto texto--2col">
+                <p>El precio de ese regalo es que se acabó el tiempo muerto. Lo que antes tardaba semanas en volverse un ataque funcional ahora tarda días, y tu plan de actualización todavía está escrito para el mundo anterior.</p>
+                <p>Y la coda, la que yo me llevo: mientras el perímetro corre a esa velocidad, el robo más grande que se ha visto entró por una laptop y una conversación.</p>
+              </div>
+              <div class="cw-crono cw-crono12 cw-cierre">
+                <p class="cw-crono__titulo">La coda</p>
+                <blockquote class="cw-cierre__cita">
+                  <p>Lo que no nos está dando, y no nos va a dar, es <em>gente que desconfíe a tiempo.</em></p>
+                  <cite>Andrés Wong · Lead Developer, Enteracloud · Socio fundador, Purple AI</cite>
+                </blockquote>
+                <footer class="folio">
+                  <span class="folio__num">18</span>
+                  <span>Ciberseguridad e IA</span>
+                </footer>
+              </div>
             </div>
           </section>
 
-          <!-- 19 · Catorce años invisible: cronología -->
-          <section class="pagina pagina--noche" aria-label="Página 19: catorce años invisible, cronología">
-            <div class="pagina__lienzo hoja">
-              <header class="cornisa">
-                <span>Ciberseguridad e IA</span>
-                <span>Cronología de octubre</span>
-              </header>
-              <figure class="figura-pagina" data-anim style="--i:0">
-                <img src="../../assets/img/revista-vol-03/andres-wong-cronologia.png" alt="Cronología: en agosto de 2026 dos equipos encuentran el bug de PHP; el 21 de octubre PHP y Node parchean; el mismo día se filtran los detalles; el 29 y 30 de octubre Binance confirma el robo de 6,300 millones de dólares, sin IA de por medio." width="1240" height="1500">
-                <figcaption>Gráfico: Andrés Wong · Cifras al 30 de octubre de 2026</figcaption>
-              </figure>
-              <footer class="folio folio--derecha">
-                <span>Ciberseguridad e IA</span>
-                <span class="folio__num">19</span>
-              </footer>
+          <!-- 19 · Publicidad (página completa): Purple AI -->
+          <section class="pagina pagina--papel" aria-label="Página 19: publicidad">
+            <div class="pagina__lienzo publicidad">
+              <img src="../../assets/img/revista-vol-03/publicidad/purpleai-pagina.jpg?v=202611231200" alt="Anuncio de Purple AI: la IA que funciona empieza con un diagnóstico. Descubre dónde la IA genera valor real en tu operación. Solicita tu diagnóstico en purpleai.mx." width="2550" height="3300" loading="lazy">
             </div>
           </section>
 
-          <!-- 20 · Catorce años invisible (1) -->
-          <section class="pagina pagina--papel" aria-label="Página 20: catorce años invisible">
-            <div class="pagina__lienzo hoja articulo">
-              <header class="cornisa">
-                <span>Ciberseguridad e IA</span>
-                <span>Catorce años invisible · Andrés Wong</span>
-              </header>
-              <div class="texto texto--2col" data-anim style="--i:0">
-                <h3 class="texto__sub">La paradoja del parche</h3>
-                <p>Hasta aquí la historia es buena. La inteligencia artificial encontró, en semanas, agujeros que llevaban más de una década escondidos en la infraestructura de la que depende medio mundo. Eso es defensa, y es exactamente para lo que uno quiere estas herramientas.</p>
-                <p>El problema vino después. Los detalles de la falla de PHP <strong>se filtraron un día antes</strong> de la fecha acordada. En seguridad ese orden lo es todo: primero el parche, después el detalle, para que los administradores tengan ventaja. Cuando el detalle sale primero, la ventaja cambia de bando. Lo que siguió fueron millones de intentos de ataque en todo el mundo.</p>
-                <p>Y aquí está el punto que menos se está diciendo:</p>
-                <p><strong>La inteligencia artificial no cambió quién gana. Cambió cuánto dura la ventana.</strong></p>
-                <p>Antes, entre que una falla se hacía pública y alguien construía un ataque funcional, pasaban semanas. A veces meses. Ese retraso era, en los hechos, el tiempo que tenían los administradores del mundo para actualizar. Nadie lo diseñó así: era un regalo de la fricción.</p>
-                <p>Esa fricción se acabó. Las mismas herramientas que ayudaron a encontrar el bug sirven para escribir el ataque, y el atacante tiene una ventaja que no se puede compensar: al defensor le toca parchear veintidós millones de servidores, y al atacante le basta encontrar uno sin parchear.</p>
-                <h3 class="texto__sub">6,300 millones, y ni un solo modelo de inteligencia artificial</h3>
-                <p>Ahora el robo de Binance, que es donde todo el mundo está completando la frase con lo que suena bien.</p>
-                <p>Busqué la conexión con inteligencia artificial en la cobertura del caso. <strong>No existe.</strong> No hay un solo reporte que la ponga en el camino de ese ataque.</p>
-                <p>Lo que sí hay, según la investigación preliminar de la propia Binance, es esto: la laptop de un ingeniero quedó comprometida; desde ahí el atacante alcanzó un contenedor de servicio y autorizó retiros. ¿Y cómo entraron a esa laptop? Según los primeros reportes, <strong>convencieron al ingeniero de correr una "prueba"</strong>, y el programa malicioso se instaló mientras la hacía. La misma treta de siempre: una persona amable, una petición razonable, un archivo.</p>
-              </div>
-              <footer class="folio">
-                <span class="folio__num">20</span>
-                <span>Ciberseguridad e IA</span>
-              </footer>
+          <!-- 20 · Publicidad (página completa): Hikvision AcuSeek -->
+          <section class="pagina pagina--papel" aria-label="Página 20: publicidad">
+            <div class="pagina__lienzo publicidad">
+              <img src="../../assets/img/revista-vol-03/publicidad/hikvision-acuseek.jpg" alt="Anuncio de Hikvision: aplicación AcuSeek para parques empresariales. Búsqueda por texto en grabaciones de video para encontrar personas o vehículos al instante." width="2550" height="3300" loading="lazy">
             </div>
           </section>
 
-          <!-- 21 · Catorce años invisible (2) -->
-          <section class="pagina pagina--papel" aria-label="Página 21: catorce años invisible">
-            <div class="pagina__lienzo hoja articulo">
-              <header class="cornisa">
-                <span>Ciberseguridad e IA</span>
-                <span>Catorce años invisible · Andrés Wong</span>
-              </header>
-              <div class="texto texto--2col" data-anim style="--i:0">
-                <p>Conviene un matiz honesto, porque lo añadió la propia empresa: días después aclaró que la laptop no era la explicación completa, y no ha dicho cuáles fueron los otros puntos de entrada. La historia sigue abierta.</p>
-                <p>Pero el eje ya se ve, y es incómodo para los dos bandos del debate. El perímetro técnico se está endureciendo a una velocidad que no habíamos visto nunca, gracias a la IA. Y el robo más grande de la historia no necesitó nada de eso: necesitó una persona dispuesta a hacerle un favor a un desconocido.</p>
-                <h3 class="texto__sub">Lo que viene: ahora los robots tienen las llaves</h3>
-                <p>Hay una tercera capa de octubre que pasó desapercibida porque no trae cifras espectaculares, y es la que a mí más me preocupa.</p>
-                <p>Durante el mes hubo una tanda de ataques a la cadena de suministro: en lugar de atacar tu servidor, contaminan la librería que tú instalas. Le tocó incluso a LiteLLM, que es una pieza de infraestructura de inteligencia artificial. Y apareció un gusano que roba, específicamente, credenciales de desarrollo y de la nube.</p>
-                <p>Eso no es un ataque contra una empresa. Es un ataque contra la forma en que hoy se trabaja con agentes de IA.</p>
-                <p>Lo digo desde mi propia casa. En mi laptop corren ahora mismo veintisiete agentes de inteligencia artificial con nombre propio, repartidos en diez departamentos y cuatro máquinas. Cada uno tiene memoria de la organización, herramientas conectadas y, para poder trabajar, credenciales. Es un esquema enormemente productivo y es, visto desde el otro lado, un objetivo precioso: muchas llaves, en un mismo lugar, operadas por procesos que actúan solos.</p>
+          <!-- 21 · Construyendo el ecosistema: apertura -->
+          <section class="pagina pagina--papel" aria-label="Página 21: comunidad, construyendo el ecosistema tecnológico de Baja California">
+            <div class="pagina__lienzo hoja oc cw ec ec-apertura">
+              <div class="ec-mod">
+                <div class="ec-mod__rejilla">
+                  <div class="ec-mod__principal">
+                    <h2 class="ec-mod__titulo" data-anim style="--i:0">Construyendo<br><span class="ec-mod__linea">el <em>ecosistema.</em></span></h2>
+                    <p class="ec-mod__sub" data-anim style="--i:1">Tecnología en Baja California: el conocimiento existe, la conexión es el desafío.</p>
+                    <img class="ec-mod__logo marca-empresa" src="../../assets/img/revista-vol-03/logos/alti-claro.png" alt="ALTI" width="1024" height="296">
+                  </div>
+                  <figure class="ec-mod__foto">
+                    <img src="../../assets/img/revista-vol-03/christian-picos-retrato.jpg" alt="Christian Picos, de Hospital Excel, de pie con saco gris sobre fondo claro." width="2000" height="1131">
+                    <figcaption><b>Christian Picos</b>Hospital Excel<br>Director de ALTI</figcaption>
+                  </figure>
+                  <div class="ec-mod__rayos" aria-hidden="true"><svg viewBox="0 0 200 300" preserveAspectRatio="xMinYMid slice"><rect x="46" y="137" width="175" height="26" transform="rotate(-58 46 150)" fill="#050505"/><rect x="46" y="137" width="175" height="26" transform="rotate(-29 46 150)" fill="#050505"/><rect x="46" y="137" width="175" height="26" transform="rotate(0 46 150)" fill="#050505"/><rect x="46" y="137" width="175" height="26" transform="rotate(29 46 150)" fill="#050505"/><rect x="46" y="137" width="175" height="26" transform="rotate(58 46 150)" fill="#050505"/><rect x="33" y="18" width="26" height="264" fill="#050505"/></svg></div>
+                  <div class="ec-mod__icono"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="2.4"/><circle cx="5" cy="18" r="2.4"/><circle cx="19" cy="18" r="2.4"/><path d="M10.8 7.1L6.2 15.9M13.2 7.1l4.6 8.8M7.4 18h9.2"/></svg><span>Comunidad</span></div>
+                </div>
               </div>
-              <figure class="figura-pagina figura-pagina--chica" data-anim style="--i:1">
-                <img src="../../assets/img/revista-vol-03/andres-wong-censo-agentes.png" alt="Captura de terminal: 27 agentes de IA con nombre propio, repartidos en cuatro máquinas, con su estado y tarea." width="1273" height="1950">
-                <figcaption>La oficina de agentes de Andrés Wong, 30 de octubre de 2026</figcaption>
-              </figure>
+              <header class="cornisa">
+                <span>Comunidad</span>
+                <span>Construyendo el ecosistema · Christian Picos</span>
+              </header>
+              <div class="cw-espacio ec-espacio" aria-hidden="true"></div>
+              <div class="texto cw-uno" data-anim style="--i:2">
+                <p>Hay una pregunta que vale la pena hacernos como líderes de tecnología e innovación: ¿qué podríamos lograr si dejáramos de enfrentar nuestros desafíos por separado y comenzáramos a construir soluciones en conjunto?</p>
+              </div>
+              <h3 class="texto__sub cw-sub-ancho">De un foro a una alianza</h3>
               <div class="texto texto--2col" data-anim style="--i:2">
-                <p>Lo construimos con reglas de contención, pero hay algo que no está resuelto y prefiero decirlo yo: separar agentes por áreas es organización, no encierro. Por debajo corren todos en la misma máquina. Después de octubre, eso dejó de ser trabajo pendiente y pasó a ser urgente.</p>
-                <p>Si en tu empresa alguien ya está usando agentes de IA conectados a sistemas reales —y lo está, lo sepas tú o no—, esa es la pregunta de esta semana: <em>¿qué llaves tiene, y qué pasa si alguien se las queda?</em></p>
+                <p>En julio de 2025 asistí al Foro de Tecnología MX para convivir con personas de mi entorno profesional, intercambiar experiencias y conocer proveedores. Encontré cientos de personas hablando de tecnología, proyectos y negocios, y entendí el valor de reunirnos con quienes comprenden nuestros desafíos.</p>
+                <p>Meses después recibí la invitación para participar en la Alianza de Líderes de Tecnología e Innovación (ALTI). <strong>No llegué porque tuviera todas las respuestas</strong>, sino porque reconocí una iniciativa que podía ayudarnos a encontrarlas juntos.</p>
               </div>
+              <blockquote class="oc-cita cw-cita11" data-anim style="--i:3">
+                <p>El conocimiento existe. <em>La conexión es el desafío.</em></p>
+              </blockquote>
               <footer class="folio folio--derecha">
-                <span>Ciberseguridad e IA</span>
+                <span>Comunidad</span>
                 <span class="folio__num">21</span>
               </footer>
             </div>
           </section>
 
-          <!-- 22 · Catorce años invisible (3) -->
-          <section class="pagina pagina--papel" aria-label="Página 22: catorce años invisible">
-            <div class="pagina__lienzo hoja articulo">
+          <!-- 22 · Construyendo el ecosistema: más allá de la herramienta -->
+          <section class="pagina pagina--papel" aria-label="Página 22: construyendo el ecosistema">
+            <div class="pagina__lienzo hoja oc cw ec">
               <header class="cornisa">
-                <span>Ciberseguridad e IA</span>
-                <span>Catorce años invisible · Andrés Wong</span>
+                <span>Comunidad</span>
+                <span>Construyendo el ecosistema · Christian Picos</span>
               </header>
-              <div class="texto texto--2col" data-anim style="--i:0">
-                <h3 class="texto__sub">El balance</h3>
-                <p>La lectura fácil de octubre es que la inteligencia artificial rompió internet. Es falsa. Lo que pasó es que abrió en canal una infraestructura que llevaba años con heridas que nadie veía, y lo hizo del lado correcto: los dos agujeros grandes del mes los encontraron investigadores usando modelos, no criminales.</p>
-                <p>El precio de ese regalo es que se acabó el tiempo muerto. Lo que antes tardaba semanas en volverse un ataque funcional ahora tarda días, y tu plan de actualización todavía está escrito para el mundo anterior.</p>
-                <p>Y la coda, la que yo me llevo: mientras el perímetro corre a esa velocidad, el robo más grande que se ha visto entró por una laptop y una conversación. La IA nos está dando defensas que no teníamos y velocidades que no sabemos manejar. Lo que no nos está dando, y no nos va a dar, es gente que desconfíe a tiempo.</p>
+              <div class="oc-cabeza">
+                <p class="oc-kicker">Más allá de la herramienta</p>
+                <h3 class="oc-h3">Hay problemas que no se resuelven <em>con una búsqueda en internet.</em></h3>
               </div>
-              <blockquote class="cita-banda" data-anim style="--i:1">
-                <p>“La IA nos está dando defensas que no teníamos y velocidades que no sabemos manejar.”</p>
-                <cite class="firma"><b>Andrés Wong</b> · Catorce años invisible</cite>
-              </blockquote>
-              <footer class="folio">
-                <span class="folio__num">22</span>
-                <span>Ciberseguridad e IA</span>
-              </footer>
+              <div class="texto texto--2col" data-anim style="--i:0">
+                <p>Muchas preguntas encuentran respuesta en la documentación, los cursos o las comunidades técnicas. Hoy, además, la inteligencia artificial nos ayuda a investigar, programar y analizar información en minutos. Pero llega un momento en que el problema deja de ser exclusivamente técnico.</p>
+                <p>En el sector privado de la salud he comprendido que algunos problemas implican entender procesos, proteger información confidencial, evaluar riesgos, coordinar equipos y tomar decisiones que afectan la operación. <strong>Ninguna tecnología, por sí sola, garantiza que una organización funcione mejor.</strong> La verdadera transformación comienza cuando entendemos el problema que necesitamos resolver.</p>
+                <p>Eso requiere líderes que conversen con la dirección, colaboren con las áreas operativas y traduzcan los desafíos en soluciones con sentido. Una comunidad de líderes permite que esas experiencias se encuentren y se complementen.</p>
+              </div>
+              <div class="cw-crono ec-impulsa" data-anim style="--i:1">
+                <p class="cw-crono__titulo">Lo que impulsa ALTI</p>
+                <ol>
+                  <li><span>Cada mes · en línea</span><b>MENTOR ALTI</b>Encuentros virtuales para compartir experiencias y perspectivas sobre los temas que transforman la profesión.</li>
+                  <li><span>Durante el año</span><b>Eventos presenciales</b>Para encontrarnos, ampliar redes de colaboración y construir relaciones de confianza.</li>
+                  <li class="cw-crono__final"><span>Siempre</span><b>Conversaciones honestas</b>Sobre lo que funciona, lo que no y lo que todavía no sabemos resolver, sin competir.</li>
+                </ol>
+                <footer class="folio">
+                  <span class="folio__num">22</span>
+                  <span>Comunidad</span>
+                </footer>
+              </div>
             </div>
           </section>
 
-          <!-- 23 · ALTI: apertura -->
-          <section class="pagina pagina--noche" aria-label="Página 23: alti, construyendo el ecosistema">
-            <div class="pagina__lienzo hoja articulo">
-              <div class="reticula" aria-hidden="true"></div>
+          <!-- 23 · Construyendo el ecosistema: una construcción colectiva -->
+          <section class="pagina pagina--papel" aria-label="Página 23: construyendo el ecosistema">
+            <div class="pagina__lienzo hoja oc cw ec">
               <header class="cornisa">
                 <span>Comunidad</span>
-                <span>ALTI · Alianza de Líderes en Tecnología e Innovación</span>
+                <span>Construyendo el ecosistema · Christian Picos</span>
               </header>
-              <div class="articulo__cabeza">
-                <p class="etiqueta etiqueta--verde" data-anim style="--i:0"><span class="etiqueta__punto"></span>ALTI</p>
-                <h2 class="titulo-2" data-anim style="--i:1">Construyendo el ecosistema tecnológico de Baja California.</h2>
-                <p class="entrada" data-anim style="--i:2">Hay una pregunta que vale la pena hacernos como líderes de tecnología e innovación: ¿qué podríamos lograr si dejáramos de enfrentar nuestros desafíos por separado y comenzáramos a construir soluciones en conjunto?</p>
-                <p class="firma" data-anim style="--i:3"><b>Por [nombre por confirmar]</b> · Director de ALTI</p>
+              <div class="oc-cabeza">
+                <p class="oc-kicker">Una construcción colectiva</p>
+                <h3 class="oc-h3">ALTI no pertenece <em>a una sola voz.</em></h3>
               </div>
-              <div class="texto texto--2col" data-anim style="--i:4">
-                <p class="capitular">En julio de 2025 asistí al Foro de Tecnología MX con una necesidad muy concreta: convivir con personas que compartieran mi entorno profesional, intercambiar experiencias y conocer proveedores que pudieran ayudarme a resolver algunos de los desafíos que enfrentaba en mi trabajo.</p>
-                <p>Lo que encontré superó mis expectativas.</p>
-                <p>Cientos de personas reunidas para hablar de tecnología, proyectos, negocios y experiencias. Profesionales con distintas especialidades, responsabilidades y trayectorias, compartiendo ideas y perspectivas que en otras circunstancias, difícilmente habría tenido la oportunidad de conocer.</p>
-                <p>Aquel evento me permitió visualizar algo que considero fundamental: el valor de encontrarnos con personas que comprenden nuestros desafíos.</p>
-                <p>Meses después, recibí la invitación para participar en la Alianza de Líderes de Tecnología e Innovación (ALTI).</p>
-              </div>
-              <footer class="folio folio--derecha">
-                <span>Comunidad</span>
-                <span class="folio__num">23</span>
-              </footer>
-            </div>
-          </section>
-
-          <!-- 24 · ALTI (2) -->
-          <section class="pagina pagina--papel" aria-label="Página 24: alti, construyendo el ecosistema">
-            <div class="pagina__lienzo hoja articulo">
-              <header class="cornisa">
-                <span>Comunidad</span>
-                <span>ALTI · Construyendo el ecosistema</span>
-              </header>
               <div class="texto texto--2col" data-anim style="--i:0">
-                <p>Encontré una oportunidad de contribuir a algo que conectaba directamente con esa experiencia. No se trataba de una necesidad exclusivamente mía. Era una alternativa para impulsar un espacio de colaboración que muchos profesionales de tecnología de nuestra región también podían requerir.</p>
-                <p>No llegué a ALTI porque tuviera todas las respuestas ni porque creyera que podía construir algo de manera individual. Llegué porque reconocí el valor de una iniciativa que podía ayudarnos a encontrar mejores respuestas juntos.</p>
-                <p>Cada día, en nuestras organizaciones, hay profesionales resolviendo problemas complejos, equipos desarrollando soluciones, líderes tomando decisiones difíciles y personas buscando nuevas formas de hacer mejor su trabajo. Existe talento, experiencia, conocimiento y una enorme capacidad para innovar.</p>
-                <p>El conocimiento existe. La conexión es el desafío.</p>
+                <p>Su identidad, crecimiento e impacto dependerán de quienes decidan participar, aportar sus conocimientos y escuchar otras perspectivas. Como director, asumo la responsabilidad de contribuir a que esta visión se convierta en realidad. Uno de los grandes retos del liderazgo tecnológico es reconocer que nadie domina todas las especialidades.</p>
               </div>
-              <blockquote class="cita-banda" data-anim style="--i:1">
-                <p>“El conocimiento existe. La conexión es el desafío.”</p>
-                <cite class="firma"><b>ALTI</b> · Alianza de Líderes en Tecnología e Innovación</cite>
-              </blockquote>
+              <div class="ec-perfiles" data-anim style="--i:1">
+                <div><span class="oc-mono">01</span><b>Un líder</b><p>puede tener una trayectoria extraordinaria y, aun así, necesitar ayuda ante un problema nuevo.</p></div>
+                <div><span class="oc-mono">02</span><b>Un ingeniero</b><p>puede dominar su especialidad y beneficiarse de quien conoce mejor el negocio.</p></div>
+                <div><span class="oc-mono">03</span><b>Quien apenas comienza</b><p>puede aportar preguntas que cuestionen prácticas que todos daban por sentadas.</p></div>
+              </div>
               <div class="texto texto--2col" data-anim style="--i:2">
-                <p>Creemos que el liderazgo tecnológico necesita espacios donde sea posible hablar con honestidad de lo que funciona, de lo que no funciona y de lo que todavía no sabemos resolver.</p>
-                <p>No siempre existen los lugares adecuados para compartirlo de manera abierta, transparente y constructiva. Tampoco el acceso a una comunidad de colegas con quienes podamos discutir nuestros desafíos más difíciles, intercambiar perspectivas o pedir orientación sin que la conversación se convierta en una competencia.</p>
-                <p>El desafío no es únicamente formar más talento tecnológico. También necesitamos conectar mejor el talento que ya existe.</p>
+                <p>Mi decisión nace de algo personal: experimenté el valor de encontrar una comunidad con la que compartir mi realidad profesional. Sé la diferencia que hace una conversación con alguien que entiende el contexto y está dispuesto a ayudarte a pensar mejor.</p>
+                <p>Quiero que más profesionales de la región tengan esa oportunidad. Que dentro de cinco años podamos reconocer que <strong>esta alianza ayudó a cambiar nuestra manera de pensar, de liderar y de resolver problemas.</strong></p>
               </div>
-              <footer class="folio">
-                <span class="folio__num">24</span>
-                <span>Comunidad</span>
-              </footer>
+              <div class="oc-sello">
+                <svg class="oc-sello__rayos" viewBox="0 0 200 300" preserveAspectRatio="xMaxYMax meet" aria-hidden="true"><g fill="#050505"><circle cx="10" cy="10" r="0.89"/><circle cx="10" cy="30" r="0.97"/><circle cx="10" cy="50" r="1.06"/><circle cx="10" cy="70" r="0.89"/><circle cx="10" cy="90" r="0.97"/><circle cx="10" cy="110" r="1.06"/><circle cx="10" cy="130" r="0.89"/><circle cx="10" cy="150" r="0.97"/><circle cx="10" cy="170" r="1.06"/><circle cx="10" cy="190" r="0.89"/><circle cx="10" cy="210" r="0.97"/><circle cx="10" cy="230" r="1.06"/><circle cx="10" cy="250" r="0.89"/><circle cx="10" cy="270" r="0.97"/><circle cx="10" cy="290" r="1.06"/><circle cx="30" cy="10" r="0.97"/><circle cx="30" cy="30" r="1.15"/><circle cx="30" cy="50" r="1.32"/><circle cx="30" cy="70" r="0.97"/><circle cx="30" cy="90" r="1.15"/><circle cx="30" cy="110" r="1.32"/><circle cx="30" cy="130" r="0.97"/><circle cx="30" cy="150" r="1.15"/><circle cx="30" cy="170" r="1.32"/><circle cx="30" cy="190" r="0.97"/><circle cx="30" cy="210" r="1.15"/><circle cx="30" cy="230" r="1.32"/><circle cx="30" cy="250" r="0.97"/><circle cx="30" cy="270" r="1.15"/><circle cx="30" cy="290" r="1.32"/><circle cx="50" cy="10" r="1.06"/><circle cx="50" cy="30" r="1.32"/><circle cx="50" cy="50" r="1.58"/><circle cx="50" cy="70" r="1.06"/><circle cx="50" cy="90" r="1.32"/><circle cx="50" cy="110" r="1.58"/><circle cx="50" cy="130" r="1.06"/><circle cx="50" cy="150" r="1.32"/><circle cx="50" cy="170" r="1.58"/><circle cx="50" cy="190" r="1.06"/><circle cx="50" cy="210" r="1.32"/><circle cx="50" cy="230" r="1.58"/><circle cx="50" cy="250" r="1.06"/><circle cx="50" cy="270" r="1.32"/><circle cx="50" cy="290" r="1.58"/><circle cx="70" cy="10" r="1.15"/><circle cx="70" cy="30" r="1.49"/><circle cx="70" cy="50" r="1.84"/><circle cx="70" cy="70" r="1.15"/><circle cx="70" cy="90" r="1.49"/><circle cx="70" cy="110" r="1.84"/><circle cx="70" cy="130" r="1.15"/><circle cx="70" cy="150" r="1.49"/><circle cx="70" cy="170" r="1.84"/><circle cx="70" cy="190" r="1.15"/><circle cx="70" cy="210" r="1.49"/><circle cx="70" cy="230" r="1.84"/><circle cx="70" cy="250" r="1.15"/><circle cx="70" cy="270" r="1.49"/><circle cx="70" cy="290" r="1.84"/><circle cx="90" cy="10" r="1.23"/><circle cx="90" cy="30" r="1.67"/><circle cx="90" cy="50" r="2.10"/><circle cx="90" cy="70" r="1.23"/><circle cx="90" cy="90" r="1.67"/><circle cx="90" cy="110" r="2.10"/><circle cx="90" cy="130" r="1.23"/><circle cx="90" cy="150" r="1.67"/><circle cx="90" cy="170" r="2.10"/><circle cx="90" cy="190" r="1.23"/><circle cx="90" cy="210" r="1.67"/><circle cx="90" cy="230" r="2.10"/><circle cx="90" cy="250" r="1.23"/><circle cx="90" cy="270" r="1.67"/><circle cx="90" cy="290" r="2.10"/><circle cx="110" cy="10" r="1.32"/><circle cx="110" cy="30" r="1.84"/><circle cx="110" cy="50" r="2.36"/><circle cx="110" cy="70" r="1.32"/><circle cx="110" cy="90" r="1.84"/><circle cx="110" cy="110" r="2.36"/><circle cx="110" cy="130" r="1.32"/><circle cx="110" cy="150" r="1.84"/><circle cx="110" cy="170" r="2.36"/><circle cx="110" cy="190" r="1.32"/><circle cx="110" cy="210" r="1.84"/><circle cx="110" cy="230" r="2.36"/><circle cx="110" cy="250" r="1.32"/><circle cx="110" cy="270" r="1.84"/><circle cx="110" cy="290" r="2.36"/><circle cx="130" cy="10" r="1.41"/><circle cx="130" cy="30" r="2.01"/><circle cx="130" cy="50" r="2.62"/><circle cx="130" cy="70" r="1.41"/><circle cx="130" cy="90" r="2.01"/><circle cx="130" cy="110" r="2.62"/><circle cx="130" cy="130" r="1.41"/><circle cx="130" cy="150" r="2.01"/><circle cx="130" cy="170" r="2.62"/><circle cx="130" cy="190" r="1.41"/><circle cx="130" cy="210" r="2.01"/><circle cx="130" cy="230" r="2.62"/><circle cx="130" cy="250" r="1.41"/><circle cx="130" cy="270" r="2.01"/><circle cx="130" cy="290" r="2.62"/><circle cx="150" cy="10" r="1.49"/><circle cx="150" cy="30" r="2.19"/><circle cx="150" cy="50" r="2.88"/><circle cx="150" cy="70" r="1.49"/><circle cx="150" cy="90" r="2.19"/><circle cx="150" cy="110" r="2.88"/><circle cx="150" cy="130" r="1.49"/><circle cx="150" cy="150" r="2.19"/><circle cx="150" cy="170" r="2.88"/><circle cx="150" cy="190" r="1.49"/><circle cx="150" cy="210" r="2.19"/><circle cx="150" cy="230" r="2.88"/><circle cx="150" cy="250" r="1.49"/><circle cx="150" cy="270" r="2.19"/><circle cx="150" cy="290" r="2.88"/><circle cx="170" cy="10" r="1.58"/><circle cx="170" cy="30" r="2.36"/><circle cx="170" cy="50" r="3.14"/><circle cx="170" cy="70" r="1.58"/><circle cx="170" cy="90" r="2.36"/><circle cx="170" cy="110" r="3.14"/><circle cx="170" cy="130" r="1.58"/><circle cx="170" cy="150" r="2.36"/><circle cx="170" cy="170" r="3.14"/><circle cx="170" cy="190" r="1.58"/><circle cx="170" cy="210" r="2.36"/><circle cx="170" cy="230" r="3.14"/><circle cx="170" cy="250" r="1.58"/><circle cx="170" cy="270" r="2.36"/><circle cx="170" cy="290" r="3.14"/><circle cx="190" cy="10" r="1.67"/><circle cx="190" cy="30" r="2.53"/><circle cx="190" cy="50" r="3.40"/><circle cx="190" cy="70" r="1.67"/><circle cx="190" cy="90" r="2.53"/><circle cx="190" cy="110" r="3.40"/><circle cx="190" cy="130" r="1.67"/><circle cx="190" cy="150" r="2.53"/><circle cx="190" cy="170" r="3.40"/><circle cx="190" cy="190" r="1.67"/><circle cx="190" cy="210" r="2.53"/><circle cx="190" cy="230" r="3.40"/><circle cx="190" cy="250" r="1.67"/><circle cx="190" cy="270" r="2.53"/><circle cx="190" cy="290" r="3.40"/></g></svg>
+                <blockquote class="oc-cita" data-anim style="--i:3">
+                  <p>No necesitamos pensar igual <em>para colaborar.</em></p>
+                  <cite>Christian Picos · Construyendo el ecosistema</cite>
+                </blockquote>
+                <footer class="folio folio--derecha">
+                  <span>Comunidad</span>
+                  <span class="folio__num">23</span>
+                </footer>
+              </div>
             </div>
           </section>
 
-          <!-- 25 · ALTI (3) -->
-          <section class="pagina pagina--papel" aria-label="Página 25: alti, construyendo el ecosistema">
-            <div class="pagina__lienzo hoja articulo">
+          <!-- 24 · Publicidad (página completa): net2phone -->
+          <section class="pagina pagina--papel" aria-label="Página 24: publicidad">
+            <div class="pagina__lienzo publicidad">
+              <img src="../../assets/img/revista-vol-03/publicidad/net2phone-diagnostico.jpg" alt="Anuncio de net2phone: Cada llamada perdida es un cliente para tu competencia. Llamadas, WhatsApp e IA en una sola plataforma. Diagnóstico gratuito por WhatsApp 664 552 6168. Distribuidor autorizado Enlace N2P: 664 957 8958, erik@enlacen2p.com." width="1583" height="2048" loading="lazy">
+            </div>
+          </section>
+
+          <!-- 25 · Mentor ALTI: apertura -->
+          <section class="pagina pagina--papel" aria-label="Página 25: mentor alti, inteligencia artificial y el futuro de los profesionales de tecnología">
+            <div class="pagina__lienzo hoja oc cw mt mt-apertura">
+              <div class="mt-mod">
+                <div class="mt-mod__rejilla">
+                  <div class="mt-mod__sesion"><b>01</b><span>Primera sesión<br>Mentor ALTI</span></div>
+                  <div class="mt-mod__rayos" aria-hidden="true"><svg viewBox="0 0 200 300" preserveAspectRatio="xMinYMid slice"><defs><linearGradient id="mt-g2" gradientUnits="userSpaceOnUse" x1="46" y1="150" x2="221" y2="150"><stop offset="0" stop-color="#31dc8d"/><stop offset="0.5" stop-color="#31dc8d"/><stop offset="1" stop-color="#31dc8d"/></linearGradient></defs><rect x="46" y="137" width="175" height="26" transform="rotate(-58 46 150)" fill="url(#mt-g2)"/><rect x="46" y="137" width="175" height="26" transform="rotate(-29 46 150)" fill="url(#mt-g2)"/><rect x="46" y="137" width="175" height="26" transform="rotate(0 46 150)" fill="url(#mt-g2)"/><rect x="46" y="137" width="175" height="26" transform="rotate(29 46 150)" fill="url(#mt-g2)"/><rect x="46" y="137" width="175" height="26" transform="rotate(58 46 150)" fill="url(#mt-g2)"/><rect x="33" y="18" width="26" height="264" fill="url(#mt-g2)"/></svg></div>
+                  <figure class="mt-mod__foto">
+                    <img src="../../assets/img/revista-vol-03/alfredo-retrato.jpg" alt="Alfredo Sánchez, mentor de la primera sesión de Mentor ALTI." width="1271" height="977">
+                    <figcaption><b>Alfredo Sánchez</b>Senior Business Developer IA<br>Mentor de la primera sesión</figcaption>
+                  </figure>
+                  <div class="mt-mod__principal">
+                    <svg class="rayos" viewBox="0 0 560 540" preserveAspectRatio="xMaxYMax slice" aria-hidden="true"><defs><linearGradient id="mt-g1" gradientUnits="userSpaceOnUse" x1="594" y1="540" x2="815" y2="540"><stop offset="0" stop-color="rgba(9,10,9,1)"/><stop offset="0.45" stop-color="rgba(9,10,9,0.85)"/><stop offset="1" stop-color="rgba(9,10,9,0.08)"/></linearGradient></defs><rect x="594" y="525.0" width="221" height="30" transform="rotate(214 560 540)" fill="url(#mt-g1)"/><rect x="594" y="525.0" width="221" height="30" transform="rotate(238 560 540)" fill="url(#mt-g1)"/><rect x="594" y="525.0" width="221" height="30" transform="rotate(262 560 540)" fill="url(#mt-g1)"/></svg>
+                    <img class="mt-mod__logo marca-empresa" src="../../assets/img/revista-vol-03/logos/alti-claro.png" alt="ALTI" width="1024" height="296">
+                    <h2 class="mt-mod__titulo" data-anim style="--i:0">Resolver<br>mejor.</h2>
+                    <p class="mt-mod__sub" data-anim style="--i:1">Inteligencia artificial: el futuro de los profesionales de tecnología no está en programar más.</p>
+                  </div>
+                </div>
+              </div>
               <header class="cornisa">
-                <span>Comunidad</span>
-                <span>ALTI · Construyendo el ecosistema</span>
+                <span>Mentor ALTI</span>
+                <span>Resolver mejor · Primera sesión</span>
               </header>
-              <div class="texto texto--2col" data-anim style="--i:0">
-                <h3 class="texto__sub">Hay problemas que no se resuelven con una búsqueda en internet</h3>
-                <p>Al principio, muchas preguntas encuentran respuesta en la documentación, los cursos, las comunidades técnicas o las herramientas disponibles en internet. Hoy contamos, además, con sistemas de inteligencia artificial capaces de ayudarnos a investigar, programar, analizar información y explorar alternativas en cuestión de minutos.</p>
-                <p>Todo eso representa un avance extraordinario, pero llega un momento en que el problema deja de ser exclusivamente técnico.</p>
-                <p>A lo largo de mi trayectoria, particularmente en el sector privado de la salud, he comprendido que algunos problemas tecnológicos requieren mucho más que conocimientos técnicos. Implican entender procesos, proteger información confidencial, evaluar riesgos, coordinar equipos y tomar decisiones que afectan directamente la operación de una empresa. Hay situaciones en las que necesitamos comprender el contexto, desarrollar criterio y conversar con personas que ya enfrentaron desafíos similares.</p>
-                <p>Durante mucho tiempo, las conversaciones tecnológicas han estado centradas en herramientas, plataformas, infraestructura, lenguajes de programación y nuevas tendencias. Todo esto es importante, sin embargo, ninguna tecnología, por sí sola, garantiza que una organización funcione mejor, que un negocio crezca de manera sostenible o que una persona reciba un mejor servicio.</p>
-                <p>La verdadera transformación comienza cuando entendemos el problema que necesitamos resolver.</p>
-                <p>Esto requiere líderes capaces de comprender tanto el mundo tecnológico como el contexto de negocio en el que trabajan. Profesionales que puedan conversar con la dirección, colaborar con las áreas operativas, comprender las necesidades de las personas y traducir los desafíos en soluciones con sentido.</p>
-                <p>Una comunidad de líderes permite que esas experiencias se encuentren y se complementen. Esa es una de las razones por las que creo profundamente en el valor de ALTI.</p>
-                <h3 class="texto__sub">Una construcción colectiva</h3>
-                <p>Como director, asumo la responsabilidad de contribuir a que esta visión se convierta en una realidad.</p>
+              <div class="cw-espacio mt-espacio" aria-hidden="true"></div>
+              <div class="texto cw-uno" data-anim style="--i:2">
+                <p>La inteligencia artificial está redefiniendo cómo operan las empresas y cómo trabajan los profesionales de tecnología. Más allá de la automatización, el verdadero reto está en identificar problemas, proponer soluciones y conectar la tecnología con las necesidades reales del negocio.</p>
+              </div>
+              <div class="texto texto--2col mt-dos" data-anim style="--i:2">
+                <p>Ese fue el tema central de la primera sesión de <strong>Mentor ALTI</strong>, el espacio de la Alianza de Líderes de Tecnología e Innovación donde líderes y profesionales comparten experiencias sobre la evolución de la industria.</p>
+                <p>La abrió Alfredo Sánchez, con más de 30 años en el sector tecnológico, quien compartió las lecciones que han marcado su carrera y su visión sobre el impacto de la IA en las empresas.</p>
+              </div>
+              <div class="cw-agentes mt-cifras" data-anim style="--i:3">
+                <p class="cw-agentes__nombre">Alfredo Sánchez<span>Primera sesión de Mentor ALTI</span></p>
+                <p class="cw-agentes__cifra"><b>30+</b><span>años en tecnología</span></p>
+                <p class="cw-agentes__cifra"><b>35</b><span>desarrolladores en su equipo</span></p>
+                <p class="cw-agentes__cifra"><b>3</b><span>prácticas de liderazgo</span></p>
               </div>
               <footer class="folio folio--derecha">
-                <span>Comunidad</span>
+                <span>Mentor ALTI</span>
                 <span class="folio__num">25</span>
               </footer>
             </div>
           </section>
 
-          <!-- 26 · ALTI (4) -->
-          <section class="pagina pagina--papel" aria-label="Página 26: alti, construyendo el ecosistema">
-            <div class="pagina__lienzo hoja articulo">
+          <!-- 26 · Mentor ALTI: roles, negocio e implementar IA -->
+          <section class="pagina pagina--papel" aria-label="Página 26: mentor alti, roles e implementación de ia">
+            <div class="pagina__lienzo hoja oc cw mt mt-p18">
               <header class="cornisa">
-                <span>Comunidad</span>
-                <span>ALTI · Construyendo el ecosistema</span>
+                <span>Mentor ALTI</span>
+                <span>Resolver mejor · Primera sesión</span>
               </header>
-              <div class="texto texto--2col" data-anim style="--i:0">
-                <p>ALTI no pertenece a una sola voz ni puede construirse desde la visión individual. Su identidad, crecimiento e impacto dependerán de quienes decidan participar, aportar sus conocimientos, escuchar otras perspectivas y colaborar con otros.</p>
-                <p>Iniciativas como MENTOR ALTI, una serie de encuentros virtuales mensuales para compartir experiencias, conocimientos y perspectivas sobre temas que están transformando nuestra profesión. Queremos que estos espacios nos permitan aprender de quienes han enfrentado distintos desafíos, comprender nuevas tendencias y reflexionar sobre cómo prepararnos para el futuro.</p>
-                <p>También impulsamos eventos presenciales durante el año, con el propósito de facilitar el encuentro entre líderes, ampliar nuestras redes de colaboración y construir relaciones que puedan convertirse en oportunidades de aprendizaje y trabajo conjunto.</p>
-                <p>Creo que uno de los grandes retos del liderazgo tecnológico es aprender a mirar más allá de la tecnología. Eso exige que los profesionales tecnológicos desarrollemos nuevas capacidades y reconocer que nadie puede dominar todas las especialidades ni tener experiencia en cada desafío que enfrenta una empresa.</p>
-                <p>Un líder puede tener una trayectoria extraordinaria y, aun así, necesitar ayuda ante un problema nuevo. Un ingeniero puede dominar profundamente su especialidad y beneficiarse de la perspectiva de alguien que conoce mejor el negocio. Un profesional que apenas comienza puede aportar preguntas que ayuden a cuestionar prácticas que todos daban por sentadas.</p>
-                <p>En ALTI queremos impulsar una manera de pensar que nos lleve a formular mejores preguntas, identificar los problemas importantes y encontrar soluciones que generen valor real.</p>
-                <p>No esperamos que una sesión resuelva todos los problemas ni que un encuentro transforme una organización de la noche a la mañana. Buscamos algo más sostenible: generar las condiciones para que las buenas conversaciones, el conocimiento y las relaciones de confianza se conviertan, con el tiempo, en mejores decisiones y mejores resultados.</p>
+              <div class="oc-cabeza">
+                <h3 class="oc-h3">La IA no sustituye al profesional: <em>le cambia el papel.</em></h3>
               </div>
-              <footer class="folio">
-                <span class="folio__num">26</span>
-                <span>Comunidad</span>
-              </footer>
+              <div class="texto texto--2col" data-anim style="--i:0">
+                <p>Ya hay herramientas que generan código a partir de indicaciones, así que el trabajo de solo ejecutar instrucciones cambia. El conocimiento técnico sigue siendo necesario, pero el profesional debe <strong>analizar, cuestionar, proponer y ofrecer soluciones</strong>. Surgen perfiles nuevos: Alfredo hoy acompaña a ventas como especialista en innovación e IA.</p>
+                <p>Su carrera creció cuando dejó de trabajar solo desde sistemas y se involucró con finanzas, recursos humanos y operaciones. Antes de desarrollar, hay que entender qué necesita el usuario: <strong>TI debe ser aliado estratégico del negocio</strong>, no solo atender solicitudes.</p>
+              </div>
+              <div class="mt-habilidades" data-anim style="--i:1">
+                <p class="oc-mono">Habilidades que ganan peso</p>
+                <div class="oc-sistemas"><span>Pensamiento crítico</span><span>Creatividad</span><span>Comunicación</span><span>Liderazgo</span><span>Resolución de problemas</span><span>Trabajo con IA</span></div>
+              </div>
+              <div class="oc-falla mt-negocio">
+                <span class="oc-falla__rayo" aria-hidden="true"></span>
+                <div class="oc-cabeza">
+                  <p class="oc-kicker">Implementar IA</p>
+                  <h3 class="oc-h3">Contexto, seguridad <em>y supervisión humana.</em></h3>
+                </div>
+                <div class="texto texto--2col" data-anim style="--i:2">
+                  <p>A la IA hay que darle contexto: el proceso, los objetivos y la información relevante. El riesgo mayor es <strong>confiar ciegamente en sus resultados</strong>: un reporte financiero con menos pérdidas de las reales se traduce en malas decisiones.</p>
+                  <p>Por eso hay que verificar y mantener supervisión humana, sobre todo en finanzas y estrategia, y proteger los datos corporativos desde la planeación.</p>
+                </div>
+                <div class="mt-proteger-n" data-anim style="--i:3">
+                  <div class="mt-tarjeta"><svg class="mt-tarjeta__icono" viewBox="0 0 48 48" aria-hidden="true"><path d="M12 5h17l9 9v29H12z"/><path d="M29 5v9h9"/><path d="M18 21h14M18 27h14M18 33h7"/><circle cx="33" cy="36" r="5"/><path d="M30.5 40.5 29 46l4-2 4 2-1.5-5.5"/></svg><span class="mt-tarjeta__num">01</span><b>Soluciones empresariales</b><p>Con contratos y acuerdos de confidencialidad.</p></div>
+                  <div class="mt-tarjeta"><svg class="mt-tarjeta__icono" viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="7" width="32" height="10" rx="1.5"/><rect x="8" y="19" width="32" height="10" rx="1.5"/><rect x="8" y="31" width="32" height="10" rx="1.5"/><path d="M13 12h2M13 24h2M13 36h2"/><path d="M28 12h7M28 24h7M28 36h7"/></svg><span class="mt-tarjeta__num">02</span><b>IA local</b><p>Modelos dentro de la empresa, como los basados en Ollama.</p></div>
+                  <div class="mt-tarjeta mt-tarjeta--verde"><svg class="mt-tarjeta__icono" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4l16 6v12c0 10-7 18-16 22C15 40 8 32 8 22V10z"/><path d="M17 20l3 3 5-5M17 30l3 3 5-5"/><path d="M28 22h5M28 32h5"/></svg><span class="mt-tarjeta__num">03</span><b>Gobernanza</b><p>Políticas y permisos sobre cómo y para qué usarla.</p></div>
+                </div>
+                <footer class="folio">
+                  <span class="folio__num">26</span>
+                  <span>Mentor ALTI</span>
+                </footer>
+              </div>
             </div>
           </section>
 
-          <!-- 27 · ALTI (5) -->
-          <section class="pagina pagina--papel" aria-label="Página 27: alti, construyendo el ecosistema">
-            <div class="pagina__lienzo hoja articulo">
+          <!-- 27 · Mentor ALTI: datos, liderazgo y comunidad -->
+          <section class="pagina pagina--papel" aria-label="Página 27: mentor alti, liderazgo y comunidad">
+            <div class="pagina__lienzo hoja oc oc-cierre cw mt">
               <header class="cornisa">
-                <span>Comunidad</span>
-                <span>ALTI · Construyendo el ecosistema</span>
+                <span>Mentor ALTI</span>
+                <span>Resolver mejor · Primera sesión</span>
               </header>
-              <div class="texto texto--2col" data-anim style="--i:0">
-                <p>En una región con talento, empresas y desafíos diversos, tenemos la oportunidad de fortalecer nuestra capacidad colectiva. No necesitamos pensar igual para colaborar. Necesitamos reconocer que cada experiencia puede aportar algo valioso.</p>
-                <p>Mi decisión de asumir esta responsabilidad nace de algo personal: yo experimenté el valor de encontrar una comunidad con la que podía compartir mi realidad profesional, ampliar mi perspectiva y aprender de personas que habían enfrentado desafíos que yo necesitaba resolver.</p>
-                <p>Sé lo que significa buscar orientación ante un problema complejo. También sé la diferencia que puede hacer una conversación con alguien que entiende el contexto, que comparte una experiencia relevante y que está dispuesto a ayudarte a pensar mejor.</p>
-                <p>Quiero que más profesionales de nuestra región tengan esa oportunidad. Que dentro de cinco años podamos mirar atrás y reconocer que esta alianza ayudó a cambiar nuestra manera de pensar, de liderar y de resolver problemas. Que más profesionales hayan encontrado respuestas a preguntas difíciles y que más organizaciones hayan podido transformar sus desafíos en resultados.</p>
+              <div class="mt-datos" data-anim style="--i:0">
+                <p class="mt-datos__cifra"><b>5 TB</b><span>de almacenamiento, como mínimo de referencia para una IA local</span></p>
+                <blockquote class="oc-cita cw-cita11">
+                  <p>Lo interesante son los datos, <em>no el proceso.</em></p>
+                  <cite>Alfredo Sánchez · Mentor ALTI</cite>
+                </blockquote>
               </div>
-              <blockquote class="cita-banda" data-anim style="--i:1">
-                <p>“No necesitamos pensar igual para colaborar.”</p>
-                <cite class="firma"><b>ALTI</b> · Construyendo el ecosistema tecnológico de Baja California</cite>
-              </blockquote>
+              <div class="oc-cabeza">
+                <p class="oc-kicker">Liderazgo</p>
+                <h3 class="oc-h3">Tres prácticas que <em>marcaron su carrera.</em></h3>
+              </div>
+              <ol class="oc-ruta" data-anim style="--i:1">
+                <li><span class="oc-ruta__num">01</span><div><b>Involucrarse con otras áreas</b><p>Comprender las necesidades de los equipos y colaborar.</p></div></li>
+                <li><span class="oc-ruta__num">02</span><div><b>Invertir tiempo en las personas</b><p>Seleccionar talento por sus habilidades prácticas, no solo por un título.</p></div></li>
+                <li><span class="oc-ruta__num">03</span><div><b>Fomentar la innovación</b><p>Dejar que el equipo proponga y construya soluciones.</p></div></li>
+              </ol>
+              <div class="texto texto--2col" data-anim style="--i:2">
+                <p>Lo que haría diferente: <strong>comunicar y vender mejor</strong> las soluciones de su equipo a otras áreas y a la dirección. No basta con una buena solución; hay que saber contar su valor.</p>
+                <p>La transformación digital depende de profesionales que conecten la tecnología con las personas. Mentor ALTI quiere sumar mentores y acercar estas experiencias a estudiantes.</p>
+              </div>
+              <div class="oc-sello">
+                <svg class="oc-sello__rayos" viewBox="0 0 200 300" preserveAspectRatio="xMaxYMax meet" aria-hidden="true"><g fill="none" stroke="#050505" stroke-width="1.6"><circle cx="200" cy="300" r="30"/><circle cx="200" cy="300" r="52"/><circle cx="200" cy="300" r="74"/><circle cx="200" cy="300" r="96"/><circle cx="200" cy="300" r="118"/><circle cx="200" cy="300" r="140"/><circle cx="200" cy="300" r="162"/><circle cx="200" cy="300" r="184"/><circle cx="200" cy="300" r="206"/><circle cx="200" cy="300" r="228"/><circle cx="200" cy="300" r="250"/><circle cx="200" cy="300" r="272"/></g></svg>
+                <blockquote class="oc-cita" data-anim style="--i:3">
+                  <p>La IA llegó para quedarse; el diferenciador seguirá siendo <em>la capacidad humana de resolver.</em></p>
+                  <cite>Mentor ALTI · Primera sesión</cite>
+                </blockquote>
+                <footer class="folio folio--derecha">
+                  <span>Mentor ALTI</span>
+                  <span class="folio__num">27</span>
+                </footer>
+              </div>
+            </div>
+          </section>
+
+          <!-- 28 · Publicidad (página completa): Mopec Security. Del PDF carta (612×784 pt de cropBox),
+               escalado parejo a 3300 px de alto y centrado (se pierden ~13 px por lado de fondo). -->
+          <section class="pagina pagina--papel" aria-label="Página 28: publicidad">
+            <div class="pagina__lienzo publicidad">
+              <img src="../../assets/img/revista-vol-03/publicidad/mopec-security.jpg" alt="Anuncio de Mopec Security: soluciones tecnológicas de comunicación, seguridad y control. Servicios de consultoría, desarrollo de proyectos, instalación e integración, mantenimiento y monitoreo; integración de videovigilancia, control de acceso, protección perimetral, detección de humo, supresión de incendios, redes, ciberseguridad y data centers. Más de 17 años de experiencia, más de 1,000 proyectos y soporte 24/7. mopec.mx, +52 (55) 6388 0510." width="2550" height="3300" loading="lazy">
+            </div>
+          </section>
+
+          <!-- 29 · Colaboradores -->
+          <section class="pagina pagina--papel" aria-label="Página 29: colaboradores, quién escribe">
+            <div class="pagina__lienzo hoja oc cw qe">
+              <div class="qe-banda">
+                <div class="qe-banda__rayos" aria-hidden="true"><svg viewBox="0 0 200 300" preserveAspectRatio="xMaxYMid slice" aria-hidden="true"><g fill="none" stroke="#31dc8d" stroke-width="1.2"><path d="M-300 300L0 0"/><path d="M-286 300L14 0"/><path d="M-272 300L28 0"/><path d="M-258 300L42 0"/><path d="M-244 300L56 0"/><path d="M-230 300L70 0"/><path d="M-216 300L84 0"/><path d="M-202 300L98 0"/><path d="M-188 300L112 0"/><path d="M-174 300L126 0"/><path d="M-160 300L140 0"/><path d="M-146 300L154 0"/><path d="M-132 300L168 0"/><path d="M-118 300L182 0"/><path d="M-104 300L196 0"/><path d="M-90 300L210 0"/><path d="M-76 300L224 0"/><path d="M-62 300L238 0"/><path d="M-48 300L252 0"/><path d="M-34 300L266 0"/><path d="M-20 300L280 0"/><path d="M-6 300L294 0"/><path d="M8 300L308 0"/><path d="M22 300L322 0"/><path d="M36 300L336 0"/><path d="M50 300L350 0"/><path d="M64 300L364 0"/><path d="M78 300L378 0"/><path d="M92 300L392 0"/><path d="M106 300L406 0"/><path d="M120 300L420 0"/><path d="M134 300L434 0"/><path d="M148 300L448 0"/><path d="M162 300L462 0"/><path d="M176 300L476 0"/><path d="M190 300L490 0"/><path d="M204 300L504 0"/><path d="M218 300L518 0"/><path d="M232 300L532 0"/><path d="M246 300L546 0"/></g></svg></div>
+              </div>
+              <header class="cornisa">
+                <span>En esta edición</span>
+                <span>Colaboradores</span>
+              </header>
+              <div class="qe-cabeza">
+                <p class="oc-kicker">Las voces de noviembre</p>
+                <h2 class="qe-titulo" data-anim style="--i:0">Quién <em>escribe.</em></h2>
+                <p class="qe-sub" data-anim style="--i:1">Cinco líderes de la comunidad tecnológica comparten lo que están viendo, aprendiendo y construyendo.</p>
+              </div>
+              <ol class="qe-rejilla" data-anim style="--i:2">
+                <li class="qe-autor">
+                  <figure class="qe-autor__foto"><img src="../../assets/img/revista-vol-03/josue-madera-retrato.jpg" alt="Josué Madera." width="1600" height="2092" style="object-position: 52% 10%"><span class="qe-autor__num">01</span></figure>
+                  <h3 class="qe-autor__nombre">Josué Madera</h3>
+                  <p class="qe-autor__rol">Fundador y Director Editorial de Hablemos Tech. Director General de EnteraCloud y cofundador de Purple AI.</p>
+                  <p class="qe-autor__pieza">Carta del fundador · p. 03</p>
+                </li>
+                <li class="qe-autor">
+                  <figure class="qe-autor__foto"><img src="../../assets/img/revista-vol-03/francisco-olazo-retrato.jpg" alt="Francisco Olazo." width="1600" height="2400" style="object-position: 50% 12%"><span class="qe-autor__num">02</span></figure>
+                  <h3 class="qe-autor__nombre">Francisco Olazo</h3>
+                  <p class="qe-autor__rol">LATAM Lead Engineer de Enteracloud.</p>
+                  <p class="qe-autor__pieza">Octubre negro · p. 08</p>
+                </li>
+                <li class="qe-autor">
+                  <figure class="qe-autor__foto"><img src="../../assets/img/revista-vol-03/andres-wong-retrato.jpg" alt="Andrés Wong." width="1200" height="1615" style="object-position: 50% 14%"><span class="qe-autor__num">03</span></figure>
+                  <h3 class="qe-autor__nombre">Andrés Wong</h3>
+                  <p class="qe-autor__rol">Lead Developer de Enteracloud y socio fundador de Purple AI.</p>
+                  <p class="qe-autor__pieza">Catorce años invisible · p. 15</p>
+                </li>
+                <li class="qe-autor">
+                  <figure class="qe-autor__foto"><img src="../../assets/img/revista-vol-03/christian-picos-retrato.jpg" class="qe-zoom" alt="Christian Picos." width="2000" height="1131" style="object-position: 44% 8%"><span class="qe-autor__num">04</span></figure>
+                  <h3 class="qe-autor__nombre">Christian Picos</h3>
+                  <p class="qe-autor__rol">Hospital Excel. Director de ALTI, Alianza de Líderes en Tecnología e Innovación.</p>
+                  <p class="qe-autor__pieza">Construyendo el ecosistema · p. 21</p>
+                </li>
+                <li class="qe-autor">
+                  <figure class="qe-autor__foto"><img src="../../assets/img/revista-vol-03/alfredo-retrato.jpg" alt="Alfredo Sánchez." width="1271" height="977" style="object-position: 49% 18%"><span class="qe-autor__num">05</span></figure>
+                  <h3 class="qe-autor__nombre">Alfredo Sánchez</h3>
+                  <p class="qe-autor__rol">Senior Business Developer IA, con más de 30 años en el sector tecnológico. Mentor de la primera sesión de Mentor ALTI.</p>
+                  <p class="qe-autor__pieza">Resolver mejor · p. 25</p>
+                </li>
+                <li class="qe-escribe">
+                  <svg class="qe-escribe__rayos" viewBox="0 0 200 300" preserveAspectRatio="xMaxYMin meet" aria-hidden="true"><g fill="none" stroke="#050505" stroke-width="1.6"><path d="M11 16h10M16 11v10"/><path d="M11 48h10M16 43v10"/><path d="M11 80h10M16 75v10"/><path d="M11 112h10M16 107v10"/><path d="M11 144h10M16 139v10"/><path d="M11 176h10M16 171v10"/><path d="M11 208h10M16 203v10"/><path d="M11 240h10M16 235v10"/><path d="M11 272h10M16 267v10"/><path d="M43 16h10M48 11v10"/><path d="M43 48h10M48 43v10"/><path d="M43 80h10M48 75v10"/><path d="M43 112h10M48 107v10"/><path d="M43 144h10M48 139v10"/><path d="M43 176h10M48 171v10"/><path d="M43 208h10M48 203v10"/><path d="M43 240h10M48 235v10"/><path d="M43 272h10M48 267v10"/><path d="M75 16h10M80 11v10"/><path d="M75 48h10M80 43v10"/><path d="M75 80h10M80 75v10"/><path d="M75 112h10M80 107v10"/><path d="M75 144h10M80 139v10"/><path d="M75 176h10M80 171v10"/><path d="M75 208h10M80 203v10"/><path d="M75 240h10M80 235v10"/><path d="M75 272h10M80 267v10"/><path d="M107 16h10M112 11v10"/><path d="M107 48h10M112 43v10"/><path d="M107 80h10M112 75v10"/><path d="M107 112h10M112 107v10"/><path d="M107 144h10M112 139v10"/><path d="M107 176h10M112 171v10"/><path d="M107 208h10M112 203v10"/><path d="M107 240h10M112 235v10"/><path d="M107 272h10M112 267v10"/><path d="M139 16h10M144 11v10"/><path d="M139 48h10M144 43v10"/><path d="M139 80h10M144 75v10"/><path d="M139 112h10M144 107v10"/><path d="M139 144h10M144 139v10"/><path d="M139 176h10M144 171v10"/><path d="M139 208h10M144 203v10"/><path d="M139 240h10M144 235v10"/><path d="M139 272h10M144 267v10"/><path d="M171 16h10M176 11v10"/><path d="M171 48h10M176 43v10"/><path d="M171 80h10M176 75v10"/><path d="M171 112h10M176 107v10"/><path d="M171 144h10M176 139v10"/><path d="M171 176h10M176 171v10"/><path d="M171 208h10M176 203v10"/><path d="M171 240h10M176 235v10"/><path d="M171 272h10M176 267v10"/></g></svg>
+                  <p class="oc-mono">Próxima edición</p>
+                  <p class="qe-escribe__texto">Esta revista es de ustedes: <em>escríbenos.</em></p>
+                  <p class="qe-escribe__nota">Comparte un caso, una lección o una pregunta con la comunidad.</p>
+                </li>
+              </ol>
               <footer class="folio folio--derecha">
-                <span>Comunidad</span>
-                <span class="folio__num">27</span>
-              </footer>
-            </div>
-          </section>
-
-          <!-- 28 · IA y futuro profesional: apertura -->
-          <section class="pagina pagina--papel" aria-label="Página 28: inteligencia artificial y futuro profesional">
-            <div class="pagina__lienzo hoja articulo">
-              <header class="cornisa">
-                <span>Mentor ALTI</span>
-                <span>Inteligencia artificial y talento</span>
-              </header>
-              <div class="articulo__cabeza">
-                <p class="etiqueta etiqueta--verde" data-anim style="--i:0"><span class="etiqueta__punto"></span>Mentor ALTI · Primera sesión</p>
-                <h2 class="titulo-2" data-anim style="--i:1">Inteligencia Artificial: el futuro de los profesionales de tecnología no está en programar más, sino en resolver mejor</h2>
-                <p class="entrada" data-anim style="--i:2">De la automatización al liderazgo estratégico: las nuevas habilidades que están transformando el papel de los profesionales de TI en las empresas.</p>
-              </div>
-              <div class="texto texto--2col" data-anim style="--i:3">
-                <p class="capitular">La inteligencia artificial está redefiniendo la manera en que las empresas operan y los profesionales de tecnología desarrollan su trabajo. Sin embargo, más allá de la automatización y las herramientas disponibles, el verdadero reto está en aprender a identificar problemas, proponer soluciones y conectar la tecnología con las necesidades reales del negocio.</p>
-                <p>Este fue uno de los principales temas abordados durante la primera sesión de <em>Mentor Alti</em>, un espacio impulsado por la Alianza de Líderes de Tecnología e Innovación (ALTI), que reunió a líderes y profesionales del sector para compartir experiencias, conocimientos y perspectivas sobre la evolución de la industria tecnológica.</p>
-              </div>
-              <footer class="folio">
-                <span class="folio__num">28</span>
-                <span>Mentor ALTI</span>
-              </footer>
-            </div>
-          </section>
-
-          <!-- 29 · IA y futuro profesional (2) -->
-          <section class="pagina pagina--papel" aria-label="Página 29: inteligencia artificial y futuro profesional">
-            <div class="pagina__lienzo hoja articulo">
-              <header class="cornisa">
-                <span>Mentor ALTI</span>
-                <span>Inteligencia artificial y talento</span>
-              </header>
-              <div class="texto texto--2col" data-anim style="--i:0">
-                <p>En esta primera edición, Alfredo, profesional con más de 30 años de trayectoria en el sector tecnológico y experiencia liderando equipos de hasta 35 desarrolladores, compartió algunas de las lecciones que han marcado su carrera y su visión sobre el impacto de la inteligencia artificial en el entorno empresarial.</p>
-                <h3 class="texto__sub">La IA transforma los roles y abre nuevas oportunidades profesionales</h3>
-                <p>Uno de los cuestionamientos más frecuentes en la industria es si la inteligencia artificial terminará sustituyendo a los profesionales de tecnología.</p>
-                <p>Desde la experiencia de Alfredo, algunos roles tradicionales están experimentando cambios importantes. Las actividades de programación basadas únicamente en recibir instrucciones y ejecutar código están evolucionando, ya que actualmente existen herramientas capaces de generar código a partir de indicaciones.</p>
-                <p>Esto no significa que el conocimiento técnico haya dejado de ser necesario, sino que el profesional debe evolucionar hacia un papel más estratégico: analizar, cuestionar, proponer y ofrecer soluciones.</p>
-                <p>Al mismo tiempo, esta transformación está impulsando la aparición de nuevos perfiles profesionales. Alfredo compartió su experiencia al incorporarse a un área comercial como especialista en innovación tecnológica e inteligencia artificial, acompañando al equipo de ventas en reuniones con empresas, demostraciones y presentaciones de soluciones tecnológicas.</p>
-                <p>Este tipo de perfiles responde a una necesidad creciente: empresas que buscan especialistas en inteligencia artificial capaces de comprender la tecnología y comunicar su valor a clientes y organizaciones.</p>
-                <p>En este nuevo escenario, habilidades como el pensamiento crítico, la creatividad, la comunicación, el liderazgo y la resolución de problemas adquieren una importancia fundamental. La capacidad de trabajar con herramientas de IA también se convierte en una competencia indispensable.</p>
-                <h3 class="texto__sub">Entender el negocio: una habilidad clave para los profesionales de TI</h3>
-                <p>Una de las principales enseñanzas compartidas durante la sesión fue la importancia de acercarse a otras áreas de la empresa.</p>
-              </div>
-              <footer class="folio folio--derecha">
-                <span>Mentor ALTI</span>
+                <span>Colaboradores</span>
                 <span class="folio__num">29</span>
               </footer>
             </div>
           </section>
 
-          <!-- 30 · IA y futuro profesional (3) -->
-          <section class="pagina pagina--papel" aria-label="Página 30: inteligencia artificial y futuro profesional">
-            <div class="pagina__lienzo hoja articulo">
-              <header class="cornisa">
-                <span>Mentor ALTI</span>
-                <span>Inteligencia artificial y talento</span>
-              </header>
-              <div class="texto texto--2col" data-anim style="--i:0">
-                <p>Alfredo explicó que uno de los factores que impulsaron su crecimiento profesional fue dejar de trabajar exclusivamente desde el área de sistemas y comenzar a involucrarse con departamentos como finanzas, recursos humanos y operaciones.</p>
-                <p>Su filosofía es sencilla: antes de desarrollar una herramienta, es necesario entender qué necesita realmente el usuario.</p>
-                <p>Durante su trayectoria aprendió que crear soluciones basadas únicamente en suposiciones puede generar desarrollos que nadie solicitó o necesita. Por ello, recomendó acercarse a las distintas áreas, escuchar sus necesidades y presentar las capacidades que el departamento de tecnología puede ofrecer.</p>
-                <p>Esta visión también fue respaldada por otros participantes, quienes compartieron experiencias de automatización mediante herramientas como Power Apps y SharePoint para mejorar procesos de mantenimiento, inventarios y colaboración interna.</p>
-                <p>La conclusión es clara: los profesionales de TI deben convertirse en aliados estratégicos del negocio, no limitarse a atender solicitudes técnicas.</p>
-                <h3 class="texto__sub">Implementar IA requiere contexto, seguridad y responsabilidad</h3>
-                <p>Otro de los puntos centrales fue identificar los errores más comunes de las empresas al incorporar inteligencia artificial.</p>
-                <p>Uno de ellos es utilizar estas herramientas sin proporcionarles suficiente contexto. Para obtener resultados útiles, no basta con realizar una pregunta aislada; es necesario explicar el proceso, los objetivos, las condiciones y la información relevante para resolver el problema.</p>
-                <p>Pero existe un riesgo todavía más importante: confiar ciegamente en los resultados que genera la IA.</p>
-                <p>Durante la sesión se advirtió sobre los falsos negativos y las respuestas incorrectas que pueden producir estas herramientas. En un entorno empresarial, un error puede tener consecuencias considerables. Por ejemplo, si una inteligencia artificial genera un reporte financiero que presenta menos pérdidas de las que realmente existen, las consecuencias no se limitan a un dato equivocado: pueden traducirse en decisiones financieras incorrectas, pérdidas económicas y daños a la credibilidad de la organización.</p>
-              </div>
-              <footer class="folio">
-                <span class="folio__num">30</span>
-                <span>Mentor ALTI</span>
-              </footer>
-            </div>
-          </section>
-
-          <!-- 31 · IA y futuro profesional (4) -->
-          <section class="pagina pagina--papel" aria-label="Página 31: inteligencia artificial y futuro profesional">
-            <div class="pagina__lienzo hoja articulo">
-              <header class="cornisa">
-                <span>Mentor ALTI</span>
-                <span>Inteligencia artificial y talento</span>
-              </header>
-              <div class="texto texto--2col" data-anim style="--i:0">
-                <p>Por ello, es indispensable evaluar las respuestas, verificar la información y mantener mecanismos de supervisión humana, especialmente cuando se trata de procesos financieros o decisiones estratégicas.</p>
-                <p>También es necesario evaluar cuidadosamente las soluciones disponibles y establecer mecanismos para proteger los datos corporativos. Entre las alternativas compartidas durante la sesión destacaron:</p>
-                <p><strong>Soluciones empresariales:</strong> utilizar herramientas bajo contratos y acuerdos de confidencialidad que establezcan condiciones claras sobre el tratamiento de la información.</p>
-                <p><strong>Inteligencia artificial local:</strong> implementar modelos de lenguaje dentro de la infraestructura de la empresa, como las alternativas basadas en Ollama, para mantener un mayor control sobre los datos.</p>
-                <p><strong>Gobernanza tecnológica:</strong> establecer políticas, permisos y lineamientos que definan cómo, cuándo y para qué pueden utilizarse estas herramientas.</p>
-                <p>La seguridad y la confiabilidad no deben considerarse etapas posteriores, sino elementos fundamentales desde la planeación de cualquier proyecto de inteligencia artificial.</p>
-                <h3 class="texto__sub">Infraestructura y datos: ¿qué se necesita para implementar IA local?</h3>
-                <p>Durante el intercambio también surgió una pregunta importante: ¿qué infraestructura necesita una empresa para implementar inteligencia artificial local y permitir que varios desarrolladores trabajen con ella?</p>
-                <p>Alfredo destacó un aspecto que considera fundamental: el almacenamiento de información. Como referencia durante la conversación, mencionó la necesidad de contar con un disco duro de al menos 5 TB, señalando que el espacio para almacenar y procesar datos es un elemento relevante en este tipo de implementaciones.</p>
-                <p>Su reflexión fue contundente: <strong>lo interesante son los datos, no el proceso</strong>.</p>
-                <p>La inteligencia artificial generativa trabaja con información para producir nuevos resultados, por lo que contar con datos suficientes y organizados resulta fundamental para aprovechar su potencial. No obstante, las necesidades reales de hardware dependerán del modelo, el volumen de información y la cantidad de usuarios que utilizarán la solución.</p>
-              </div>
-              <footer class="folio folio--derecha">
-                <span>Mentor ALTI</span>
-                <span class="folio__num">31</span>
-              </footer>
-            </div>
-          </section>
-
-          <!-- 32 · IA y futuro profesional (5) -->
-          <section class="pagina pagina--papel" aria-label="Página 32: inteligencia artificial y futuro profesional">
-            <div class="pagina__lienzo hoja articulo">
-              <header class="cornisa">
-                <span>Mentor ALTI</span>
-                <span>Inteligencia artificial y talento</span>
-              </header>
-              <div class="texto" data-anim style="--i:0">
-                <h3 class="texto__sub">El liderazgo y el talento humano siguen marcando la diferencia</h3>
-                <p>A lo largo de su carrera, Alfredo identificó tres prácticas que contribuyeron significativamente a su crecimiento como líder tecnológico:</p>
-              </div>
-              <ol class="principios" data-anim style="--i:1">
-                <li><span class="principios__num">01</span><b>Involucrarse con otras áreas</b><p>comprender las necesidades de los equipos y generar relaciones de colaboración dentro de la organización.</p></li>
-                <li><span class="principios__num">02</span><b>Invertir tiempo en las personas</b><p>participar directamente en la selección de talento, conocer sus capacidades y reconocer el valor que cada integrante puede aportar.</p></li>
-                <li><span class="principios__num">03</span><b>Fomentar la innovación</b><p>permitir que los colaboradores compartan ideas, propongan alternativas y participen activamente en la construcción de soluciones.</p></li>
-              </ol>
-              <div class="texto texto--2col" data-anim style="--i:2">
-                <p>Sobre el reclutamiento, compartió una perspectiva interesante: durante su trayectoria encontró que algunos desarrolladores provenientes de carreras técnicas podían resultar más eficientes programando que profesionales con una carrera universitaria. Por ello, destacó la importancia de evaluar las habilidades prácticas, el conocimiento y la capacidad de resolver problemas, sin limitar la selección de talento exclusivamente a un título académico.</p>
-                <p>Alfredo también compartió una reflexión sobre lo que habría hecho diferente durante su trayectoria: comunicar y vender mejor las soluciones desarrolladas por su equipo hacia otras áreas y niveles directivos.</p>
-                <p>Esto abrió una conversación sobre la importancia de las habilidades humanas, particularmente la comunicación, la capacidad de negociación y la influencia. No basta con desarrollar una buena solución tecnológica; también es necesario saber comunicar su valor y conseguir que las personas crean en ella.</p>
-              </div>
-              <footer class="folio">
-                <span class="folio__num">32</span>
-                <span>Mentor ALTI</span>
-              </footer>
-            </div>
-          </section>
-
-          <!-- 33 · IA y futuro profesional (6) -->
-          <section class="pagina pagina--papel" aria-label="Página 33: inteligencia artificial y futuro profesional">
-            <div class="pagina__lienzo hoja articulo">
-              <header class="cornisa">
-                <span>Mentor ALTI</span>
-                <span>Inteligencia artificial y talento</span>
-              </header>
-              <div class="texto texto--2col" data-anim style="--i:0">
-                <h3 class="texto__sub">El futuro tecnológico se construye en comunidad</h3>
-                <p>La sesión de Mentor Alti dejó una reflexión importante: la transformación digital no depende exclusivamente de adquirir herramientas o implementar inteligencia artificial, sino de desarrollar profesionales capaces de conectar la tecnología con las personas y los objetivos de las organizaciones.</p>
-                <p>También destacó la importancia de compartir conocimientos entre generaciones. Los profesionales con mayor experiencia pueden aportar aprendizajes y visión estratégica, mientras que los jóvenes que se incorporan al mercado laboral pueden contribuir con nuevas perspectivas y conocimientos sobre tecnologías emergentes.</p>
-                <p>A través de Mentor Alti, ALTI busca consolidar un espacio de intercambio entre líderes tecnológicos, impulsar la participación de nuevos mentores y acercar estas experiencias a estudiantes y futuras generaciones de profesionales.</p>
-                <p><strong>La inteligencia artificial llegó para quedarse, pero el verdadero diferenciador seguirá siendo la capacidad humana para entender problemas, tomar decisiones y transformar ideas en soluciones.</strong></p>
-                <p>Porque el futuro de la tecnología no se construye únicamente con mejores herramientas, sino con mejores profesionales, equipos más colaborativos y líderes dispuestos a compartir lo que saben.</p>
-              </div>
-              <blockquote class="cita-banda" data-anim style="--i:1">
-                <p>“Lo interesante son los datos, no el proceso.”</p>
-                <cite class="firma"><b>Alfredo</b> · Mentor ALTI</cite>
-              </blockquote>
-              <footer class="folio folio--derecha">
-                <span>Mentor ALTI</span>
-                <span class="folio__num">33</span>
-              </footer>
-            </div>
-          </section>
-
-          <!-- 34 · Colaboradores -->
-          <section class="pagina pagina--papel" aria-label="Página 34: colaboradores">
-            <div class="pagina__lienzo hoja ideas">
-              <header class="cornisa">
-                <span>En esta edición</span>
-                <span>Colaboradores</span>
-              </header>
-              <h2 class="titulo-1 ideas__h2" data-anim style="--i:0">Quién escribe<span class="sumario__punto">.</span></h2>
-
-              <ol class="ideas__lista">
-                <li data-anim style="--i:1"><span class="ideas__num">01</span><p><b>Josué Madera</b> · Fundador y Director Editorial de Hablemos Tech. Director General de EnteraCloud y cofundador de Purple AI.</p><span class="ideas__quien">Carta del fundador</span></li>
-                <li data-anim style="--i:2"><span class="ideas__num">02</span><p><b>Francisco Olazo</b> · Enteracloud.</p><span class="ideas__quien">Octubre negro</span></li>
-                <li data-anim style="--i:3"><span class="ideas__num">03</span><p><b>Andrés Wong</b> · Lead Developer de Enteracloud y fundador de Purple AI.</p><span class="ideas__quien">Catorce años invisible</span></li>
-                <li data-anim style="--i:4"><span class="ideas__num">04</span><p><b>[Nombre por confirmar]</b> · Director de ALTI, Alianza de Líderes en Tecnología e Innovación.</p><span class="ideas__quien">Construyendo el ecosistema tecnológico de Baja California</span></li>
-                <li data-anim style="--i:5"><span class="ideas__num">05</span><p><b>Alfredo [apellido por confirmar]</b> · Más de 30 años en el sector tecnológico. Mentor en la primera sesión de Mentor ALTI.</p><span class="ideas__quien">La IA y el futuro de los profesionales de tecnología</span></li>
-              </ol>
-
-              <footer class="folio">
-                <span class="folio__num">34</span>
-                <span>Colaboradores · Esta revista es de ustedes: escríbenos</span>
-              </footer>
-            </div>
-          </section>
-
-          <!-- 35 · Ideas para el lunes -->
-          <section class="pagina pagina--papel" aria-label="Página 35: seis ideas para el lunes">
-            <div class="pagina__lienzo hoja ideas">
-              <header class="cornisa">
-                <span>Cierre</span>
-                <span>Lo que nos llevamos de noviembre</span>
-              </header>
-              <h2 class="titulo-1 ideas__h2" data-anim style="--i:0">Seis ideas para el lunes<span class="sumario__punto">.</span></h2>
-
-              <ol class="ideas__lista">
-                <li data-anim style="--i:1"><span class="ideas__num">01</span><p>Si tienes un proyecto, una lección o una pregunta incómoda, escríbele a la revista: es de ustedes.</p><span class="ideas__quien">Josué Madera</span></li>
-                <li data-anim style="--i:2"><span class="ideas__num">02</span><p>Prioriza lo expuesto a internet con explotación confirmada, y prueba el parche en un piloto.</p><span class="ideas__quien">Francisco Olazo</span></li>
-                <li data-anim style="--i:3"><span class="ideas__num">03</span><p>Automatiza por partes: estandariza la operación base antes de escalar.</p><span class="ideas__quien">Baja Innovation Day</span></li>
-                <li data-anim style="--i:4"><span class="ideas__num">04</span><p>Pregunta qué llaves tienen tus agentes de IA, y qué pasa si alguien se las queda.</p><span class="ideas__quien">Andrés Wong</span></li>
-                <li data-anim style="--i:5"><span class="ideas__num">05</span><p>Busca pares: hay problemas que no se resuelven con una búsqueda en internet.</p><span class="ideas__quien">ALTI</span></li>
-                <li data-anim style="--i:6"><span class="ideas__num">06</span><p>Verifica lo que te entrega la IA antes de decidir con ello.</p><span class="ideas__quien">Mentor ALTI</span></li>
-              </ol>
-
-              <footer class="folio folio--derecha">
-                <span>Cierre · Síntesis de la redacción a partir de los artículos</span>
-                <span class="folio__num">35</span>
-              </footer>
-            </div>
-          </section>
-
-          <!-- 36 · Contraportada -->
+          <!-- 30 · Contraportada -->
           <section class="pagina pagina--noche" data-density="hard" aria-label="Contraportada">
-            <div class="pagina__lienzo hoja contra">
+            <div class="pagina__lienzo hoja contra cp">
+              <div class="cp-fondo" aria-hidden="true">
+                <svg class="cp-rayos" viewBox="0 0 200 300" preserveAspectRatio="xMinYMid meet"><defs><linearGradient id="cp-g1" gradientUnits="userSpaceOnUse" x1="46" y1="150" x2="221" y2="150"><stop offset="0" stop-color="#31dc8d"/><stop offset="0.5" stop-color="#31dc8d"/><stop offset="1" stop-color="#31dc8d"/></linearGradient></defs><rect x="46" y="137" width="175" height="26" transform="rotate(-58 46 150)" fill="url(#cp-g1)"/><rect x="46" y="137" width="175" height="26" transform="rotate(-29 46 150)" fill="url(#cp-g1)"/><rect x="46" y="137" width="175" height="26" transform="rotate(0 46 150)" fill="url(#cp-g1)"/><rect x="46" y="137" width="175" height="26" transform="rotate(29 46 150)" fill="url(#cp-g1)"/><rect x="46" y="137" width="175" height="26" transform="rotate(58 46 150)" fill="url(#cp-g1)"/><rect x="33" y="18" width="26" height="264" fill="url(#cp-g1)"/></svg>
+              </div>
               <header class="cornisa">
                 <span>Vol. 03 · Noviembre 2026</span>
                 <span>hablemostech.com</span>
               </header>
-              <footer class="contra__pie">
-                <svg class="contra__logo" viewBox="0 0 626.18 208.23" role="img" aria-label="Hablemos Tech"><use href="#logo-ht"/></svg>
-                <p class="contra__texto" data-anim style="--i:2">Gracias por leer el Vol. 03. Esta revista es de quienes hacen la tecnología en México: escríbenos.</p>
+              <div class="cp-cuerpo">
+                <p class="cp-ceja oc-mono">Vol. 03 · Hasta la próxima edición</p>
+                <h2 class="cp-titulo" data-anim style="--i:0">Gracias<br>por <em>leer.</em></h2>
+                <p class="cp-texto" data-anim style="--i:1">Hacemos esta revista para quienes mantienen la tecnología de su empresa funcionando todos los días. Ojalá te lleves al menos una idea útil para tu próxima semana.</p>
+                <p class="cp-texto cp-texto--invita" data-anim style="--i:2">¿Resolviste algo que a otros les ahorraría horas de trabajo? Cuéntanoslo: <b>la próxima edición también puede llevar tu firma.</b></p>
+              </div>
+              <footer class="cp-pie">
+                <svg class="cp-logo" viewBox="0 0 626.18 208.23" role="img" aria-label="Hablemos Tech"><use href="#logo-ht"/></svg>
               </footer>
             </div>
           </section>
@@ -1096,7 +1004,7 @@
         <div class="acceso__cuerpo">
           <p class="acceso__ceja">Nueva edición<span aria-hidden="true">/</span>Noviembre 2026</p>
           <h2 class="acceso__titulo" id="acceso-titulo">Edición Noviembre 2026</h2>
-          <p class="acceso__lead">Seis piezas sobre comunidad, ciberseguridad e inteligencia artificial, en 36 páginas.</p>
+          <p class="acceso__lead">Seis piezas sobre comunidad, ciberseguridad e inteligencia artificial, en 30 páginas.</p>
 
           <div class="acceso__vista" data-vista="revisando">
             <p class="acceso__estado" role="status">Verificando tu acceso…</p>
@@ -1147,8 +1055,8 @@
             <li><span>Octubre negro</span><span>Francisco Olazo</span></li>
             <li><span>Perspectivas Baja Innovation Day</span><span>Baja Innovation Day</span></li>
             <li><span>Catorce años invisible</span><span>Andrés Wong</span></li>
-            <li><span>Construyendo el ecosistema tecnológico de Baja California</span><span>ALTI</span></li>
-            <li><span>La IA y el futuro de los profesionales de tecnología</span><span>Alfredo [apellido por confirmar]</span></li>
+            <li><span>Construyendo el ecosistema tecnológico de Baja California</span><span>Christian Picos</span></li>
+            <li><span>La IA y el futuro de los profesionales de tecnología</span><span>Alfredo Sánchez</span></li>
           </ol>
         </div>
       </div>
@@ -1166,6 +1074,6 @@
   <script src="../lector/acceso.js?v=202610141000"></script>
   <!-- acceso:fin -->
   <script src="../lector/vendor/page-flip.browser.js"></script>
-  <script src="../lector/lector.js?v=202610131330"></script>
+  <script src="../lector/lector.js?v=202611111100"></script>
 </body>
 </html>

@@ -1,9 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-hidden="true">
-  <g fill="#31dc8d" transform="translate(24 24)">
-    <rect x="-4" y="-20" width="8" height="40"/>
-    <rect x="-4" y="-20" width="8" height="40" transform="rotate(72)"/>
-    <rect x="-4" y="-20" width="8" height="40" transform="rotate(144)"/>
-    <rect x="-4" y="-20" width="8" height="40" transform="rotate(216)"/>
-    <rect x="-4" y="-20" width="8" height="40" transform="rotate(288)"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 100 100" role="img" aria-hidden="true">
+  <!-- Asterisco del sello de Hablemos Tech: 5 brazos de punta recta, ancho = 46% del largo.
+       Bajado 4.5 para centrarlo (el brazo de arriba es más largo que los de abajo en vertical). -->
+  <g fill="#31dc8d" transform="translate(0 4.5)">
+    <rect x="-10.6" y="-46" width="21.2" height="52"/>
+    <rect x="-10.6" y="-46" width="21.2" height="52" transform="rotate(72)"/>
+    <rect x="-10.6" y="-46" width="21.2" height="52" transform="rotate(144)"/>
+    <rect x="-10.6" y="-46" width="21.2" height="52" transform="rotate(216)"/>
+    <rect x="-10.6" y="-46" width="21.2" height="52" transform="rotate(288)"/>
   </g>
 </svg>

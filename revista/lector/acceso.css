@@ -10,6 +10,7 @@
 
 .revista-bloqueada .lector__escenario,
 .revista-bloqueada .lector__miniaturas,
+.revista-bloqueada .lector__tira,
 .revista-bloqueada .lector__acciones {
   display: none;
 }

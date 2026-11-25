@@ -15,9 +15,32 @@ const iniciarLector = () => {
   const siguiente = document.getElementById('siguiente');
   const pista = document.getElementById('pista');
   const miniaturas = document.getElementById('miniaturas');
+  /* La tira va dentro de un contenedor junto con su barra deslizable; el
+     contenedor es el que entra y sale con la interfaz. */
+  const tira = document.createElement('div');
+  tira.className = 'lector__tira';
+  miniaturas.replaceWith(tira);
+  tira.append(miniaturas);
   const pantalla = document.getElementById('pantalla');
   const paginas = [...libro.querySelectorAll('.pagina')];
   const total = paginas.length;
+
+  /* Medida fija: cada hoja se compone siempre a 612 × 792 (Carta) y solo se
+     escala para llenar su lugar en pantalla. Así el acomodo es idéntico en
+     cualquier tamaño de ventana y la publicidad nunca se deforma. */
+  paginas.forEach((pagina) => {
+    const escala = document.createElement('div');
+    escala.className = 'pagina__escala';
+    while (pagina.firstChild) escala.append(pagina.firstChild);
+    pagina.append(escala);
+  });
+  const ajustarEscala = new ResizeObserver((entradas) => {
+    entradas.forEach(({ target, contentRect }) => {
+      /* La variable va en el lienzo: page-flip reescribe el style de la hoja */
+      if (contentRect.width > 0) target.querySelector(':scope > .pagina__escala').style.setProperty('--escala-hoja', contentRect.width / ANCHO);
+    });
+  });
+  paginas.forEach((pagina) => ajustarEscala.observe(pagina));
   const sinMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   /* Portada sola; después, pares de hojas; la contraportada queda sola si el total es par. */
@@ -143,7 +166,7 @@ const iniciarLector = () => {
         const hoja = document.createElement('span');
         hoja.className = 'miniatura__hoja';
         const copia = document.createElement('div');
-        copia.className = `${paginas[indice].className} is-visible`;
+        copia.className = paginas[indice].className;
         copia.innerHTML = paginas[indice].innerHTML;
         copia.querySelectorAll('img').forEach((img) => {
           img.alt = '';
@@ -154,6 +177,11 @@ const iniciarLector = () => {
           nodo.removeAttribute('aria-label');
         });
         copia.querySelectorAll('[id]').forEach((nodo) => nodo.removeAttribute('id'));
+        copia.querySelectorAll('a').forEach((enlace) => {
+          enlace.removeAttribute('href');
+          enlace.removeAttribute('target');
+          enlace.setAttribute('tabindex', '-1');
+        });
         hoja.append(copia);
         hojas.append(hoja);
       });
@@ -217,6 +245,19 @@ const iniciarLector = () => {
 
   flip.loadFromHTML(paginas);
 
+  /* page-flip traduce el ratón restando la esquina del libro, sin contar
+     escalas de los contenedores; con la revista agrandada (o a medio
+     animar) el click caería en otro punto. Se divide entre la escala real. */
+  const interfazFlip = flip.getUI && flip.getUI();
+  if (interfazFlip && typeof interfazFlip.getMousePos === 'function') {
+    interfazFlip.getMousePos = (x, y) => {
+      const el = interfazFlip.distElement;
+      const r = el.getBoundingClientRect();
+      const escala = el.offsetWidth ? r.width / el.offsetWidth : 1;
+      return { x: (x - r.left) / escala, y: (y - r.top) / escala };
+    };
+  }
+
   function visibles(indice) {
     if (flip.getOrientation() === 'portrait') return [indice];
     if (indice === 0) return [0];
@@ -224,56 +265,15 @@ const iniciarLector = () => {
     return [izquierda, izquierda + 1].filter((i) => i < total);
   }
 
-  function contar(el) {
-    const meta = Number(el.dataset.contar);
-    const decimales = (el.dataset.contar.split('.')[1] || '').length;
-    const formato = (n) => n.toLocaleString('es-MX', { minimumFractionDigits: decimales, maximumFractionDigits: decimales });
-    if (sinMovimiento.matches) {
-      el.textContent = formato(meta);
-      return;
-    }
-    const inicio = performance.now() + 350;
-    const duracion = 1300;
-    el.textContent = formato(0);
-    const paso = (ahora) => {
-      const t = Math.min(1, Math.max(0, (ahora - inicio) / duracion));
-      const valor = meta * (1 - Math.pow(1 - t, 4));
-      el.textContent = formato(decimales ? valor : Math.round(valor));
-      if (t < 1) requestAnimationFrame(paso);
-    };
-    requestAnimationFrame(paso);
-  }
-
-  let mostradas = [];
-
-  function revelar(indices) {
-    paginas.forEach((pagina, i) => {
-      const entra = indices.includes(i) && !mostradas.includes(i);
-      pagina.classList.toggle('is-visible', indices.includes(i));
-      if (entra) pagina.querySelectorAll('[data-contar]').forEach(contar);
-    });
-    mostradas = indices;
-  }
-
-  /* Al levantar la hoja, la página que aparece debajo ya empieza a componerse */
+  /* Al levantar la hoja, el libro se abre a doble página */
   function alEmpezarGiro() {
     ocultarPista();
-    const actuales = visibles(flip.getCurrentPageIndex());
-    const vecinas = new Set(actuales);
-    actuales.forEach((i) => {
-      [i - 2, i - 1, i + 1, i + 2].forEach((v) => {
-        if (v >= 0 && v < total) vecinas.add(v);
-      });
-    });
-    revelar([...vecinas]);
     if (marco.dataset.pos === 'portada' || marco.dataset.pos === 'contra') marco.dataset.pos = 'doble';
   }
 
   function actualizar(indice) {
     const vista = visibles(indice);
     const vertical = flip.getOrientation() === 'portrait';
-
-    revelar(vista);
 
     let posicion = 'doble';
     if (vertical) posicion = 'sencilla';
@@ -443,6 +443,7 @@ const iniciarLector = () => {
   }
 
   function paso(direccion) {
+    soltarCrecimiento();
     const centro = centroEscenario();
     const destino = direccion > 0
       ? PASOS.find((pasoZoom) => pasoZoom > zoom + 0.02) || 2.5
@@ -456,6 +457,7 @@ const iniciarLector = () => {
   document.addEventListener('wheel', (e) => {
     if (!escenario.contains(e.target)) return;
     e.preventDefault();
+    soltarCrecimiento();
     const delta = e.deltaMode === 1 ? e.deltaY * 16 : e.deltaY;
     zoomHacia(zoom * Math.exp(-delta * 0.0016), e.clientX, e.clientY, false);
     if (zoom > 1) ocultarPista();
@@ -572,6 +574,218 @@ const iniciarLector = () => {
   } else {
     pantalla.hidden = true;
   }
+
+  /* Lectura limpia: cuando nada se mueve durante REPOSO, la interfaz se
+     retira y solo queda la revista. Si el cursor descansa sobre la barra de
+     arriba, la tira de miniaturas o las flechas de anterior/siguiente, se
+     queda visible (el lector está por usarlas). Se revisa con la posición
+     real del cursor y no con :hover: cuando una barra vuelve deslizándose
+     bajo un cursor quieto, el navegador no la marca en hover. Cualquier movimiento la trae de vuelta. Basta con que
+     haya algún ratón o trackpad (any-*): en un teléfono no habría un gesto
+     natural para hacerla volver. */
+  const lector = escenario.closest('.lector');
+  const conRaton = window.matchMedia('(any-hover: hover) and (any-pointer: fine)');
+  const REPOSO = 1500;
+  let esperaReposo = 0;
+  let ratonX = null;
+  let ratonY = null;
+  let botonPresionado = false;
+  const piezasQueRetienen = [lector.querySelector('.lector__barra'), tira, anterior, siguiente];
+  let cursor = null;
+
+  document.documentElement.addEventListener('mouseleave', () => { cursor = null; });
+
+  function cursorSobreInterfaz() {
+    if (!cursor) return false;
+    return piezasQueRetienen.some((pieza) => {
+      const r = pieza.getBoundingClientRect();
+      return r.width > 0 && cursor.x >= r.left && cursor.x <= r.right && cursor.y >= r.top && cursor.y <= r.bottom;
+    });
+  }
+
+  window.addEventListener('mousedown', () => { botonPresionado = true; }, true);
+  window.addEventListener('mouseup', () => { botonPresionado = false; }, true);
+  window.addEventListener('blur', () => { botonPresionado = false; });
+
+  function retirarInterfaz() {
+    if (!conRaton.matches) return;
+    /* Con el click sostenido sobre una hoja (doblándola) no se agranda
+       bajo la mano: se espera a que la suelte. */
+    if (botonPresionado && zoom === 1) {
+      esperarReposo();
+      return;
+    }
+    if (cursorSobreInterfaz()) {
+      esperarReposo();
+      return;
+    }
+    medirCrecimiento();
+    lector.classList.add('is-limpio');
+  }
+
+  /* Sin barras, la revista crece para ocupar la pantalla entera: el escenario
+     se escala desde su centro y se recentra en la ventana. Se mide con
+     offset* (sin transformaciones) y contra la doble página completa, así el
+     tamaño no cambia al pasar de la portada a una doble página. */
+  let crecimiento = { escala: 1, dx: 0, dy: 0 };
+
+  function escribirCrecimiento(escala, dx, dy) {
+    crecimiento = { escala, dx, dy };
+    escenario.style.setProperty('--crece', escala.toFixed(4));
+    escenario.style.setProperty('--crece-x', `${dx.toFixed(1)}px`);
+    escenario.style.setProperty('--crece-y', `${dy.toFixed(1)}px`);
+  }
+
+  function medirCrecimiento() {
+    const abajo = window.innerHeight - escenario.offsetTop - escenario.offsetHeight;
+    escenario.style.setProperty('--libre-arriba', `${-Math.ceil(escenario.offsetTop + 2)}px`);
+    escenario.style.setProperty('--libre-abajo', `${-Math.ceil(Math.max(0, abajo) + 2)}px`);
+    let escala = 1;
+    let dx = 0;
+    let dy = 0;
+    if (zoom === 1) {
+      const margenX = Math.max(24, window.innerWidth * 0.03);
+      const margenY = Math.max(16, window.innerHeight * 0.03);
+      const ancho = marco.offsetWidth;
+      const alto = marco.offsetHeight;
+      escala = Math.min(1.6, (window.innerWidth - margenX * 2) / ancho, (window.innerHeight - margenY * 2) / alto);
+      if (escala > 1.01) {
+        const centroX = escenario.offsetLeft + escenario.offsetWidth / 2;
+        const centroY = escenario.offsetTop + escenario.offsetHeight / 2;
+        const libroY = escenario.offsetTop + marco.offsetTop + alto / 2;
+        dx = window.innerWidth / 2 - centroX;
+        dy = window.innerHeight / 2 - centroY - escala * (libroY - centroY);
+      } else {
+        escala = 1;
+      }
+    }
+    escribirCrecimiento(escala, dx, dy);
+  }
+
+  /* Si se hace zoom con la revista agrandada, el agrandamiento se vuelve
+     zoom del libro en el mismo instante (misma escala y posición), y el
+     zoom sigue desde ahí sin brinco. */
+  function soltarCrecimiento() {
+    if (zoom !== 1 || crecimiento.escala === 1 || !lector.classList.contains('is-limpio')) return;
+    const { escala, dx, dy } = crecimiento;
+    escenario.classList.add('is-al-instante');
+    escribirCrecimiento(1, 0, 0);
+    void escenario.offsetWidth;
+    const c = caja();
+    const centro = centroEscenario();
+    zoom = escala;
+    panX = (1 - escala) * (centro.x - c.left - desfaseDe(c.w) - origenX() * c.w) + dx;
+    panY = (1 - escala) * (centro.y - c.top - c.h / 2) + dy;
+    aplicarZoom(false);
+    void marco.offsetWidth;
+    requestAnimationFrame(() => escenario.classList.remove('is-al-instante'));
+  }
+
+  window.addEventListener('resize', () => {
+    if (lector.classList.contains('is-limpio')) medirCrecimiento();
+  });
+
+  function esperarReposo() {
+    window.clearTimeout(esperaReposo);
+    esperaReposo = window.setTimeout(retirarInterfaz, REPOSO);
+  }
+
+  function despertar() {
+    lector.classList.remove('is-limpio');
+    esperarReposo();
+  }
+
+  /* El navegador también avisa "mousemove" cuando la página cambia bajo un
+     cursor quieto; solo cuenta si de verdad se movió en pantalla. */
+  /* Arrastrar la página (con zoom o al doblar una hoja) y el scroll del
+     zoom son parte de leer: no despiertan la interfaz. */
+  window.addEventListener('mousemove', (e) => {
+    cursor = { x: e.clientX, y: e.clientY };
+    const quieto = ratonX !== null && Math.abs(e.screenX - ratonX) + Math.abs(e.screenY - ratonY) < 3;
+    if (quieto) return;
+    ratonX = e.screenX;
+    ratonY = e.screenY;
+    if (e.buttons !== 0) return;
+    despertar();
+  }, { passive: true });
+  const TECLAS_DESPIERTAN = ['ArrowRight', 'ArrowLeft', 'PageDown', 'PageUp', 'Home', 'End', 'Tab'];
+  document.addEventListener('keydown', (e) => {
+    if (TECLAS_DESPIERTAN.includes(e.key)) despertar();
+  });
+  document.addEventListener('fullscreenchange', despertar);
+  conRaton.addEventListener('change', despertar);
+
+  /* La rueda (vertical) sobre la tira de miniaturas la recorre de lado:
+     hacia abajo avanza a la derecha, hacia arriba regresa. El gesto
+     horizontal del trackpad ya lo hace el navegador solo. Recorrer la tira
+     es usar la interfaz, así que también la mantiene despierta. */
+  miniaturas.addEventListener('wheel', (e) => {
+    if (miniaturas.scrollWidth <= miniaturas.clientWidth) return;
+    despertar();
+    if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+    e.preventDefault();
+    const escala = e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? miniaturas.clientWidth : 1;
+    miniaturas.scrollBy({ left: e.deltaY * escala, behavior: 'instant' });
+  }, { passive: false });
+
+  /* Barra deslizable bajo las miniaturas: se arrastra la perilla o se hace
+     clic en el riel para saltar ahí. Solo aparece si la tira no cabe y hay
+     ratón o trackpad (en el teléfono basta deslizar la tira con el dedo). Es una
+     ayuda para el ratón; con teclado se recorren los botones de la tira. */
+  const riel = document.createElement('div');
+  riel.className = 'lector__riel';
+  riel.setAttribute('aria-hidden', 'true');
+  const perilla = document.createElement('div');
+  perilla.className = 'lector__perilla';
+  riel.append(perilla);
+  tira.append(riel);
+
+  function medirRiel() {
+    const sobra = miniaturas.scrollWidth - miniaturas.clientWidth;
+    const mostrar = sobra > 1 && conRaton.matches;
+    tira.classList.toggle('con-riel', mostrar);
+    if (!mostrar) return;
+    const largo = riel.clientWidth;
+    const ancho = Math.max(40, largo * miniaturas.clientWidth / miniaturas.scrollWidth);
+    perilla.style.width = `${ancho}px`;
+    perilla.style.translate = `${(largo - ancho) * (miniaturas.scrollLeft / sobra)}px 0`;
+  }
+
+  function llevarRiel(x, agarre) {
+    const r = riel.getBoundingClientRect();
+    const ancho = perilla.offsetWidth;
+    const fraccion = Math.min(1, Math.max(0, (x - r.left - agarre) / Math.max(1, r.width - ancho)));
+    miniaturas.scrollTo({ left: fraccion * (miniaturas.scrollWidth - miniaturas.clientWidth), behavior: 'instant' });
+  }
+
+  let agarreRiel = null;
+  riel.addEventListener('pointerdown', (e) => {
+    if (e.button !== 0) return;
+    e.preventDefault();
+    const p = perilla.getBoundingClientRect();
+    agarreRiel = e.target === perilla ? e.clientX - p.left : p.width / 2;
+    riel.setPointerCapture(e.pointerId);
+    riel.classList.add('is-arrastrando');
+    llevarRiel(e.clientX, agarreRiel);
+    despertar();
+  });
+  riel.addEventListener('pointermove', (e) => {
+    if (agarreRiel === null) return;
+    llevarRiel(e.clientX, agarreRiel);
+    despertar();
+  });
+  const soltarRiel = () => {
+    agarreRiel = null;
+    riel.classList.remove('is-arrastrando');
+  };
+  riel.addEventListener('pointerup', soltarRiel);
+  riel.addEventListener('pointercancel', soltarRiel);
+
+  miniaturas.addEventListener('scroll', medirRiel, { passive: true });
+  new ResizeObserver(medirRiel).observe(miniaturas);
+  conRaton.addEventListener('change', medirRiel);
+  medirRiel();
+  esperarReposo();
 
   window.setTimeout(ocultarPista, 7000);
 
