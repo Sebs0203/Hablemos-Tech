@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Octubre negro — Blog Hablemos Tech</title>
+  <meta name="description" content="Las fallas que se explotaron en octubre, el día que un parche dejó a todos fuera y una ruta de cinco pasos para responder con calma.">
+  <link rel="canonical" href="https://hablemostech.com/blog/octubre-negro/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Hablemos Tech">
+  <meta property="og:locale" content="es_MX">
+  <meta property="og:title" content="Octubre negro — Blog Hablemos Tech">
+  <meta property="og:description" content="Las fallas que se explotaron en octubre, el día que un parche dejó a todos fuera y una ruta de cinco pasos para responder con calma.">
+  <meta property="og:url" content="https://hablemostech.com/blog/octubre-negro/">
+  <meta property="og:image" content="https://hablemostech.com/assets/img/revista-vol-03/francisco-olazo-retrato.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/img/asterisco.png?v=favicon" type="image/png">
+  <link rel="stylesheet" href="/css/hablemos.css?v=202610131500">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Octubre negro", "description": "Las fallas que se explotaron en octubre, el día que un parche dejó a todos fuera y una ruta de cinco pasos para responder con calma.", "image": "https://hablemostech.com/assets/img/revista-vol-03/francisco-olazo-retrato.jpg", "datePublished": "2026-11-25", "inLanguage": "es-MX", "author": {"@type": "Person", "name": "Francisco Olazo"}, "publisher": {"@type": "Organization", "name": "Hablemos Tech", "url": "https://hablemostech.com"}, "mainEntityOfPage": "https://hablemostech.com/blog/octubre-negro/"}</script>
+</head>
+<body class="pagina-revista pagina-blog">
+  <div id="site-nav"></div>
+  <script src="/components/nav/site-nav.js" data-current="blog"></script>
+
+  <main class="post">
+    <article class="post__articulo" aria-labelledby="post-titulo">
+      <header class="post__cabecera">
+        <nav class="post__migas" aria-label="Ruta">
+          <a href="/blog/"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M10 3.5 5.5 8 10 12.5" /></svg>Blog</a>
+        </nav>
+        <span class="blog-chip">Ciberseguridad</span>
+        <h1 class="post__titulo" id="post-titulo">Octubre negro</h1>
+        <p class="post__lead">Las fallas que se explotaron en octubre, el día que un parche dejó a todos fuera y una ruta de cinco pasos para responder con calma.</p>
+        <div class="post__firma">
+          <ul class="post__ponentes" aria-label="Autor"><li><strong>Francisco Olazo</strong><span>LATAM Lead Engineer, Enteracloud</span></li></ul>
+          <p class="blog-pie"><span>Columna</span><span>Vol. 03, noviembre 2026</span><span>3 min de lectura</span></p>
+        </div>
+      </header>
+
+      <figure class="post__portada">
+        <img src="/assets/img/revista-vol-03/francisco-olazo-retrato.jpg" alt="Francisco Olazo, LATAM Lead Engineer de Enteracloud." width="1600" height="2400" fetchpriority="high" decoding="async" style="--foco: 50% 20%">
+        <figcaption>Francisco Olazo, LATAM Lead Engineer de Enteracloud.</figcaption>
+      </figure>
+
+      <div class="post__cuerpo">
+<p>Octubre recordó que las vulnerabilidades pueden pegarle al mismo tiempo a tecnologías muy distintas y muy usadas. Francisco Olazo, LATAM Lead Engineer de Enteracloud, propone en el Vol. 03 responder con seriedad, calma y estrategia.</p>
+<h2>Lo que se explotó</h2>
+<p>El equipo de PHP publicó actualizaciones para dos fallas críticas que permitían ejecutar código en el servidor sin usuario ni contraseña. La CISA, la agencia de ciberseguridad de Estados Unidos, reportó explotación activa y las sumó a su catálogo KEV (Known Exploited Vulnerabilities): la lista de fallas que ya se usan en ataques reales.</p>
+<ul>
+<li><b>PHP (PHP2Shell):</b> CVE-2026-109618 y CVE-2026-109619, con explotación activa.</li>
+<li><b>Windows Shell:</b> CVE-2026-96951, explotada antes de que saliera el parche.</li>
+<li><b>BeyondTrust Remote Support:</b> explotación activa.</li>
+<li><b>Collabora Online, Adobe Commerce / Magento y Brotli:</b> explotación activa.</li>
+</ul>
+<p>La referencia práctica: revisar si esos productos están en tu inventario y atender primero los que estén expuestos a internet o sostengan servicios críticos.</p>
+<h2>Cuando el parche falla</h2>
+<p>Un parche también es un cambio operativo. En septiembre, una actualización dejó inestable el Escritorio remoto en algunos Windows Server: las aplicaciones seguían arriba, pero nadie podía entrar. Contpaqi, nóminas, logística, ERP y aduanas, todos sin acceso.</p>
+<p>La pregunta que deja Francisco: ¿cuánto podría operar tu empresa sin estos sistemas?</p>
+<h2>Una ruta en cinco pasos</h2>
+<ol class="post-pasos"><li><strong>Confirmar el alcance.</strong> Revisar inventario, versiones, servicios expuestos y responsables.</li><li><strong>Priorizar por riesgo.</strong> Combinar explotación confirmada, exposición a internet, criticidad del activo, impacto al negocio y si ya existe corrección.</li><li><strong>Probar antes de ampliar.</strong> Validar en un grupo piloto que sigan funcionando el Escritorio remoto, las aplicaciones y los servicios críticos.</li><li><strong>Remediar con control.</strong> Programar ventanas, respaldar y definir una ruta de recuperación si algo falla.</li><li><strong>Verificar y comunicar.</strong> Confirmar que el parche se aplicó y reportar a la empresa el riesgo, las acciones, los responsables y los tiempos.</li></ol>
+<p>Las herramientas ayudan a convertir información dispersa en acciones: Greenbone (OpenVAS) o Wazuh para descubrir vulnerabilidades, Datto RMM para desplegar parches por grupos y con aprobación, Ansible para remediar muchos servidores a la vez. Ninguna reemplaza los respaldos recientes ni otra forma de entrar a los servidores cuando el Escritorio remoto no está disponible.</p>
+<blockquote class="post-cita"><p>“Un tablero con cientos de alertas no equivale a control.”</p><cite>Francisco Olazo</cite></blockquote>
+<p>La dirección estratégica no consiste en prometer que nada va a pasar, sino en conocer los activos, reducir la exposición, asignar responsables y mantener informados a quienes dependen de la tecnología. El papel de la IA en este mismo mes lo cuenta Andrés Wong en <a href="/blog/catorce-anos-invisible/">Catorce años invisible</a>.</p>
+<aside class="post-caja"><h2>Para el lunes</h2><ul><li>Cruza tu inventario con el catálogo KEV de la CISA.</li><li>Atiende primero lo expuesto a internet y lo que sostiene servicios críticos.</li><li>Prueba cada parche en un grupo piloto antes de desplegarlo a todos.</li><li>Ten otra forma de entrar a tus servidores si falla el Escritorio remoto.</li></ul></aside>
+      </div>
+
+      <footer class="post__fuente">
+        <p class="post__fuente-texto">Este texto es una versión breve de la columna de Francisco Olazo, publicada primero en la revista Hablemos Tech.</p>
+        <ul class="post__fuente-lista"><li><span>Vol. 03, noviembre 2026, p. 08</span><span>Edición noviembre 2026</span></li></ul>
+      </footer>
+    </article>
+
+    <section class="post-relacionados" aria-labelledby="relacionados-titulo">
+      <h2 class="blog__subtitulo" id="relacionados-titulo">Sigue leyendo</h2>
+      <ul class="blog-rejilla">
+            <li class="blog-tarjeta" data-temas="ciberseguridad ia">
+              <a class="blog-tarjeta__enlace" href="/blog/catorce-anos-invisible/">
+                <img class="blog-tarjeta__foto" src="/assets/img/revista-vol-03/andres-wong-retrato.jpg" alt="" width="1200" height="1615" loading="lazy" decoding="async" style="--foco: 50% 10%">
+                <span class="blog-chip">Ciberseguridad e IA</span>
+                <h3 class="blog-tarjeta__titulo">Catorce años invisible</h3>
+                <p class="blog-tarjeta__extracto">La IA encontró un agujero que llevaba catorce años en PHP. El robo más grande de octubre no la necesitó: entró por una laptop y una conversación.</p>
+                <p class="blog-pie"><span>Andrés Wong</span><span>4 min de lectura</span></p>
+              </a>
+            </li>
+            <li class="blog-tarjeta" data-temas="ciberseguridad">
+              <a class="blog-tarjeta__enlace" href="/blog/el-codigo-que-no-escribiste/">
+                <img class="blog-tarjeta__foto" src="/assets/img/revista-vol-02/gustavo-rodriguez.jpg" alt="" width="1800" height="1200" loading="lazy" decoding="async" style="--foco: 55% 40%">
+                <span class="blog-chip">Ciberseguridad</span>
+                <h3 class="blog-tarjeta__titulo">El código que no escribiste</h3>
+                <p class="blog-tarjeta__extracto">Los ataques más difíciles de ver no entran por tu firewall: llegan dentro de las dependencias que tú mismo instalas.</p>
+                <p class="blog-pie"><span>Gustavo Rodríguez</span><span>3 min de lectura</span></p>
+              </a>
+            </li>
+            <li class="blog-tarjeta" data-temas="nube ciberseguridad">
+              <a class="blog-tarjeta__enlace" href="/blog/respaldar-no-es-recuperar/">
+                <img class="blog-tarjeta__foto" src="/assets/img/revista-vol-02/francisco-olazo.jpg" alt="" width="1800" height="653" loading="lazy" decoding="async" style="--foco: 50% 40%">
+                <span class="blog-chip">Nube</span>
+                <h3 class="blog-tarjeta__titulo">Respaldar no es recuperar</h3>
+                <p class="blog-tarjeta__extracto">Tener respaldos no es estar protegido. Lo que protege tu operación es saber cuánto tardas en volver, y haberlo probado.</p>
+                <p class="blog-pie"><span>Francisco Olazo y Diego Garza</span><span>2 min de lectura</span></p>
+              </a>
+            </li>
+      </ul>
+    </section>
+
+    <section class="post-boletin" aria-labelledby="post-boletin-titulo">
+      <h2 class="post-boletin__titulo" id="post-boletin-titulo">La próxima edición, en tu correo.</h2>
+      <p class="post-boletin__texto">Te avisamos cuando salga una revista nueva, un episodio o un evento.</p>
+      <a class="boton boton--principal" href="/#boletin">Suscribirme al boletín</a>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/js/config.js"></script>
+  <script src="/js/auth/client.js"></script>
+  <script src="/js/beacon-leads.js"></script>
+  <script src="/js/auth/session.js?v=202610131100"></script>
+  <script src="/js/auth/nav.js?v=202608251752"></script>
+  <script src="/js/auth/modal.js?v=202610131130"></script>
+</body>
+</html>

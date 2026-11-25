@@ -22,7 +22,15 @@ PUBLICADO = '2026-10-13'
 EVENTOS = {
     'vol-01': ('Foro de Tecnología MX 2026', 'Vol. 01, julio 2026'),
     'vol-02': ('Tech & Wine Fest 2026', 'Vol. 02, otoño 2026'),
+    'vol-03': ('Edición noviembre 2026', 'Vol. 03, noviembre 2026'),
 }
+
+# Campos opcionales de cada entrada:
+#   'publicado'  fecha propia (si no, PUBLICADO).
+#   'autor'      True si la persona en 'ponentes' firma el texto (columna),
+#                no lo presentó en un escenario.
+#   'eventos'    lista que reemplaza los eventos derivados de 'fuentes'.
+#   'base'       texto propio para el pie de fuente.
 
 TEMAS = [
     ('ciberseguridad', 'Ciberseguridad'),
@@ -30,6 +38,7 @@ TEMAS = [
     ('nube', 'Nube'),
     ('negocio', 'Negocio y cliente'),
     ('industria', 'Industria'),
+    ('comunidad', 'Comunidad'),
 ]
 
 
@@ -67,6 +76,231 @@ def enlace(slug, texto):
 # ---------- Entradas ----------
 
 ENTRADAS = [
+    # ---------- Vol. 03, noviembre 2026 ----------
+    {
+        'slug': 'catorce-anos-invisible',
+        'titulo': 'Catorce años invisible',
+        'rubro': 'Ciberseguridad e IA',
+        'temas': ['ciberseguridad', 'ia'],
+        'extracto': 'La IA encontró un agujero que llevaba catorce años en PHP. El robo más grande de octubre no la necesitó: entró por una laptop y una conversación.',
+        'ponentes': [('Andrés Wong', 'Lead Developer, Enteracloud · Socio fundador, Purple AI')],
+        'autor': True,
+        'publicado': '2026-11-25',
+        'fuentes': [('vol-03', 15)],
+        'foto': ('/assets/img/revista-vol-03/andres-wong-retrato.jpg', 1200, 1615, '50% 10%',
+                 'Andrés Wong, Lead Developer de Enteracloud y socio fundador de Purple AI.'),
+        'cuerpo': f'''
+<p>El 21 de octubre, PHP y Node.js publicaron parches de emergencia. Ocho días después, Binance confirmó el robo de 6,300 millones de dólares, el mayor de la historia cripto. Casi toda la cobertura lo explicó igual: inteligencia artificial.</p>
+<p>Andrés Wong, Lead Developer de Enteracloud y socio fundador de Purple AI, escribe en el Vol. 03 que esa explicación es cierta a medias, y que la mitad que falta es la más importante.</p>
+<h2>El bug que llevaba catorce años</h2>
+<p>Las fallas de PHP permiten que alguien sin usuario ni contraseña ejecute código en tu servidor, en todas las versiones desde la 5.4: el 70 % de internet y más de 22 millones de instalaciones expuestas.</p>
+<p>El agujero llevaba catorce años en uno de los programas más auditados del planeta. En agosto lo encontraron dos equipos por separado, con semanas de diferencia, y los dos se apoyaron en modelos de IA. No fue casualidad: cambió el instrumento.</p>
+{cifras([
+    ('14 años', 'escondido el bug de PHP'),
+    ('22 M', 'instalaciones expuestas'),
+    ('6,300 M', 'de dólares robados a Binance'),
+], 'Cifras citadas en la columna.')}
+<h2>Se acabó el tiempo para parchear</h2>
+<p>Los detalles se filtraron antes de lo acordado y siguieron millones de intentos de ataque. Antes pasaban semanas entre que una falla se hacía pública y alguien construía un ataque; ese era el margen para actualizar. Esa fricción se acabó, y al atacante le basta un servidor sin parchear entre veintidós millones.</p>
+{cita('La IA no cambió quién gana. Cambió cuánto dura la ventana.', 'Andrés Wong')}
+<h2>6,300 millones, y ni un solo modelo de IA</h2>
+<p>En la cobertura del robo a Binance no hay un solo reporte que ponga a la IA en el camino del ataque. Según la investigación preliminar, el atacante entró por la laptop de un ingeniero al que convencieron de correr una “prueba”. La empresa aclaró que no fue el único punto de entrada y la historia sigue abierta, pero el eje ya se ve: el perímetro técnico se endurece como nunca, y el robo más grande necesitó a una persona dispuesta a hacerle un favor a un desconocido.</p>
+{pasos([
+    ('Agosto.', 'Dos equipos encuentran el bug de PHP, cada uno con un modelo de IA.'),
+    ('21 de octubre.', 'PHP y Node.js parchean fallas que permiten ejecutar código sin contraseña.'),
+    ('Ese mismo día.', 'Se filtran los detalles y la ventaja cambia de bando: millones de intentos de ataque.'),
+    ('29 y 30 de octubre.', 'Roban 6,300 millones a Binance, sin IA: entraron por la laptop de un ingeniero.'),
+])}
+<h2>Ahora los robots tienen las llaves</h2>
+<p>Octubre también trajo ataques a la cadena de suministro: librerías contaminadas, incluida LiteLLM, y un gusano que roba credenciales de desarrollo y de la nube. Es un ataque contra la forma en que hoy se trabaja con agentes de IA.</p>
+<p>Andrés lo ve de cerca: su oficina de agentes suma 27 agentes de IA en 10 departamentos y 4 máquinas, con memoria, herramientas y credenciales. Muy productivo y, visto desde el otro lado, un objetivo precioso.</p>
+<p>Si en tu empresa alguien ya usa agentes conectados a sistemas reales, la pregunta de esta semana es: ¿qué llaves tienen, y qué pasa si alguien se las queda?</p>
+<h2>La IA no rompió internet</h2>
+<p>La lectura fácil de octubre es que la inteligencia artificial rompió internet. Es falsa. Lo que hizo fue abrir en canal una infraestructura que llevaba años con heridas que nadie veía, y lo hizo del lado correcto: los dos agujeros grandes del mes los encontraron investigadores con modelos, no criminales.</p>
+<p>El precio es que se acabó el tiempo muerto. Lo que antes tardaba semanas en volverse un ataque ahora tarda días, y muchos planes de actualización siguen escritos para el mundo anterior. Las fallas del mes, una por una, están en {enlace('octubre-negro', 'Octubre negro')}.</p>
+{cita('Lo que no nos está dando, y no nos va a dar, es gente que desconfíe a tiempo.', 'Andrés Wong')}
+{caja('Para el lunes', [
+    'Ubica cada servidor con PHP expuesto a internet y confirma que tiene los parches de octubre.',
+    'Ajusta tu plan de actualización a días, no a semanas.',
+    'Haz el inventario de llaves de tus agentes de IA: qué credenciales tienen y quién responde por ellas.',
+    'Recuérdale a tu equipo que nadie corre una “prueba” que le pide un desconocido.',
+])}
+''',
+    },
+    {
+        'slug': 'octubre-negro',
+        'titulo': 'Octubre negro',
+        'rubro': 'Ciberseguridad',
+        'temas': ['ciberseguridad'],
+        'extracto': 'Las fallas que se explotaron en octubre, el día que un parche dejó a todos fuera y una ruta de cinco pasos para responder con calma.',
+        'ponentes': [('Francisco Olazo', 'LATAM Lead Engineer, Enteracloud')],
+        'autor': True,
+        'publicado': '2026-11-25',
+        'fuentes': [('vol-03', 8)],
+        'foto': ('/assets/img/revista-vol-03/francisco-olazo-retrato.jpg', 1600, 2400, '50% 20%',
+                 'Francisco Olazo, LATAM Lead Engineer de Enteracloud.'),
+        'cuerpo': f'''
+<p>Octubre recordó que las vulnerabilidades pueden pegarle al mismo tiempo a tecnologías muy distintas y muy usadas. Francisco Olazo, LATAM Lead Engineer de Enteracloud, propone en el Vol. 03 responder con seriedad, calma y estrategia.</p>
+<h2>Lo que se explotó</h2>
+<p>El equipo de PHP publicó actualizaciones para dos fallas críticas que permitían ejecutar código en el servidor sin usuario ni contraseña. La CISA, la agencia de ciberseguridad de Estados Unidos, reportó explotación activa y las sumó a su catálogo KEV (Known Exploited Vulnerabilities): la lista de fallas que ya se usan en ataques reales.</p>
+<ul>
+<li><b>PHP (PHP2Shell):</b> CVE-2026-109618 y CVE-2026-109619, con explotación activa.</li>
+<li><b>Windows Shell:</b> CVE-2026-96951, explotada antes de que saliera el parche.</li>
+<li><b>BeyondTrust Remote Support:</b> explotación activa.</li>
+<li><b>Collabora Online, Adobe Commerce / Magento y Brotli:</b> explotación activa.</li>
+</ul>
+<p>La referencia práctica: revisar si esos productos están en tu inventario y atender primero los que estén expuestos a internet o sostengan servicios críticos.</p>
+<h2>Cuando el parche falla</h2>
+<p>Un parche también es un cambio operativo. En septiembre, una actualización dejó inestable el Escritorio remoto en algunos Windows Server: las aplicaciones seguían arriba, pero nadie podía entrar. Contpaqi, nóminas, logística, ERP y aduanas, todos sin acceso.</p>
+<p>La pregunta que deja Francisco: ¿cuánto podría operar tu empresa sin estos sistemas?</p>
+<h2>Una ruta en cinco pasos</h2>
+{pasos([
+    ('Confirmar el alcance.', 'Revisar inventario, versiones, servicios expuestos y responsables.'),
+    ('Priorizar por riesgo.', 'Combinar explotación confirmada, exposición a internet, criticidad del activo, impacto al negocio y si ya existe corrección.'),
+    ('Probar antes de ampliar.', 'Validar en un grupo piloto que sigan funcionando el Escritorio remoto, las aplicaciones y los servicios críticos.'),
+    ('Remediar con control.', 'Programar ventanas, respaldar y definir una ruta de recuperación si algo falla.'),
+    ('Verificar y comunicar.', 'Confirmar que el parche se aplicó y reportar a la empresa el riesgo, las acciones, los responsables y los tiempos.'),
+])}
+<p>Las herramientas ayudan a convertir información dispersa en acciones: Greenbone (OpenVAS) o Wazuh para descubrir vulnerabilidades, Datto RMM para desplegar parches por grupos y con aprobación, Ansible para remediar muchos servidores a la vez. Ninguna reemplaza los respaldos recientes ni otra forma de entrar a los servidores cuando el Escritorio remoto no está disponible.</p>
+{cita('Un tablero con cientos de alertas no equivale a control.', 'Francisco Olazo')}
+<p>La dirección estratégica no consiste en prometer que nada va a pasar, sino en conocer los activos, reducir la exposición, asignar responsables y mantener informados a quienes dependen de la tecnología. El papel de la IA en este mismo mes lo cuenta Andrés Wong en {enlace('catorce-anos-invisible', 'Catorce años invisible')}.</p>
+{caja('Para el lunes', [
+    'Cruza tu inventario con el catálogo KEV de la CISA.',
+    'Atiende primero lo expuesto a internet y lo que sostiene servicios críticos.',
+    'Prueba cada parche en un grupo piloto antes de desplegarlo a todos.',
+    'Ten otra forma de entrar a tus servidores si falla el Escritorio remoto.',
+])}
+''',
+    },
+    {
+        'slug': 'construyendo-el-ecosistema',
+        'titulo': 'Construyendo el ecosistema',
+        'rubro': 'Comunidad',
+        'temas': ['comunidad', 'negocio'],
+        'extracto': 'En Baja California el conocimiento existe. Lo que falta es conectar a quienes enfrentan los mismos problemas por separado.',
+        'ponentes': [('Christian Picos', 'Director de ALTI · Hospital Excel')],
+        'autor': True,
+        'publicado': '2026-11-25',
+        'fuentes': [('vol-03', 21)],
+        'foto': ('/assets/img/revista-vol-03/christian-picos-retrato.jpg', 2000, 1131, '45% 30%',
+                 'Christian Picos, director de ALTI, la Alianza de Líderes en Tecnología e Innovación.'),
+        'cuerpo': f'''
+<p>¿Qué podríamos lograr como líderes de tecnología si dejáramos de enfrentar nuestros desafíos por separado y empezáramos a construir soluciones en conjunto? Con esa pregunta abre Christian Picos, de Hospital Excel y director de ALTI, su columna en el Vol. 03.</p>
+<h2>De un foro a una alianza</h2>
+<p>En julio de 2025, Christian fue al Foro de Tecnología MX a convivir con gente de su entorno, intercambiar experiencias y conocer proveedores. Encontró cientos de personas hablando de tecnología, proyectos y negocios, y entendió el valor de reunirse con quienes comprenden los mismos desafíos.</p>
+<p>Meses después lo invitaron a la Alianza de Líderes en Tecnología e Innovación (ALTI). No llegó con todas las respuestas: reconoció una iniciativa que podía ayudar a encontrarlas juntos.</p>
+{cita('El conocimiento existe. La conexión es el desafío.', 'Christian Picos')}
+<h2>Más allá de la herramienta</h2>
+<p>Muchas preguntas se responden con documentación, cursos o comunidades técnicas, y hoy la IA ayuda a investigar, programar y analizar en minutos. Pero llega un momento en que el problema deja de ser solo técnico.</p>
+<p>En el sector privado de la salud, Christian ha visto problemas que implican entender procesos, proteger información confidencial, evaluar riesgos, coordinar equipos y tomar decisiones que afectan la operación. Ninguna tecnología, por sí sola, hace que una organización funcione mejor: la transformación empieza cuando se entiende el problema que hay que resolver.</p>
+<p>Para eso hacen falta líderes que conversen con la dirección, colaboren con las áreas operativas y traduzcan los desafíos en soluciones con sentido. Una comunidad de líderes permite que esas experiencias se encuentren.</p>
+<h2>Lo que impulsa ALTI</h2>
+{pasos([
+    ('Mentor ALTI.', 'Cada mes y en línea, encuentros para compartir experiencias sobre los temas que transforman la profesión.'),
+    ('Eventos presenciales.', 'Durante el año, para ampliar redes de colaboración y construir relaciones de confianza.'),
+    ('Conversaciones honestas.', 'Sobre lo que funciona, lo que no y lo que todavía no sabemos resolver, sin competir.'),
+])}
+<p>La primera sesión de Mentor ALTI la reseñamos en {enlace('resolver-mejor', 'Resolver mejor')}.</p>
+<h2>Nadie domina todas las especialidades</h2>
+<p>ALTI no pertenece a una sola voz: su identidad y su impacto dependerán de quienes decidan participar, aportar lo que saben y escuchar otras perspectivas. Y uno de los grandes retos del liderazgo tecnológico es aceptar que nadie domina todo.</p>
+<ul>
+<li><b>Un líder</b> puede tener una trayectoria extraordinaria y, aun así, necesitar ayuda ante un problema nuevo.</li>
+<li><b>Un ingeniero</b> puede dominar su especialidad y beneficiarse de quien conoce mejor el negocio.</li>
+<li><b>Quien apenas empieza</b> puede hacer preguntas que cuestionen prácticas que todos daban por sentadas.</li>
+</ul>
+<p>Christian quiere que, dentro de cinco años, la región pueda reconocer que esta alianza ayudó a cambiar su manera de pensar, de liderar y de resolver problemas.</p>
+{cita('No necesitamos pensar igual para colaborar.', 'Christian Picos')}
+{caja('Para el lunes', [
+    'Antes de buscar la herramienta, define el problema que tienes que resolver.',
+    'Habla con un colega de otra industria que enfrente tu mismo reto.',
+    'Súmate a una sesión de Mentor ALTI.',
+])}
+''',
+    },
+    {
+        'slug': 'resolver-mejor',
+        'titulo': 'Resolver mejor',
+        'rubro': 'Mentor ALTI',
+        'temas': ['ia', 'comunidad'],
+        'extracto': 'El futuro de los profesionales de tecnología no está en programar más, sino en entender el negocio y resolver mejor con la IA.',
+        'ponentes': [('Alfredo Sánchez', 'Senior Business Developer IA')],
+        'eventos': ['Mentor ALTI'],
+        'base': 'Este texto se basa en la primera sesión de Mentor ALTI, con Alfredo Sánchez, y se publicó primero en la revista Hablemos Tech.',
+        'publicado': '2026-11-25',
+        'fuentes': [('vol-03', 25)],
+        'foto': ('/assets/img/revista-vol-03/alfredo-retrato.jpg', 1271, 977, '50% 30%',
+                 'Alfredo Sánchez, Senior Business Developer IA y mentor de la primera sesión de Mentor ALTI.'),
+        'cuerpo': f'''
+<p>La IA está cambiando cómo operan las empresas y cómo trabajan los profesionales de tecnología. Más allá de automatizar, el reto está en identificar problemas, proponer soluciones y conectar la tecnología con lo que el negocio necesita de verdad.</p>
+<p>Ese fue el tema de la primera sesión de Mentor ALTI, el espacio de la Alianza de Líderes en Tecnología e Innovación para compartir experiencias sobre la evolución de la industria. La abrió Alfredo Sánchez, con más de 30 años en tecnología y 35 desarrolladores en su equipo.</p>
+<h2>La IA le cambia el papel al profesional</h2>
+<p>Ya hay herramientas que generan código a partir de indicaciones, así que el trabajo de solo ejecutar instrucciones cambia. El conocimiento técnico sigue siendo necesario, pero el profesional tiene que analizar, cuestionar, proponer y ofrecer soluciones. Surgen perfiles nuevos: Alfredo hoy acompaña a ventas como especialista en innovación e IA.</p>
+<p>Su carrera creció cuando dejó de trabajar solo desde sistemas y se involucró con finanzas, recursos humanos y operaciones. Antes de desarrollar hay que entender qué necesita el usuario: TI debe ser aliado estratégico del negocio, no solo atender solicitudes.</p>
+<p><b>Habilidades que ganan peso:</b> pensamiento crítico, creatividad, comunicación, liderazgo, resolución de problemas y trabajo con IA.</p>
+<h2>Implementar IA: contexto, seguridad y supervisión</h2>
+<p>A la IA hay que darle contexto: el proceso, los objetivos y la información relevante. El riesgo mayor es confiar a ciegas en sus resultados: un reporte financiero con menos pérdidas de las reales se traduce en malas decisiones.</p>
+<p>Por eso hay que verificar y mantener supervisión humana, sobre todo en finanzas y estrategia, y proteger los datos corporativos desde la planeación:</p>
+{pasos([
+    ('Soluciones empresariales.', 'Con contratos y acuerdos de confidencialidad.'),
+    ('IA local.', 'Modelos dentro de la empresa, como los basados en Ollama. Como referencia, al menos 5 TB de almacenamiento.'),
+    ('Gobernanza.', 'Políticas y permisos sobre cómo y para qué usarla.'),
+])}
+{cita('Lo interesante son los datos, no el proceso.', 'Alfredo Sánchez')}
+<h2>Tres prácticas que marcaron su carrera</h2>
+{pasos([
+    ('Involucrarse con otras áreas.', 'Comprender lo que necesitan los equipos y colaborar.'),
+    ('Invertir tiempo en las personas.', 'Elegir talento por sus habilidades prácticas, no solo por un título.'),
+    ('Fomentar la innovación.', 'Dejar que el equipo proponga y construya soluciones.'),
+])}
+<p>Lo que haría diferente: comunicar y vender mejor las soluciones de su equipo a otras áreas y a la dirección. No basta con una buena solución; hay que saber contar su valor.</p>
+<p>Mentor ALTI quiere sumar mentores y acercar estas experiencias a estudiantes. Por qué existe la alianza lo cuenta Christian Picos en {enlace('construyendo-el-ecosistema', 'Construyendo el ecosistema')}; cuándo confiar en lo que entrega un modelo, en {enlace('la-ia-no-alucina-miente', 'La IA no alucina: miente')}.</p>
+{caja('Para el lunes', [
+    'Siéntate con finanzas, recursos humanos u operaciones antes de tu próximo desarrollo.',
+    'Verifica lo que te entrega la IA, sobre todo en finanzas y estrategia.',
+    'Decide qué datos pueden salir de la empresa y cuáles se quedan en una IA local.',
+    'Cuenta el valor de lo que hace tu equipo, no solo lo que hizo.',
+])}
+''',
+    },
+    {
+        'slug': 'perspectivas-baja-innovation-day',
+        'titulo': 'Perspectivas del Baja Innovation Day',
+        'rubro': 'Innovación regional',
+        'temas': ['industria', 'comunidad'],
+        'extracto': 'Integrar tecnología rara vez fracasa por falta de herramientas. En la región, innovar exige pasar de la intención a la ejecución por fases.',
+        'ponentes': [],
+        'eventos': ['Baja Innovation Day'],
+        'base': 'Esta crónica del Baja Innovation Day, celebrado el 15 de octubre de 2026 en el CECUT, en Tijuana, se publicó primero en la revista Hablemos Tech.',
+        'publicado': '2026-11-25',
+        'fuentes': [('vol-03', 12)],
+        'foto': ('/assets/img/revista-vol-03/bid/cecut-baja-innovation-day.jpg', 1400, 1083, '50% 85%',
+                 'Imagen del Baja Innovation Day 2026, en el CECUT de Tijuana.'),
+        'cuerpo': f'''
+<p>Integrar tecnología en una operación real rara vez fracasa por falta de herramientas. Se complica por cómo se planea el cambio, qué tan conectada está la empresa con el talento local y cómo responde a las exigencias de su sector. Esa fue la lectura del Baja Innovation Day, el 15 de octubre en el CECUT, en Tijuana.</p>
+<h2>No transformes todo el primer día</h2>
+<p>Ante la pregunta por las ideas erróneas más comunes de las empresas que buscan integrar tecnología o automatización, la respuesta apuntó a la ambición de transformar todo el sistema desde el primer día. Automatizar de golpe, sin estandarizar procesos ni dividir el proyecto en etapas, suele traducirse en sobrecostos, retrasos y cuellos de botella nuevos.</p>
+<p>La clave es avanzar por partes: ordenar primero la operación base y escalar paso a paso.</p>
+<h2>Ciencia local para la planta</h2>
+<p>La búsqueda de competitividad también está cambiando la relación entre la industria y la academia. Representantes del CICESE (Centro de Investigación Científica y de Educación Superior de Ensenada) destacaron que, desde inicios de la década de 2010, creció la apertura de las empresas de Baja California a desarrollar I+D propio y crear productos y servicios de mayor valor agregado.</p>
+<p>Aún falta impulso, pero el CICESE y la UABC trabajan para llevar las soluciones del laboratorio a la planta productiva: México tiene capacidad científica para resolver retos complejos sin depender siempre del extranjero.</p>
+<h2>La brecha es cultural</h2>
+<p>Desde el agrotech, donde se impulsa una plataforma de ganadería conectada, el diagnóstico fue claro: los pequeños productores suelen sentirse lejos del mundo digital. Para cerrar esa brecha se apuesta por aplicaciones gratuitas, tutoriales y capacitación que los conecten con la economía digital y equilibren la balanza frente a los grandes compradores.</p>
+{cifras([
+    ('25', 'estados de México con la plataforma de ganadería conectada'),
+    ('7', 'países donde también está presente'),
+], 'Cifras compartidas en el Baja Innovation Day.')}
+{cita('La barrera más fuerte no es técnica, sino cultural.', 'Sobre la adopción de tecnología en el sector ganadero')}
+<h2>El agua de la maquila</h2>
+<p>En la industria maquiladora, el reto ambiental más crítico es el agua residual: las plantas no pueden descargarla contaminada. Desde Tijuana se presentó un sistema automatizado que combina sensores, lámpara UV y nanoburbujas de ozono para desinfectar vegetales y tratar el agua antes de descargarla.</p>
+{caja('Cómo avanza la región', [
+    'Automatizar por fases.',
+    'Aprovechar la ciencia local.',
+    'Cerrar brechas culturales.',
+    'Resolver retos de sostenibilidad.',
+])}
+''',
+    },
+    # ---------- Vol. 01 y Vol. 02 ----------
     {
         'slug': 'el-codigo-que-no-escribiste',
         'titulo': 'El código que no escribiste',
@@ -599,10 +833,12 @@ ENTRADAS = [
 POR_SLUG = {p['slug']: p for p in ENTRADAS}
 
 # Orden del homepage: destacada, lo último (4) y el carrusel.
-INICIO_DESTACADA = 'el-codigo-que-no-escribiste'
-INICIO_RECIENTES = ['lo-que-de-verdad-cuesta-un-token', 'respaldar-no-es-recuperar',
-                    'la-ia-no-alucina-miente', 'la-receta-de-un-agente']
-INICIO_CARRUSEL = ['tecnologia-que-no-estorba', 'la-impresora-es-un-endpoint', 'ti-es-el-negocio',
+INICIO_DESTACADA = 'catorce-anos-invisible'
+INICIO_RECIENTES = ['octubre-negro', 'construyendo-el-ecosistema',
+                    'resolver-mejor', 'perspectivas-baja-innovation-day']
+INICIO_CARRUSEL = ['el-codigo-que-no-escribiste', 'lo-que-de-verdad-cuesta-un-token',
+                   'respaldar-no-es-recuperar', 'la-ia-no-alucina-miente', 'la-receta-de-un-agente',
+                   'tecnologia-que-no-estorba', 'la-impresora-es-un-endpoint', 'ti-es-el-negocio',
                    'de-camaras-a-neuronas-digitales', 'proteger-el-dato-donde-este',
                    'cuando-it-heredo-la-fabrica', 'agentes-que-analizan-y-actuan',
                    'el-forense-ya-no-trabaja-solo', 'dieciseis-ideas-para-el-lunes']
@@ -617,6 +853,8 @@ def minutos(p):
 
 
 def eventos_de(p):
+    if 'eventos' in p:
+        return list(p['eventos'])
     vistos = []
     for vol, _ in p['fuentes']:
         nombre = EVENTOS[vol][0]
@@ -738,12 +976,21 @@ def imagen_social(p):
 
 # ---------- Página de cada entrada ----------
 
+def firma_pie(p, eventos):
+    if p.get('autor'):
+        edicion = EVENTOS[p['fuentes'][0][0]][1]
+        return pie('Columna', edicion, f'{minutos(p)} min de lectura')
+    return pie('Redacción Hablemos Tech', ' · '.join(eventos) if eventos else 'Vol. 01 y Vol. 02',
+               f'{minutos(p)} min de lectura')
+
+
 def pagina_entrada(p):
     eventos = eventos_de(p)
     if p['ponentes']:
         ponentes = ''.join(
             f'<li><strong>{e(n)}</strong><span>{e(c)}</span></li>' for n, c in p['ponentes'])
-        firma_ponentes = f'<ul class="post__ponentes" aria-label="Ponentes">{ponentes}</ul>'
+        etiqueta = 'Autor' if p.get('autor') else 'Ponentes'
+        firma_ponentes = f'<ul class="post__ponentes" aria-label="{etiqueta}">{ponentes}</ul>'
     else:
         firma_ponentes = ''
 
@@ -763,7 +1010,11 @@ def pagina_entrada(p):
         evento, edicion = EVENTOS[vol]
         fuentes.append(f'<li><span>{e(edicion)}, p. {pag:02d}</span><span>{e(evento)}</span></li>')
 
-    if p['ponentes']:
+    if 'base' in p:
+        base = e(p['base'])
+    elif p.get('autor'):
+        base = f'Este texto es una versión breve de la columna de {e(con_quien(p))}, publicada primero en la revista Hablemos Tech.'
+    elif p['ponentes']:
         nombres = [n for n, _ in p['ponentes']]
         lista = nombres[0] if len(nombres) == 1 else ', '.join(nombres[:-1]) + ' y ' + nombres[-1]
         base = f'Este texto se basa en lo que compartieron {e(lista)}' if len(nombres) > 1 else f'Este texto se basa en la plática de {e(lista)}'
@@ -779,9 +1030,10 @@ def pagina_entrada(p):
         'headline': p['titulo'],
         'description': p['extracto'],
         'image': SITIO + imagen_social(p),
-        'datePublished': PUBLICADO,
+        'datePublished': p.get('publicado', PUBLICADO),
         'inLanguage': 'es-MX',
-        'author': {'@type': 'Organization', 'name': 'Redacción Hablemos Tech'},
+        'author': ({'@type': 'Person', 'name': con_quien(p)} if p.get('autor')
+                   else {'@type': 'Organization', 'name': 'Redacción Hablemos Tech'}),
         'publisher': {'@type': 'Organization', 'name': 'Hablemos Tech', 'url': SITIO},
         'mainEntityOfPage': SITIO + url(p),
     }
@@ -803,7 +1055,7 @@ def pagina_entrada(p):
         <p class="post__lead">{e(p['extracto'])}</p>
         <div class="post__firma">
           {firma_ponentes}
-          {pie('Redacción Hablemos Tech', ' · '.join(eventos) if eventos else 'Vol. 01 y Vol. 02', f'{minutos(p)} min de lectura')}
+          {firma_pie(p, eventos)}
         </div>
       </header>
 
@@ -847,7 +1099,7 @@ def pagina_indice():
         f'<li><button class="blog-filtro" type="button" data-tema="{t}" aria-pressed="false">{e(n)}</button></li>'
         for t, n in TEMAS)
     tarjetas = '\n            '.join(tarjeta(p, 'h2') for p in resto)
-    descripcion = 'Ideas que no caducan sobre ciberseguridad, IA, nube e industria, a partir de las pláticas de los eventos de Hablemos Tech.'
+    descripcion = 'Ideas que no caducan sobre ciberseguridad, IA, nube, industria y comunidad, a partir de las pláticas de los eventos y las columnas de la revista Hablemos Tech.'
     return f'''{cabeza('Blog — Hablemos Tech', descripcion, '/blog/', imagen_social(primera))}
 <body class="pagina-revista pagina-blog">
   <div id="site-nav"></div>
@@ -860,7 +1112,7 @@ def pagina_indice():
         Blog
       </p>
       <h1 class="revista-hub__titulo">Notas del escenario</h1>
-      <p class="revista-hub__lead">Lo más útil de nuestros eventos, editado para leerse en unos minutos: ciberseguridad, IA, nube e industria, con lo que puedes aplicar el lunes.</p>
+      <p class="revista-hub__lead">Lo más útil de nuestros eventos y de la revista, editado para leerse en unos minutos: ciberseguridad, IA, nube, industria y comunidad, con lo que puedes aplicar el lunes.</p>
     </header>
 
     <div class="blog-indice__destacada" data-blog-destacada data-temas="{' '.join(primera['temas'])}">
